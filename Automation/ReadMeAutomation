@@ -1,0 +1,4 @@
+Here will be files about automation - automatic file distribution to pods, pod creation etc.
+
+Current files:
+filesorter.py - logical distribution of files, works
