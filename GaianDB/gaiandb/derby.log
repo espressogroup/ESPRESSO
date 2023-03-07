@@ -1,0 +1,25 @@
+----------------------------------------------------------------
+Fri Mar 03 06:29:50 GMT 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.1 - (1643489): instance a816c00e-0186-a629-9b94-0000004fc3b0 
+on database directory C:\Users\dcsuser\GaianProject\GaianS-Demo\gaiandb\gaiandb with class loader sun.misc.Launcher$AppClassLoader@d975861b 
+Loaded from file:/C:/Users/dcsuser/GaianProject/GaianS-Demo/gaiandb/lib/derby.jar
+java.vendor=IBM Corporation
+java.runtime.version=1.8.0_362-b09
+java.fullversion=1.8.0_362-b09
+JRE 1.8.0 Windows 11 amd64-64-Bit Compressed References 20230207_599 (JIT enabled, AOT enabled)
+OpenJ9   - e68fb241f
+OMR      - f491bbf6f
+JCL      - eebde685ec based on jdk8u362-b09
+user.dir=C:\Users\dcsuser\GaianProject\GaianS-Demo\gaiandb
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+Fri Mar 03 06:29:50 GMT 2023 : Apache Derby Network Server - 10.10.2.1 - (1643489) started and ready to accept connections on port 6414
+Fri Mar 03 06:29:56 GMT 2023 : Log Connections turned on.
+Fri Mar 03 06:29:56 GMT 2023 : Connection number: 7.
+Fri Mar 03 06:29:56 GMT 2023 : Max threads changed to 1000.
+Fri Mar 03 06:29:56 GMT 2023 : Connection number: 8.
+Fri Mar 03 06:30:48 GMT 2023 : Connection number: 9.
+Fri Mar 03 06:30:48 GMT 2023 Thread[DRDAConnThread_2,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {9}), Apache Derby Network Server connected to database gaiandb;mode=null

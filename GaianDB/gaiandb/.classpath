@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="java/Asset/Engine"/>
+	<classpathentry kind="src" path="java/Asset/VTIs"/>
+	<classpathentry kind="src" path="java/Asset/ClientTools"/>
+	<classpathentry kind="src" path="java/Prototype/SVA-Security"/>
+	<classpathentry kind="src" path="java/Prototype/Connectors"/>
+	<classpathentry kind="src" path="java/Prototype/UDPDriver"/>
+	<classpathentry kind="src" output="java/Simulators" path="java/Simulators"/>
+	<classpathentry kind="src" output="java/PolicyPlugins" path="java/PolicyPlugins"/>
+	<classpathentry kind="src" output="java/IntegrationSamples" path="java/IntegrationSamples"/>
+	<classpathentry kind="src" output="JUnit Tests" path="JUnit Tests"/>
+
+	<classpathentry kind="lib" path="lib/lucene-1.4.3.jar"/>
+	<classpathentry kind="lib" path="lib/db2jcc_license_cu.jar"/>
+	<classpathentry kind="lib" path="lib/esapi.jar"/>
+	<classpathentry kind="lib" path="lib/siapi.jar"/>
+	<classpathentry kind="lib" path="lib/wpml.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.10.jar"/>
+	<classpathentry kind="lib" path="lib/prefuseclean.jar"/>
+	<classpathentry kind="lib" path="lib/dsm.jar"/>
+	<classpathentry kind="lib" path="lib/ibmjgssprovider.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/poi-3.8/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/poi-3.8/poi-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="lib/poi-3.8/poi-ooxml-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="lib/poi-3.8/poi-ooxml-schemas-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="lib/poi-3.8/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/poi-3.8/xmlbeans-2.3.0.jar"/>
+	<classpathentry kind="lib" path="lib/derby-ibm-ossc-10.8/derby.jar"/>
+	<classpathentry kind="lib" path="lib/derby-ibm-ossc-10.8/derbyclient.jar"/>
+	<classpathentry kind="lib" path="lib/derby-ibm-ossc-10.8/derbynet.jar"/>
+	<classpathentry kind="lib" path="lib/db2jcutdown.jar"/>
+	<classpathentry kind="lib" path="lib/db2jcc4.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.25-bin.jar"/>
+	<classpathentry kind="lib" path="lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="lib/sqljdbc4.jar"/>
+	<classpathentry kind="lib" path="lib/juno-5.0.0.30.jar"/>
+	<classpathentry kind="lib" path="lib/mongo-java-driver-2.11.4.jar"/>
+	<classpathentry kind="lib" path="lib/accumulo-client-prereqs/accumulo-core-1.4.4.jar"/>
+	<classpathentry kind="lib" path="lib/accumulo-client-prereqs/hadoop-core-0.20.203.0.jar"/>
+	<classpathentry kind="lib" path="lib/com.ibm.ws.javaee.servlet.3.0_1.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/wmqtt.jar"/>
+	<classpathentry kind="output" path="bin"/>
+
+</classpath>

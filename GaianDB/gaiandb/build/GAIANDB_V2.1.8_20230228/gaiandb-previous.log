@@ -1,0 +1,188 @@
+2023-03-05 10:43:44.140~625628700 GaianNode -------------> isInitDataUpToDate = false = GAIANDB_JAR_MD5 6ADB9869623AF5F4E78FEC8D4AC723AA = gdbJarMD5_previous null && gdbDbTimestampAtStartup 1678012726204 > gdbJarFile.lastModified() 1677610274000
+java version "17.0.6"
+OpenJDK Runtime Environment (build 17.0.6+10-LTS)
+OpenJDK 64-Bit Server VM (build 17.0.6+10-LTS, mixed mode, sharing)
+
+GaianDB V2.1.8 - JAR sizes: [762814, 211792], timestamps: [2023/02/28-18:51:14, 2023/02/28-18:51:14]
+
+Features Summary: Federated access to JDBC RDBMS tables and CSV Flat files using a logical table abstraction layer;
+A stored procedures management API, e.g. to set and view all logical tables and data sources in the network;
+SQL Prepared Statement caching; Connection Pooling; Buffered and batched multi-threaded record fetching;
+Explain queries to show a query's route and row counts on node; Constant Column definitions for contextual annotations of logical tables;
+Discovery of other Gaian Nodes when 'MIN_DISCOVERED_CONNECTIONS' is set, with preferential attachment to highly connected nodes;
+Autonomic maintenance of 2-way connections, or re-discovery initiation upon loss of connections;
+Automated dynamic management of SQL VIEWS for logical tables and their derivative definitions containing provenance columns or explain columns;
+A Policy plugin interface to manipulate the incoming SQL queries or filter returned records;
+Flexible GaianDB node discovery using config variable 'DISCOVERY_IP' to specify a broadcast mask or multicast group address;
+New configuration parameters defining permitted hosts, denied hosts and cluster IDs to restrict connectivity between nodes;
+Connectivity resilience to variable network latency using property 'GAIAN_CONNECTIONS_CHECKER_HEARTBEAT_MS';
+MQTT listener & Message Storer; Command line processor; Logging levels; In Memory Tables and Indexing;
+Ability to also access an Omnifind text index using com.ibm.db2j.ICAREST('<search_string>');
+Excel Spreadsheet Data Source Type; 'Pass-through' SQL capability for insert/update/delete/call; Discovery Gateways for discovery across networks;
+Advanced API calls: listnodes(), listflood(), addgateway();
+Access control to allow/disallow SQL API configuration and propagated writes;
+Basic security: User authentication and low-level automatic scrambling of passwords in the config file;
+Detection and cancellation of hanging queries (not mistaken for long-running queries);
+Pass-through sub-queries using 'GaianQuery': define exposed data sources on each node which the query will be executed against;
+Performance metrics; Provenance columns: GAIAN_NODE, GAIAN_LEAF (queryable using option: 'with_provenance')
+
+PROCESS ID:		6960
+
+NODE ID:		cspc201
+
+WORKING DIRECTORY:	C:\Users\dcsuser\GaianProject\GaianS-Demo\gaiandb\build\GAIANDB_V2.1.8_20230228
+BYTECODE PATH:		C:\Users\dcsuser\GaianProject\GaianS-Demo\gaiandb\build\GAIANDB_V2.1.8_20230228\lib\GAIANDB.jar
+WORKSPACE:		C:\Users\dcsuser\GaianProject\GaianS-Demo\gaiandb\build\GAIANDB_V2.1.8_20230228
+
+PHYSICAL DATABASE:	C:\Users\dcsuser\GaianProject\GaianS-Demo\gaiandb\build\GAIANDB_V2.1.8_20230228\gaiandb
+LOG FILE:		C:\Users\dcsuser\GaianProject\GaianS-Demo\gaiandb\build\GAIANDB_V2.1.8_20230228\gaiandb.log
+CONFIG FILE:		C:\Users\dcsuser\GaianProject\GaianS-Demo\gaiandb\build\GAIANDB_V2.1.8_20230228\gaiandb_config.properties
+
+DERBY SERVER PORT:	6414
+PROVENANCE HOST(S):	0.0.0.0
+
+Network Interfaces: 
+lo: Software Loopback Interface 1 /127.0.0.1, /0:0:0:0:0:0:0:1, Address: /127.0.0.1 -> Broadcast: /127.255.255.255, Address: /0:0:0:0:0:0:0:1 -> Broadcast: null
+net0: Microsoft 6to4 Adapter 
+eth0: WAN Miniport (Network Monitor) 
+wlan0: Intel(R) Wi-Fi 6 AX201 160MHz /192.168.1.102, /2a01:4b00:8468:5a00:7e74:3e17:daa3:9fac, /fd00:0:0:0:2243:5b77:42be:4369, /2a01:4b00:8468:5a00:2de4:97ea:4c70:e339, /fd00:0:0:0:2de4:97ea:4c70:e339, /fe80:0:0:0:e9b0:ef47:bcef:3e83%wlan0, Address: /192.168.1.102 -> Broadcast: /192.168.1.255, Address: /2a01:4b00:8468:5a00:7e74:3e17:daa3:9fac -> Broadcast: null, Address: /fd00:0:0:0:2243:5b77:42be:4369 -> Broadcast: null, Address: /2a01:4b00:8468:5a00:2de4:97ea:4c70:e339 -> Broadcast: null, Address: /fd00:0:0:0:2de4:97ea:4c70:e339 -> Broadcast: null, Address: /fe80:0:0:0:e9b0:ef47:bcef:3e83%wlan0 -> Broadcast: null
+net1: Microsoft IP-HTTPS Platform Adapter 
+net2: WAN Miniport (IKEv2) 
+eth1: Microsoft Kernel Debug Network Adapter 
+eth2: Realtek USB GbE Family Controller 
+eth3: Bluetooth Device (Personal Area Network) 
+net3: WAN Miniport (L2TP) 
+eth4: PANGP Virtual Ethernet Adapter 
+net4: Microsoft Teredo Tunneling Adapter 
+eth5: WAN Miniport (IP) 
+eth6: WAN Miniport (IPv6) 
+wlan1: Microsoft Wi-Fi Direct Virtual Adapter /fe80:0:0:0:f382:ad32:1b3:d2de%wlan1, Address: /fe80:0:0:0:f382:ad32:1b3:d2de%wlan1 -> Broadcast: null
+net5: WAN Miniport (PPTP) 
+net6: WAN Miniport (SSTP) 
+ppp0: WAN Miniport (PPPOE) 
+wlan2: Microsoft Wi-Fi Direct Virtual Adapter #2 /fe80:0:0:0:6492:15d8:fae7:a385%wlan2, Address: /fe80:0:0:0:6492:15d8:fae7:a385%wlan2 -> Broadcast: null
+wlan3: Intel(R) Wi-Fi 6 AX201 160MHz-WFP Native MAC Layer LightWeight Filter-0000 
+wlan4: Intel(R) Wi-Fi 6 AX201 160MHz-Virtual WiFi Filter Driver-0000 
+wlan5: Intel(R) Wi-Fi 6 AX201 160MHz-Native WiFi Filter Driver-0000 
+wlan6: Intel(R) Wi-Fi 6 AX201 160MHz-QoS Packet Scheduler-0000 
+wlan7: Intel(R) Wi-Fi 6 AX201 160MHz-WFP 802.3 MAC Layer LightWeight Filter-0000 
+wlan8: Microsoft Wi-Fi Direct Virtual Adapter-WFP Native MAC Layer LightWeight Filter-0000 
+wlan9: Microsoft Wi-Fi Direct Virtual Adapter-Native WiFi Filter Driver-0000 
+wlan10: Microsoft Wi-Fi Direct Virtual Adapter-QoS Packet Scheduler-0000 
+wlan11: Microsoft Wi-Fi Direct Virtual Adapter-WFP 802.3 MAC Layer LightWeight Filter-0000 
+wlan12: Microsoft Wi-Fi Direct Virtual Adapter #2-WFP Native MAC Layer LightWeight Filter-0000 
+wlan13: Microsoft Wi-Fi Direct Virtual Adapter #2-Native WiFi Filter Driver-0000 
+wlan14: Microsoft Wi-Fi Direct Virtual Adapter #2-QoS Packet Scheduler-0000 
+wlan15: Microsoft Wi-Fi Direct Virtual Adapter #2-WFP 802.3 MAC Layer LightWeight Filter-0000 
+eth7: WAN Miniport (IP)-WFP Native MAC Layer LightWeight Filter-0000 
+eth8: WAN Miniport (IP)-QoS Packet Scheduler-0000 
+eth9: WAN Miniport (IPv6)-WFP Native MAC Layer LightWeight Filter-0000 
+eth10: WAN Miniport (IPv6)-QoS Packet Scheduler-0000 
+eth11: WAN Miniport (Network Monitor)-WFP Native MAC Layer LightWeight Filter-0000 
+eth12: WAN Miniport (Network Monitor)-QoS Packet Scheduler-0000 
+
+Hostname: cspc201
+Java localhost ip: 192.168.1.102
+Local address designating initial default interface for multicast: 192.168.1.102
+
+
+2023-03-05 10:43:44.169~654034200 GaianNode -------------> Initialising GaianNode...
+2023-03-05 10:43:44.169~654126600 GaianNode -------------> GAIANDB.jar library has been changed (or db folder didn't exist or was older), so initialisation data (stored procs/funcs) is being re-loaded
+2023-03-05 10:43:44.169~654179500 GaianNode -------------> Node details: cspc201 gaiandb <password>
+2023-03-05 10:43:44.169~654265000 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
+2023-03-05 10:43:44.169~654319800 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = 230.255.255.255
+2023-03-05 10:43:44.169~654374500 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
+2023-03-05 10:43:44.169~654418100 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
+2023-03-05 10:43:44.169~654473200 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
+2023-03-05 10:43:44.170~654522400 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
+2023-03-05 10:43:44.170~654584400 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
+2023-03-05 10:43:44.170~654675100 GaianNode -------------> Log level set to: NONE
+2023-03-05 10:43:44.360~845678200 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6414
+
+Sun Mar 05 10:43:45 GMT 2023 : Apache Derby Network Server - 10.10.2.1 - (1643489) started and ready to accept connections on port 6414
+2023-03-05 10:43:45.265~750134700 GaianNode -------------> 
+Derby Version: CSS10100/10.10.2.1 - (1643489)  - Java Version: 17.0.6 (OpenJDK 64-Bit Server VM)
+
+GaianNode started for Derby network server with sslMode=off on port: 6414 at Sun Mar 05 10:43:45 GMT 2023, startup time: 1198ms
+
+2023-03-05 10:43:45.341~826465900 GaianNode -------------> Used Heap Memory changed by >10MB. jMemory (MB): 29.29432 (= 10%, jMemoryMax (MB): 268.435456). jMemoryNonHeap (MB): 27.792016 - (suspected hanging queries being checked: 0)
+Sun Mar 05 10:43:50 GMT 2023 : Max threads changed to 1000.
+Sun Mar 05 10:43:50 GMT 2023 : Max threads changed to 1000.
+2023-03-05 10:45:30.878~362751500 GenericWS --------> WARNING:
+
+2023-03-05 10:45:30.878 ********** GDB_WARNING: GenericWS error: Illegal GenericWS Type defined for MYJSONREST, column C1 is not defined.
+
+2023-03-05 10:45:30.878 Documentation: file:///C:/Users/dcsuser/GaianProject/GaianS-Demo/gaiandb/build/GAIANDB_V2.1.8_20230228/doc/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#GenericWS error
+
+
+2023-03-05 10:45:30.881~365924700 GaianResult -----------> GaianDataSourceExecutor-1: WARNING:
+
+2023-03-05 10:45:30.881 ********** GDB_ERROR: RESULT_DS_EXEC_QUERY_ERROR: Query exec failure against Data Source MYJSONREST_DS0: 
+	java.lang.NullPointerException: Cannot invoke "com.ibm.gaiandb.webservices.patternmatcher.TagMatcher.getPatternSequence()" because "<local2>" is null
+	at com.ibm.gaiandb.webservices.patternmatcher.MatcherManager.defineCommonRoot(Unknown Source)
+	at com.ibm.db2j.GenericWS.loadMatcherManager(Unknown Source)
+	at com.ibm.db2j.GenericWS.executeAsFastPath(Unknown Source)
+	at com.ibm.db2j.AbstractVTI.setExtractConditions(Unknown Source)
+	at com.ibm.gaiandb.VTIBasic.execute(Unknown Source)
+	at com.ibm.gaiandb.GaianResult.executeQueryAgainstDataSource(Unknown Source)
+	at com.ibm.gaiandb.GaianResult.run(Unknown Source)
+	at com.ibm.gaiandb.GaianSubResult.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+	java.lang.NullPointerException: Cannot invoke "com.ibm.gaiandb.webservices.patternmatcher.TagMatcher.getPatternSequence()" because "<local2>" is null
+	at com.ibm.gaiandb.webservices.patternmatcher.MatcherManager.defineCommonRoot(Unknown Source)
+	at com.ibm.db2j.GenericWS.loadMatcherManager(Unknown Source)
+	at com.ibm.db2j.GenericWS.executeAsFastPath(Unknown Source)
+	at com.ibm.db2j.AbstractVTI.setExtractConditions(Unknown Source)
+	at com.ibm.gaiandb.VTIBasic.execute(Unknown Source)
+	at com.ibm.gaiandb.GaianResult.executeQueryAgainstDataSource(Unknown Source)
+	at com.ibm.gaiandb.GaianResult.run(Unknown Source)
+	at com.ibm.gaiandb.GaianSubResult.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2023-03-05 10:45:30.881 Documentation: file:///C:/Users/dcsuser/GaianProject/GaianS-Demo/gaiandb/build/GAIANDB_V2.1.8_20230228/doc/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#RESULT_DS_EXEC_QUERY_ERROR
+
+
+2023-03-05 10:46:01.206~691317600 GenericWS --------> WARNING:
+
+2023-03-05 10:46:01.206 ********** GDB_WARNING: GenericWS error: Illegal GenericWS Type defined for MYJSONREST, column C1 is not defined.
+
+2023-03-05 10:46:01.206 Documentation: file:///C:/Users/dcsuser/GaianProject/GaianS-Demo/gaiandb/build/GAIANDB_V2.1.8_20230228/doc/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#GenericWS error
+
+
+2023-03-05 10:46:01.207~692009000 GaianResult -----------> GaianDataSourceExecutor-1: WARNING:
+
+2023-03-05 10:46:01.207 ********** GDB_ERROR: RESULT_DS_EXEC_QUERY_ERROR: Query exec failure against Data Source MYJSONREST_DS0: 
+	java.lang.NullPointerException: Cannot invoke "com.ibm.gaiandb.webservices.patternmatcher.TagMatcher.getPatternSequence()" because "<local2>" is null
+	at com.ibm.gaiandb.webservices.patternmatcher.MatcherManager.defineCommonRoot(Unknown Source)
+	at com.ibm.db2j.GenericWS.loadMatcherManager(Unknown Source)
+	at com.ibm.db2j.GenericWS.executeAsFastPath(Unknown Source)
+	at com.ibm.db2j.AbstractVTI.setExtractConditions(Unknown Source)
+	at com.ibm.gaiandb.VTIBasic.execute(Unknown Source)
+	at com.ibm.gaiandb.GaianResult.executeQueryAgainstDataSource(Unknown Source)
+	at com.ibm.gaiandb.GaianResult.run(Unknown Source)
+	at com.ibm.gaiandb.GaianSubResult.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+	java.lang.NullPointerException: Cannot invoke "com.ibm.gaiandb.webservices.patternmatcher.TagMatcher.getPatternSequence()" because "<local2>" is null
+	at com.ibm.gaiandb.webservices.patternmatcher.MatcherManager.defineCommonRoot(Unknown Source)
+	at com.ibm.db2j.GenericWS.loadMatcherManager(Unknown Source)
+	at com.ibm.db2j.GenericWS.executeAsFastPath(Unknown Source)
+	at com.ibm.db2j.AbstractVTI.setExtractConditions(Unknown Source)
+	at com.ibm.gaiandb.VTIBasic.execute(Unknown Source)
+	at com.ibm.gaiandb.GaianResult.executeQueryAgainstDataSource(Unknown Source)
+	at com.ibm.gaiandb.GaianResult.run(Unknown Source)
+	at com.ibm.gaiandb.GaianSubResult.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2023-03-05 10:46:01.207 Documentation: file:///C:/Users/dcsuser/GaianProject/GaianS-Demo/gaiandb/build/GAIANDB_V2.1.8_20230228/doc/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#RESULT_DS_EXEC_QUERY_ERROR
+
+

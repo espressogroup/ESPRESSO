@@ -1,0 +1,138 @@
+2023-03-06 17:40:23.197~811415586 GaianNode -------------> isInitDataUpToDate = true = GAIANDB_JAR_MD5 Unknown = gdbJarMD5_previous Unknown && gdbDbTimestampAtStartup 1678112758000 > gdbJarFile.lastModified() 1677769996000
+java version "1.8.0_312"
+OpenJDK Runtime Environment (build 1.8.0_312-b07)
+OpenJDK 64-Bit Server VM (build 25.312-b07, mixed mode)
+
+GaianDB V2.1.8 - JAR sizes: [128, 128], timestamps: [2023/03/02-15:13:16, 2023/03/02-15:13:16]
+
+Features Summary: Federated access to JDBC RDBMS tables and CSV Flat files using a logical table abstraction layer;
+A stored procedures management API, e.g. to set and view all logical tables and data sources in the network;
+SQL Prepared Statement caching; Connection Pooling; Buffered and batched multi-threaded record fetching;
+Explain queries to show a query's route and row counts on node; Constant Column definitions for contextual annotations of logical tables;
+Discovery of other Gaian Nodes when 'MIN_DISCOVERED_CONNECTIONS' is set, with preferential attachment to highly connected nodes;
+Autonomic maintenance of 2-way connections, or re-discovery initiation upon loss of connections;
+Automated dynamic management of SQL VIEWS for logical tables and their derivative definitions containing provenance columns or explain columns;
+A Policy plugin interface to manipulate the incoming SQL queries or filter returned records;
+Flexible GaianDB node discovery using config variable 'DISCOVERY_IP' to specify a broadcast mask or multicast group address;
+New configuration parameters defining permitted hosts, denied hosts and cluster IDs to restrict connectivity between nodes;
+Connectivity resilience to variable network latency using property 'GAIAN_CONNECTIONS_CHECKER_HEARTBEAT_MS';
+MQTT listener & Message Storer; Command line processor; Logging levels; In Memory Tables and Indexing;
+Ability to also access an Omnifind text index using com.ibm.db2j.ICAREST('<search_string>');
+Excel Spreadsheet Data Source Type; 'Pass-through' SQL capability for insert/update/delete/call; Discovery Gateways for discovery across networks;
+Advanced API calls: listnodes(), listflood(), addgateway();
+Access control to allow/disallow SQL API configuration and propagated writes;
+Basic security: User authentication and low-level automatic scrambling of passwords in the config file;
+Detection and cancellation of hanging queries (not mistaken for long-running queries);
+Pass-through sub-queries using 'GaianQuery': define exposed data sources on each node which the query will be executed against;
+Performance metrics; Provenance columns: GAIAN_NODE, GAIAN_LEAF (queryable using option: 'with_provenance')
+
+PROCESS ID:		15805
+
+NODE ID:		MohamedsMacBookProlocal
+
+WORKING DIRECTORY:	/Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/installConfig
+BYTECODE PATH:		/Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/bin
+WORKSPACE:		/Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/installConfig
+
+PHYSICAL DATABASE:	/Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/installConfig/gaiandb
+LOG FILE:		/Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/installConfig/gaiandb.log
+CONFIG FILE:		/Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/installConfig/gaiandb_config.properties
+
+DERBY SERVER PORT:	6414
+PROVENANCE HOST(S):	0.0.0.0
+
+Network Interfaces: 
+utun5: utun5 /fe80:0:0:0:9baa:9f5c:b287:ed80%utun5, Address: /fe80:0:0:0:9baa:9f5c:b287:ed80%utun5 -> Broadcast: null
+utun4: utun4 /fe80:0:0:0:3079:af01:5332:82d0%utun4, Address: /fe80:0:0:0:3079:af01:5332:82d0%utun4 -> Broadcast: null
+utun2: utun2 /fe80:0:0:0:ce81:b1c:bd2c:69e%utun2, Address: /fe80:0:0:0:ce81:b1c:bd2c:69e%utun2 -> Broadcast: null
+utun1: utun1 /fe80:0:0:0:7ac8:1b5d:76f5:34fc%utun1, Address: /fe80:0:0:0:7ac8:1b5d:76f5:34fc%utun1 -> Broadcast: null
+utun0: utun0 /fe80:0:0:0:fc2:d008:f8a:91f6%utun0, Address: /fe80:0:0:0:fc2:d008:f8a:91f6%utun0 -> Broadcast: null
+llw0: llw0 /fe80:0:0:0:b886:2eff:fe1d:6727%llw0, Address: /fe80:0:0:0:b886:2eff:fe1d:6727%llw0 -> Broadcast: null
+awdl0: awdl0 /fe80:0:0:0:b886:2eff:fe1d:6727%awdl0, Address: /fe80:0:0:0:b886:2eff:fe1d:6727%awdl0 -> Broadcast: null
+en5: en5 /fe80:0:0:0:aede:48ff:fe00:1122%en5, Address: /fe80:0:0:0:aede:48ff:fe00:1122%en5 -> Broadcast: null
+en0: en0 /2001:630:d0:8f01:8cc6:22bf:147d:1edd%en0, /2001:630:d0:8f01:cb7:b1e6:8fc4:59f9%en0, /fe80:0:0:0:436:f200:ae4d:6d1e%en0, /10.9.245.115, Address: /2001:630:d0:8f01:8cc6:22bf:147d:1edd%en0 -> Broadcast: null, Address: /2001:630:d0:8f01:cb7:b1e6:8fc4:59f9%en0 -> Broadcast: null, Address: /fe80:0:0:0:436:f200:ae4d:6d1e%en0 -> Broadcast: null, Address: /10.9.245.115 -> Broadcast: /10.9.247.255
+lo0: lo0 /fe80:0:0:0:0:0:0:1%lo0, /0:0:0:0:0:0:0:1%lo0, /127.0.0.1, Address: /fe80:0:0:0:0:0:0:1%lo0 -> Broadcast: null, Address: /0:0:0:0:0:0:0:1%lo0 -> Broadcast: null, Address: /127.0.0.1 -> Broadcast: null
+
+Hostname: Mohameds-MacBook-Pro.local
+Java localhost ip: 127.0.0.1
+Local address designating initial default interface for multicast: 10.9.245.115
+
+
+2023-03-06 17:40:23.207~821935542 GaianNode -------------> Initialising GaianNode...
+2023-03-06 17:40:23.207~822061464 GaianNode -------------> GAIANDB.jar library has not been changed (and db folder is more recent), so initialisation data (e.g. stored procs/funcs) is expected to be already loaded
+2023-03-06 17:40:23.207~822138882 GaianNode -------------> Node details: MohamedsMacBookProlocal gaiandb <password>
+2023-03-06 17:40:23.208~822262659 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
+2023-03-06 17:40:23.208~822349071 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = <Default=230.255.255.255>
+2023-03-06 17:40:23.208~822413529 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
+2023-03-06 17:40:23.208~822471640 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
+2023-03-06 17:40:23.208~822527851 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
+2023-03-06 17:40:23.208~822595738 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
+2023-03-06 17:40:23.208~822655672 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
+2023-03-06 17:40:23.208~822732904 GaianNode -------------> Log level set to: NONE
+2023-03-06 17:40:23.539~153355652 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6414
+
+Mon Mar 06 17:40:24 GMT 2023 : Apache Derby Network Server - 10.10.2.1 - (1643489) started and ready to accept connections on port 6414
+2023-03-06 17:40:24.224~838591152 GaianNode -------------> 
+Derby Version: CSS10100/10.10.2.1 - (1643489)  - Java Version: 1.8.0_312 (OpenJDK 64-Bit Server VM)
+
+GaianNode started for Derby network server with sslMode=off on port: 6414 at Mon Mar 06 17:40:24 GMT 2023, startup time: 1260ms
+
+2023-03-06 17:40:24.391~5689701 GaianNode -------------> Used Heap Memory changed by >10MB. jMemory (MB): 28.08368 (= 0%, jMemoryMax (MB): 3817.865216). jMemoryNonHeap (MB): 26.080408 - (suspected hanging queries being checked: 0)
+Mon Mar 06 17:40:29 GMT 2023 : Max threads changed to 1000.
+Mon Mar 06 17:40:29 GMT 2023 : Max threads changed to 1000.
+2023-03-06 19:30:19.443~18662985 GaianNodeSeeker -------> WARNING:
+
+2023-03-06 19:30:19.277 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send discovery message on interface: '/127.0.0.1' (skipped), cause: java.io.IOException: Network is unreachable (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1577 -> GaianNodeSeeker.sendMessage:1605 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-06 19:30:19.277 Documentation: file:///Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/doc/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-06 19:30:41.615~190287602 GaianNodeSeeker -------> WARNING:
+
+2023-03-06 19:30:41.615 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send discovery message on interface: '/127.0.0.1' (skipped), cause: java.io.IOException: Network is unreachable (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1577 -> GaianNodeSeeker.sendMessage:1605 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-06 19:30:41.615 Documentation: file:///Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/doc/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-06 19:30:57.638~31085698 GaianNodeSeeker -------> WARNING:
+
+2023-03-06 19:30:57.637 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send discovery message on interface: '/127.0.0.1' (skipped), cause: java.io.IOException: Network is unreachable (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1577 -> GaianNodeSeeker.sendMessage:1605 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-06 19:30:57.637 Documentation: file:///Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/doc/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-06 19:31:02.672~65037891 GaianNodeSeeker -------> WARNING:
+
+2023-03-06 19:31:02.671 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send discovery message on interface: '/127.0.0.1' (skipped), cause: java.io.IOException: Network is unreachable (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1577 -> GaianNodeSeeker.sendMessage:1605 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-06 19:31:02.671 Documentation: file:///Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/doc/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-06 19:31:07.761~154124688 GaianNodeSeeker -------> WARNING:
+
+2023-03-06 19:31:07.761 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send discovery message on interface: '/127.0.0.1' (skipped), cause: java.io.IOException: Network is unreachable (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1577 -> GaianNodeSeeker.sendMessage:1605 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-06 19:31:07.761 Documentation: file:///Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/doc/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-06 19:31:12.820~213644303 GaianNodeSeeker -------> WARNING:
+
+2023-03-06 19:31:12.819 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (10th repetition): Unable to send discovery message on interface: '/127.0.0.1' (skipped), cause: java.io.IOException: Network is unreachable (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1577 -> GaianNodeSeeker.sendMessage:1605 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-06 19:31:12.819 Documentation: file:///Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/doc/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-06 20:48:30.424~119248731 GaianNodeSeeker -------> WARNING:
+
+2023-03-06 20:48:30.424 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (100th repetition): Unable to send discovery message on interface: '/127.0.0.1' (skipped), cause: java.io.IOException: Network is unreachable (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1577 -> GaianNodeSeeker.sendMessage:1605 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-06 20:48:30.424 Documentation: file:///Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/doc/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
