@@ -20,17 +20,19 @@ class Appearance:
 
 
 
-class InvertedIndex:
+class RdfIndex:
     """
     Inverted Index class.
     """
     def __init__(self,namespace):
         self.index = Graph()
+        self.n=0
         self.namespace=Namespace(namespace)
     def __repr__(self):
         """
         String representation of the Database object
         """
+        #return self.index.serialize(format='turtle')
         return self.index.serialize(format='json-ld', indent=4)
         
     def index_document(self, document):
@@ -56,10 +58,12 @@ class InvertedIndex:
 
         for (key, appearance) in appearances_dict.items():
             if (None, None, Literal(key)) not in self.index:
-                wordnode=BNode()
+                wordnode=BNode(key)
                 self.index.add((wordnode,self.namespace.lemma,Literal(key)))
             for s, p, o in self.index.triples((None, self.namespace.lemma, Literal(key))):
-                appnode=BNode()
+                appword='A'+str(self.n)
+                self.n=self.n+1
+                appnode=BNode(appword)
                 self.index.add((s,self.namespace.appearsIn,appnode))
                 self.index.add((appnode,self.namespace.address,URIRef(document['id'])))
                 self.index.add((appnode,self.namespace.frequency,Literal(appearance.frequency)))
@@ -80,14 +84,14 @@ class InvertedIndex:
   #  replaced_text = text.replace(term, "\033[1;32;40m {term} \033[0;0m".format(term=term))
  #   return "--- document {id}: {replaced}".format(id=id, replaced=replaced_text)
 
-def InvIndex(directory,podaddress,namespace):
+def InvIndex(directory,podname,podaddress,namespace):
     #directory = '/Users/yurysavateev/Python/InvertedIndex/invind.py'
     #db = Database()
-    index = InvertedIndex(namespace)
+    index = RdfIndex(namespace)
     for filename in os.listdir(directory):
         f = os.path.join(directory, filename)
         # checking if it is a file
-        if os.path.isfile(f):
+        if os.path.isfile(f) and filename[0]!='.':
             file = open(f, "rb")
             filetext=file.read().decode('latin1')
             #.decode('utf-8')
@@ -101,14 +105,14 @@ def InvIndex(directory,podaddress,namespace):
             index.index_document(document)
     return index
 
-def indexer(podpath,podname,namespace):
+def indexer(podpath,podname,podaddress,namespace):
     print ('Indexing '+ podname)
-    podindexfilename=podname+'index.json'
+    podindexfilename=podname+'index.ttl'
     podindexpath=os.path.join(podpath, podindexfilename)
     if os.path.exists(podindexpath):
         print('Removing old index')
         os.remove(podindexpath)
-    podindex=InvIndex(podpath,podpath,namespace)
+    podindex=InvIndex(podpath,podname,podaddress,namespace)
     podindexfile=open(podindexpath,'w')
     #df = pandas.json_normalize(podindex.index)
     #df.to_csv(podindexpath, index=False, encoding='utf-8')
