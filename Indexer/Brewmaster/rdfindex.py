@@ -32,8 +32,8 @@ class RdfIndex:
         """
         String representation of the Database object
         """
-        #return self.index.serialize(format='turtle')
-        return self.index.serialize(format='json-ld', indent=4)
+        return self.index.serialize(format='turtle')
+        #return self.index.serialize(format='json-ld', indent=4)
         
     def index_document(self, document):
         """
