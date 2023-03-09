@@ -1,4 +1,4 @@
-import os, math, random
+import os, math, random, shutil
 
 def distribute(files,places,zipf):
     #a=1
@@ -25,3 +25,33 @@ def distribute(files,places,zipf):
         pos=pos+numbers[i]
     return (res)
 
+def sort_local (datasource,targetdir, numberofservers, serverzipf,numberofpods,podzipf):
+    shutil.rmtree(targetdir)
+    os.mkdir(targetdir)
+    #print(directory)
+    filelist=[]
+    for filename in os.listdir(datasource):
+        f = os.path.join(datasource, filename)
+        # checking if it is a file
+        if os.path.isfile(f):
+            filelist.append(filename)
+    #print(filelist)
+    podlist=distribute(filelist,numberofpods,podzipf)
+    random.shuffle(podlist)
+    final=distribute(podlist,numberofservers,serverzipf)
+    j=0
+    for s in range(len(final)):
+        servername = 'server'+str(s)
+        serverpath = os.path.join(targetdir, servername)
+        os.mkdir(serverpath)
+        for p in range(len(final[s])):
+            podname = servername+'pod'+str(p)
+            podpath = os.path.join(serverpath, podname)
+            os.mkdir(podpath)
+            for f in final[s][p]:
+                src = os.path.join(datasource,f)
+                dst = os.path.join(podpath,f)
+                j=j+1
+                print(j)
+                shutil.copy(src, dst)
+        print("end server")
