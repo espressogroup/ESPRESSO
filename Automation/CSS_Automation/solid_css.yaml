@@ -1,0 +1,32 @@
+---
+- name: Install Solid Community Server
+  hosts: solid_servers
+  become: yes
+
+  tasks:
+    - name: Update package cache
+      dnf:
+        update_cache: yes
+
+    - name: Install node.js and npm
+      dnf:
+        name:
+          - nodejs
+          - npm
+        state: present
+
+#    - name: Install Node.js
+#      dnf:
+#        name: nodejs:16
+#        state: present
+
+    - name: Install gtop
+      npm:
+        name: gtop
+        global: true
+
+
+    - name: Install Solid Community Server
+      npm:
+        name: "@solid/community-server"
+        global: yes
