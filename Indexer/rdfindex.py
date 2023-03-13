@@ -1,4 +1,4 @@
-import os, re, math, random, shutil, pandas
+import os, re, math, random, shutil
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 from rdflib.plugin import register, Serializer
 #from SPARQLWrapper import SPARQLWrapper
