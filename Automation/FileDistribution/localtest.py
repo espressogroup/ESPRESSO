@@ -10,7 +10,7 @@ def main3():
     #podname='public'
     IDP='localhost:3000'
     #IDP='https://solidcommunity.net/'
-    POD_ENDPOINT = 'localhost:3000/test1'
+    POD_ENDPOINT = 'http://localhost:3000/test1'
     #POD_ENDPOINT = 'https://rezamoosa.solidcommunity.net/'
     sourcedir = '../Datasets/babydir'
     
