@@ -1,3 +1,7 @@
+import filesorter, distributor
+#import rdfindex
+import os, re, math, random, shutil
+
 def main3():
     namespace="http://example.org/SOLID/"
     #targetdir ='/Users/yurysavateev/Python/dir/server0/server0pod0'
