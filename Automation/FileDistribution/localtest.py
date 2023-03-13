@@ -8,7 +8,7 @@ def main3():
     reprformat='json-ld'
     podname=''
     #podname='public'
-    IDP='localhost:3000'
+    IDP='http://localhost:3000'
     #IDP='https://solidcommunity.net/'
     POD_ENDPOINT = 'http://localhost:3000/test1'
     #POD_ENDPOINT = 'https://rezamoosa.solidcommunity.net/'
