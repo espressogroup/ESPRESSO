@@ -24,15 +24,16 @@ class RdfIndex:
     """
     Inverted Index class.
     """
-    def __init__(self,namespace):
+    def __init__(self,namespace,reprformat):
         self.index = Graph()
         self.n=0
         self.namespace=Namespace(namespace)
+        self.reprformat=reprformat
     def __repr__(self):
         """
         String representation of the Database object
         """
-        return self.index.serialize(format='turtle')
+        return self.index.serialize(format=self.reprformat)
         #return self.index.serialize(format='json-ld', indent=4)
         
     def index_document(self, document):
@@ -84,10 +85,10 @@ class RdfIndex:
   #  replaced_text = text.replace(term, "\033[1;32;40m {term} \033[0;0m".format(term=term))
  #   return "--- document {id}: {replaced}".format(id=id, replaced=replaced_text)
 
-def InvIndex(directory,podname,podaddress,namespace):
+def InvIndex(directory,podname,podaddress,namespace,reprformat):
     #directory = '/Users/yurysavateev/Python/InvertedIndex/invind.py'
     #db = Database()
-    index = RdfIndex(namespace)
+    index = RdfIndex(namespace,reprformat)
     for filename in os.listdir(directory):
         f = os.path.join(directory, filename)
         # checking if it is a file
@@ -105,14 +106,19 @@ def InvIndex(directory,podname,podaddress,namespace):
             index.index_document(document)
     return index
 
-def indexer(podpath,podname,podaddress,namespace):
+def indexer(podpath,podname,podaddress,namespace,reprformat):
     print ('Indexing '+ podname)
-    podindexfilename=podname+'index.ttl'
+    if reprformat=='turtle':
+        podindexfilename=podname+'index.ttl'
+    elif reprformat=='json-ld':
+        podindexfilename=podname+'index.json'
+    else:
+        podindexfilename=podname+'.index' 
     podindexpath=os.path.join(podpath, podindexfilename)
     if os.path.exists(podindexpath):
         print('Removing old index')
         os.remove(podindexpath)
-    podindex=InvIndex(podpath,podname,podaddress,namespace)
+    podindex=InvIndex(podpath,podname,podaddress,namespace,reprformat)
     podindexfile=open(podindexpath,'w')
     #df = pandas.json_normalize(podindex.index)
     #df.to_csv(podindexpath, index=False, encoding='utf-8')
