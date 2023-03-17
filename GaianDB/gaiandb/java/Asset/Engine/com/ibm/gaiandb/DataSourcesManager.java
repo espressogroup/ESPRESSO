@@ -8,33 +8,15 @@
 package com.ibm.gaiandb;
 
 
-
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.EmptyStackException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.Stack;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-
 import com.ibm.db2j.FileImport;
 import com.ibm.gaiandb.apps.HttpQueryInterface;
 import com.ibm.gaiandb.apps.MetricMonitor;
 import com.ibm.gaiandb.diags.GDBMessages;
+
+import java.sql.*;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * The primary purpose of this class is to provide static methods to load GaianDB's Logical Tables 
@@ -664,7 +646,7 @@ public class DataSourcesManager {
 	
 	static void refresh( Set<String> ltsToRefresh ) {
 		// If Seeker has set the flag to load sources for a new gaian connection, unset this because we'll do it here...
-		if ( true == GaianNodeSeeker.testAndClearConfigReloadRequiredFlag() )
+		if (GaianNodeSeeker.testAndClearConfigReloadRequiredFlag())
 			ltsToRefresh = null; // this will check/reload all LTs
 		int previousLogLevel = Logger.logLevel;
 		GaianDBConfig.assignLogLevel( null );
@@ -786,9 +768,9 @@ public class DataSourcesManager {
 		// Start with jdbc connection ids - so these can update the global static var of allReferencedJDBCConnectionIDs
 		Set<String> allReferencedDataSourceIDs = new HashSet<String>();
 		
-		Map<String,String> sourceIDsOfDiscoveredNodesMappedToConnectionIDs = new Hashtable<String, String>();
+		Map<String,String> sourceIDsOfDiscoveredNodesMappedToConnectionIDs = new Hashtable<>();
 		
-//		String[] gcs = globalGaianConnections; // GaianDBConfig.getDiscoveredConnections();
+		// String[] gcs = globalGaianConnections; // GaianDBConfig.getDiscoveredConnections();
 		// Add gaian connections to referenced data sources
 		for ( int i = 0; i<globalGaianConnections.length; i++ )
 			try {
@@ -828,7 +810,7 @@ public class DataSourcesManager {
 			// and JDBC pools where connections don't appear to be valid - for those that are used for a peer GaianDB connection, drop the entire thing.
 			Iterator<String> i = sourceHandlesPools.keySet().iterator();
 			while ( i.hasNext() ) {
-				String sourceID = (String) i.next();
+				String sourceID = i.next();
 				String rootSourceID = sourceID.startsWith( INMEM_STACK_KEY_PREFIX ) ? sourceID.substring( sourceID.indexOf(' ')+1 ) : sourceID;
 				
 				int idx = sourceID.lastIndexOf("'");

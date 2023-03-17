@@ -266,11 +266,11 @@ Primary use cases:
 	
 	<target name="javadoc" depends="javadoc-errors">
 		<!-- Primary GDB Node source code -->
-		<javadoc sourcepath="${gaianSrcDir}" destdir="${homeDir}/doc/javadoc-gaiandb" packagenames="com.ibm.db2j, com.ibm.gaiandb.*" 
-			excludepackagenames="com.ibm.gaiandb.apps.dashboard, com.ibm.gaiandb.apps.sensordemo, com.ibm.gaiandb.draw, com.ibm.gaiandb.sim">
-			<fileset dir="${gaianSrcDir}" includes="**/*.java" />
-		</javadoc>
-		<!-- Dashboard source code -->
+		<!--<javadoc sourcepath="${gaianSrcDir}" destdir="${homeDir}/doc/javadoc-gaiandb" packagenames="com.ibm.db2j, com.ibm.gaiandb.*"
+            excludepackagenames="com.ibm.gaiandb.apps.dashboard, com.ibm.gaiandb.apps.sensordemo, com.ibm.gaiandb.draw, com.ibm.gaiandb.sim">
+            <fileset dir="${gaianSrcDir}" includes="**/*.java" />
+        </javadoc> -->
+        <!-- Dashboard source code -->
 		<javadoc sourcepath="${gaianAssetSrcDir}/ClientTools" destdir="${homeDir}/doc/javadoc-dashboard"
 			packagenames="com.ibm.gaiandb.apps, com.ibm.gaiandb.apps.dashboard, com.ibm.gaiandb.draw, com.ibm.gaiandb.sim">
 			<fileset dir="${gaianAssetSrcDir}/ClientTools" includes="**/*.java" />

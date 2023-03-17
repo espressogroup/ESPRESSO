@@ -3,8 +3,7 @@
  *
  * LICENSE: Eclipse Public License v1.0
  * http://www.eclipse.org/legal/epl-v10.html
- *//*
-
+ */
 
 package com.ibm.gaiandb.tools;
 
@@ -20,11 +19,9 @@ import java.util.Arrays;
 import com.ibm.gaiandb.Logger;
 import com.ibm.mqtt.MqttPersistenceException;
 
-*/
 /**
  * @author DavidVyvyan
- *//*
-
+ */
 public class DB2MessageStorer {
 
 //	Use PROPRIETARY notice if class contains a main() method, otherwise use COPYRIGHT notice.
@@ -176,4 +173,3 @@ public class DB2MessageStorer {
     }
 	
 }
-*/

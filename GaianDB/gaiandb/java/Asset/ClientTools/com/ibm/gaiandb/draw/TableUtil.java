@@ -20,7 +20,7 @@ import prefuse.util.collections.IntIterator;
 
 /**
  * A bunch of utility functions for dealing with prefuse
- * {@link prefuse.data.Table Table}s.
+ * {@link Table Table}s.
  * 
  * @author Samir Talwar - stalwar@uk.ibm.com
  */
@@ -179,7 +179,7 @@ public class TableUtil {
 	}
 
 	/**
-	 * Creates a {@linkplain prefuse.data.Schema prefuse schema} equivalent to
+	 * Creates a {@linkplain Schema prefuse schema} equivalent to
 	 * the result set.
 	 * 
 	 * @param metadata

@@ -16,7 +16,7 @@ import prefuse.visual.VisualItem;
 
 /**
  * <p>Using the color palette provided as waypoints, returns a color along a
- * gradient for each {@link prefuse.visual.VisualItem VisualItem} passed to
+ * gradient for each {@link VisualItem VisualItem} passed to
  * {@link #getColor}. Only works for numerical (quantitative) data types.</p>
  * 
  * <p>Based on prefuse's

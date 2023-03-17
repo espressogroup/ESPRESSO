@@ -1,15 +1,21 @@
 ----------------------------------------------------------------
-Mon Mar 06 17:40:23 GMT 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.1 - (1643489): instance a816c00e-0186-b802-98f3-00000d410b48 
-on database directory /Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/installConfig/gaiandb with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
-Loaded from file:/Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/lib/derby-ibm-ossc-10.8/derby.jar
-java.vendor=Amazon.com Inc.
-java.runtime.version=1.8.0_312-b07
-user.dir=/Users/ragab/ESPRESSO/Impementations/GDB/gaiandb/installConfig
-os.name=Mac OS X
-os.arch=x86_64
-os.version=13.1
+Fri Mar 17 09:32:20 GMT 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.1 - (1643489): instance a816c00e-0186-eee9-b9e8-0000005bf808 
+on database directory C:\Users\dcsuser\GaianProject\GaianS - Demo\gaiandb\installConfig\gaiandb6416 with class loader sun.misc.Launcher$AppClassLoader@6bd661c 
+Loaded from file:/C:/Users/dcsuser/GaianProject/GaianS%20-%20Demo/gaiandb/lib/derby.jar
+java.vendor=IBM Corporation
+java.runtime.version=1.8.0_362-b09
+java.fullversion=1.8.0_362-b09
+JRE 1.8.0 Windows 11 amd64-64-Bit Compressed References 20230207_599 (JIT enabled, AOT enabled)
+OpenJ9   - e68fb241f
+OMR      - f491bbf6f
+JCL      - eebde685ec based on jdk8u362-b09
+user.dir=C:\Users\dcsuser\GaianProject\GaianS - Demo\gaiandb\installConfig
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
-Mon Mar 06 17:40:24 GMT 2023 : Apache Derby Network Server - 10.10.2.1 - (1643489) started and ready to accept connections on port 6414
-Mon Mar 06 17:40:29 GMT 2023 : Max threads changed to 1000.
+Fri Mar 17 09:32:20 GMT 2023 : Apache Derby Network Server - 10.10.2.1 - (1643489) started and ready to accept connections on port 6416
+Fri Mar 17 09:32:26 GMT 2023 : Max threads changed to 1000.
+

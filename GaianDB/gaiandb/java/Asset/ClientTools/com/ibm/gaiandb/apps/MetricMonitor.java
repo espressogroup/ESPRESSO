@@ -263,7 +263,7 @@ public class MetricMonitor implements Runnable {
 	 * Adds monitors that record JVM metrics.
 	 */
 	public void addJVMMonitors() {
-		addMonitor("jvm_used_memory", new MetricMonitor.Monitor<Long>() {
+		addMonitor("jvm_used_memory", new Monitor<Long>() {
 			Runtime runtime = Runtime.getRuntime();
 			public Long getValue() {
 				return runtime.totalMemory() - runtime.freeMemory();

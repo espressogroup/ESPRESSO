@@ -3,8 +3,7 @@
  *
  * LICENSE: Eclipse Public License v1.0
  * http://www.eclipse.org/legal/epl-v10.html
- *//*
-
+ */
 
 package com.ibm.gaiandb.tools.replay;
 
@@ -16,6 +15,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import com.ibm.mqtt.MqttException;
+import com.ibm.mqtt.MqttNotConnectedException;
+import com.ibm.mqtt.MqttPersistenceException;
 
 public class SensorSimulator {
 		
@@ -54,13 +55,11 @@ public class SensorSimulator {
 //	private static final String[] CLIENT_NAMES = { "PersonnelMovement1", "PersonnelMovement2", "PersonnelMovement3", 
 //		"EventBearingSensor1", "EventBearingSensor2" };//, "fireEventSensorBroker" };
 
-	public static void main(String[] args) throws MqttException, IOException, ParseException, InterruptedException {
+	public static void main(String[] args) throws MqttException, IOException, ParseException, InterruptedException, MqttNotConnectedException, MqttPersistenceException {
 		
 		System.out.println("Starting SensorSimulator...");
 		
-		*/
-/*args.length == 1 || args.length > 2 ? args[args.length-1] :*//*
-
+		/*args.length == 1 || args.length > 2 ? args[args.length-1] :*/
 		String filename =  "log.txt";
 		String startTime = args.length > 0 ? args[0] : startTimes[1];
 		String endTime = args.length > 1 ? args[1] : endTimes[1]; // the latest end time
@@ -210,4 +209,3 @@ public class SensorSimulator {
 		for ( int i=0; i<numSensors; i++ ) if ( null != bcs[i] ) bcs[i].terminate();
 	}
 }
-*/

@@ -19,7 +19,7 @@ import prefuse.visual.VisualTable;
 
 /**
  * Represents a chart, which in reality is just a visual frontend for a prefuse
- * {@link prefuse.data.Table Table} structure. Retrieves data from a prepared
+ * {@link Table Table} structure. Retrieves data from a prepared
  * SQL statement and renders it according to the subclass.
  * 
  * @author Samir Talwar - stalwar@uk.ibm.com

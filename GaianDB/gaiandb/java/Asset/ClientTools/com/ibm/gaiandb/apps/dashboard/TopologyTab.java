@@ -582,9 +582,9 @@ public class TopologyTab extends UpdatingTab implements ActionListener {
 		// Logical tables drop down list
 		////////////////////////////////
 		
-		comboLogicalTables.addActionListener( new java.awt.event.ActionListener() {
+		comboLogicalTables.addActionListener( new ActionListener() {
 		    
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
+			public void actionPerformed(ActionEvent evt) {
 				comboTableActionPerformed(evt);
 			}
 
