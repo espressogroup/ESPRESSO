@@ -20,8 +20,6 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
-import java.io.FileWriter;
 import java.lang.management.ManagementFactory;
 import java.net.URI;
 import java.sql.Connection;
@@ -61,9 +59,6 @@ import com.ibm.db2j.GaianTable;
 import com.ibm.gaiandb.Logger;
 import com.ibm.gaiandb.apps.SecurityClientAgent;
 import com.ibm.gaiandb.diags.GDBMessages;
-
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class QueryTab extends Tab {
 
@@ -540,19 +535,6 @@ public class QueryTab extends Tab {
 		}
 		
 		addToSQLHistory(sql);
-
-	/*	//added by Reza Moosa
-
-		try {
-			String pathname = "C:\\Users\\dcsuser\\GaianProject\\GaianS-Demo\\gaiandb\\build\\GAIANDB_V2.1.8_20230228\\csvtestfiles\\DashQuery.txt";
-			FileWriter myWriter = new FileWriter(pathname);
-			myWriter.write(sql);
-			myWriter.close();
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-        // end Reza Moosa    */
 				
 		executingSQL = sql;
 		new Thread( new Runnable() {

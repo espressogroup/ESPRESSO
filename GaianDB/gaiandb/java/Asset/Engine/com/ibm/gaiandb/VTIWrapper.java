@@ -8,33 +8,19 @@
 package com.ibm.gaiandb;
 
 
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Types;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import java.util.SortedMap;
-import java.util.Stack;
-import java.util.TreeMap;
-import java.util.Vector;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-
+import com.ibm.gaiandb.DataSourcesManager.RecallingStack;
+import com.ibm.gaiandb.diags.GDBMessages;
 import org.apache.derby.iapi.error.StandardException;
 import org.apache.derby.iapi.store.access.Qualifier;
 import org.apache.derby.iapi.types.DataValueDescriptor;
 import org.apache.derby.iapi.types.SQLChar;
 import org.apache.derby.iapi.types.TypeId;
 
-import com.ibm.gaiandb.DataSourcesManager.RecallingStack;
-import com.ibm.gaiandb.diags.GDBMessages;
+import java.sql.*;
+import java.util.Date;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 
 /**
@@ -1025,7 +1011,7 @@ public abstract class VTIWrapper implements Runnable { //implements Cloneable {
 				clearInMemoryRowsAndIndexes();
 			} finally {
 				// Record the fact caching is EXPECTED for watchdog's benefit - even if a failure occured
-				if ( false == isClosed )
+				if (!isClosed)
 					dataSourceWrappersExpectedToHaveCachedRows.add(this);
 			}
 		}

@@ -6,29 +6,6 @@
  */
 package com.ibm.db2j;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.apache.derby.iapi.error.StandardException;
-import org.apache.derby.iapi.store.access.Qualifier;
-import org.apache.derby.iapi.types.DataValueDescriptor;
-import org.apache.derby.vti.IFastPath;
-import org.apache.derby.vti.VTIEnvironment;
-
 import com.ibm.gaiandb.CachedHashMap;
 import com.ibm.gaiandb.Logger;
 import com.ibm.gaiandb.RowsFilter;
@@ -39,12 +16,7 @@ import com.ibm.gaiandb.webservices.caching.CachableInputStream;
 import com.ibm.gaiandb.webservices.caching.StringCacher;
 import com.ibm.gaiandb.webservices.parser.NonParsableStringException;
 import com.ibm.gaiandb.webservices.parser.properties.GenericWsPropertiesParser;
-import com.ibm.gaiandb.webservices.patternmatcher.AttributeMatcher;
-import com.ibm.gaiandb.webservices.patternmatcher.ErrorMatcher;
-import com.ibm.gaiandb.webservices.patternmatcher.MatcherManager;
-import com.ibm.gaiandb.webservices.patternmatcher.TagMatcher;
-import com.ibm.gaiandb.webservices.patternmatcher.TagPattern;
-import com.ibm.gaiandb.webservices.patternmatcher.ValueMatcher;
+import com.ibm.gaiandb.webservices.patternmatcher.*;
 import com.ibm.gaiandb.webservices.scanner.FormatSpecifierInputStream;
 import com.ibm.gaiandb.webservices.scanner.IntoXmlInputStream;
 import com.ibm.gaiandb.webservices.scanner.WsDataFormat;
@@ -56,6 +28,19 @@ import com.ibm.gaiandb.webservices.ws.PostRestWS;
 import com.ibm.gaiandb.webservices.ws.RestWS;
 import com.ibm.gaiandb.webservices.ws.SoapWS;
 import com.ibm.gaiandb.webservices.ws.WebService;
+import org.apache.derby.iapi.error.StandardException;
+import org.apache.derby.iapi.store.access.Qualifier;
+import org.apache.derby.iapi.types.DataValueDescriptor;
+import org.apache.derby.vti.IFastPath;
+import org.apache.derby.vti.VTIEnvironment;
+
+import java.io.*;
+import java.net.MalformedURLException;
+import java.sql.SQLException;
+import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * <p>
@@ -1073,7 +1058,7 @@ public class GenericWS extends AbstractVTI {
 		// Define the format of the received data
 		String format = this.getVTIPropertyNullable(PROP_DATA_FORMAT);
 		WsDataFormat readData = WsDataFormat.UNKNOWN_FORMAT;
-		
+		format = PROP_DATA_FORMAT_VALUE_JSON;
 		if (format != null && format.equalsIgnoreCase(PROP_DATA_FORMAT_VALUE_JSON)) {
 			readData = WsDataFormat.JSON;
 		}

@@ -8,36 +8,6 @@
 package com.ibm.gaiandb;
 
 
-
-import java.io.File;
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
-import java.util.Map.Entry;
-import java.util.regex.Pattern;
-
-import org.apache.derby.iapi.types.DataValueDescriptor;
-import org.apache.derby.iapi.types.SQLBit;
-import org.apache.derby.iapi.types.SQLChar;
-import org.apache.derby.iapi.types.SQLInteger;
-import org.apache.derby.iapi.types.SQLLongint;
-import org.apache.derby.iapi.types.SQLTimestamp;
-
 import com.ibm.db2j.FileImport;
 import com.ibm.db2j.GExcel;
 import com.ibm.db2j.GaianTable;
@@ -52,6 +22,15 @@ import com.ibm.gaiandb.webservices.ws.PostRestWS;
 import com.ibm.gaiandb.webservices.ws.RestWS;
 import com.ibm.gaiandb.webservices.ws.SoapWS;
 import com.ibm.gaiandb.webservices.ws.WebService;
+import org.apache.derby.iapi.types.*;
+
+import java.io.File;
+import java.io.InputStream;
+import java.sql.*;
+import java.util.Date;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.regex.Pattern;
 
 /**
  * @author DavidVyvyan
@@ -270,15 +249,15 @@ public class GaianDBConfigProcedures extends GaianDBProcedureUtils {
 		+ " PARAMETER STYLE JAVA LANGUAGE JAVA MODIFIES SQL DATA"
 		+ " EXTERNAL NAME 'com.ibm.gaiandb.GaianDBConfigProcedures.setLogicalTableForExcel'"
 		+ ";"
-//		// Creation of the procedure setltforws
-//		+ "!DROP PROCEDURE "+setltforws+";!CREATE PROCEDURE "+setltforws +"(LTNAME "+XSTR+", URL "+XSTR+", WSDLLOCATION "+XSTR+", POSTDATA "+XSTR+")"
-//		+ " PARAMETER STYLE JAVA LANGUAGE JAVA MODIFIES SQL DATA"
-//		+ " EXTERNAL NAME 'com.ibm.gaiandb.GaianDBConfigProcedures.setLogicalTableForWS'"
-//		+ ";"
-//		+ "!DROP PROCEDURE "+setltformongodb+";!CREATE PROCEDURE "+setltformongodb +"(LTNAME "+XSTR+", URL "+XSTR+", FIELDS "+XSTR+")"
-//		+ " PARAMETER STYLE JAVA LANGUAGE JAVA MODIFIES SQL DATA"
-//		+ " EXTERNAL NAME 'com.ibm.db2j.MongoDB.setLogicalTableForMongoDB'"
-//		+ ";"
+		// Creation of the procedure setltforws
+		+ "!DROP PROCEDURE "+setltforws+";!CREATE PROCEDURE "+setltforws +"(LTNAME "+XSTR+", URL "+XSTR+", WSDLLOCATION "+XSTR+", POSTDATA "+XSTR+")"
+		+ " PARAMETER STYLE JAVA LANGUAGE JAVA MODIFIES SQL DATA"
+		+ " EXTERNAL NAME 'com.ibm.gaiandb.GaianDBConfigProcedures.setLogicalTableForWS'"
+		+ ";"
+		//+ "!DROP PROCEDURE "+setltformongodb+";!CREATE PROCEDURE "+setltformongodb +"(LTNAME "+XSTR+", URL "+XSTR+", FIELDS "+XSTR+")"
+		//+ " PARAMETER STYLE JAVA LANGUAGE JAVA MODIFIES SQL DATA"
+		//+ " EXTERNAL NAME 'com.ibm.db2j.MongoDB.setLogicalTableForMongoDB'"
+		//+ ";"
 		+ "!DROP PROCEDURE "+setltfornode+";!CREATE PROCEDURE "+setltfornode+"(LTNAME "+XSTR+", NODEID "+XSTR+")"
 		+ " PARAMETER STYLE JAVA LANGUAGE JAVA MODIFIES SQL DATA"
 		+ " EXTERNAL NAME 'com.ibm.gaiandb.GaianDBConfigProcedures.setLogicalTableForNode'"

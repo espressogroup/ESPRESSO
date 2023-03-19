@@ -58,7 +58,7 @@ public abstract class WebService {
 	/*
 	 * This method now extracts the userinfo for the openConnection().
 	 * The url (without userinfo is also kept use for later in openconnection().
-	 * One can set up these  (username,password  by using the getter/setter 
+	 * One can set up these (username,password  by using the getter/setter
 	 * between this method call and the OpenConnection call. 
 	 */
 	protected WebService(String url) throws MalformedURLException {		

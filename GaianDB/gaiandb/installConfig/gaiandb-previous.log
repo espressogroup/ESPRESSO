@@ -1,4 +1,4 @@
-2023-03-06 14:25:55.982~467176100 GaianNode -------------> isInitDataUpToDate = true = GAIANDB_JAR_MD5 Unknown = gdbJarMD5_previous Unknown && gdbDbTimestampAtStartup 1678112568368 > gdbJarFile.lastModified() 1677774907268
+2023-03-17 09:23:57.463~577981600 GaianNode -------------> isInitDataUpToDate = true = GAIANDB_JAR_MD5 Unknown = gdbJarMD5_previous Unknown && gdbDbTimestampAtStartup 1679043297108 > gdbJarFile.lastModified() 1678797744032
 java version "1.8.0_362"
 IBM Semeru Runtime Open Edition (build 1.8.0_362-b09)
 Eclipse OpenJ9 VM (build openj9-0.36.0, JRE 1.8.0 Windows 11 amd64-64-Bit Compressed References 20230207_599 (JIT enabled, AOT enabled)
@@ -6,7 +6,7 @@ OpenJ9   - e68fb241f
 OMR      - f491bbf6f
 JCL      - eebde685ec based on jdk8u362-b09)
 
-GaianDB V2.1.8 - JAR sizes: [0, 0], timestamps: [2023/03/02-16:35:07, 2023/03/02-16:35:07]
+GaianDB V2.1.8 - JAR sizes: [0, 0], timestamps: [2023/03/14-12:42:24, 2023/03/14-12:42:24]
 
 Features Summary: Federated access to JDBC RDBMS tables and CSV Flat files using a logical table abstraction layer;
 A stored procedures management API, e.g. to set and view all logical tables and data sources in the network;
@@ -29,17 +29,17 @@ Detection and cancellation of hanging queries (not mistaken for long-running que
 Pass-through sub-queries using 'GaianQuery': define exposed data sources on each node which the query will be executed against;
 Performance metrics; Provenance columns: GAIAN_NODE, GAIAN_LEAF (queryable using option: 'with_provenance')
 
-PROCESS ID:		8304
+PROCESS ID:		5516
 
 NODE ID:		cspc201
 
-WORKING DIRECTORY:	C:\Users\dcsuser\GaianProject\GaianS-Demo\gaiandb\installConfig
-BYTECODE PATH:		C:\Users\dcsuser\GaianProject\GaianS-Demo\gaiandb\classes\production\GAIANDB
-WORKSPACE:		C:\Users\dcsuser\GaianProject\GaianS-Demo\gaiandb\installConfig
+WORKING DIRECTORY:	C:\Users\dcsuser\GaianProject\GaianS - Demo\gaiandb\installConfig
+BYTECODE PATH:		C:\Users\dcsuser\GaianProject\GaianS - Demo\gaiandb\classes\production\GAIANDB
+WORKSPACE:		C:\Users\dcsuser\GaianProject\GaianS - Demo\gaiandb\installConfig
 
-PHYSICAL DATABASE:	C:\Users\dcsuser\GaianProject\GaianS-Demo\gaiandb\installConfig\gaiandb
-LOG FILE:		C:\Users\dcsuser\GaianProject\GaianS-Demo\gaiandb\installConfig\gaiandb.log
-CONFIG FILE:		C:\Users\dcsuser\GaianProject\GaianS-Demo\gaiandb\installConfig\gaiandb_config.properties
+PHYSICAL DATABASE:	C:\Users\dcsuser\GaianProject\GaianS - Demo\gaiandb\installConfig\gaiandb
+LOG FILE:		C:\Users\dcsuser\GaianProject\GaianS - Demo\gaiandb\installConfig\gaiandb.log
+CONFIG FILE:		C:\Users\dcsuser\GaianProject\GaianS - Demo\gaiandb\installConfig\gaiandb_config.properties
 
 DERBY SERVER PORT:	6414
 PROVENANCE HOST(S):	0.0.0.0
@@ -48,7 +48,7 @@ Network Interfaces:
 lo: Software Loopback Interface 1 /127.0.0.1, /0:0:0:0:0:0:0:1, Address: /127.0.0.1 -> Broadcast: /127.255.255.255, Address: /0:0:0:0:0:0:0:1 -> Broadcast: null
 net0: Microsoft 6to4 Adapter 
 eth0: WAN Miniport (Network Monitor) 
-wlan0: Intel(R) Wi-Fi 6 AX201 160MHz /192.168.1.102, /2a01:4b00:8468:5a00:7e74:3e17:daa3:9fac, /fd00:0:0:0:2243:5b77:42be:4369, /2a01:4b00:8468:5a00:2de4:97ea:4c70:e339, /fd00:0:0:0:2de4:97ea:4c70:e339, /fe80:0:0:0:e9b0:ef47:bcef:3e83%wlan0, Address: /192.168.1.102 -> Broadcast: /192.168.1.255, Address: /2a01:4b00:8468:5a00:7e74:3e17:daa3:9fac -> Broadcast: null, Address: /fd00:0:0:0:2243:5b77:42be:4369 -> Broadcast: null, Address: /2a01:4b00:8468:5a00:2de4:97ea:4c70:e339 -> Broadcast: null, Address: /fd00:0:0:0:2de4:97ea:4c70:e339 -> Broadcast: null, Address: /fe80:0:0:0:e9b0:ef47:bcef:3e83%wlan0 -> Broadcast: null
+wlan0: Intel(R) Wi-Fi 6 AX201 160MHz /10.62.28.125, /fe80:0:0:0:e9b0:ef47:bcef:3e83%wlan0, Address: /10.62.28.125 -> Broadcast: /10.62.29.255, Address: /fe80:0:0:0:e9b0:ef47:bcef:3e83%wlan0 -> Broadcast: null
 net1: Microsoft IP-HTTPS Platform Adapter 
 net2: WAN Miniport (IKEv2) 
 eth1: Microsoft Kernel Debug Network Adapter 
@@ -72,8 +72,8 @@ wlan7: Intel(R) Wi-Fi 6 AX201 160MHz-WFP 802.3 MAC Layer LightWeight Filter-0000
 wlan8: Microsoft Wi-Fi Direct Virtual Adapter-WFP Native MAC Layer LightWeight Filter-0000 
 wlan9: Microsoft Wi-Fi Direct Virtual Adapter-Native WiFi Filter Driver-0000 
 wlan10: Microsoft Wi-Fi Direct Virtual Adapter-QoS Packet Scheduler-0000 
-wlan11: Microsoft Wi-Fi Direct Virtual Adapter-WFP 802.3 MAC Layer LightWeight Filter-0000 
-wlan12: Microsoft Wi-Fi Direct Virtual Adapter #2-WFP Native MAC Layer LightWeight Filter-0000 
+wlan11: Microsoft Wi-Fi Direct Virtual Adapter #2-WFP Native MAC Layer LightWeight Filter-0000 
+wlan12: Microsoft Wi-Fi Direct Virtual Adapter-WFP 802.3 MAC Layer LightWeight Filter-0000 
 wlan13: Microsoft Wi-Fi Direct Virtual Adapter #2-Native WiFi Filter Driver-0000 
 wlan14: Microsoft Wi-Fi Direct Virtual Adapter #2-QoS Packet Scheduler-0000 
 wlan15: Microsoft Wi-Fi Direct Virtual Adapter #2-WFP 802.3 MAC Layer LightWeight Filter-0000 
@@ -85,28 +85,29 @@ eth11: WAN Miniport (Network Monitor)-WFP Native MAC Layer LightWeight Filter-00
 eth12: WAN Miniport (Network Monitor)-QoS Packet Scheduler-0000 
 
 Hostname: cspc201
-Java localhost ip: 192.168.1.102
-Local address designating initial default interface for multicast: 192.168.1.102
+Java localhost ip: 10.62.28.125
+Local address designating initial default interface for multicast: 10.62.28.125
 
 
-2023-03-06 14:25:56.281~765775100 GaianNode -------------> Initialising GaianNode...
-2023-03-06 14:25:56.281~766015700 GaianNode -------------> GAIANDB.jar library has not been changed (and db folder is more recent), so initialisation data (e.g. stored procs/funcs) is expected to be already loaded
-2023-03-06 14:25:56.281~766183800 GaianNode -------------> Node details: cspc201 gaiandb <password>
-2023-03-06 14:25:56.282~766501200 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
-2023-03-06 14:25:56.282~766703700 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = <Default=230.255.255.255>
-2023-03-06 14:25:56.282~766826800 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
-2023-03-06 14:25:56.282~766910200 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
-2023-03-06 14:25:56.282~766990200 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
-2023-03-06 14:25:56.282~767078000 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
-2023-03-06 14:25:56.282~767167600 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
-2023-03-06 14:25:56.283~767275800 GaianNode -------------> Log level set to: NONE
-2023-03-06 14:25:56.439~924383200 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6414
+2023-03-17 09:23:57.733~847600400 GaianNode -------------> Initialising GaianNode...
+2023-03-17 09:23:57.733~847699400 GaianNode -------------> GAIANDB.jar library has not been changed (and db folder is more recent), so initialisation data (e.g. stored procs/funcs) is expected to be already loaded
+2023-03-17 09:23:57.733~847777900 GaianNode -------------> Node details: cspc201 gaiandb <password>
+2023-03-17 09:23:57.733~847916100 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
+2023-03-17 09:23:57.733~847989700 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = <Default=230.255.255.255>
+2023-03-17 09:23:57.733~848060000 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
+2023-03-17 09:23:57.733~848134800 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
+2023-03-17 09:23:57.733~848245100 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
+2023-03-17 09:23:57.733~848340200 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
+2023-03-17 09:23:57.733~848414800 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
+2023-03-17 09:23:57.734~848507200 GaianNode -------------> Log level set to: NONE
+2023-03-17 09:23:57.825~939731000 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6414
 
-Mon Mar 06 14:25:57 GMT 2023 : Apache Derby Network Server - 10.10.2.1 - (1643489) started and ready to accept connections on port 6414
-2023-03-06 14:25:57.631~116033600 GaianNode -------------> 
+Fri Mar 17 09:23:58 GMT 2023 : Apache Derby Network Server - 10.10.2.1 - (1643489) started and ready to accept connections on port 6414
+2023-03-17 09:23:58.886~311700 GaianNode -------------> 
 Derby Version: CSS10100/10.10.2.1 - (1643489)  - Java Version: 1.8.0_362 (Eclipse OpenJ9 VM)
 
-GaianNode started for Derby network server with sslMode=off on port: 6414 at Mon Mar 06 14:25:57 GMT 2023, startup time: 1730ms
+GaianNode started for Derby network server with sslMode=off on port: 6414 at Fri Mar 17 09:23:58 GMT 2023, startup time: 1521ms
 
-Mon Mar 06 14:26:02 GMT 2023 : Max threads changed to 1000.
-Mon Mar 06 14:26:02 GMT 2023 : Max threads changed to 1000.
+Fri Mar 17 09:24:04 GMT 2023 : Max threads changed to 1000.
+Fri Mar 17 09:24:04 GMT 2023 : Max threads changed to 1000.
+2023-03-17 09:24:49.527~642816700 GaianNode -------------> Used Heap Memory changed by >10MB. jMemory (MB): 10.081152 (= 0%, jMemoryMax (MB): 4241.293312). jMemoryNonHeap (MB): 54.909852 - (suspected hanging queries being checked: 0)
