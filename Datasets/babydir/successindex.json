@@ -1,22 +1,22 @@
 [
   {
-    "@id": "_:Boom",
+    "@id": "_:want",
     "http://example.org/SOLID/appearsIn": [
       {
-        "@id": "_:A11"
+        "@id": "_:A10"
       }
     ],
     "http://example.org/SOLID/lemma": [
       {
-        "@value": "Boom"
+        "@value": "want"
       }
     ]
   },
   {
-    "@id": "_:A11",
+    "@id": "_:A10",
     "http://example.org/SOLID/address": [
       {
-        "@id": "https://storage.inrupt.com/271193f6-926b-45c1-8fa8-b31cc03accb4/file1.txt"
+        "@id": "http://srv03812.soton.ac.uk:3000/success/success/file1.txt"
       }
     ],
     "http://example.org/SOLID/frequency": [
@@ -45,7 +45,7 @@
     "@id": "_:A5",
     "http://example.org/SOLID/address": [
       {
-        "@id": "https://storage.inrupt.com/271193f6-926b-45c1-8fa8-b31cc03accb4/file2.txt"
+        "@id": "http://srv03812.soton.ac.uk:3000/success/success/file2.txt"
       }
     ],
     "http://example.org/SOLID/frequency": [
@@ -58,7 +58,7 @@
     "@id": "_:A8",
     "http://example.org/SOLID/address": [
       {
-        "@id": "https://storage.inrupt.com/271193f6-926b-45c1-8fa8-b31cc03accb4/file1.txt"
+        "@id": "http://srv03812.soton.ac.uk:3000/success/success/file1.txt"
       }
     ],
     "http://example.org/SOLID/frequency": [
@@ -84,137 +84,7 @@
     "@id": "_:A2",
     "http://example.org/SOLID/address": [
       {
-        "@id": "https://storage.inrupt.com/271193f6-926b-45c1-8fa8-b31cc03accb4/file2.txt"
-      }
-    ],
-    "http://example.org/SOLID/frequency": [
-      {
-        "@value": 1
-      }
-    ]
-  },
-  {
-    "@id": "_:This",
-    "http://example.org/SOLID/appearsIn": [
-      {
-        "@id": "_:A0"
-      }
-    ],
-    "http://example.org/SOLID/lemma": [
-      {
-        "@value": "This"
-      }
-    ]
-  },
-  {
-    "@id": "_:A0",
-    "http://example.org/SOLID/address": [
-      {
-        "@id": "https://storage.inrupt.com/271193f6-926b-45c1-8fa8-b31cc03accb4/file2.txt"
-      }
-    ],
-    "http://example.org/SOLID/frequency": [
-      {
-        "@value": 1
-      }
-    ]
-  },
-  {
-    "@id": "_:I",
-    "http://example.org/SOLID/appearsIn": [
-      {
-        "@id": "_:A9"
-      }
-    ],
-    "http://example.org/SOLID/lemma": [
-      {
-        "@value": "I"
-      }
-    ]
-  },
-  {
-    "@id": "_:A9",
-    "http://example.org/SOLID/address": [
-      {
-        "@id": "https://storage.inrupt.com/271193f6-926b-45c1-8fa8-b31cc03accb4/file1.txt"
-      }
-    ],
-    "http://example.org/SOLID/frequency": [
-      {
-        "@value": 1
-      }
-    ]
-  },
-  {
-    "@id": "_:about",
-    "http://example.org/SOLID/appearsIn": [
-      {
-        "@id": "_:A4"
-      }
-    ],
-    "http://example.org/SOLID/lemma": [
-      {
-        "@value": "about"
-      }
-    ]
-  },
-  {
-    "@id": "_:A4",
-    "http://example.org/SOLID/address": [
-      {
-        "@id": "https://storage.inrupt.com/271193f6-926b-45c1-8fa8-b31cc03accb4/file2.txt"
-      }
-    ],
-    "http://example.org/SOLID/frequency": [
-      {
-        "@value": 1
-      }
-    ]
-  },
-  {
-    "@id": "_:Who",
-    "http://example.org/SOLID/appearsIn": [
-      {
-        "@id": "_:A6"
-      }
-    ],
-    "http://example.org/SOLID/lemma": [
-      {
-        "@value": "Who"
-      }
-    ]
-  },
-  {
-    "@id": "_:A6",
-    "http://example.org/SOLID/address": [
-      {
-        "@id": "https://storage.inrupt.com/271193f6-926b-45c1-8fa8-b31cc03accb4/file1.txt"
-      }
-    ],
-    "http://example.org/SOLID/frequency": [
-      {
-        "@value": 1
-      }
-    ]
-  },
-  {
-    "@id": "_:is",
-    "http://example.org/SOLID/appearsIn": [
-      {
-        "@id": "_:A1"
-      }
-    ],
-    "http://example.org/SOLID/lemma": [
-      {
-        "@value": "is"
-      }
-    ]
-  },
-  {
-    "@id": "_:A1",
-    "http://example.org/SOLID/address": [
-      {
-        "@id": "https://storage.inrupt.com/271193f6-926b-45c1-8fa8-b31cc03accb4/file2.txt"
+        "@id": "http://srv03812.soton.ac.uk:3000/success/success/file2.txt"
       }
     ],
     "http://example.org/SOLID/frequency": [
@@ -240,7 +110,7 @@
     "@id": "_:A3",
     "http://example.org/SOLID/address": [
       {
-        "@id": "https://storage.inrupt.com/271193f6-926b-45c1-8fa8-b31cc03accb4/file2.txt"
+        "@id": "http://srv03812.soton.ac.uk:3000/success/success/file2.txt"
       }
     ],
     "http://example.org/SOLID/frequency": [
@@ -250,23 +120,127 @@
     ]
   },
   {
-    "@id": "_:want",
+    "@id": "_:about",
     "http://example.org/SOLID/appearsIn": [
       {
-        "@id": "_:A10"
+        "@id": "_:A4"
       }
     ],
     "http://example.org/SOLID/lemma": [
       {
-        "@value": "want"
+        "@value": "about"
       }
     ]
   },
   {
-    "@id": "_:A10",
+    "@id": "_:A4",
     "http://example.org/SOLID/address": [
       {
-        "@id": "https://storage.inrupt.com/271193f6-926b-45c1-8fa8-b31cc03accb4/file1.txt"
+        "@id": "http://srv03812.soton.ac.uk:3000/success/success/file2.txt"
+      }
+    ],
+    "http://example.org/SOLID/frequency": [
+      {
+        "@value": 1
+      }
+    ]
+  },
+  {
+    "@id": "_:This",
+    "http://example.org/SOLID/appearsIn": [
+      {
+        "@id": "_:A0"
+      }
+    ],
+    "http://example.org/SOLID/lemma": [
+      {
+        "@value": "This"
+      }
+    ]
+  },
+  {
+    "@id": "_:A0",
+    "http://example.org/SOLID/address": [
+      {
+        "@id": "http://srv03812.soton.ac.uk:3000/success/success/file2.txt"
+      }
+    ],
+    "http://example.org/SOLID/frequency": [
+      {
+        "@value": 1
+      }
+    ]
+  },
+  {
+    "@id": "_:is",
+    "http://example.org/SOLID/appearsIn": [
+      {
+        "@id": "_:A1"
+      }
+    ],
+    "http://example.org/SOLID/lemma": [
+      {
+        "@value": "is"
+      }
+    ]
+  },
+  {
+    "@id": "_:A1",
+    "http://example.org/SOLID/address": [
+      {
+        "@id": "http://srv03812.soton.ac.uk:3000/success/success/file2.txt"
+      }
+    ],
+    "http://example.org/SOLID/frequency": [
+      {
+        "@value": 1
+      }
+    ]
+  },
+  {
+    "@id": "_:Who",
+    "http://example.org/SOLID/appearsIn": [
+      {
+        "@id": "_:A6"
+      }
+    ],
+    "http://example.org/SOLID/lemma": [
+      {
+        "@value": "Who"
+      }
+    ]
+  },
+  {
+    "@id": "_:A6",
+    "http://example.org/SOLID/address": [
+      {
+        "@id": "http://srv03812.soton.ac.uk:3000/success/success/file1.txt"
+      }
+    ],
+    "http://example.org/SOLID/frequency": [
+      {
+        "@value": 1
+      }
+    ]
+  },
+  {
+    "@id": "_:Boom",
+    "http://example.org/SOLID/appearsIn": [
+      {
+        "@id": "_:A11"
+      }
+    ],
+    "http://example.org/SOLID/lemma": [
+      {
+        "@value": "Boom"
+      }
+    ]
+  },
+  {
+    "@id": "_:A11",
+    "http://example.org/SOLID/address": [
+      {
+        "@id": "http://srv03812.soton.ac.uk:3000/success/success/file1.txt"
       }
     ],
     "http://example.org/SOLID/frequency": [
@@ -292,7 +266,33 @@
     "@id": "_:A7",
     "http://example.org/SOLID/address": [
       {
-        "@id": "https://storage.inrupt.com/271193f6-926b-45c1-8fa8-b31cc03accb4/file1.txt"
+        "@id": "http://srv03812.soton.ac.uk:3000/success/success/file1.txt"
+      }
+    ],
+    "http://example.org/SOLID/frequency": [
+      {
+        "@value": 1
+      }
+    ]
+  },
+  {
+    "@id": "_:I",
+    "http://example.org/SOLID/appearsIn": [
+      {
+        "@id": "_:A9"
+      }
+    ],
+    "http://example.org/SOLID/lemma": [
+      {
+        "@value": "I"
+      }
+    ]
+  },
+  {
+    "@id": "_:A9",
+    "http://example.org/SOLID/address": [
+      {
+        "@id": "http://srv03812.soton.ac.uk:3000/success/success/file1.txt"
       }
     ],
     "http://example.org/SOLID/frequency": [
