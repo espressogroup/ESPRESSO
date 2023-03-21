@@ -1,31 +1,20 @@
 from solid.solid_api import SolidAPI
 from solid_client_credentials import SolidClientCredentialsAuth, DpopTokenProvider
+import dpop_utils
 import requests
-import os
+import os, json
 
 from solid.auth import Auth
 
-def putdirCSS (directory,pod,IDP,USERNAME,PASSWORD):
-    client_id = USERNAME
-    client_secret = PASSWORD
+def putdirCSS (directory,pod,IDP,USERNAME,PASSWORD,indexfile=''):
+    CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
+    a=CSSA.create_authstring()
+    t=CSSA.create_authtoken()
 
-    # The server that provides your account (where you login)
-    issuer_url = IDP
-
-    # create a token provider
-    token_provider = DpopTokenProvider(
-       issuer_url=issuer_url,
-       client_id=client_id,
-       client_secret=client_secret
-    )
-    # use the tokens with the requests library
-    auth = SolidClientCredentialsAuth(token_provider)
-
-    
     for filename in os.listdir(directory):
         f = os.path.join(directory, filename)
         # checking if it is a file
-        if os.path.isfile(f) and filename[0]!='.':
+        if os.path.isfile(f) and filename[0]!='.' and filename != indexfile:
             file = open(f, "rb")
             filetext=file.read().decode('latin1')
             #.decode('utf-8')
@@ -33,8 +22,11 @@ def putdirCSS (directory,pod,IDP,USERNAME,PASSWORD):
             file.close()
             file_url=pod+filename
             print('putting '+filename+' to the pod '+ pod)
-            res = requests.post(file_url, filetext, auth=auth)
+            CSSA.put_file(pod, filename, filetext, 'text/plain')
             #api.put_file(file_url, filetext, 'text/markdown')
+    indexpath=os.path.join(directory, indexfile)
+    if os.path.isfile(indexpath):
+        CSSA.put_file(pod, filename, filetext, 'text/turtle')
     return pod
     
 
@@ -55,7 +47,7 @@ def postdirtopod (directory,pod,api):
     return pod
 
 
-def postdir (directory,pod,IDP,USERNAME,PASSWORD):
+def postdirNSS (directory,pod,IDP,USERNAME,PASSWORD):
     auth = Auth()
     assert not auth.is_login
     auth.login(IDP, USERNAME, PASSWORD)
