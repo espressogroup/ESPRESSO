@@ -74,39 +74,3 @@ class CSSaccess:
 
 
 
-def putdirCSS (directory,pod,IDP,USERNAME,PASSWORD):
-    client_id = USERNAME
-    client_secret = PASSWORD
-
-    # The server that provides your account (where you login)
-    issuer_url = IDP
-    # create a token 
-    auth = (client_id,client_secret)
-    #headers= {'content-type': 'text/plain'}
-    data ={ 'email': client_id, 'password': client_secret, 'name': 'my-token' }
-    datajson=json.dumps(data)
-    cred_url=issuer_url+'idp/credentials/'
-    res = requests.post(cred_url, headers={ 'content-type': 'application/json' }, data=str(datajson))
-    res=res.json()
-    authstring=urllib.parse.quote(res['id'])+':'+urllib.parse.quote(res['secret'])
-    #print(authstring)
-    dpopKey = dpop_utils.generate_dpop_key_pair()
-    tokenUrl = issuer_url+'.oidc/token'
-    s=bytes(authstring, 'utf-8')
-    #auth=f'Basic {base64.standard_b64encode(s)}'
-    auth='Basic %s' % str(base64.standard_b64encode(s))[2:]
-    print(auth)
-    #auth = f'Basic ${Buffer.from(authString).toString('base64')}'
-    res = requests.post(
-        tokenUrl,
-        headers= {
-            'content-type': 'application/x-www-form-urlencoded',
-            'authorization': auth,
-            'DPoP': dpop_utils.create_dpop_header(tokenUrl, 'POST', dpopKey)
-        },
-        #data= 'grant_type=client_credentials&scope=webid',
-        data={"grant_type":"client_credentials","scope": "webid"},
-        timeout=5000
-    )
-    #print(res.json())
-    authtoken =res.json()['access_token']
