@@ -1,0 +1,49 @@
+@prefix ns1: <http://example.org/SOLID/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] ns1:appearsIn [ ns1:address <http://srv03813.soton.ac.uk:3000/test/file1.txt> ;
+            ns1:frequency 1 ] ;
+    ns1:lemma "Boom" .
+
+[] ns1:appearsIn [ ns1:address <http://srv03813.soton.ac.uk:3000/test/file1.txt> ;
+            ns1:frequency 1 ] ;
+    ns1:lemma "I" .
+
+[] ns1:appearsIn [ ns1:address <http://srv03813.soton.ac.uk:3000/test/file2.txt> ;
+            ns1:frequency 1 ] ;
+    ns1:lemma "This" .
+
+[] ns1:appearsIn [ ns1:address <http://srv03813.soton.ac.uk:3000/test/file1.txt> ;
+            ns1:frequency 1 ] ;
+    ns1:lemma "Who" .
+
+[] ns1:appearsIn [ ns1:address <http://srv03813.soton.ac.uk:3000/test/file2.txt> ;
+            ns1:frequency 1 ] ;
+    ns1:lemma "a" .
+
+[] ns1:appearsIn [ ns1:address <http://srv03813.soton.ac.uk:3000/test/file2.txt> ;
+            ns1:frequency 1 ] ;
+    ns1:lemma "about" .
+
+[] ns1:appearsIn [ ns1:address <http://srv03813.soton.ac.uk:3000/test/file2.txt> ;
+            ns1:frequency 1 ],
+        [ ns1:address <http://srv03813.soton.ac.uk:3000/test/file1.txt> ;
+            ns1:frequency 2 ] ;
+    ns1:lemma "coffee" .
+
+[] ns1:appearsIn [ ns1:address <http://srv03813.soton.ac.uk:3000/test/file2.txt> ;
+            ns1:frequency 1 ] ;
+    ns1:lemma "file" .
+
+[] ns1:appearsIn [ ns1:address <http://srv03813.soton.ac.uk:3000/test/file2.txt> ;
+            ns1:frequency 1 ] ;
+    ns1:lemma "is" .
+
+[] ns1:appearsIn [ ns1:address <http://srv03813.soton.ac.uk:3000/test/file1.txt> ;
+            ns1:frequency 1 ] ;
+    ns1:lemma "want" .
+
+[] ns1:appearsIn [ ns1:address <http://srv03813.soton.ac.uk:3000/test/file1.txt> ;
+            ns1:frequency 1 ] ;
+    ns1:lemma "wants" .
+
