@@ -23,7 +23,7 @@ def putdirCSS (directory,pod,IDP,USERNAME,PASSWORD,indexfile=''):
             file.close()
             file_url=pod+filename
             print('putting '+filename+' to the pod '+ pod)
-            CSSA.put_file(pod, filename, filetext, 'text/plain')
+            print(CSSA.put_file(pod, filename, filetext, 'text/plain'))
             #api.put_file(file_url, filetext, 'text/markdown')
     indexpath=os.path.join(directory, indexfile)
     if os.path.isfile(indexpath):
