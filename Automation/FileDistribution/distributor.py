@@ -1,5 +1,5 @@
-from solid.solid_api import SolidAPI
-from solid_client_credentials import SolidClientCredentialsAuth, DpopTokenProvider
+#from solid.solid_api import SolidAPI
+#from solid_client_credentials import SolidClientCredentialsAuth, DpopTokenProvider
 import dpop_utils
 import requests
 import os, json
