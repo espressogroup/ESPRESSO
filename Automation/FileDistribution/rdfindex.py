@@ -108,7 +108,7 @@ class RdfIndex:
 
                        
         #self.index.update(update_dict)
-        return document
+        return id
     
    # def lookup_query(self, query):
         """
@@ -169,5 +169,5 @@ def listindexer (filedict,namespace,reprformat):
     index = RdfIndex(namespace,reprformat)
     for (filename, filetext) in filedict.items():
         print('indexing '+filename)
-        index.index_document(filename,filetext)
+        index.index_id_text(filename,filetext)
     return(index)
