@@ -7,6 +7,7 @@ public class Configuration {
     public static void config(String fileName) {
 
         String logicalTableName = "SOLID";
+
         PropertiesManagement.getInstance(fileName).addProperty(
                 "LT" + logicalTableName + "_DS0_ARGS",
                 "<GAIAN_WORKSPACE>/csvtestfiles/solid.csv");
