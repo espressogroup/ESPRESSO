@@ -94,6 +94,7 @@ public class GaianNode {
     static String GAIANDB_JAR_MD5 = Util.getFileMD5(BYTECODE_PATH); // OTT ?
 
     private static final String VERSION_INFO =
+            "GaianDB Custom Version: " + "Reza Moosaei 2023_03_29_34" + "\n" +
             "java version \"" + javaVersionS + "\"\n" +
                     System.getProperty("java.runtime.name") + " (build " + System.getProperty("java.runtime.version") + ")\n" +
                     System.getProperty("java.vm.name") +
@@ -371,9 +372,6 @@ public class GaianNode {
 
     //	private Object initLock = null;
     private static GaianNode gdbNodeSingleton = null;
-    /**
-     * @author Reza Moosaei 14.03.23 14:30
-     */
     public static String SOLID_CONFIG_FILE_NAME = "gaiandb_config.properties";
 
     public void start(final String[] args) throws Exception {
@@ -381,6 +379,7 @@ public class GaianNode {
         if (args.length >= 3) {
             SOLID_CONFIG_FILE_NAME = args[3];
         }
+        //Modified By Reza Moosaei
         Configuration.config(SOLID_CONFIG_FILE_NAME);
 
         gdbNodeSingleton = this;

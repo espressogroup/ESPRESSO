@@ -1,7 +1,11 @@
 HELP.md
 .gradle
-build/
-/bin/**
+scratchdir/*
+/bin/com
+/bin/Asset
+/build/GAIANDB_V2*.zip
+/build/rawJars
+/build/GAIANDB_latest
 classes
 bin
 **.log

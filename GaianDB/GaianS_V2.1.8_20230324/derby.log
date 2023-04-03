@@ -1,0 +1,58 @@
+----------------------------------------------------------------
+Sat Mar 25 17:13:13 GMT 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.1 - (1643489): instance a816c00e-0187-19c2-8e39-00000000002e 
+on database directory /home/rm1d22/Desktop/BuildGaian/GaianS_V2.1.8_20230324/gaiandb with class loader sun.misc.Launcher$AppClassLoader@3764951d 
+Loaded from file:/home/rm1d22/Desktop/BuildGaian/GaianS_V2.1.8_20230324/lib/derby.jar
+java.vendor=Red Hat, Inc.
+java.runtime.version=1.8.0_362-b09
+user.dir=/home/rm1d22/Desktop/BuildGaian/GaianS_V2.1.8_20230324
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-425.13.1.el8_7.x86_64
+derby.system.home=.
+Database Class Loader started - derby.database.classpath=''
+Sat Mar 25 17:13:14 GMT 2023 : Apache Derby Network Server - 10.10.2.1 - (1643489) started and ready to accept connections on port 6414
+Sat Mar 25 17:13:20 GMT 2023 : Log Connections turned on.
+Sat Mar 25 17:13:20 GMT 2023 : Connection number: 7.
+Sat Mar 25 17:13:20 GMT 2023 : Max threads changed to 1000.
+Sat Mar 25 17:13:20 GMT 2023 : Connection number: 8.
+Sat Mar 25 17:13:44 GMT 2023 : Connection number: 9.
+Sat Mar 25 17:13:44 GMT 2023 Thread[DRDAConnThread_2,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {9}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 17:13:44 GMT 2023 : Connection number: 10.
+Sat Mar 25 17:13:44 GMT 2023 Thread[DRDAConnThread_3,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {10}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 17:14:15 GMT 2023 : Connection number: 11.
+Sat Mar 25 17:14:15 GMT 2023 Thread[DRDAConnThread_4,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {11}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 17:14:15 GMT 2023 : Connection number: 12.
+Sat Mar 25 17:14:15 GMT 2023 Thread[DRDAConnThread_5,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {12}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 17:15:18 GMT 2023 : Connection number: 13.
+Sat Mar 25 17:15:18 GMT 2023 Thread[DRDAConnThread_6,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {13}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 17:15:18 GMT 2023 : Connection number: 14.
+Sat Mar 25 17:15:18 GMT 2023 Thread[DRDAConnThread_7,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {14}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 17:26:14 GMT 2023 : Connection number: 15.
+Sat Mar 25 17:26:14 GMT 2023 Thread[DRDAConnThread_6,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {15}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 17:27:06 GMT 2023 : Connection number: 16.
+Sat Mar 25 17:27:06 GMT 2023 Thread[DRDAConnThread_7,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {16}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 17:28:59 GMT 2023 : Connection number: 17.
+Sat Mar 25 17:28:59 GMT 2023 Thread[DRDAConnThread_8,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {17}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 17:29:50 GMT 2023 : Connection number: 18.
+Sat Mar 25 17:29:50 GMT 2023 Thread[DRDAConnThread_8,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {18}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 17:29:56 GMT 2023 : Connection number: 19.
+Sat Mar 25 17:29:56 GMT 2023 Thread[DRDAConnThread_9,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {19}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 17:35:26 GMT 2023 : Connection number: 20.
+Sat Mar 25 17:35:26 GMT 2023 Thread[DRDAConnThread_9,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {20}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 17:36:16 GMT 2023 : Connection number: 21.
+Sat Mar 25 17:36:16 GMT 2023 Thread[DRDAConnThread_8,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {21}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 18:02:16 GMT 2023 : Connection number: 22.
+Sat Mar 25 18:02:16 GMT 2023 Thread[DRDAConnThread_8,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {22}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 18:02:26 GMT 2023 : Connection number: 23.
+Sat Mar 25 18:02:26 GMT 2023 Thread[DRDAConnThread_9,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {23}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 18:07:30 GMT 2023 : Connection number: 24.
+Sat Mar 25 18:07:30 GMT 2023 Thread[DRDAConnThread_9,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {24}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 18:07:37 GMT 2023 : Connection number: 25.
+Sat Mar 25 18:07:37 GMT 2023 Thread[DRDAConnThread_8,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {25}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 18:09:09 GMT 2023 : Connection number: 26.
+Sat Mar 25 18:09:09 GMT 2023 Thread[DRDAConnThread_8,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {26}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 18:12:32 GMT 2023 : Connection number: 27.
+Sat Mar 25 18:12:32 GMT 2023 Thread[DRDAConnThread_9,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {27}), Apache Derby Network Server connected to database gaiandb;create=true
+Sat Mar 25 18:12:40 GMT 2023 : Connection number: 28.
+Sat Mar 25 18:12:40 GMT 2023 Thread[DRDAConnThread_8,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {28}), Apache Derby Network Server connected to database gaiandb;create=true

@@ -7,14 +7,12 @@
 
 package com.ibm.db2j;
 
-import java.io.File;
-import java.sql.ParameterMetaData;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Map;
-
+import com.ibm.db2j.tools.ImportExportSQLException;
+import com.ibm.gaiandb.*;
+import com.ibm.gaiandb.diags.GDBMessages;
+import com.ibm.gaiandb.lite.LiteParameterMetaData;
+import com.ibm.solid.SolidServiceCall;
+import com.ibm.solid.SqlParser;
 import org.apache.derby.iapi.error.StandardException;
 import org.apache.derby.iapi.store.access.Qualifier;
 import org.apache.derby.iapi.types.DataValueDescriptor;
@@ -23,16 +21,16 @@ import org.apache.derby.vti.IFastPath;
 import org.apache.derby.vti.VTIEnvironment;
 import org.apache.derby.vti.VTIMetaDataTemplate;
 
-import com.ibm.db2j.tools.ImportExportSQLException;
-import com.ibm.gaiandb.GaianChildVTI;
-import com.ibm.gaiandb.GaianDBConfig;
-import com.ibm.gaiandb.GaianNode;
-import com.ibm.gaiandb.GaianResultSetMetaData;
-import com.ibm.gaiandb.Logger;
-import com.ibm.gaiandb.RowsFilter;
-import com.ibm.gaiandb.Util;
-import com.ibm.gaiandb.diags.GDBMessages;
-import com.ibm.gaiandb.lite.LiteParameterMetaData;
+import java.io.File;
+import java.sql.ParameterMetaData;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author DavidVyvyan
@@ -41,11 +39,11 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 
 //	Use PROPRIETARY notice if class contains a main() method, otherwise use COPYRIGHT notice.
 	public static final String COPYRIGHT_NOTICE = "(c) Copyright IBM Corp. 2008";
-	
+
 	private static final Logger logger = new Logger( "FileImport", 30 );
 
     private final String filePath;
-    
+
 	// Count of all columns in the File
 	private int columnCount = 0;
 
@@ -53,10 +51,10 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
     private DataValueDescriptor[] dvdRowTemplateForFile = null;
 
     private String[] blankRowOfStrings = {null};
-    
+
     private int[] projectedColumns = null;
     private Qualifier[][] qualifiers = null;
-    
+
 //    private static String getFile( String s ) throws IOException {
 //    	InputStream is = null;
 //    	String ucs = s.toUpperCase();
@@ -77,18 +75,18 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 //    	}
 //    	return s;
 //    }
-	
+
 	private static final Map<String, String> controlFiles = new Hashtable<String, String>();
     private static final String EXTN_PROPERTIES = ".properties";
     private static final String FILE_IMPORT_DEFAULT_PROPERTIES = "FileImportDefaults" + EXTN_PROPERTIES;
     private static final String FILE_IMPORT_CONTROLS_DIR = "FileImportControls" + File.separatorChar;
-    
+
     /**
-     * The "control file" is used by the Derby FileImport class, and contains properties that describe the structure of the File to be processed. 
-     * The resolution of the location of a control file is best described with an example: 
-     * Assuming a workspace path for the GaianDB node at '/node-workspace', the control file for a data file '/a/b/file.dat' will be searched for and 
+     * The "control file" is used by the Derby FileImport class, and contains properties that describe the structure of the File to be processed.
+     * The resolution of the location of a control file is best described with an example:
+     * Assuming a workspace path for the GaianDB node at '/node-workspace', the control file for a data file '/a/b/file.dat' will be searched for and
      * resolved in this order of precedence:
-     * 
+     *
      * 		1) /a/b/file.dat.properties
      * 		2) /a/b/FileImportDefaults.properties
      * 		3) /node-workspace/FileImportControls/a/b/file.dat.properties
@@ -97,39 +95,39 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
      * 		6) /node-workspace/FileImportControls/b/FileImportDefaults.properties
      * 		7) /node-workspace/FileImportControls/file.dat.properties
      * 		8) /node-workspace/FileImportControls/FileImportDefaults.properties
-     * 
+     *
      * If no control file is resolved using this process, the default CSV format is assumed.
-     * 
+     *
      * @param s The path to the data file.
      * @return The path to the control file for the given data file.
      */
     public static String getControlFile( String datafilePath ) {
     	String controlfilePath = null, gdbCtrlDir = null;
-    	
+
 //    	System.out.println("ctrl file exists: " + s + ".properties: " + new File(s+".properties").exists()); 
 //    	System.out.println("Default line separator: " + System.getProperty("line.separator"));
 //    	System.out.println("Default codeset: " + (new InputStreamReader(System.in)).getEncoding());
 //    	String ucs = s.toUpperCase();
 //    	if ( ucs.endsWith(".ZIP") || ucs.endsWith(".GZIP") ) s = s.substring(0, s.lastIndexOf('.'));
-    	
+
     	// NOTE : By convention, all variable names here ending in 'Dir' designate directory names INCLUDING a folder separator ('/' or '\') at the end.
-    	
+
     	File datafile = new File(datafilePath);
     	String datafileDir = datafile.getParent() + File.separatorChar;
     	String datafileName = datafile.getName();
-    	
+
     	for ( String candidate : new String[] { datafilePath+EXTN_PROPERTIES, datafileDir + FILE_IMPORT_DEFAULT_PROPERTIES } )
     		if ( new File(candidate).exists() ) { controlfilePath = candidate; break; }
-    	
+
     	if ( null == controlfilePath ) {
 			try { gdbCtrlDir = GaianNode.getWorkspaceDir(); }
 			catch (Exception e) { logger.logInfo("getControlFile("+datafilePath+") unable to resolve install path: " + e); }
-			
+
 			logger.logDetail("Workspace path: " + gdbCtrlDir);
 			if ( null != gdbCtrlDir ) {
-				
+
 				gdbCtrlDir += File.separatorChar + FILE_IMPORT_CONTROLS_DIR;
-				
+
 				int idx;
 				String relativeDir = datafileDir;
 				if ( Util.isWindowsOS && -1 != (idx = relativeDir.indexOf(':')) ) relativeDir = relativeDir.substring(idx+1);
@@ -156,25 +154,25 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 				+ datafilePath + " (defaulting to csv format) - i.e. Couldn't resolve '"
 				+ datafileName + ".properties' or 'FileImportDefaults.properties' at data file location or at workspace locations under: "
 				+ gdbCtrlDir );
-    	
+
     	return controlfilePath;
     }
-    
+
 	public GaianResultSetMetaData getMetaData() {
 		try { return new GaianResultSetMetaData( fileImportMetaData, null ); }
 		catch (Exception e) { e.printStackTrace(); }
 		return null;
 	}
-    
+
 	private final ResultSetMetaData fileImportMetaData;
-	
+
 	private class FileImportMedataData extends VTIMetaDataTemplate {
 
 		private static final int DEFAULT_COLUMN_WIDTH = 255;
-		
+
 		private final ResultSetMetaData md;
 		private FileImportMedataData( ResultSetMetaData rsmd ) { md = rsmd; }
-		
+
 	    public int getColumnCount() throws SQLException { return md.getColumnCount(); }
 	    public String getColumnName(int i) throws SQLException { return md.getColumnName(i); }
 	    public int getColumnType(int i) throws SQLException { return md.getColumnType(i); }
@@ -196,45 +194,105 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 			return null;
 		}
 	}
-	
+
     private final FileImportDerby fileImport;
-    
+
     private class FileImportDerby extends com.ibm.db2j.tools.FileImport {
     	public FileImportDerby(String filePath, String controlFilePath) throws Exception { super(filePath, controlFilePath); }
     	public String[] getFetchedRow() { return nextRow; }
     }
-    
+
 	/**
 	 * This is the entry point for the VTI.
-	 * 
+	 *
 	 * @param s The file path
 	 * @throws Exception
 	 */
+	public FileImport(String s, String sqlQuery) throws Exception {
+		this(s);
+        //Reza Moosaei
+        try {
+            String originalSqlQuery = sqlQuery;
+            if (hasGaianTable(sqlQuery)) {
+                Map<String, String> sqlData = parseGaianTableQuery(sqlQuery);
+                String tableName = sqlData.get("tableName");
+                String whereClause = sqlData.get("whereClause");
+                originalSqlQuery = String.format("select * from %s where %s",tableName,whereClause);
+            }
+            Map<String, String> sqlResult = new SqlParser().getCondition(originalSqlQuery);
+            if ("LTSOLID".equals(sqlResult.get("tableName"))
+                    || "ltsolid".equals(sqlResult.get("tableName")))
+                new SolidServiceCall().filterData(sqlResult.get("rightExpression"));
+        } catch (Exception ex) {
+            logger.logException("", "Solid service call has been failed", ex);
+            //throw new SQLException(ex);
+        }
+	}
+
+	//Reza Moosaei
+	public static Map<String,String> parseGaianTableQuery(String queryString) {
+		Map<String,String> result = new HashMap<>();
+		// Extract LTSOLID from the query string
+		Pattern pattern = Pattern.compile("'(\\w+)'\\s*,\\s*'queryPath");
+		Matcher matcher = pattern.matcher(queryString);
+		if (matcher.find()) {
+			String tableName = matcher.group(1);
+			result.put("tableName",tableName);
+			System.out.println("LTSOLID: " + tableName);
+		}
+
+		// Extract WHERE clause from the query string
+		pattern = Pattern.compile("WHERE\\s*\\((.*)\\)");
+		matcher = pattern.matcher(queryString);
+		if (matcher.find()) {
+			String whereClause = matcher.group(1);
+			result.put("whereClause",whereClause);
+			System.out.println("WHERE: " + whereClause);
+
+		}
+		return result;
+	}
+
+	public static boolean hasGaianTable(String input) {
+		return input.contains("com.ibm.db2j.GaianTable(");
+	}
+
+	public static void main(String[] args) {
+		String queryString = "select TERM, ADDRESS from NEW com.ibm.db2j.GaianTable('LTSOLID', 'queryPath=srv03815', 'TERM VARCHAR(255), ADDRESS VARCHAR(255)', 'srv03815') GQ WHERE (term = 'Latte') AND GDB_QRYID=? AND GDB_QRYSTEPS=?";
+
+		if (hasGaianTable(queryString)) {
+			Map<String, String> sqlData = parseGaianTableQuery(queryString);
+			String tableName = sqlData.get("tableName");
+			String whereClause = sqlData.get("whereClause");
+			System.out.println( String.format("select * from %s where %s",tableName,whereClause));
+		}
+	}
+
 	public FileImport(String s) throws Exception {
 		s = GaianDBConfig.resolvePathTags(s);
 		fileImport = new FileImportDerby( s, getControlFile(s) );
 //		super(/*getFile(s)*/ s, getControlFile(s));
-		
+
 		fileImportMetaData = new FileImportMedataData( fileImport.getMetaData() );
-		
+
 //		System.out.println("CFR: cdef " + getControlFileReader().getColumnDefinition() + ", format " + getControlFileReader().getFormat());
-		
+
 		filePath = s;
 		columnCount = getMetaData().getColumnCount();
-		
+
 		projectedColumns = new int[ columnCount ];
 		for ( int i=0; i<columnCount; i++ ) projectedColumns[i] = i+1; // 1-based
-		
+
     	dvdRowTemplateForFile = new DataValueDescriptor[ columnCount ];
 		for ( int i=0; i<columnCount; i++ ) dvdRowTemplateForFile[i] = new SQLChar();
 	}
-    
+
 	@Override public boolean pushProjection(VTIEnvironment arg0, int[] arg1) throws SQLException {
 		logger.logThreadDetail("Entered FileImport.pushProjection(), projection: " + Util.intArrayAsString(arg1));
 		if ( null != arg1) projectedColumns = arg1;
 		return true;
 	}
-	
+
 	@Override public void setQualifiers(VTIEnvironment vtie, Qualifier[][] qual) throws SQLException {
 		logger.logThreadDetail("Entered FileImport.setQualifiers(), qualifiers: " + RowsFilter.reconstructSQLWhereClause(qual));
 		qualifiers = qual;
@@ -244,16 +302,16 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 		reinitialise(); // necessary if this FileImport is not a data source of Gaian... (Gaian would explicitly invoke it when recycling the source)
 		return true; // nothing else to execute
 	}
-	
+
     /**
      * Overrides IFastPath.nextRow() - Derby API method used when this VTI is referenced directly in SQL, or invoked by AbstractVTI.
      * NOTE: Column indexes in the row[] are relative to the physical source, i.e. the File's columns (i.e NOT a logical table set of columns)
      */
     @Override public int nextRow( final DataValueDescriptor[] vtiRow ) throws SQLException {
-    	
+
     	// 'vtiRow' contains DataValueDescriptor col type classes for the queried columns.
     	// The nextRow String types from the file will get converted into the row types using these Derby DataValueDescriptor type classes.
-    	
+
     	//repeat until we get a non blank line that matches the qualifier conditions
     	do {
 	    	// System.out.println("ImportAbstract.next()...");
@@ -303,28 +361,28 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 	    	}
     	} while (Arrays.equals(currentRowOfStringsFromFile,blankRowOfStrings)|| //The line is blank, get the next one
     			(null != qualifiers && false == RowsFilter.testQualifiers( vtiRow, qualifiers )) );//The line doesn't match qualifier conditions, get the next one
-    	
+
     	return IFastPath.GOT_ROW;
 	}
-	
+
 	public int getRowCount() throws Exception {
-		
+
 		// Note row count cannot be cached because file may change between invocations.
-		
+
 		// Use a row of String DVDs to hold the file's col values which will be tested
-		// against qualifiers - note that String has lowest precedence, so the types of the constant 
+		// against qualifiers - note that String has lowest precedence, so the types of the constant
 		// values against which the strings are compared will always take precedence, meaning the strings
 		// will be converted to whichever types the constants are when they are compared.
-		
+
 		fileImport.close();
 		int i = 0;
 		while ( fetchNextRow(dvdRowTemplateForFile) ) i++;
-		
+
 		// don't close() now - as we need any other calls to nextRow() to return SCAN_COMPLETED (e.g. in explain queries)
-		
+
 		return i;
 	}
-	
+
 	public boolean reinitialise() throws SQLException {
 		// Just need to cleanup the underlying FileImport object.
 		fileImport.close();
@@ -332,17 +390,17 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 //		logger.logInfo("REINITIALISED " + this);
 		return true;
 	}
-	
+
 	public void close() throws SQLException { reinitialise(); }
-	
+
 	public boolean isBeforeFirst() { return null == currentRowOfStringsFromFile; }
 	public boolean isScrollable() { return false; }
-	
+
 	// This method is called by the udp driver when in LITE mode
 	public ParameterMetaData getParameterMetaData() throws SQLException {
 		return !GaianNode.IS_UDP_DRIVER_EXCLUDED_FROM_RELEASE && GaianNode.isLite() ? new LiteParameterMetaData() : null;
 	}
-	
+
 	@Override public double getEstimatedCostPerInstantiation(VTIEnvironment arg0) throws SQLException { return 0; }
 	@Override public double getEstimatedRowCount(VTIEnvironment arg0) throws SQLException { return 0; }
 	@Override public boolean supportsMultipleInstantiations(VTIEnvironment arg0) throws SQLException { return false; }

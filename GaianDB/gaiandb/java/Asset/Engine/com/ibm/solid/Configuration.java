@@ -1,13 +1,12 @@
 package com.ibm.solid;
 
 /**
- * @author Reza Moosaei 14.03.23
+ * @author Reza Moosa
  */
 public class Configuration {
     public static void config(String fileName) {
 
         String logicalTableName = "SOLID";
-
         PropertiesManagement.getInstance(fileName).addProperty(
                 "LT" + logicalTableName + "_DS0_ARGS",
                 "<GAIAN_WORKSPACE>/csvtestfiles/solid.csv");

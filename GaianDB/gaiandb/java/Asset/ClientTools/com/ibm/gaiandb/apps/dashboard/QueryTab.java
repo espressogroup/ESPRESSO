@@ -7,58 +7,23 @@
 
 package com.ibm.gaiandb.apps.dashboard;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Desktop;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.lang.management.ManagementFactory;
-import java.net.URI;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
-import java.util.Vector;
-import java.util.regex.Pattern;
-
-import javax.swing.AbstractCellEditor;
-import javax.swing.BorderFactory;
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JSplitPane;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellEditor;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
-
 import com.ibm.db2j.GaianTable;
 import com.ibm.gaiandb.Logger;
 import com.ibm.gaiandb.apps.SecurityClientAgent;
 import com.ibm.gaiandb.diags.GDBMessages;
+
+import javax.swing.*;
+import javax.swing.table.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.lang.management.ManagementFactory;
+import java.net.URI;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.*;
+import java.util.regex.Pattern;
 
 public class QueryTab extends Tab {
 
@@ -103,7 +68,8 @@ public class QueryTab extends Tab {
 			"select * from LT0                      -- Query sample logical table LT0",
 			"select * from LT0_P                  -- Query sample logical table LT0 with provenance",
 			"select * from LT0_0                  -- Query LT0 at depth 0, i.e. federating local data sources only",
-			"call listnodes()                           -- List GaianDB nodes in network",	
+			"select * from LTSOLID where term = 'Latte' -- Query LTSOLID",
+			"call listnodes()                           -- List GaianDB nodes in network",
 			"call listrdbc()                             -- List JDBC Connections", //. Specify '*' for all nodes or null for local config only",
 			"call listlts()                                 -- List Logical Tables", //. Specify '*' for all nodes or null for local config only",
 			"call listltmatches()                     -- List logical table definition matches",

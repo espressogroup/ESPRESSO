@@ -7,7 +7,7 @@ import java.util.Properties;
 import java.util.Set;
 
 /**
- * @author Reza Moosaei 14.03.23
+ * @author Reza Moosa
  */
 public class PropertiesManagement {
     private static PropertiesManagement propertiesManagement;

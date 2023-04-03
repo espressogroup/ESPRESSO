@@ -15,8 +15,6 @@ import com.ibm.gaiandb.policyframework.SQLQueryElements;
 import com.ibm.gaiandb.policyframework.SQLQueryFilter;
 import com.ibm.gaiandb.policyframework.SQLResultFilter;
 import com.ibm.gaiandb.policyframework.SQLResultFilterX;
-import com.ibm.solid.SolidServiceCall;
-import com.ibm.solid.SqlParser;
 import org.apache.derby.iapi.error.StandardException;
 import org.apache.derby.iapi.services.context.ContextManager;
 import org.apache.derby.iapi.sql.conn.LanguageConnectionContext;
@@ -122,6 +120,7 @@ public class GaianTable extends AbstractVTI implements VTICosting, IQualifyable,
 	// Keys that may be used in VTI table arguments
 	public static final String QRY_TIMEOUT = "timeout"; // seconds
 	public static final String QRY_HASH = "queryHash"; // original query hash code
+	public static final String ORIGINAL_QUERY = "originalQuery"; // original query
 	public static final String QRY_WID = "wid"; // workload id
 	public static final String QRY_MAX_SOURCE_ROWS = "maxSourceRows";
 	public static final String QRY_PATH = "queryPath";
@@ -167,6 +166,15 @@ public class GaianTable extends AbstractVTI implements VTICosting, IQualifyable,
 	private String tableAlias = "GQ";
 
 	private String originalSQL = null;
+
+	public String getOriginalSQL() {
+		return originalSQL;
+	}
+
+	public void setOriginalSQL(String originalSQL) {
+		this.originalSQL = originalSQL;
+	}
+
 	private String queryID = null;
 	private int queryPropagationCount = -1;
 	private String credentialsStringBlock = null;
@@ -408,7 +416,7 @@ public class GaianTable extends AbstractVTI implements VTICosting, IQualifyable,
 
 		this.forwardingNode = null == forwardingNode || 1 > forwardingNode.trim().length() ? null : forwardingNode.trim();
 		isPropagatedQuery = null != forwardingNode;
-
+		String sqlQuery = originalSQL;
     	// Check access restrictions based on forwardingNode
     	checkAccessRestrictions();
 
@@ -1806,17 +1814,15 @@ public class GaianTable extends AbstractVTI implements VTICosting, IQualifyable,
 
 		// Use this "official" value if it was not derived via Table Function invocation
 		if ( null == originalSQL ) originalSQL = vtiEnvironment.getOriginalSQL().trim();
-		/**
-		 * @author Reza Moosaei 14.03.23 12:15
-		 */
-		try {
+		//Modified by Reza Moosaei
+		/*try {
 			Map<String, String> result = new SqlParser().getCondition(originalSQL);
 			if ("LTSOLID".equals(result.get("tableName"))
 					|| "ltsolid".equals(result.get("tableName")))
 				new SolidServiceCall().filterData(result.get("rightExpression"));
 		} catch (Exception ex) {
 			//throw new SQLException(ex);
-		}
+		}*/
     	// Detect if this query is potentially against the INNER table of a JOIN - by looking at the stack trace...
 
 		// USEFUL HACK: Use call stack information to determine if Derby is calling us in the context of a JOIN
@@ -1959,6 +1965,8 @@ public class GaianTable extends AbstractVTI implements VTICosting, IQualifyable,
     		// No need for anything more complex than hashCode(). The only important thing is no ensure the query cannot be deduced from it
     		// i.e. this is overkill -> Util.byteArray2HexString(SecurityManager.getChecksumSHA1(originalSQL.getBytes()), false)
     		queryDetails.put( QRY_HASH, Integer.toHexString(originalSQL.hashCode()).toUpperCase() );
+		//Reza Moosaei
+    		queryDetails.put( ORIGINAL_QUERY, originalSQL);
 	}
 
     public static final String GDB_TIMEOUT = "GDB_TIMEOUT";
