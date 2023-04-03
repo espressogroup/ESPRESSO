@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Maven: org.thymeleaf.extras:thymeleaf-extras-springsecurity3:Release" type="repository">
+    <properties maven-id="org.thymeleaf.extras:thymeleaf-extras-springsecurity3:RELEASE" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity3/3.0.5.RELEASE/thymeleaf-extras-springsecurity3-3.0.5.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

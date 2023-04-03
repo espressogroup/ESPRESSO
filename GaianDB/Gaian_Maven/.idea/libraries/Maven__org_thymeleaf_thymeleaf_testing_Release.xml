@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="Maven: org.thymeleaf:thymeleaf-testing:Release" type="repository">
+    <properties maven-id="org.thymeleaf:thymeleaf-testing:RELEASE" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/thymeleaf-testing/3.1.0.M2/thymeleaf-testing-3.1.0.M2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/thymeleaf/3.1.0.M2/thymeleaf-3.1.0.M2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/attoparser/attoparser/2.0.5.RELEASE/attoparser-2.0.5.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/ognl/ognl/3.2.21/ognl-3.2.21.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/javassist/javassist/3.24.1-GA/javassist-3.24.1-GA.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/mockito/mockito-core/4.4.0/mockito-core-4.4.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.12.8/byte-buddy-1.12.8.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy-agent/1.12.8/byte-buddy-agent-1.12.8.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/objenesis/objenesis/3.2/objenesis-3.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,38 @@
+<component name="libraryTable">
+  <library name="Spring Integration-5.2.3.RELEASE" type="spring-integration">
+    <properties version="5.2.3.RELEASE" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-groovy/5.2.3.RELEASE/spring-integration-groovy-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-jms/5.2.3.RELEASE/spring-integration-jms-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-event/5.2.3.RELEASE/spring-integration-event-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-feed/5.2.3.RELEASE/spring-integration-feed-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-gemfire/5.2.3.RELEASE/spring-integration-gemfire-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-amqp/5.2.3.RELEASE/spring-integration-amqp-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-jmx/5.2.3.RELEASE/spring-integration-jmx-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-jpa/5.2.3.RELEASE/spring-integration-jpa-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-mongodb/5.2.3.RELEASE/spring-integration-mongodb-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-mqtt/5.2.3.RELEASE/spring-integration-mqtt-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-rmi/5.2.3.RELEASE/spring-integration-rmi-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-redis/5.2.3.RELEASE/spring-integration-redis-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-security/5.2.3.RELEASE/spring-integration-security-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-scripting/5.2.3.RELEASE/spring-integration-scripting-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-file/5.2.3.RELEASE/spring-integration-file-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-sftp/5.2.3.RELEASE/spring-integration-sftp-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-ftp/5.2.3.RELEASE/spring-integration-ftp-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-jdbc/5.2.3.RELEASE/spring-integration-jdbc-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-http/5.2.3.RELEASE/spring-integration-http-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-stream/5.2.3.RELEASE/spring-integration-stream-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-syslog/5.2.3.RELEASE/spring-integration-syslog-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-ip/5.2.3.RELEASE/spring-integration-ip-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-test/5.2.3.RELEASE/spring-integration-test-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-mail/5.2.3.RELEASE/spring-integration-mail-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-xmpp/5.2.3.RELEASE/spring-integration-xmpp-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-xml/5.2.3.RELEASE/spring-integration-xml-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-twitter/5.0.9.RELEASE/spring-integration-twitter-5.0.9.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-ws/5.2.3.RELEASE/spring-integration-ws-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-integration-core/5.2.3.RELEASE/spring-integration-core-5.2.3.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

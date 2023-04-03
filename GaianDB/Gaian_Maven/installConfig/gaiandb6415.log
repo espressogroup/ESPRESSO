@@ -1,0 +1,351 @@
+2023-03-21 15:50:21.481~405874834 GaianNode -------------> isInitDataUpToDate = true = GAIANDB_JAR_MD5 Unknown = gdbJarMD5_previous Unknown && gdbDbTimestampAtStartup 1679412721184 > gdbJarFile.lastModified() 1679409743743
+java version "1.8.0_312"
+OpenJDK Runtime Environment (build 1.8.0_312-b07)
+OpenJDK 64-Bit Server VM (build 25.312-b07, mixed mode)
+
+GaianDB V2.1.8 - JAR sizes: [128, 128], timestamps: [2023/03/21-14:42:23, 2023/03/21-14:42:23]
+
+Features Summary: Federated access to JDBC RDBMS tables and CSV Flat files using a logical table abstraction layer;
+A stored procedures management API, e.g. to set and view all logical tables and data sources in the network;
+SQL Prepared Statement caching; Connection Pooling; Buffered and batched multi-threaded record fetching;
+Explain queries to show a query's route and row counts on node; Constant Column definitions for contextual annotations of logical tables;
+Discovery of other Gaian Nodes when 'MIN_DISCOVERED_CONNECTIONS' is set, with preferential attachment to highly connected nodes;
+Autonomic maintenance of 2-way connections, or re-discovery initiation upon loss of connections;
+Automated dynamic management of SQL VIEWS for logical tables and their derivative definitions containing provenance columns or explain columns;
+A Policy plugin interface to manipulate the incoming SQL queries or filter returned records;
+Flexible GaianDB node discovery using config variable 'DISCOVERY_IP' to specify a broadcast mask or multicast group address;
+New configuration parameters defining permitted hosts, denied hosts and cluster IDs to restrict connectivity between nodes;
+Connectivity resilience to variable network latency using property 'GAIAN_CONNECTIONS_CHECKER_HEARTBEAT_MS';
+MQTT listener & Message Storer; Command line processor; Logging levels; In Memory Tables and Indexing;
+Ability to also access an Omnifind text index using com.ibm.db2j.ICAREST('<search_string>');
+Excel Spreadsheet Data Source Type; 'Pass-through' SQL capability for insert/update/delete/call; Discovery Gateways for discovery across networks;
+Advanced API calls: listnodes(), listflood(), addgateway();
+Access control to allow/disallow SQL API configuration and propagated writes;
+Basic security: User authentication and low-level automatic scrambling of passwords in the config file;
+Detection and cancellation of hanging queries (not mistaken for long-running queries);
+Pass-through sub-queries using 'GaianQuery': define exposed data sources on each node which the query will be executed against;
+Performance metrics; Provenance columns: GAIAN_NODE, GAIAN_LEAF (queryable using option: 'with_provenance')
+
+PROCESS ID:		18232
+
+NODE ID:		RagabsMacBookProlocal:6415
+
+WORKING DIRECTORY:	/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig
+BYTECODE PATH:		/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes
+WORKSPACE:		/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig
+
+PHYSICAL DATABASE:	/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig/gaiandb6415
+LOG FILE:		/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig/gaiandb6415.log
+CONFIG FILE:		/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig/gaiandb_config2.properties
+
+DERBY SERVER PORT:	6415
+PROVENANCE HOST(S):	0.0.0.0
+
+Network Interfaces: 
+utun5: utun5 /fe80:0:0:0:31b5:9747:76b2:365f%utun5, Address: /fe80:0:0:0:31b5:9747:76b2:365f%utun5 -> Broadcast: null
+utun4: utun4 /fe80:0:0:0:6f70:c9a0:1828:ead2%utun4, Address: /fe80:0:0:0:6f70:c9a0:1828:ead2%utun4 -> Broadcast: null
+utun2: utun2 /fe80:0:0:0:ce81:b1c:bd2c:69e%utun2, Address: /fe80:0:0:0:ce81:b1c:bd2c:69e%utun2 -> Broadcast: null
+utun1: utun1 /fe80:0:0:0:2820:511d:8992:8d51%utun1, Address: /fe80:0:0:0:2820:511d:8992:8d51%utun1 -> Broadcast: null
+utun0: utun0 /fe80:0:0:0:b92d:a89c:fe31:9142%utun0, Address: /fe80:0:0:0:b92d:a89c:fe31:9142%utun0 -> Broadcast: null
+llw0: llw0 /fe80:0:0:0:bc96:f2ff:fe4b:9d3f%llw0, Address: /fe80:0:0:0:bc96:f2ff:fe4b:9d3f%llw0 -> Broadcast: null
+awdl0: awdl0 /fe80:0:0:0:bc96:f2ff:fe4b:9d3f%awdl0, Address: /fe80:0:0:0:bc96:f2ff:fe4b:9d3f%awdl0 -> Broadcast: null
+anpi0: anpi0 /fe80:0:0:0:34aa:e9ff:fe78:b610%anpi0, Address: /fe80:0:0:0:34aa:e9ff:fe78:b610%anpi0 -> Broadcast: null
+anpi1: anpi1 /fe80:0:0:0:34aa:e9ff:fe78:b611%anpi1, Address: /fe80:0:0:0:34aa:e9ff:fe78:b611%anpi1 -> Broadcast: null
+anpi2: anpi2 /fe80:0:0:0:34aa:e9ff:fe78:b612%anpi2, Address: /fe80:0:0:0:34aa:e9ff:fe78:b612%anpi2 -> Broadcast: null
+utun3: utun3 /10.64.16.27, Address: /10.64.16.27 -> Broadcast: null
+en0: en0 /2001:630:d0:8e06:d45b:9735:11ae:b83%en0, /2001:630:d0:8e06:a435:455:4b63:8927%en0, /2001:630:d0:8e06:146c:fe4:7ec8:a23a%en0, /fe80:0:0:0:1473:6ade:da32:567c%en0, /10.9.153.10, Address: /2001:630:d0:8e06:d45b:9735:11ae:b83%en0 -> Broadcast: null, Address: /2001:630:d0:8e06:a435:455:4b63:8927%en0 -> Broadcast: null, Address: /2001:630:d0:8e06:146c:fe4:7ec8:a23a%en0 -> Broadcast: null, Address: /fe80:0:0:0:1473:6ade:da32:567c%en0 -> Broadcast: null, Address: /10.9.153.10 -> Broadcast: /10.9.155.255
+lo0: lo0 /fe80:0:0:0:0:0:0:1%lo0, /0:0:0:0:0:0:0:1%lo0, /127.0.0.1, Address: /fe80:0:0:0:0:0:0:1%lo0 -> Broadcast: null, Address: /0:0:0:0:0:0:0:1%lo0 -> Broadcast: null, Address: /127.0.0.1 -> Broadcast: null
+
+Hostname: Ragabs-MacBook-Pro.local
+Java localhost ip: 127.0.0.1
+Local address designating initial default interface for multicast: 10.64.16.27
+
+
+2023-03-21 15:50:21.491~416777875 GaianNode -------------> Initialising GaianNode...
+2023-03-21 15:50:21.492~416848375 GaianNode -------------> GAIANDB.jar library has not been changed (and db folder is more recent), so initialisation data (e.g. stored procs/funcs) is expected to be already loaded
+2023-03-21 15:50:21.492~416901500 GaianNode -------------> Node details: RagabsMacBookProlocal:6415 gaiandb <password>
+2023-03-21 15:50:21.492~416979084 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
+2023-03-21 15:50:21.492~417016000 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = 255.255.255.255
+2023-03-21 15:50:21.492~417051209 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
+2023-03-21 15:50:21.492~417083500 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
+2023-03-21 15:50:21.492~417113625 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
+2023-03-21 15:50:21.492~417147584 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
+2023-03-21 15:50:21.492~417191542 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
+2023-03-21 15:50:21.492~417243625 GaianNode -------------> Log level set to: LESS
+2023-03-21 15:50:21.503~428289875 DataSourcesManager ---------> ******* Re-loading Logical Table: GDB_LTNULL
+2023-03-21 15:50:21.562~486866625 DataSourcesManager ---------> ******* Re-loading Logical Table: LT0
+2023-03-21 15:50:21.616~541659042 DataSourcesManager ---------> ******* Re-loading Logical Table: GDB_LTLOG
+2023-03-21 15:50:21.629~554332875 DataSourcesManager ---------> ******* Re-loading Logical Table: DERBY_TABLES
+2023-03-21 15:50:21.791~716805000 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6415
+
+2023-03-21 15:50:22.010~935700417 DatabaseConnector ---------------> ******* Connector 1 from INIT: Obtained JDBC Connection org.apache.derby.impl.jdbc.EmbedConnection40@844293346 (XID = 1025), (SESSIONID = 3), (DATABASE = gaiandb6415), (DRDAID = null)  in 219 ms for: jdbc:derby:gaiandb6415;create=true, Pool size: 1
+Tue Mar 21 15:50:22 GMT 2023 : Apache Derby Network Server - 10.10.2.1 - (1643489) started and ready to accept connections on port 6415
+Tue Mar 21 15:50:22 GMT 2023 : Could not connect to Derby Network Server on host 0.0.0.0, port 6415: Connection refused (Connection refused)
+2023-03-21 15:50:22.320~245510959 GaianNode -------------> 
+Derby Version: CSS10100/10.10.2.1 - (1643489)  - Java Version: 1.8.0_312 (OpenJDK 64-Bit Server VM)
+
+GaianNode started for Derby network server with sslMode=off on port: 6415 at Tue Mar 21 15:50:22 GMT 2023, startup time: 925ms
+
+2023-03-21 15:50:22.538~463512625 GaianNode -------------> Used Heap Memory changed by >10MB. jMemory (MB): 110.513936 (= 1%, jMemoryMax (MB): 7635.730432). jMemoryNonHeap (MB): 26.545992 - (suspected hanging queries being checked: 0)
+2023-03-21 15:50:22.546~471420875 Util -------------> WARNING:
+
+2023-03-21 15:50:22.546 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH (10th repetition): GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 15:50:22.546 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 15:50:22.546~471519834 Util -------------> WARNING:
+
+2023-03-21 15:50:22.546 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 15:50:22.546 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 15:50:22.546~471554667 Util -------------> WARNING:
+
+2023-03-21 15:50:22.546 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 15:50:22.546 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 15:50:22.546~471591667 Util -------------> WARNING:
+
+2023-03-21 15:50:22.546 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 15:50:22.546 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 15:50:22.546~471630250 Util -------------> WARNING:
+
+2023-03-21 15:50:22.546 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 15:50:22.546 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 15:50:22.546~471668709 Util -------------> WARNING:
+
+2023-03-21 15:50:22.546 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 15:50:22.546 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 15:50:22.546~471713542 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:50:22.546 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:50:22.546 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:50:23.478~402930042 GaianNodeSeeker -------> ******* 
+========================================================================================================================================================================
+
+2023-03-21 15:50:23.477 -------> INBOUND  connection C1 established:  <- RagabsMacBookProlocal
+
+Tue Mar 21 15:50:27 GMT 2023 : Log Connections turned on.
+Tue Mar 21 15:50:27 GMT 2023 : Connection number: 9.
+Tue Mar 21 15:50:27 GMT 2023 : Max threads changed to 1000.
+Tue Mar 21 15:50:27 GMT 2023 : Max threads changed to 1000.
+Tue Mar 21 15:50:27 GMT 2023 : Connection number: 10.
+2023-03-21 15:50:27.592~517726292 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:50:27.592 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:50:27.592 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:50:27.662~587588000 DatabaseConnector ---------------> ******* Connector 1 from GaianNode Watchdog: Obtained JDBC Connection org.apache.derby.client.net.NetConnection40@609f87c1 in 80 ms for: jdbc:derby://10.9.153.10:6414/gaiandb;ssl=off;create=true, Pool size: 1
+2023-03-21 15:50:32.700~625169375 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:50:32.699 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:50:32.699 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:50:37.670~595508500 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:50:37.670 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:50:37.670 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:50:37.706~631628292 GaianNode -------------> Used Heap Memory changed by >10MB. jMemory (MB): 123.805048 (= 1%, jMemoryMax (MB): 7635.730432). jMemoryNonHeap (MB): 29.423336 - (suspected hanging queries being checked: 0)
+2023-03-21 15:50:42.772~697259792 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:50:42.771 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:50:42.771 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:50:47.828~752911250 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:50:47.827 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (10th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:50:47.827 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:54:35.441~365884209 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:54:35.438 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (100th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:54:35.438 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:58:48.257~182017292 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:58:48.250 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (200th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:58:48.250 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 16:03:00.552~476400917 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 16:03:00.551 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (300th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 16:03:00.551 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 16:07:13.348~272073459 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 16:07:13.344 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (400th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 16:07:13.344 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 16:11:26.194~118482625 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 16:11:26.191 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (500th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 16:11:26.191 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 16:15:38.947~871807084 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 16:15:38.936 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (600th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 16:15:38.936 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 16:19:51.945~868780959 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 16:19:51.937 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (700th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 16:19:51.937 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 16:24:04.993~917150417 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 16:24:04.988 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (800th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 16:24:04.988 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 16:28:17.906~829492750 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 16:28:17.901 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (900th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 16:28:17.901 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 16:32:30.841~764166834 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 16:32:30.835 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (1000th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 16:32:30.835 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 16:36:43.581~504208167 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 16:36:43.572 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (1100th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 16:36:43.572 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 16:40:56.345~267475584 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 16:40:56.340 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (1200th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 16:40:56.340 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 16:45:09.466~388659084 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 16:45:09.461 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (1300th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 16:45:09.461 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 16:49:22.095~998139584 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 16:49:22.092 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (1400th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 16:49:22.092 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 16:53:35.402~302763709 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 16:53:35.399 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (1500th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 16:53:35.399 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 16:57:48.278~176799625 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 16:57:48.273 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (1600th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 16:57:48.273 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 17:02:00.744~640983250 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 17:02:00.741 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (1700th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 17:02:00.741 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 17:06:12.920~814103167 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 17:06:12.918 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (1800th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 17:06:12.918 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 17:10:25.607~499226167 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 17:10:25.605 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (1900th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 17:10:25.605 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 17:14:38.009~898827125 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 17:14:38.006 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (2000th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 17:14:38.006 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+

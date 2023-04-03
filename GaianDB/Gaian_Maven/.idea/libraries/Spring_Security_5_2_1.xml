@@ -1,0 +1,24 @@
+<component name="libraryTable">
+  <library name="Spring Security-5.2.1" type="spring-security">
+    <properties version="5.2.1" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-remoting/5.2.1.RELEASE/spring-security-remoting-5.2.1.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-aspects/5.2.1.RELEASE/spring-security-aspects-5.2.1.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-openid/5.2.1.RELEASE/spring-security-openid-5.2.1.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-messaging/5.2.1.RELEASE/spring-security-messaging-5.2.1.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-cas/5.2.1.RELEASE/spring-security-cas-5.2.1.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-crypto/5.2.1.RELEASE/spring-security-crypto-5.2.1.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-oauth2-core/5.2.1.RELEASE/spring-security-oauth2-core-5.2.1.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-acl/5.2.1.RELEASE/spring-security-acl-5.2.1.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-oauth2-resource-server/5.2.1.RELEASE/spring-security-oauth2-resource-server-5.2.1.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-ldap/5.2.1.RELEASE/spring-security-ldap-5.2.1.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-taglibs/5.2.1.RELEASE/spring-security-taglibs-5.2.1.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-test/5.2.1.RELEASE/spring-security-test-5.2.1.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-core/5.2.1.RELEASE/spring-security-core-5.2.1.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-web/5.2.1.RELEASE/spring-security-web-5.2.1.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-security-config/5.2.1.RELEASE/spring-security-config-5.2.1.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

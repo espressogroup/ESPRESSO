@@ -1,0 +1,645 @@
+2023-03-21 15:32:00.763~697754709 GaianNode -------------> isInitDataUpToDate = true = GAIANDB_JAR_MD5 Unknown = gdbJarMD5_previous Unknown && gdbDbTimestampAtStartup 1679412533525 > gdbJarFile.lastModified() 1679409743743
+java version "1.8.0_312"
+OpenJDK Runtime Environment (build 1.8.0_312-b07)
+OpenJDK 64-Bit Server VM (build 25.312-b07, mixed mode)
+
+GaianDB V2.1.8 - JAR sizes: [128, 128], timestamps: [2023/03/21-14:42:23, 2023/03/21-14:42:23]
+
+Features Summary: Federated access to JDBC RDBMS tables and CSV Flat files using a logical table abstraction layer;
+A stored procedures management API, e.g. to set and view all logical tables and data sources in the network;
+SQL Prepared Statement caching; Connection Pooling; Buffered and batched multi-threaded record fetching;
+Explain queries to show a query's route and row counts on node; Constant Column definitions for contextual annotations of logical tables;
+Discovery of other Gaian Nodes when 'MIN_DISCOVERED_CONNECTIONS' is set, with preferential attachment to highly connected nodes;
+Autonomic maintenance of 2-way connections, or re-discovery initiation upon loss of connections;
+Automated dynamic management of SQL VIEWS for logical tables and their derivative definitions containing provenance columns or explain columns;
+A Policy plugin interface to manipulate the incoming SQL queries or filter returned records;
+Flexible GaianDB node discovery using config variable 'DISCOVERY_IP' to specify a broadcast mask or multicast group address;
+New configuration parameters defining permitted hosts, denied hosts and cluster IDs to restrict connectivity between nodes;
+Connectivity resilience to variable network latency using property 'GAIAN_CONNECTIONS_CHECKER_HEARTBEAT_MS';
+MQTT listener & Message Storer; Command line processor; Logging levels; In Memory Tables and Indexing;
+Ability to also access an Omnifind text index using com.ibm.db2j.ICAREST('<search_string>');
+Excel Spreadsheet Data Source Type; 'Pass-through' SQL capability for insert/update/delete/call; Discovery Gateways for discovery across networks;
+Advanced API calls: listnodes(), listflood(), addgateway();
+Access control to allow/disallow SQL API configuration and propagated writes;
+Basic security: User authentication and low-level automatic scrambling of passwords in the config file;
+Detection and cancellation of hanging queries (not mistaken for long-running queries);
+Pass-through sub-queries using 'GaianQuery': define exposed data sources on each node which the query will be executed against;
+Performance metrics; Provenance columns: GAIAN_NODE, GAIAN_LEAF (queryable using option: 'with_provenance')
+
+PROCESS ID:		1063
+
+NODE ID:		RagabsMacBookProlocal:6415
+
+WORKING DIRECTORY:	/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig
+BYTECODE PATH:		/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes
+WORKSPACE:		/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig
+
+PHYSICAL DATABASE:	/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig/gaiandb6415
+LOG FILE:		/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig/gaiandb6415.log
+CONFIG FILE:		/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig/gaiandb_config2.properties
+
+DERBY SERVER PORT:	6415
+PROVENANCE HOST(S):	0.0.0.0
+
+Network Interfaces: 
+utun5: utun5 /fe80:0:0:0:31b5:9747:76b2:365f%utun5, Address: /fe80:0:0:0:31b5:9747:76b2:365f%utun5 -> Broadcast: null
+utun4: utun4 /fe80:0:0:0:6f70:c9a0:1828:ead2%utun4, Address: /fe80:0:0:0:6f70:c9a0:1828:ead2%utun4 -> Broadcast: null
+utun2: utun2 /fe80:0:0:0:ce81:b1c:bd2c:69e%utun2, Address: /fe80:0:0:0:ce81:b1c:bd2c:69e%utun2 -> Broadcast: null
+utun1: utun1 /fe80:0:0:0:2820:511d:8992:8d51%utun1, Address: /fe80:0:0:0:2820:511d:8992:8d51%utun1 -> Broadcast: null
+utun0: utun0 /fe80:0:0:0:b92d:a89c:fe31:9142%utun0, Address: /fe80:0:0:0:b92d:a89c:fe31:9142%utun0 -> Broadcast: null
+llw0: llw0 /fe80:0:0:0:6cbf:42ff:fec6:1fd4%llw0, Address: /fe80:0:0:0:6cbf:42ff:fec6:1fd4%llw0 -> Broadcast: null
+awdl0: awdl0 /fe80:0:0:0:6cbf:42ff:fec6:1fd4%awdl0, Address: /fe80:0:0:0:6cbf:42ff:fec6:1fd4%awdl0 -> Broadcast: null
+anpi0: anpi0 /fe80:0:0:0:34aa:e9ff:fe78:b610%anpi0, Address: /fe80:0:0:0:34aa:e9ff:fe78:b610%anpi0 -> Broadcast: null
+anpi1: anpi1 /fe80:0:0:0:34aa:e9ff:fe78:b611%anpi1, Address: /fe80:0:0:0:34aa:e9ff:fe78:b611%anpi1 -> Broadcast: null
+anpi2: anpi2 /fe80:0:0:0:34aa:e9ff:fe78:b612%anpi2, Address: /fe80:0:0:0:34aa:e9ff:fe78:b612%anpi2 -> Broadcast: null
+utun3: utun3 /10.64.16.27, Address: /10.64.16.27 -> Broadcast: null
+en0: en0 /2001:630:d0:8e06:d45b:9735:11ae:b83%en0, /2001:630:d0:8e06:a435:455:4b63:8927%en0, /2001:630:d0:8e06:146c:fe4:7ec8:a23a%en0, /fe80:0:0:0:1473:6ade:da32:567c%en0, /10.9.153.10, Address: /2001:630:d0:8e06:d45b:9735:11ae:b83%en0 -> Broadcast: null, Address: /2001:630:d0:8e06:a435:455:4b63:8927%en0 -> Broadcast: null, Address: /2001:630:d0:8e06:146c:fe4:7ec8:a23a%en0 -> Broadcast: null, Address: /fe80:0:0:0:1473:6ade:da32:567c%en0 -> Broadcast: null, Address: /10.9.153.10 -> Broadcast: /10.9.155.255
+lo0: lo0 /fe80:0:0:0:0:0:0:1%lo0, /0:0:0:0:0:0:0:1%lo0, /127.0.0.1, Address: /fe80:0:0:0:0:0:0:1%lo0 -> Broadcast: null, Address: /0:0:0:0:0:0:0:1%lo0 -> Broadcast: null, Address: /127.0.0.1 -> Broadcast: null
+
+Hostname: Ragabs-MacBook-Pro.local
+Java localhost ip: 127.0.0.1
+Local address designating initial default interface for multicast: 10.64.16.27
+
+
+2023-03-21 15:32:00.777~711439959 GaianNode -------------> Initialising GaianNode...
+2023-03-21 15:32:00.777~711687542 GaianNode -------------> GAIANDB.jar library has not been changed (and db folder is more recent), so initialisation data (e.g. stored procs/funcs) is expected to be already loaded
+2023-03-21 15:32:00.777~711747084 GaianNode -------------> Node details: RagabsMacBookProlocal:6415 gaiandb <password>
+2023-03-21 15:32:00.777~711831500 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
+2023-03-21 15:32:00.777~711881209 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = 255.255.255.255
+2023-03-21 15:32:00.777~711918459 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
+2023-03-21 15:32:00.777~711976500 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
+2023-03-21 15:32:00.777~712013584 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
+2023-03-21 15:32:00.777~712047875 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
+2023-03-21 15:32:00.777~712085417 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
+2023-03-21 15:32:00.778~712768000 GaianNode -------------> Log level set to: LESS
+2023-03-21 15:32:00.792~727233709 DataSourcesManager ---------> ******* Re-loading Logical Table: GDB_LTNULL
+2023-03-21 15:32:00.843~777483167 DataSourcesManager ---------> ******* Re-loading Logical Table: LT0
+2023-03-21 15:32:00.892~826771959 DataSourcesManager ---------> ******* Re-loading Logical Table: GDB_LTLOG
+2023-03-21 15:32:00.902~837101750 DataSourcesManager ---------> ******* Re-loading Logical Table: DERBY_TABLES
+2023-03-21 15:32:01.065~999981667 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6415
+
+2023-03-21 15:32:01.412~346624542 DatabaseConnector ---------------> ******* Connector 1 from INIT: Obtained JDBC Connection org.apache.derby.impl.jdbc.EmbedConnection40@956445447 (XID = 1011), (SESSIONID = 3), (DATABASE = gaiandb6415), (DRDAID = null)  in 347 ms for: jdbc:derby:gaiandb6415;create=true, Pool size: 1
+Tue Mar 21 15:32:01 GMT 2023 : Could not connect to Derby Network Server on host 0.0.0.0, port 6415: Connection refused (Connection refused)
+Tue Mar 21 15:32:01 GMT 2023 : Apache Derby Network Server - 10.10.2.1 - (1643489) started and ready to accept connections on port 6415
+2023-03-21 15:32:01.732~666935167 GaianNode -------------> 
+Derby Version: CSS10100/10.10.2.1 - (1643489)  - Java Version: 1.8.0_312 (OpenJDK 64-Bit Server VM)
+
+GaianNode started for Derby network server with sslMode=off on port: 6415 at Tue Mar 21 15:32:01 GMT 2023, startup time: 1051ms
+
+2023-03-21 15:32:01.925~860057542 GaianNode -------------> Used Heap Memory changed by >10MB. jMemory (MB): 110.495104 (= 1%, jMemoryMax (MB): 7635.730432). jMemoryNonHeap (MB): 27.276664 - (suspected hanging queries being checked: 0)
+2023-03-21 15:32:01.933~867621084 Util -------------> WARNING:
+
+2023-03-21 15:32:01.933 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH (10th repetition): GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 15:32:01.933 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 15:32:01.936~870668917 Util -------------> WARNING:
+
+2023-03-21 15:32:01.936 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 15:32:01.936 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 15:32:01.936~870713834 Util -------------> WARNING:
+
+2023-03-21 15:32:01.936 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 15:32:01.936 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 15:32:01.936~870750959 Util -------------> WARNING:
+
+2023-03-21 15:32:01.936 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 15:32:01.936 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 15:32:01.936~870786250 Util -------------> WARNING:
+
+2023-03-21 15:32:01.936 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 15:32:01.936 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 15:32:01.936~870821209 Util -------------> WARNING:
+
+2023-03-21 15:32:01.936 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 15:32:01.936 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 15:32:01.936~870866042 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:32:01.936 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:32:01.936 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:32:04.797~731586250 GaianNodeSeeker -------> ******* 
+========================================================================================================================================================================
+
+2023-03-21 15:32:04.796 -------> INBOUND  connection C1 established:  <- RagabsMacBookProlocal
+
+Tue Mar 21 15:32:06 GMT 2023 : Log Connections turned on.
+Tue Mar 21 15:32:06 GMT 2023 : Connection number: 9.
+Tue Mar 21 15:32:06 GMT 2023 : Max threads changed to 1000.
+Tue Mar 21 15:32:06 GMT 2023 : Max threads changed to 1000.
+Tue Mar 21 15:32:06 GMT 2023 : Connection number: 10.
+2023-03-21 15:32:07.020~955044167 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:32:07.020 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:32:07.020 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:32:07.091~25433917 DatabaseConnector ---------------> ******* Connector 1 from GaianNode Watchdog: Obtained JDBC Connection org.apache.derby.client.net.NetConnection40@50d73b42 in 98 ms for: jdbc:derby://10.9.153.10:6414/gaiandb;ssl=off;create=true, Pool size: 1
+2023-03-21 15:32:12.111~46220292 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:32:12.110 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:32:12.110 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:32:17.136~70525959 GaianNode -------------> Used Heap Memory changed by >10MB. jMemory (MB): 123.925864 (= 1%, jMemoryMax (MB): 7635.730432). jMemoryNonHeap (MB): 30.004712 - (suspected hanging queries being checked: 0)
+2023-03-21 15:32:17.173~107507625 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:32:17.173 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:32:17.173 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:32:22.253~187884417 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:32:22.253 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:32:22.253 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:32:27.344~278437292 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:32:27.343 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (10th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:32:27.343 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:34:31.688~614902334 GaianTable -------> ******* INITIALISING SYSTEM QUERY - THIS WILL SUBSEQUENTLY ONLY BE LOGGED WHEN LOGLEVEL=ALL
+select GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explain,queryPath=RagabsMacBookProlocal,LOG_EXCLUDE:', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth = 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=B1E9BA19
+2023-03-21 15:34:32.023~949935750 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412872002:1 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:32.023 -------> PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:32.065~990993209 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412872063:2 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:32.065 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:32.075~1490834 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412872073:3 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:32.075 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:32.081~7363709 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412872080:4 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:32.081 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:32.085~11252625 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412872084:5 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:32.085 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:32.091~17310084 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412872090:6 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:32.091 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:32.102~28589709 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412872100:7 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:32.102 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:32.108~34241917 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412872107:8 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:32.108 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:32.117~43628334 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412872116:9 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:32.117 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:32.125~51248792 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412872122:10 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:32.125 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:32.130~56691167 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412872129:11 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:32.130 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:32.134~60550917 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412872133:12 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:32.134 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:32.270~195990000 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412872268:13 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:32.270 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:33.515~441664417 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412873513:14 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:33.515 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:43.554~480046417 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412883550:15 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:43.553 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:34:53.593~519491334 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412893586:16 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:34:53.592 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:35:03.621~546929584 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412903616:17 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:35:03.620 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:35:13.671~597376417 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412913667:18 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:35:13.670 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:35:23.718~643952459 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412923708:19 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:35:23.716 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:35:33.752~678081417 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412933747:20 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:35:33.751 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:35:43.771~697739334 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412943769:21 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:35:43.771 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:35:53.830~756067084 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412953821:22 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:35:53.830 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:36:03.875~801277292 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412963866:23 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:36:03.874 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:36:13.933~859617209 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412973924:24 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:36:13.932 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:36:14.629~555263000 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:36:14.629 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (100th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:36:14.629 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:36:24.004~930512417 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412983999:25 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:36:24.004 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:36:34.044~969797750 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679412994035:26 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:36:34.043 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:36:44.086~12237417 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413004078:27 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:36:44.084 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:36:54.141~67058167 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413014137:28 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:36:54.140 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:37:04.162~87814584 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413024158:29 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:37:04.162 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:37:14.204~130176834 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413034198:30 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:37:14.203 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:37:24.239~165005459 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413044234:31 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:37:24.238 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:37:34.280~206444917 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413054275:32 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:37:34.280 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:37:44.318~243704375 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413064316:33 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:37:44.317 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:37:54.344~270601167 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413074342:34 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:37:54.344 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:38:04.376~301734250 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413084364:35 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:38:04.374 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:38:14.428~354355042 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413094421:36 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:38:14.425 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:38:24.458~384559875 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413104454:37 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:38:24.458 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:38:34.505~430886334 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413114499:38 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:38:34.504 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:38:44.552~477772792 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413124548:39 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:38:44.551 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:38:54.576~502244625 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413134573:40 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:38:54.576 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:39:04.614~540236750 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413144609:41 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:39:04.614 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:39:14.647~573218500 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413154641:42 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:39:14.646 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:39:24.679~605343459 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413164675:43 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:39:24.679 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:39:34.804~730237500 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413174802:44 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:39:34.804 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:39:44.854~780203542 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413184851:45 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:39:44.854 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:39:54.899~825258792 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413194895:46 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:39:54.899 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:40:04.954~880365500 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413204950:47 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:40:04.954 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:40:14.978~904298042 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413214974:48 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:40:14.978 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:40:25.046~972027084 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413225039:49 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:40:25.045 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:40:26.571~496725750 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:40:26.570 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (200th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:40:26.570 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:40:35.089~14991917 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413235083:50 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:40:35.089 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:40:45.132~57708292 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413245127:51 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:40:45.132 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:40:55.173~98995542 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413255164:52 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:40:55.172 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:41:05.233~159219750 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413265223:53 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:41:05.232 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:41:15.277~202992334 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413275270:54 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:41:15.276 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:41:25.351~277260209 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413285347:55 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:41:25.351 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:41:35.397~323318250 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413295391:56 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:41:35.397 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:41:45.424~349752792 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413305419:57 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:41:45.423 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:41:55.465~391062625 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413315459:58 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:41:55.464 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:42:05.511~437230500 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413325509:59 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:42:05.511 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:42:15.540~465686125 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413335538:60 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:42:15.540 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:42:25.582~507639209 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413345577:61 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:42:25.581 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:42:35.616~541953209 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413355610:62 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:42:35.615 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:42:45.659~584388042 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413365651:63 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:42:45.658 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:42:55.724~649963959 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413375716:64 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:42:55.724 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:43:05.762~687572584 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413385756:65 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:43:05.761 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:43:15.783~709157125 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413395779:66 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:43:15.783 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:43:25.812~738074500 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413405811:67 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:43:25.812 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:43:35.842~767801417 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413415839:68 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:43:35.842 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:43:45.860~785995667 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413425852:69 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:43:45.859 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:43:55.900~826004084 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413435896:70 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:43:55.900 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:44:05.918~843822625 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413445917:71 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:44:05.918 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:44:15.942~868163459 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413455938:72 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:44:15.942 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:44:25.970~895353792 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413465966:73 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:44:25.969 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:44:35.995~920970000 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413475992:74 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:44:35.995 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:44:38.990~915818292 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:44:38.990 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (300th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:44:38.990 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:44:46.035~960576000 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413486031:75 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:44:46.035 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:44:56.061~986769542 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413496058:76 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:44:56.060 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:45:06.089~14369125 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413506083:77 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:45:06.089 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:45:16.123~48802167 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413516120:78 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:45:16.123 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:45:26.152~77688250 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413526149:79 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:45:26.152 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:45:36.182~107974459 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413536180:80 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:45:36.182 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:45:46.212~137377584 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413546208:81 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:45:46.212 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:45:56.254~179378667 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413556251:82 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:45:56.254 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:46:06.297~222853000 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413566289:83 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:46:06.297 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:46:16.381~306699667 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413576375:84 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:46:16.381 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:46:26.416~341507250 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413586407:85 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:46:26.416 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:46:36.461~386178417 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413596456:86 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:46:36.460 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:46:46.491~416319584 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413606489:87 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:46:46.490 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:46:56.543~468655625 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413616534:88 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:46:56.540 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:47:06.582~507885292 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413626579:89 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:47:06.582 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:47:16.607~532926875 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413636603:90 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:47:16.607 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:47:26.637~562951667 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413646635:91 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:47:26.637 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:47:36.663~588345625 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413656659:92 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:47:36.663 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:47:46.700~625314875 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413666689:93 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:47:46.699 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:47:56.755~680619917 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413676751:94 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:47:56.754 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:48:06.777~702721709 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413686775:95 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:48:06.777 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:48:16.799~724445709 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413696794:96 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:48:16.799 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:48:26.826~751391375 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413706824:97 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:48:26.826 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:48:36.867~792357084 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413716862:98 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:48:36.867 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:48:46.893~818643042 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413726892:99 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:48:46.893 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:48:51.683~608310750 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 15:48:51.683 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR (400th repetition): Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 15:48:51.683 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 15:48:56.916~841278917 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413736914:100 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:48:56.916 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:49:06.942~866910542 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413746938:101 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:49:06.941 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:49:16.969~894765417 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413756963:102 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:49:16.969 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:49:27.003~928266584 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413767000:103 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:49:27.003 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:49:37.039~964324292 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413777036:104 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:49:37.039 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+
+2023-03-21 15:49:47.084~9314209 GaianTable -------> ******* GDB_LTNULL queryID=RagabsMacBookProlocal:1679413787079:105 steps=1 executeFastPathQuery():
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2023-03-21 15:49:47.084 -------> RE-PROCESSING FORWARDED SQL QUERY FROM RagabsMacBookProlocal: select GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH from NEW com.ibm.db2j.GaianTable('GDB_LTNULL', 'explainds,queryPath=RagabsMacBookProlocal', 'CNULL CHAR(1)', 'RagabsMacBookProlocal') T WHERE (gdbx_depth > 0) AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=CE00C2DA
+

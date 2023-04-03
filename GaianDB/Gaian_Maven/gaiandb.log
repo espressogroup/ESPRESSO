@@ -1,0 +1,46 @@
+2023-03-12 17:30:56.523~435975290 GaianNode -------------> isInitDataUpToDate = false = GAIANDB_JAR_MD5 Unknown = gdbJarMD5_previous null && gdbDbTimestampAtStartup 0 > gdbJarFile.lastModified() 1678642188844
+java version "1.8.0_312"
+OpenJDK Runtime Environment (build 1.8.0_312-b07)
+OpenJDK 64-Bit Server VM (build 25.312-b07, mixed mode)
+
+GaianDB V2.1.8 - JAR sizes: [160, 160], timestamps: [2023/03/12-17:29:48, 2023/03/12-17:29:48]
+
+Features Summary: Federated access to JDBC RDBMS tables and CSV Flat files using a logical table abstraction layer;
+A stored procedures management API, e.g. to set and view all logical tables and data sources in the network;
+SQL Prepared Statement caching; Connection Pooling; Buffered and batched multi-threaded record fetching;
+Explain queries to show a query's route and row counts on node; Constant Column definitions for contextual annotations of logical tables;
+Discovery of other Gaian Nodes when 'MIN_DISCOVERED_CONNECTIONS' is set, with preferential attachment to highly connected nodes;
+Autonomic maintenance of 2-way connections, or re-discovery initiation upon loss of connections;
+Automated dynamic management of SQL VIEWS for logical tables and their derivative definitions containing provenance columns or explain columns;
+A Policy plugin interface to manipulate the incoming SQL queries or filter returned records;
+Flexible GaianDB node discovery using config variable 'DISCOVERY_IP' to specify a broadcast mask or multicast group address;
+New configuration parameters defining permitted hosts, denied hosts and cluster IDs to restrict connectivity between nodes;
+Connectivity resilience to variable network latency using property 'GAIAN_CONNECTIONS_CHECKER_HEARTBEAT_MS';
+MQTT listener & Message Storer; Command line processor; Logging levels; In Memory Tables and Indexing;
+Ability to also access an Omnifind text index using com.ibm.db2j.ICAREST('<search_string>');
+Excel Spreadsheet Data Source Type; 'Pass-through' SQL capability for insert/update/delete/call; Discovery Gateways for discovery across networks;
+Advanced API calls: listnodes(), listflood(), addgateway();
+Access control to allow/disallow SQL API configuration and propagated writes;
+Basic security: User authentication and low-level automatic scrambling of passwords in the config file;
+Detection and cancellation of hanging queries (not mistaken for long-running queries);
+Pass-through sub-queries using 'GaianQuery': define exposed data sources on each node which the query will be executed against;
+Performance metrics; Provenance columns: GAIAN_NODE, GAIAN_LEAF (queryable using option: 'with_provenance')
+
+PROCESS ID:		55508
+
+NODE ID:		MohamedsMacBookProlocal
+
+WORKING DIRECTORY:	/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven
+BYTECODE PATH:		/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes
+WORKSPACE:		/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven
+2023-03-12 17:30:56.525~437874759 GaianNode -------------> WARNING:
+
+2023-03-12 17:30:56.525 ********** GDB_WARNING: NODE_START_EXCEPTION_ERROR: GaianNode terminating due to Exception, cause: java.io.FileNotFoundException: File not found: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/gaiandb_config.properties
+	=> TRACE:     GaianNode.main:348 -> GaianNode.start:442 -> GaianNode.initialiseNode:682 -> GaianDBConfig.getConfigFilePath:989 -> GaianDBConfig.getConfigFile:983
+
+2023-03-12 17:30:56.525 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_START_EXCEPTION_ERROR
+
+
+2023-03-12 17:30:56.525~438033319 GaianNode -------------> Gaian Node Exiting: GaianNode terminating due to Exception, cause: java.io.FileNotFoundException: File not found: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/gaiandb_config.properties
+2023-03-12 17:30:56.534~447393838 GaianNode -------------> Number of remaining GaianResult objects to close: 0
+2023-03-12 17:30:56.538~450455914 GaianNode -------------> Node thread count before exit: 3

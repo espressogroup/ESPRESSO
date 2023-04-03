@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML Transitional 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0 | Open Source Initiative</title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="824.42">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    font.f1 {font: 12.0px Helvetica}
+  </style>
+</head>
+<body>
+<p class="p1"><font face="Helvetica" size="3" class="f1">COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Submitted by nelson on Thu, 2007-06-07 16:10. ::</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1. Definitions.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1.1. "Contributor" means each individual or entity that</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">creates or contributes to the creation of Modifications.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1.2. "Contributor Version" means the combination of the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Original Software, prior Modifications used by a</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Contributor (if any), and the Modifications made by that</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">particular Contributor.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1.3. "Covered Software" means (a) the Original Software, or</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">(b) Modifications, or (c) the combination of files</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">containing Original Software with files containing</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Modifications, in each case including portions thereof.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1.4. "Executable" means the Covered Software in any form</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">other than Source Code.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1.5. "Initial Developer" means the individual or entity</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">that first makes Original Software available under this</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">License.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1.6. "Larger Work" means a work which combines Covered</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Software or portions thereof with code not governed by the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">terms of this License.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1.7. "License" means this document.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1.8. "Licensable" means having the right to grant, to the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">maximum extent possible, whether at the time of the initial</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">grant or subsequently acquired, any and all of the rights</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">conveyed herein.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1.9. "Modifications" means the Source Code and Executable</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">form of any of the following:</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">A. Any file that results from an addition to,</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">deletion from or modification of the contents of a</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">file containing Original Software or previous</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Modifications;</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">B. Any new file that contains any part of the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Original Software or previous Modification; or</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">C. Any new file that is contributed or otherwise made</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">available under the terms of this License.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1.10. "Original Software" means the Source Code and</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Executable form of computer software code that is</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">originally released under this License.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1.11. "Patent Claims" means any patent claim(s), now owned</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">or hereafter acquired, including without limitation,</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">method, process, and apparatus claims, in any patent</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Licensable by grantor.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1.12. "Source Code" means (a) the common form of computer</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">software code in which modifications are made and (b)</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">associated documentation included in or with such code.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1.13. "You" (or "Your") means an individual or a legal</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">entity exercising rights under, and complying with all of</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">the terms of, this License. For legal entities, "You"</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">includes any entity which controls, is controlled by, or is</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">under common control with You. For purposes of this</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">definition, "control" means (a) the power, direct or</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">indirect, to cause the direction or management of such</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">entity, whether by contract or otherwise, or (b) ownership</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">of more than fifty percent (50%) of the outstanding shares</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">or beneficial ownership of such entity.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">2. License Grants.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">2.1. The Initial Developer Grant.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Conditioned upon Your compliance with Section 3.1 below and</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">subject to third party intellectual property claims, the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Initial Developer hereby grants You a world-wide,</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">royalty-free, non-exclusive license:</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">(a) under intellectual property rights (other than</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">patent or trademark) Licensable by Initial Developer,</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">to use, reproduce, modify, display, perform,</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">sublicense and distribute the Original Software (or</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">portions thereof), with or without Modifications,</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">and/or as part of a Larger Work; and</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">(b) under Patent Claims infringed by the making,</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">using or selling of Original Software, to make, have</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">made, use, practice, sell, and offer for sale, and/or</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">otherwise dispose of the Original Software (or</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">portions thereof).</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">(c) The licenses granted in Sections 2.1(a) and (b)</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">are effective on the date Initial Developer first</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">distributes or otherwise makes the Original Software</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">available to a third party under the terms of this</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">License.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">(d) Notwithstanding Section 2.1(b) above, no patent</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">license is granted: (1) for code that You delete from</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">the Original Software, or (2) for infringements</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">caused by: (i) the modification of the Original</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Software, or (ii) the combination of the Original</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Software with other software or devices.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">2.2. Contributor Grant.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Conditioned upon Your compliance with Section 3.1 below and</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">subject to third party intellectual property claims, each</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Contributor hereby grants You a world-wide, royalty-free,</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">non-exclusive license:</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">(a) under intellectual property rights (other than</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">patent or trademark) Licensable by Contributor to</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">use, reproduce, modify, display, perform, sublicense</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">and distribute the Modifications created by such</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Contributor (or portions thereof), either on an</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">unmodified basis, with other Modifications, as</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Covered Software and/or as part of a Larger Work; and</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">(b) under Patent Claims infringed by the making,</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">using, or selling of Modifications made by that</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Contributor either alone and/or in combination with</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">its Contributor Version (or portions of such</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">combination), to make, use, sell, offer for sale,</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">have made, and/or otherwise dispose of: (1)</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Modifications made by that Contributor (or portions</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">thereof); and (2) the combination of Modifications</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">made by that Contributor with its Contributor Version</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">(or portions of such combination).</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">(c) The licenses granted in Sections 2.2(a) and</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">2.2(b) are effective on the date Contributor first</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">distributes or otherwise makes the Modifications</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">available to a third party.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">(d) Notwithstanding Section 2.2(b) above, no patent</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">license is granted: (1) for any code that Contributor</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">has deleted from the Contributor Version; (2) for</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">infringements caused by: (i) third party</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">modifications of Contributor Version, or (ii) the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">combination of Modifications made by that Contributor</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">with other software (except as part of the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Contributor Version) or other devices; or (3) under</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Patent Claims infringed by Covered Software in the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">absence of Modifications made by that Contributor.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">3. Distribution Obligations.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">3.1. Availability of Source Code.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Any Covered Software that You distribute or otherwise make</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">available in Executable form must also be made available in</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Source Code form and that Source Code form must be</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">distributed only under the terms of this License. You must</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">include a copy of this License with every copy of the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Source Code form of the Covered Software You distribute or</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">otherwise make available. You must inform recipients of any</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">such Covered Software in Executable form as to how they can</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">obtain such Covered Software in Source Code form in a</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">reasonable manner on or through a medium customarily used</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">for software exchange.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">3.2. Modifications.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">The Modifications that You create or to which You</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">contribute are governed by the terms of this License. You</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">represent that You believe Your Modifications are Your</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">original creation(s) and/or You have sufficient rights to</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">grant the rights conveyed by this License.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">3.3. Required Notices.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">You must include a notice in each of Your Modifications</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">that identifies You as the Contributor of the Modification.</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">You may not remove or alter any copyright, patent or</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">trademark notices contained within the Covered Software, or</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">any notices of licensing or any descriptive text giving</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">attribution to any Contributor or the Initial Developer.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">3.4. Application of Additional Terms.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">You may not offer or impose any terms on any Covered</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Software in Source Code form that alters or restricts the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">applicable version of this License or the recipients'</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">rights hereunder. You may choose to offer, and to charge a</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">fee for, warranty, support, indemnity or liability</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">obligations to one or more recipients of Covered Software.</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">However, you may do so only on Your own behalf, and not on</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">behalf of the Initial Developer or any Contributor. You</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">must make it absolutely clear that any such warranty,</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">support, indemnity or liability obligation is offered by</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">You alone, and You hereby agree to indemnify the Initial</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Developer and every Contributor for any liability incurred</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">by the Initial Developer or such Contributor as a result of</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">warranty, support, indemnity or liability terms You offer.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">3.5. Distribution of Executable Versions.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">You may distribute the Executable form of the Covered</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Software under the terms of this License or under the terms</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">of a license of Your choice, which may contain terms</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">different from this License, provided that You are in</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">compliance with the terms of this License and that the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">license for the Executable form does not attempt to limit</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">or alter the recipient's rights in the Source Code form</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">from the rights set forth in this License. If You</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">distribute the Covered Software in Executable form under a</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">different license, You must make it absolutely clear that</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">any terms which differ from this License are offered by You</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">alone, not by the Initial Developer or Contributor. You</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">hereby agree to indemnify the Initial Developer and every</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Contributor for any liability incurred by the Initial</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Developer or such Contributor as a result of any such terms</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">You offer.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">3.6. Larger Works.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">You may create a Larger Work by combining Covered Software</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">with other code not governed by the terms of this License</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">and distribute the Larger Work as a single product. In such</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">a case, You must make sure the requirements of this License</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">are fulfilled for the Covered Software.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">4. Versions of the License.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">4.1. New Versions.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Sun Microsystems, Inc. is the initial license steward and</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">may publish revised and/or new versions of this License</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">from time to time. Each version will be given a</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">distinguishing version number. Except as provided in</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Section 4.3, no one other than the license steward has the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">right to modify this License.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">4.2. Effect of New Versions.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">You may always continue to use, distribute or otherwise</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">make the Covered Software available under the terms of the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">version of the License under which You originally received</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">the Covered Software. If the Initial Developer includes a</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">notice in the Original Software prohibiting it from being</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">distributed or otherwise made available under any</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">subsequent version of the License, You must distribute and</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">make the Covered Software available under the terms of the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">version of the License under which You originally received</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">the Covered Software. Otherwise, You may also choose to</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">use, distribute or otherwise make the Covered Software</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">available under the terms of any subsequent version of the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">License published by the license steward.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">4.3. Modified Versions.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">When You are an Initial Developer and You want to create a</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">new license for Your Original Software, You may create and</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">use a modified version of this License if You: (a) rename</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">the license and remove any references to the name of the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">license steward (except to note that the license differs</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">from this License); and (b) otherwise make it clear that</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">the license contains terms which differ from this License.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">5. DISCLAIMER OF WARRANTY.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">COVERED SOFTWARE IS PROVIDED UNDER THIS LICENSE ON AN "AS IS"</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">BASIS, WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED,</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT THE COVERED</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">SOFTWARE IS FREE OF DEFECTS, MERCHANTABLE, FIT FOR A PARTICULAR</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">PURPOSE OR NON-INFRINGING. THE ENTIRE RISK AS TO THE QUALITY AND</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">PERFORMANCE OF THE COVERED SOFTWARE IS WITH YOU. SHOULD ANY</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">COVERED SOFTWARE PROVE DEFECTIVE IN ANY RESPECT, YOU (NOT THE</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">INITIAL DEVELOPER OR ANY OTHER CONTRIBUTOR) ASSUME THE COST OF</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">ANY NECESSARY SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER OF</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">WARRANTY CONSTITUTES AN ESSENTIAL PART OF THIS LICENSE. NO USE OF</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">ANY COVERED SOFTWARE IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">DISCLAIMER.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">6. TERMINATION.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">6.1. This License and the rights granted hereunder will</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">terminate automatically if You fail to comply with terms</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">herein and fail to cure such breach within 30 days of</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">becoming aware of the breach. Provisions which, by their</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">nature, must remain in effect beyond the termination of</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">this License shall survive.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">6.2. If You assert a patent infringement claim (excluding</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">declaratory judgment actions) against Initial Developer or</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">a Contributor (the Initial Developer or Contributor against</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">whom You assert such claim is referred to as "Participant")</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">alleging that the Participant Software (meaning the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Contributor Version where the Participant is a Contributor</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">or the Original Software where the Participant is the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Initial Developer) directly or indirectly infringes any</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">patent, then any and all rights granted directly or</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">indirectly to You by such Participant, the Initial</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Developer (if the Initial Developer is not the Participant)</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">and all Contributors under Sections 2.1 and/or 2.2 of this</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">License shall, upon 60 days notice from Participant</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">terminate prospectively and automatically at the expiration</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">of such 60 day notice period, unless if within such 60 day</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">period You withdraw Your claim with respect to the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Participant Software against such Participant either</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">unilaterally or pursuant to a written agreement with</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Participant.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">6.3. In the event of termination under Sections 6.1 or 6.2</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">above, all end user licenses that have been validly granted</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">by You or any distributor hereunder prior to termination</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">(excluding licenses granted to You by any distributor)</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">shall survive termination.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">7. LIMITATION OF LIABILITY.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER TORT</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">(INCLUDING NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL YOU, THE</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">INITIAL DEVELOPER, ANY OTHER CONTRIBUTOR, OR ANY DISTRIBUTOR OF</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">COVERED SOFTWARE, OR ANY SUPPLIER OF ANY OF SUCH PARTIES, BE</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">LIABLE TO ANY PERSON FOR ANY INDIRECT, SPECIAL, INCIDENTAL, OR</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">CONSEQUENTIAL DAMAGES OF ANY CHARACTER INCLUDING, WITHOUT</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">LIMITATION, DAMAGES FOR LOST PROFITS, LOSS OF GOODWILL, WORK</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">COMMERCIAL DAMAGES OR LOSSES, EVEN IF SUCH PARTY SHALL HAVE BEEN</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">INFORMED OF THE POSSIBILITY OF SUCH DAMAGES. THIS LIMITATION OF</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">LIABILITY SHALL NOT APPLY TO LIABILITY FOR DEATH OR PERSONAL</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">INJURY RESULTING FROM SUCH PARTY'S NEGLIGENCE TO THE EXTENT</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">APPLICABLE LAW PROHIBITS SUCH LIMITATION. SOME JURISDICTIONS DO</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">NOT ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL OR</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">CONSEQUENTIAL DAMAGES, SO THIS EXCLUSION AND LIMITATION MAY NOT</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">APPLY TO YOU.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">8. U.S. GOVERNMENT END USERS.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">The Covered Software is a "commercial item," as that term is</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">defined in 48 C.F.R. 2.101 (Oct. 1995), consisting of "commercial</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">computer software" (as that term is defined at 48 C.F.R. ¤</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">252.227-7014(a)(1)) and "commercial computer software</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">documentation" as such terms are used in 48 C.F.R. 12.212 (Sept.</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">1995). Consistent with 48 C.F.R. 12.212 and 48 C.F.R. 227.7202-1</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">through 227.7202-4 (June 1995), all U.S. Government End Users</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">acquire Covered Software with only those rights set forth herein.</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">This U.S. Government Rights clause is in lieu of, and supersedes,</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">any other FAR, DFAR, or other clause or provision that addresses</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">Government rights in computer software under this License.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">9. MISCELLANEOUS.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">This License represents the complete agreement concerning subject</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">matter hereof. If any provision of this License is held to be</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">unenforceable, such provision shall be reformed only to the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">extent necessary to make it enforceable. This License shall be</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">governed by the law of the jurisdiction specified in a notice</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">contained within the Original Software (except to the extent</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">applicable law, if any, provides otherwise), excluding such</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">jurisdiction's conflict-of-law provisions. Any litigation</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">relating to this License shall be subject to the jurisdiction of</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">the courts located in the jurisdiction and venue specified in a</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">notice contained within the Original Software, with the losing</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">party responsible for costs, including, without limitation, court</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">costs and reasonable attorneys' fees and expenses. The</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">application of the United Nations Convention on Contracts for the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">International Sale of Goods is expressly excluded. Any law or</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">regulation which provides that the language of a contract shall</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">be construed against the drafter shall not apply to this License.</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">You agree that You alone are responsible for compliance with the</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">United States export administration regulations (and the export</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">control laws and regulation of any other countries) when You use,</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">distribute or otherwise make available any Covered Software.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">10. RESPONSIBILITY FOR CLAIMS.</font></p>
+<p class="p2"><br></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">As between Initial Developer and the Contributors, each party is</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">responsible for claims and damages arising, directly or</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">indirectly, out of its utilization of rights under this License</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">and You agree to work with Initial Developer and Contributors to</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">distribute such responsibility on an equitable basis. Nothing</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">herein is intended or shall be deemed to constitute any admission</font></p>
+<p class="p1"><font face="Helvetica" size="3" class="f1">of liability.</font></p>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="Maven: org.thymeleaf.extras:thymeleaf-extras-tiles2:Release" type="repository">
+    <properties maven-id="org.thymeleaf.extras:thymeleaf-extras-tiles2:RELEASE" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-tiles2/2.1.1.RELEASE/thymeleaf-extras-tiles2-2.1.1.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/thymeleaf/2.1.2.RELEASE/thymeleaf-2.1.2.RELEASE.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/ognl/ognl/3.0.6/ognl-3.0.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/javassist/javassist/3.16.1-GA/javassist-3.16.1-GA.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/tiles/tiles-core/2.2.2/tiles-core-2.2.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/tiles/tiles-api/2.2.2/tiles-api-2.2.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-digester/commons-digester/2.0/commons-digester-2.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/jcl-over-slf4j/1.5.8/jcl-over-slf4j-1.5.8.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/tiles/tiles-template/2.2.2/tiles-template-2.2.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/tiles/tiles-servlet/2.2.2/tiles-servlet-2.2.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/tiles/tiles-jsp/2.2.2/tiles-jsp-2.2.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

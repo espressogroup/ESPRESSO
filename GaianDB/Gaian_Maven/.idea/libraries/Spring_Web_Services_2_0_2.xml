@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Spring Web Services-2.0.2" type="spring-ws">
+    <properties version="2.0.2" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/spring-ws.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
