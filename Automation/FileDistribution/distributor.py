@@ -62,15 +62,21 @@ class Pod:
     """
     Class to work with pods.
     """
-    def __init__(self, IDP,USERNAME,PASSWORD,podname):
+    def __init__(self, IDP,podname):
         self.idp = IDP
-        self.username = USERNAME
-        self.password = PASSWORD
+        self.username = ''
+        self.password = ''
         self.podname=podname
-        self.Access=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
+        self.Access=null
 
     def __repr__(self):
         """
-        Return IDP. Can be changed later
+        Return Pod address. Can be changed later
         """
         return str(self.idp+self.podname)
+
+    def login(self,USERNAME,PASSWORD):
+        self.Access=CSSaccess.CSSaccess(self.idp, USERNAME, PASSWORD)
+        a=self.Access.create_authstring()
+        t=self.Access.create_authtoken()
+        return self.Access
