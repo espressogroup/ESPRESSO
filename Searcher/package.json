@@ -1,16 +1,17 @@
 {
-  "name": "searchsolid",
+  "name": "pod",
   "version": "1.0.0",
-  "description": "search solid",
-  "main": "search.js",
+  "description": "connector to pod",
+  "main": "server.js",
   "scripts": {
-    "start": "node search.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "Reza Moosa",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "@comunica/query-sparql": "^2.6.9",
+    "axios": "^1.3.4",
     "body-parser": "^1.20.2",
     "express": "^4.18.2"
   }
