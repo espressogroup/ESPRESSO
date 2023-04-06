@@ -9,8 +9,9 @@ from solid.auth import Auth
 
 def putdirCSS (directory,pod,IDP,USERNAME,PASSWORD,indexfile=''):
     CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
-    a=CSSA.create_authstring()
-    t=CSSA.create_authtoken()
+    #a=CSSA.create_authstring()
+    #t=CSSA.create_authtoken()
+    CSSA.new_session()
 
     for filename in os.listdir(directory):
         f = os.path.join(directory, filename)

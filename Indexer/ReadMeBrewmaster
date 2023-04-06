@@ -1,5 +1,0 @@
-In this folder there will be files corresponding to the Brewmaster part of the project - indexers etc.
-
-List of files:
-naiveindexer.py - the first version, creates a json file, works
-rdfindex.py - creates an rdf index in JSON-LD format, currently too big, works

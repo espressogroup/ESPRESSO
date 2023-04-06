@@ -1,6 +1,7 @@
 import CSSaccess, rdfindex
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 
+
 def crawl(address, CSSa, indexaddress):
     filedict= dict()
     data = CSSa.get_file(address)

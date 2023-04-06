@@ -92,6 +92,15 @@ class CSSaccess:
         )
         return res.text
 
+class CSSPod:
+    def __init__(self, ADDRESS,index):
+        self.address=ADDRESS
+        self.idp = ADDRESS.rsplit('/', 1)[0]+'/'
+        self.Access=None
+        self.indexaddress=index
+
+    def login(self,USERNAME,PASSWORD):
+        self.Access=CSSaccess(self.idp, USERNAME, PASSWORD)
    
 
 

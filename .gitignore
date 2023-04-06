@@ -1,3 +1,4 @@
 espressetest.py
 Datasets/dir/
-Automation/FileDistribution/__pycache__/
+__pycache__
+.DS_Store
