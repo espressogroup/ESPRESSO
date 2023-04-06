@@ -27,12 +27,30 @@ class CSSaccess:
         # create a token 
         #auth = (client_id,client_secret)
         #headers= {'content-type': 'text/plain'}
+        #self.delete_all_tokens()
         data ={ 'email': self.username, 'password': self.password, 'name': 'my-token' }
         datajson=json.dumps(data)
         res = requests.post(self.cred_url, headers={ 'content-type': 'application/json' }, data=str(datajson))
         res=res.json()
         self.authstring=urllib.parse.quote(res['id'])+':'+urllib.parse.quote(res['secret'])
         return self.authstring
+
+    def get_token_list(self):
+        data ={ 'email': self.username, 'password': self.password}
+        datajson=json.dumps(data)
+        res = requests.post(self.cred_url,headers={ 'content-type': 'application/json' }, data=str(datajson))
+        tokenlist = list(res.json())
+        return tokenlist
+
+    def delete_token(self,token):
+        datat ={ 'email': self.username, 'password': self.password, 'delete':token}
+        datatjson=json.dumps(datat)
+        rest = requests.post(self.cred_url,headers={ 'content-type': 'application/json' }, data=str(datatjson))
+
+    def delete_all_tokens(self):
+        tokenlist = self.get_token_list()
+        for t in tokenlist:
+            self.delete_token(t)
     
     def create_authtoken(self):
         s=bytes(self.authstring, 'utf-8')
@@ -50,6 +68,11 @@ class CSSaccess:
         #print(res.json())
         self.authtoken =res.json()['access_token']
         return self.authtoken
+
+    def new_session(self):
+        self.delete_all_tokens()
+        a=self.create_authstring()
+        t=self.create_authtoken()
 
     def put_file(self,podname,filename,filetext,filetype):
         targetUrl=self.idp+podname+'/'+filename
@@ -69,8 +92,6 @@ class CSSaccess:
         )
         return res.text
 
-
-
-
+   
 
 

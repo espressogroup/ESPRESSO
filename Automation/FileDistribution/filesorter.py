@@ -76,7 +76,6 @@ class sortimage:
 
     def loadpodlist(self,newpodlist):
         d=self.podlist
-        print(d)
         for p in newpodlist:
             s=p.rsplit('/', 1)[0]
             listofpodsonthisserver = d[s] if s in d else []
