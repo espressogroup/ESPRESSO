@@ -1,14 +1,12 @@
 package com.ibm.solid;
 
-
 /**
- * @author Reza Moosaei 14.03.23
+ * @author Reza Moosa
  */
 public class Configuration {
     public static void config(String fileName) {
 
         String logicalTableName = "SOLID";
-
         PropertiesManagement.getInstance(fileName).addProperty(
                 "LT" + logicalTableName + "_DS0_ARGS",
                 "<GAIAN_WORKSPACE>/csvtestfiles/solid.csv");
@@ -20,7 +18,7 @@ public class Configuration {
                 "MAP_COLUMNS_BY_POSITION");
         PropertiesManagement.getInstance(fileName).addProperty(
                 "LT" + logicalTableName + "_DEF",
-                "TERM VARCHAR(255), ADDRESS VARCHAR(255), RELEVANCY INT");
+                "TERM VARCHAR(255), ADDRESS VARCHAR(255), RELEVANCE VARCHAR(3)");
         PropertiesManagement.getInstance(fileName).addProperty(
                 "LT" + logicalTableName + "_DS0_VTI",
                 "com.ibm.db2j.FileImport");

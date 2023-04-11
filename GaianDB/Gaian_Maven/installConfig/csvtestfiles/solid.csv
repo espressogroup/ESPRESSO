@@ -1,0 +1,2 @@
+"TERM","ADDRESS","RELEVANCE"
+"Bo","API request failed with status code: ","org.apache.http.conn.HttpHostConnectException: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect  csvtestfiles/solid.csv"

@@ -26,7 +26,6 @@
             <version>db2jcc4</version>
         </dependency>
 
-
          <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -39,7 +38,6 @@
         <version>3.12.0</version>
     </dependency>
 
-
         <dependency>
           <groupId>prefuse</groupId>
           <artifactId>prefuse</artifactId>
@@ -48,7 +46,6 @@
           <systemPath>${project.basedir}/lib/prefuse.jar</systemPath>
         </dependency>
 
-
         <dependency>
           <groupId>prefuseclean</groupId>
           <artifactId>prefuseclean</artifactId>
@@ -56,8 +53,6 @@
           <scope>system</scope>
           <systemPath>${project.basedir}/lib/prefuseclean.jar</systemPath>
         </dependency>
-
-
 
         <dependency>
           <groupId>com.ibm.db2j</groupId>
@@ -75,7 +70,6 @@
           <systemPath>${project.basedir}/lib/accumulo-client-prereqs/accumulo-core-1.4.4.jar</systemPath>
         </dependency>
 
-
         <dependency>
           <groupId>org.apache.hadoop</groupId>
           <artifactId>hadoop</artifactId>
@@ -83,7 +77,6 @@
           <scope>system</scope>
           <systemPath>${project.basedir}/lib/hadoop-core-0.20.203.0.jar</systemPath>
         </dependency>
-
 
         <dependency>
           <groupId>com.mongodb</groupId>
@@ -93,23 +86,17 @@
           <systemPath>${project.basedir}/lib/mongo-java-driver-2.11.4.jar</systemPath>
         </dependency>
 
-
-
         <dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derbyclient</artifactId>
             <version>10.10.1.1</version>
         </dependency>
 
-
-
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>3.8</version>
         </dependency>
-
-
 
         <dependency>
             <groupId>org.apache.derby</groupId>
@@ -129,14 +116,11 @@
             <version>0.9.3</version>
         </dependency>
 
-
-
         <dependency>
             <groupId>com.opencsv</groupId>
             <artifactId>opencsv</artifactId>
             <version>5.7.1</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.apache.derby</groupId>
@@ -149,6 +133,18 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mashape.unirest</groupId>
+            <artifactId>unirest-java</artifactId>
+            <version>1.4.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
         </dependency>
 
     </dependencies>
