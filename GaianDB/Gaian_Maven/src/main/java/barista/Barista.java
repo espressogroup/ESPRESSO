@@ -1,11 +1,9 @@
 package barista;
-
 import java.sql.*;
 import java.util.Scanner;
 
-
 public class Barista {
-    private static final String DB_URL = "jdbc:mysql://localhost/tpcds";
+    private static final String DB_URL = "jdbc:mysql://localhost/soliddb";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "engmohamed";
 
@@ -21,16 +19,15 @@ public class Barista {
             int limit = promptLimit();
 
 
-
             String sqlQuery = QueryBuilder.buildSqlQuery(keyword, columns, operator, caseInsensitive, offset, limit);
             System.out.println("Executing SQL query: " + sqlQuery);
 
             ResultSet resultSet = statement.executeQuery(sqlQuery);
             while (resultSet.next()) {
                 // Process the search results here
-                String column1Value = resultSet.getString("firstnme");
+                String column1Value = resultSet.getString("address");
                 System.out.println(column1Value);
-                String column2Value = resultSet.getString("lastname");
+                String column2Value = resultSet.getString("relevancy");
                 System.out.println(column2Value);
             }
 

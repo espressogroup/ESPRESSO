@@ -1,0 +1,8 @@
+Creating 1 Pods...
+Profile WebID: http://localhost:3000/test-e289e775-3e35-4f29-9ecb-9c08522d3d4a/profile/card#me
+POD URI: http://localhost:3000/test-e289e775-3e35-4f29-9ecb-9c08522d3d4a/
+email: test-e289e775-3e35-4f29-9ecb-9c08522d3d4a@example.org
+password: 12345
+POD name: test-e289e775-3e35-4f29-9ecb-9c08522d3d4a
+
+1 Pods are created

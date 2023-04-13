@@ -7,10 +7,11 @@
 
 package com.ibm.gaiandb.apps.dashboard;
 
-import java.awt.Dimension;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,11 +26,7 @@ import java.util.logging.SimpleFormatter;
 import java.util.logging.StreamHandler;
 
 import javax.security.auth.login.LoginException;
-import javax.swing.BorderFactory;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JTabbedPane;
-import javax.swing.UIManager;
+import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -119,7 +116,7 @@ public class Dashboard extends JFrame {
 	 * 
 	 * @param args The application arguments. Unused.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 				
 		// Adds file output to the logger.
 		try {
@@ -150,14 +147,22 @@ public class Dashboard extends JFrame {
 
 		// Let's go.
 		Dashboard dashboard = new Dashboard();
+		//Ragab Try To Change The Icon.
+		dashboard.setIconImage(new ImageIcon("/Users/ragab/ESPRESSO/Impementations/GDB/Gaian_Maven/installConfig/espressologo.png").getImage());
 		dashboard.setVisible(true);
 	}
 
 	/**
 	 * Constructs the dashboard window.
 	 */
-	public Dashboard() {
-		super("GaianDB Dashboard");
+	public Dashboard() throws IOException {
+		super("ESPRESSO Barista");
+
+
+		//Ragab (Put Icon)
+
+
+
 
 		// Destroy the window when the Close button is hit.
 		// Any rampant threads will not be killed - they must end themselves
@@ -204,37 +209,42 @@ public class Dashboard extends JFrame {
 		tabs = isTopologyGraphAvailable ?
 				new Tab[] {
 					new ConnectionTab(this),
-					new TopologyTab(this),
-//					new LtAndDsTab(this),
-					new MonitorTab(this),
-					new StatsTab(this),
-					new QueryTab(this)
+				//	new TopologyTab(this),
+				//	new LtAndDsTab(this),
+				//	new MonitorTab(this),
+				//	new StatsTab(this),
+					new QueryTab(this),
+					new AboutTab(this)
+
 				} :
 				new Tab[] {
 					new ConnectionTab(this),
 //					new TopologyTab(this),
-//					new LtAndDsTab(this),
-					new MonitorTab(this),
-					new StatsTab(this),
-					new QueryTab(this)
+				//	new LtAndDsTab(this),
+				//	new MonitorTab(this),
+				//	new StatsTab(this),
+					new QueryTab(this),
+					new AboutTab(this)
 				};
 
 		String[] tabNames = isTopologyGraphAvailable ?
 				new String[] {
-					"Connection",
-					"Network Topology",
-//					"Logical Tables",
-					"Current Metrics",
-					"Historical Metrics",
-					"SQL Queries"
+					"GaianDB Connection",
+			//		"Network Topology",
+				//	"Logical Tables",
+				//	"Current Metrics",
+				//	"Historical Metrics",
+					"Barista KeyWord-Search",
+					"About Barista"
 				} :
 				new String[] {
-					"Connection",
+					"GaianDB Connection",
 //					"Network Topology",
-//					"Logical Tables",
-					"Current Metrics",
-					"Historical Metrics",
-					"SQL Queries"
+				//	"Logical Tables",
+				//	"Current Metrics",
+				//	"Historical Metrics",
+					"Barista KeyWord-Search",
+					"About Barista"
 				};
 
 		for (int i = 0; i < tabs.length; i++)

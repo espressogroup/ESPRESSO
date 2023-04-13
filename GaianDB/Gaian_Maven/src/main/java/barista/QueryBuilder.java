@@ -5,10 +5,10 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class QueryBuilder {
-    private static final String[] DEFAULT_COLUMNS = {"lastname"};
+    private static final String[] DEFAULT_COLUMNS = {"term"};
 
     public static String buildSqlQuery(String keyword) {
-        return buildSqlQuery(keyword, DEFAULT_COLUMNS, "LIKE", true, 0, -1);
+        return buildSqlQuery(keyword, DEFAULT_COLUMNS, "=", true, 0, -1);
     }
 
     public static String buildSqlQuery(String keyword, String[] columns, String operator, boolean caseInsensitive, int offset, int limit) {
@@ -19,8 +19,9 @@ public class QueryBuilder {
 
         StringBuilder sql = new StringBuilder();
 
-        sql.append("SELECT * FROM employee WHERE ")
-           .append(searchColumns)
+        // To test this with mysql use solidtbl instead of LTSOLID
+        sql.append("SELECT * FROM LTSOLID WHERE ")
+           .append(DEFAULT_COLUMNS[0])
            .append(searchOperator);
 
            if (searchOperator.trim().equals("LIKE")) {
@@ -51,6 +52,8 @@ public class QueryBuilder {
                 throw new IllegalArgumentException("Invalid search operator: " + operator);
         }
     }
+
+
 
     private static String getSearchColumns(String[] columns) {
         if (columns == null || columns.length == 0) {

@@ -7,6 +7,7 @@
 
 package com.ibm.gaiandb.apps.dashboard;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -20,7 +21,7 @@ public class AnimateDashboard {
 //	Use PROPRIETARY notice if class contains a main() method, otherwise use COPYRIGHT notice.
 	public static final String COPYRIGHT_NOTICE = "(c) Copyright IBM Corp. 2012";
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 //		System.out.println("Main Class");	
 		final Dashboard dashb = new Dashboard();

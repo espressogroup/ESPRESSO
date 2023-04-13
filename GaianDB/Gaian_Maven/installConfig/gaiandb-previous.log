@@ -1,13 +1,10 @@
-2023-04-11 10:45:28.233~993560800 GaianNode -------------> isInitDataUpToDate = true = GAIANDB_JAR_MD5 Unknown = gdbJarMD5_previous Unknown && gdbDbTimestampAtStartup 1681159956518 > gdbJarFile.lastModified() 1680896405691
+2023-04-13 13:28:38.051~880800917 GaianNode -------------> isInitDataUpToDate = true = GAIANDB_JAR_MD5 Unknown = gdbJarMD5_previous Unknown && gdbDbTimestampAtStartup 1681388884514 > gdbJarFile.lastModified() 1681322978352
 GaianDB Custom Version: Reza Moosaei 2023_03_29_34
-java version "1.8.0_362"
-IBM Semeru Runtime Open Edition (build 1.8.0_362-b09)
-Eclipse OpenJ9 VM (build openj9-0.36.0, JRE 1.8.0 Windows 11 amd64-64-Bit Compressed References 20230207_599 (JIT enabled, AOT enabled)
-OpenJ9   - e68fb241f
-OMR      - f491bbf6f
-JCL      - eebde685ec based on jdk8u362-b09)
+java version "1.8.0_312"
+OpenJDK Runtime Environment (build 1.8.0_312-b07)
+OpenJDK 64-Bit Server VM (build 25.312-b07, mixed mode)
 
-GaianDB V2.1.8 - JAR sizes: [0, 0], timestamps: [2023/04/07-20:40:05, 2023/04/07-20:40:05]
+GaianDB V2.1.8 - JAR sizes: [192, 192], timestamps: [2023/04/12-19:09:38, 2023/04/12-19:09:38]
 
 Features Summary: Federated access to JDBC RDBMS tables and CSV Flat files using a logical table abstraction layer;
 A stored procedures management API, e.g. to set and view all logical tables and data sources in the network;
@@ -30,174 +27,114 @@ Detection and cancellation of hanging queries (not mistaken for long-running que
 Pass-through sub-queries using 'GaianQuery': define exposed data sources on each node which the query will be executed against;
 Performance metrics; Provenance columns: GAIAN_NODE, GAIAN_LEAF (queryable using option: 'with_provenance')
 
-PROCESS ID:		5648
+PROCESS ID:		80862
 
-NODE ID:		cspc201
+NODE ID:		RagabsMacBookProlocal
 
-WORKING DIRECTORY:	C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 22\GD_Maven\installConfig
-BYTECODE PATH:		C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 22\GD_Maven\target\classes
-WORKSPACE:		C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 22\GD_Maven\installConfig
+WORKING DIRECTORY:	/Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/installConfig
+BYTECODE PATH:		/Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes
+WORKSPACE:		/Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/installConfig
 
-PHYSICAL DATABASE:	C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 22\GD_Maven\installConfig\gaiandb
-LOG FILE:		C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 22\GD_Maven\installConfig\gaiandb.log
-CONFIG FILE:		C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 22\GD_Maven\installConfig\gaiandb_config.properties
+PHYSICAL DATABASE:	/Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/installConfig/gaiandb
+LOG FILE:		/Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/installConfig/gaiandb.log
+CONFIG FILE:		/Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/installConfig/gaiandb_config.properties
 
 DERBY SERVER PORT:	6414
 PROVENANCE HOST(S):	0.0.0.0
 
 Network Interfaces: 
-lo: Software Loopback Interface 1 /127.0.0.1, /0:0:0:0:0:0:0:1, Address: /127.0.0.1 -> Broadcast: /127.255.255.255, Address: /0:0:0:0:0:0:0:1 -> Broadcast: null
-net0: Microsoft 6to4 Adapter 
-eth0: WAN Miniport (Network Monitor) 
-wlan0: Intel(R) Wi-Fi 6 AX201 160MHz /192.168.1.102, /2a01:4b00:8468:5a00:7e74:3e17:daa3:9fac, /fd00:0:0:0:2243:5b77:42be:4369, /2a01:4b00:8468:5a00:d19e:a4ef:435:9b87, /fd00:0:0:0:d19e:a4ef:435:9b87, /fe80:0:0:0:e9b0:ef47:bcef:3e83%wlan0, Address: /192.168.1.102 -> Broadcast: /192.168.1.255, Address: /2a01:4b00:8468:5a00:7e74:3e17:daa3:9fac -> Broadcast: null, Address: /fd00:0:0:0:2243:5b77:42be:4369 -> Broadcast: null, Address: /2a01:4b00:8468:5a00:d19e:a4ef:435:9b87 -> Broadcast: null, Address: /fd00:0:0:0:d19e:a4ef:435:9b87 -> Broadcast: null, Address: /fe80:0:0:0:e9b0:ef47:bcef:3e83%wlan0 -> Broadcast: null
-net1: Microsoft IP-HTTPS Platform Adapter 
-net2: WAN Miniport (IKEv2) 
-eth1: Microsoft Kernel Debug Network Adapter 
-eth2: Realtek USB GbE Family Controller 
-eth3: Bluetooth Device (Personal Area Network) 
-net3: WAN Miniport (L2TP) 
-eth4: PANGP Virtual Ethernet Adapter 
-net4: Microsoft Teredo Tunneling Adapter 
-eth5: WAN Miniport (IP) 
-eth6: WAN Miniport (IPv6) 
-wlan1: Microsoft Wi-Fi Direct Virtual Adapter /fe80:0:0:0:f382:ad32:1b3:d2de%wlan1, Address: /fe80:0:0:0:f382:ad32:1b3:d2de%wlan1 -> Broadcast: null
-net5: WAN Miniport (PPTP) 
-net6: WAN Miniport (SSTP) 
-ppp0: WAN Miniport (PPPOE) 
-wlan2: Microsoft Wi-Fi Direct Virtual Adapter #2 /fe80:0:0:0:6492:15d8:fae7:a385%wlan2, Address: /fe80:0:0:0:6492:15d8:fae7:a385%wlan2 -> Broadcast: null
-wlan3: Intel(R) Wi-Fi 6 AX201 160MHz-WFP Native MAC Layer LightWeight Filter-0000 
-wlan4: Intel(R) Wi-Fi 6 AX201 160MHz-Virtual WiFi Filter Driver-0000 
-wlan5: Intel(R) Wi-Fi 6 AX201 160MHz-Native WiFi Filter Driver-0000 
-wlan6: Intel(R) Wi-Fi 6 AX201 160MHz-QoS Packet Scheduler-0000 
-wlan7: Intel(R) Wi-Fi 6 AX201 160MHz-WFP 802.3 MAC Layer LightWeight Filter-0000 
-wlan8: Microsoft Wi-Fi Direct Virtual Adapter-WFP Native MAC Layer LightWeight Filter-0000 
-wlan9: Microsoft Wi-Fi Direct Virtual Adapter-Native WiFi Filter Driver-0000 
-wlan10: Microsoft Wi-Fi Direct Virtual Adapter-QoS Packet Scheduler-0000 
-wlan11: Microsoft Wi-Fi Direct Virtual Adapter-WFP 802.3 MAC Layer LightWeight Filter-0000 
-wlan12: Microsoft Wi-Fi Direct Virtual Adapter #2-WFP Native MAC Layer LightWeight Filter-0000 
-wlan13: Microsoft Wi-Fi Direct Virtual Adapter #2-Native WiFi Filter Driver-0000 
-wlan14: Microsoft Wi-Fi Direct Virtual Adapter #2-QoS Packet Scheduler-0000 
-wlan15: Microsoft Wi-Fi Direct Virtual Adapter #2-WFP 802.3 MAC Layer LightWeight Filter-0000 
-eth7: WAN Miniport (IP)-WFP Native MAC Layer LightWeight Filter-0000 
-eth8: WAN Miniport (IP)-QoS Packet Scheduler-0000 
-eth9: WAN Miniport (IPv6)-WFP Native MAC Layer LightWeight Filter-0000 
-eth10: WAN Miniport (IPv6)-QoS Packet Scheduler-0000 
-eth11: WAN Miniport (Network Monitor)-WFP Native MAC Layer LightWeight Filter-0000 
-eth12: WAN Miniport (Network Monitor)-QoS Packet Scheduler-0000 
+utun7: utun7 /fe80:0:0:0:e6e7:4717:f41f:1079%utun7, Address: /fe80:0:0:0:e6e7:4717:f41f:1079%utun7 -> Broadcast: null
+utun6: utun6 /fe80:0:0:0:7021:227d:c0f2:481f%utun6, Address: /fe80:0:0:0:7021:227d:c0f2:481f%utun6 -> Broadcast: null
+utun5: utun5 /fe80:0:0:0:f9fc:5a7e:c7dc:cf9%utun5, Address: /fe80:0:0:0:f9fc:5a7e:c7dc:cf9%utun5 -> Broadcast: null
+utun4: utun4 /fe80:0:0:0:2eb5:89ad:29f4:8a25%utun4, Address: /fe80:0:0:0:2eb5:89ad:29f4:8a25%utun4 -> Broadcast: null
+utun2: utun2 /fe80:0:0:0:6790:5b7c:2160:2726%utun2, Address: /fe80:0:0:0:6790:5b7c:2160:2726%utun2 -> Broadcast: null
+utun1: utun1 /fe80:0:0:0:ce81:b1c:bd2c:69e%utun1, Address: /fe80:0:0:0:ce81:b1c:bd2c:69e%utun1 -> Broadcast: null
+utun0: utun0 /fe80:0:0:0:3804:1e2e:fba0:1ac0%utun0, Address: /fe80:0:0:0:3804:1e2e:fba0:1ac0%utun0 -> Broadcast: null
+llw0: llw0 /fe80:0:0:0:1c19:40ff:fe7c:8bd8%llw0, Address: /fe80:0:0:0:1c19:40ff:fe7c:8bd8%llw0 -> Broadcast: null
+awdl0: awdl0 /fe80:0:0:0:1c19:40ff:fe7c:8bd8%awdl0, Address: /fe80:0:0:0:1c19:40ff:fe7c:8bd8%awdl0 -> Broadcast: null
+ap1: ap1 /fe80:0:0:0:7ce9:1eff:fe7b:3305%ap1, Address: /fe80:0:0:0:7ce9:1eff:fe7b:3305%ap1 -> Broadcast: null
+anpi2: anpi2 /fe80:0:0:0:34aa:e9ff:fe78:b612%anpi2, Address: /fe80:0:0:0:34aa:e9ff:fe78:b612%anpi2 -> Broadcast: null
+anpi0: anpi0 /fe80:0:0:0:34aa:e9ff:fe78:b610%anpi0, Address: /fe80:0:0:0:34aa:e9ff:fe78:b610%anpi0 -> Broadcast: null
+anpi1: anpi1 /fe80:0:0:0:34aa:e9ff:fe78:b611%anpi1, Address: /fe80:0:0:0:34aa:e9ff:fe78:b611%anpi1 -> Broadcast: null
+utun3: utun3 /10.64.16.27, Address: /10.64.16.27 -> Broadcast: null
+en0: en0 /2001:630:d0:8e06:d81c:d958:84e0:e582%en0, /2001:630:d0:8e06:6908:8651:c6b0:2f46%en0, /2001:630:d0:8e06:480a:a4e9:32ce:688c%en0, /2001:630:d0:8e06:146c:fe4:7ec8:a23a%en0, /fe80:0:0:0:8aa:7b22:1c5:cbbd%en0, /10.9.155.181, Address: /2001:630:d0:8e06:d81c:d958:84e0:e582%en0 -> Broadcast: null, Address: /2001:630:d0:8e06:6908:8651:c6b0:2f46%en0 -> Broadcast: null, Address: /2001:630:d0:8e06:480a:a4e9:32ce:688c%en0 -> Broadcast: null, Address: /2001:630:d0:8e06:146c:fe4:7ec8:a23a%en0 -> Broadcast: null, Address: /fe80:0:0:0:8aa:7b22:1c5:cbbd%en0 -> Broadcast: null, Address: /10.9.155.181 -> Broadcast: /10.9.155.255
+lo0: lo0 /fe80:0:0:0:0:0:0:1%lo0, /0:0:0:0:0:0:0:1%lo0, /127.0.0.1, Address: /fe80:0:0:0:0:0:0:1%lo0 -> Broadcast: null, Address: /0:0:0:0:0:0:0:1%lo0 -> Broadcast: null, Address: /127.0.0.1 -> Broadcast: null
 
-Hostname: cspc201
-Java localhost ip: 192.168.1.102
-Local address designating initial default interface for multicast: 192.168.1.102
+Hostname: Ragabs-MacBook-Pro.local
+Java localhost ip: 127.0.0.1
+Local address designating initial default interface for multicast: 10.9.155.181
 
 
-2023-04-11 10:45:28.453~213341100 GaianNode -------------> Initialising GaianNode...
-2023-04-11 10:45:28.453~213486400 GaianNode -------------> GAIANDB.jar library has not been changed (and db folder is more recent), so initialisation data (e.g. stored procs/funcs) is expected to be already loaded
-2023-04-11 10:45:28.453~213582300 GaianNode -------------> Node details: cspc201 gaiandb <password>
-2023-04-11 10:45:28.453~213777400 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
-2023-04-11 10:45:28.453~213879200 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = <Default=230.255.255.255>
-2023-04-11 10:45:28.453~213970000 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
-2023-04-11 10:45:28.453~214065700 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
-2023-04-11 10:45:28.453~214157400 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
-2023-04-11 10:45:28.454~214254000 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
-2023-04-11 10:45:28.454~214352500 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
-2023-04-11 10:45:28.454~214515100 GaianNode -------------> Log level set to: NONE
-2023-04-11 10:45:28.915~675284200 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6414
+2023-04-13 13:28:38.069~898124000 GaianNode -------------> Initialising GaianNode...
+2023-04-13 13:28:38.069~898277125 GaianNode -------------> GAIANDB.jar library has not been changed (and db folder is more recent), so initialisation data (e.g. stored procs/funcs) is expected to be already loaded
+2023-04-13 13:28:38.069~898333542 GaianNode -------------> Node details: RagabsMacBookProlocal gaiandb <password>
+2023-04-13 13:28:38.069~898449042 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
+2023-04-13 13:28:38.069~898556250 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = <Default=230.255.255.255>
+2023-04-13 13:28:38.069~898631708 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
+2023-04-13 13:28:38.069~898674542 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
+2023-04-13 13:28:38.069~898703500 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
+2023-04-13 13:28:38.069~898736542 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
+2023-04-13 13:28:38.069~898798958 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
+2023-04-13 13:28:38.069~898880417 GaianNode -------------> Log level set to: NONE
+2023-04-13 13:28:38.419~248412542 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6414
 
-Tue Apr 11 10:45:29 BST 2023 : Apache Derby Network Server - 10.10.1.1 - (1458268) started and ready to accept connections on port 6414
-2023-04-11 10:45:30.492~252659400 GaianNode -------------> 
-Derby Version: CSS10100/10.10.1.1 - (1458268)  - Java Version: 1.8.0_362 (Eclipse OpenJ9 VM)
+2023-04-13 13:28:38.495~324647208 Util -------------> WARNING:
 
-GaianNode started for Derby network server with sslMode=off on port: 6414 at Tue Apr 11 10:45:30 BST 2023, startup time: 2510ms
+2023-04-13 13:28:38.491 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH (10th repetition): GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
 
-Tue Apr 11 10:45:35 BST 2023 : Max threads changed to 1000.
-Tue Apr 11 10:45:35 BST 2023 : Max threads changed to 1000.
-2023-04-11 10:46:09.739~499505600 VTIFile --------------------> VTIFile original-sql: select * from LTSOLID where term = 'coffee'
-2023-04-11 10:46:15.195~955526500 Util -------------> WARNING:
-
-2023-04-11 10:46:15.195 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH (10th repetition): GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 22/GD_Maven/target/classes/
-
-2023-04-11 10:46:15.195 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+2023-04-13 13:28:38.491 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
 
 
-2023-04-11 10:46:15.195~955859100 Util -------------> WARNING:
+2023-04-13 13:28:38.495~324874542 Util -------------> WARNING:
 
-2023-04-11 10:46:15.195 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 22/GD_Maven/target/classes/
+2023-04-13 13:28:38.495 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
 
-2023-04-11 10:46:15.195 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-04-11 10:46:15.195~956157400 Util -------------> WARNING:
-
-2023-04-11 10:46:15.195 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 22/GD_Maven/target/classes/
-
-2023-04-11 10:46:15.195 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+2023-04-13 13:28:38.495 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
 
 
-2023-04-11 10:46:15.196~956457800 Util -------------> WARNING:
+2023-04-13 13:28:38.495~324925417 Util -------------> WARNING:
 
-2023-04-11 10:46:15.195 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 22/GD_Maven/target/classes/
+2023-04-13 13:28:38.495 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
 
-2023-04-11 10:46:15.195 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-04-11 10:46:15.196~956763700 Util -------------> WARNING:
-
-2023-04-11 10:46:15.196 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 22/GD_Maven/target/classes/
-
-2023-04-11 10:46:15.196 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+2023-04-13 13:28:38.495 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
 
 
-2023-04-11 10:46:15.196~957041600 Util -------------> WARNING:
+2023-04-13 13:28:38.495~324967292 Util -------------> WARNING:
 
-2023-04-11 10:46:15.196 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 22/GD_Maven/target/classes/
+2023-04-13 13:28:38.495 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
 
-2023-04-11 10:46:15.196 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-04-11 10:46:15.200~960789900 FileImport -----------------> WARNING:
-
-2023-04-11 10:46:15.196 ********** GDB_ERROR: : Solid service call has been failed
-	com.mashape.unirest.http.exceptions.UnirestException: org.apache.http.conn.HttpHostConnectException: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
-	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:143)
-	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68)
-	at com.ibm.solid.SolidServiceCall.filterData(SolidServiceCall.java:57)
-	at com.ibm.db2j.FileImport.<init>(FileImport.java:225)
-	at com.ibm.gaiandb.VTIFile.execute(VTIFile.java:229)
-	at com.ibm.gaiandb.GaianResult.executeQueryAgainstDataSource(GaianResult.java:446)
-	at com.ibm.gaiandb.GaianResult.run(GaianResult.java:527)
-	at com.ibm.gaiandb.GaianSubResult.run(GaianSubResult.java:37)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:826)
-Caused by: org.apache.http.conn.HttpHostConnectException: Connect to localhost:3000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:158)
-	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
-	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:138)
-	... 10 more
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.net.Socket.connect(Socket.java:607)
-	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
-	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141)
-	... 21 more
-
-2023-04-11 10:46:15.196 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#
+2023-04-13 13:28:38.495 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
 
 
-2023-04-11 10:46:40.668~433130000 VTIFile --------------------> VTIFile original-sql: select * from LTSOLID where term = 'coffee'
-2023-04-11 10:52:51.035~796563800 VTIFile --------------------> VTIFile original-sql: select * from LTSOLID where term = 'Boom'
+2023-04-13 13:28:38.496~325006917 Util -------------> WARNING:
+
+2023-04-13 13:28:38.495 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
+
+2023-04-13 13:28:38.495 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-04-13 13:28:38.496~325057333 Util -------------> WARNING:
+
+2023-04-13 13:28:38.496 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
+
+2023-04-13 13:28:38.496 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-04-13 13:28:38.497~326056417 GaianNode -------------> WARNING:
+
+2023-04-13 13:28:38.496 ********** GDB_WARNING: NODE_START_EXCEPTION_ERROR: GaianNode terminating due to Exception, cause: java.lang.Exception: Unable to start GaianNode on port 6414 (GaianDB may already be running), cause: java.net.BindException: Address already in use (Bind failed)
+	=> TRACE:     GaianNode.main:348 -> GaianNode.start:461 -> GaianNode.initialiseNode:901
+
+2023-04-13 13:28:38.496 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_START_EXCEPTION_ERROR
+
+
+2023-04-13 13:28:38.497~326150875 GaianNode -------------> Gaian Node Exiting: GaianNode terminating due to Exception, cause: java.lang.Exception: Unable to start GaianNode on port 6414 (GaianDB may already be running), cause: java.net.BindException: Address already in use (Bind failed)
+2023-04-13 13:28:38.501~330238375 GaianNode -------------> Number of remaining GaianResult objects to close: 0
+2023-04-13 13:28:38.503~332780083 GaianNode -------------> Node thread count before exit: 6
+2023-04-13 13:28:38.558~387294833 DatabaseConnector ---------------> Connector 1 from INIT: WARNING:
+
+2023-04-13 13:28:38.558 ********** GDB_WARNING: ENGINE_JDBC_CONN_ATTEMPT_ERROR: Failed JDBC Connection attempt in 138 ms for: jdbc:derby:gaiandb;create=true, cause: java.sql.SQLException: Failed to start database 'gaiandb' with class loader sun.misc.Launcher$AppClassLoader@18b4aac2, see the next exception for details.; Common issues: missing jdbc driver, network/database unavailability (e.g. firewall), incorrect user/password and/or insufficient database access rights (e.g. if derby.database.defaultConnectionMode=noAccess in derby.properties)
+
+2023-04-13 13:28:38.558 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#ENGINE_JDBC_CONN_ATTEMPT_ERROR
+
+
