@@ -1,6 +1,7 @@
 ---
 - name: Install Solid Community Server
   hosts: solid_servers
+  #hosts:localhost
   #connection: local
   become: yes
 
