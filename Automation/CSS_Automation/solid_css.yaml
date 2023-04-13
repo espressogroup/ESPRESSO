@@ -6,7 +6,9 @@
   become: yes
 
   vars:
-    github_url: https://MohamedRagabAnas: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@github.com/espressogroup/ESPRESSO.git
+    git_user: MohamedRagabAnas
+    git_token: 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
+    github_url: https://{{ git_user }}:{{ git_token }}@github.com/espressogroup/ESPRESSO.git
     project_path: /usr/local/ESPRESSO
 
   tasks:
