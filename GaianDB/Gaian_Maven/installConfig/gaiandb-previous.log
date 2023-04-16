@@ -1,4 +1,4 @@
-2023-04-13 13:28:38.051~880800917 GaianNode -------------> isInitDataUpToDate = true = GAIANDB_JAR_MD5 Unknown = gdbJarMD5_previous Unknown && gdbDbTimestampAtStartup 1681388884514 > gdbJarFile.lastModified() 1681322978352
+2023-04-16 18:21:16.737~668476625 GaianNode -------------> isInitDataUpToDate = true = GAIANDB_JAR_MD5 Unknown = gdbJarMD5_previous Unknown && gdbDbTimestampAtStartup 1681484711801 > gdbJarFile.lastModified() 1681322978352
 GaianDB Custom Version: Reza Moosaei 2023_03_29_34
 java version "1.8.0_312"
 OpenJDK Runtime Environment (build 1.8.0_312-b07)
@@ -27,7 +27,7 @@ Detection and cancellation of hanging queries (not mistaken for long-running que
 Pass-through sub-queries using 'GaianQuery': define exposed data sources on each node which the query will be executed against;
 Performance metrics; Provenance columns: GAIAN_NODE, GAIAN_LEAF (queryable using option: 'with_provenance')
 
-PROCESS ID:		80862
+PROCESS ID:		45780
 
 NODE ID:		RagabsMacBookProlocal
 
@@ -50,91 +50,91 @@ utun4: utun4 /fe80:0:0:0:2eb5:89ad:29f4:8a25%utun4, Address: /fe80:0:0:0:2eb5:89
 utun2: utun2 /fe80:0:0:0:6790:5b7c:2160:2726%utun2, Address: /fe80:0:0:0:6790:5b7c:2160:2726%utun2 -> Broadcast: null
 utun1: utun1 /fe80:0:0:0:ce81:b1c:bd2c:69e%utun1, Address: /fe80:0:0:0:ce81:b1c:bd2c:69e%utun1 -> Broadcast: null
 utun0: utun0 /fe80:0:0:0:3804:1e2e:fba0:1ac0%utun0, Address: /fe80:0:0:0:3804:1e2e:fba0:1ac0%utun0 -> Broadcast: null
-llw0: llw0 /fe80:0:0:0:1c19:40ff:fe7c:8bd8%llw0, Address: /fe80:0:0:0:1c19:40ff:fe7c:8bd8%llw0 -> Broadcast: null
-awdl0: awdl0 /fe80:0:0:0:1c19:40ff:fe7c:8bd8%awdl0, Address: /fe80:0:0:0:1c19:40ff:fe7c:8bd8%awdl0 -> Broadcast: null
+llw0: llw0 /fe80:0:0:0:2cb7:a2ff:fe24:5895%llw0, Address: /fe80:0:0:0:2cb7:a2ff:fe24:5895%llw0 -> Broadcast: null
+awdl0: awdl0 /fe80:0:0:0:2cb7:a2ff:fe24:5895%awdl0, Address: /fe80:0:0:0:2cb7:a2ff:fe24:5895%awdl0 -> Broadcast: null
 ap1: ap1 /fe80:0:0:0:7ce9:1eff:fe7b:3305%ap1, Address: /fe80:0:0:0:7ce9:1eff:fe7b:3305%ap1 -> Broadcast: null
 anpi2: anpi2 /fe80:0:0:0:34aa:e9ff:fe78:b612%anpi2, Address: /fe80:0:0:0:34aa:e9ff:fe78:b612%anpi2 -> Broadcast: null
 anpi0: anpi0 /fe80:0:0:0:34aa:e9ff:fe78:b610%anpi0, Address: /fe80:0:0:0:34aa:e9ff:fe78:b610%anpi0 -> Broadcast: null
 anpi1: anpi1 /fe80:0:0:0:34aa:e9ff:fe78:b611%anpi1, Address: /fe80:0:0:0:34aa:e9ff:fe78:b611%anpi1 -> Broadcast: null
 utun3: utun3 /10.64.16.27, Address: /10.64.16.27 -> Broadcast: null
-en0: en0 /2001:630:d0:8e06:d81c:d958:84e0:e582%en0, /2001:630:d0:8e06:6908:8651:c6b0:2f46%en0, /2001:630:d0:8e06:480a:a4e9:32ce:688c%en0, /2001:630:d0:8e06:146c:fe4:7ec8:a23a%en0, /fe80:0:0:0:8aa:7b22:1c5:cbbd%en0, /10.9.155.181, Address: /2001:630:d0:8e06:d81c:d958:84e0:e582%en0 -> Broadcast: null, Address: /2001:630:d0:8e06:6908:8651:c6b0:2f46%en0 -> Broadcast: null, Address: /2001:630:d0:8e06:480a:a4e9:32ce:688c%en0 -> Broadcast: null, Address: /2001:630:d0:8e06:146c:fe4:7ec8:a23a%en0 -> Broadcast: null, Address: /fe80:0:0:0:8aa:7b22:1c5:cbbd%en0 -> Broadcast: null, Address: /10.9.155.181 -> Broadcast: /10.9.155.255
+en0: en0 /2001:630:d0:8e06:8930:5e01:6e61:c6e3%en0, /2001:630:d0:8e06:146c:fe4:7ec8:a23a%en0, /fe80:0:0:0:8aa:7b22:1c5:cbbd%en0, /10.9.154.108, Address: /2001:630:d0:8e06:8930:5e01:6e61:c6e3%en0 -> Broadcast: null, Address: /2001:630:d0:8e06:146c:fe4:7ec8:a23a%en0 -> Broadcast: null, Address: /fe80:0:0:0:8aa:7b22:1c5:cbbd%en0 -> Broadcast: null, Address: /10.9.154.108 -> Broadcast: /10.9.155.255
 lo0: lo0 /fe80:0:0:0:0:0:0:1%lo0, /0:0:0:0:0:0:0:1%lo0, /127.0.0.1, Address: /fe80:0:0:0:0:0:0:1%lo0 -> Broadcast: null, Address: /0:0:0:0:0:0:0:1%lo0 -> Broadcast: null, Address: /127.0.0.1 -> Broadcast: null
 
 Hostname: Ragabs-MacBook-Pro.local
 Java localhost ip: 127.0.0.1
-Local address designating initial default interface for multicast: 10.9.155.181
+Local address designating initial default interface for multicast: 10.64.16.27
 
 
-2023-04-13 13:28:38.069~898124000 GaianNode -------------> Initialising GaianNode...
-2023-04-13 13:28:38.069~898277125 GaianNode -------------> GAIANDB.jar library has not been changed (and db folder is more recent), so initialisation data (e.g. stored procs/funcs) is expected to be already loaded
-2023-04-13 13:28:38.069~898333542 GaianNode -------------> Node details: RagabsMacBookProlocal gaiandb <password>
-2023-04-13 13:28:38.069~898449042 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
-2023-04-13 13:28:38.069~898556250 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = <Default=230.255.255.255>
-2023-04-13 13:28:38.069~898631708 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
-2023-04-13 13:28:38.069~898674542 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
-2023-04-13 13:28:38.069~898703500 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
-2023-04-13 13:28:38.069~898736542 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
-2023-04-13 13:28:38.069~898798958 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
-2023-04-13 13:28:38.069~898880417 GaianNode -------------> Log level set to: NONE
-2023-04-13 13:28:38.419~248412542 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6414
+2023-04-16 18:21:16.749~680032875 GaianNode -------------> Initialising GaianNode...
+2023-04-16 18:21:16.749~680126083 GaianNode -------------> GAIANDB.jar library has not been changed (and db folder is more recent), so initialisation data (e.g. stored procs/funcs) is expected to be already loaded
+2023-04-16 18:21:16.749~680168750 GaianNode -------------> Node details: RagabsMacBookProlocal gaiandb <password>
+2023-04-16 18:21:16.749~680274833 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
+2023-04-16 18:21:16.749~680318250 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = <Default=230.255.255.255>
+2023-04-16 18:21:16.749~680357625 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
+2023-04-16 18:21:16.749~680393875 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
+2023-04-16 18:21:16.749~680427291 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
+2023-04-16 18:21:16.749~680455291 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
+2023-04-16 18:21:16.749~680508708 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
+2023-04-16 18:21:16.749~680582541 GaianNode -------------> Log level set to: NONE
+2023-04-16 18:21:17.104~34897791 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6414
 
-2023-04-13 13:28:38.495~324647208 Util -------------> WARNING:
+2023-04-16 18:21:17.177~107888375 Util -------------> WARNING:
 
-2023-04-13 13:28:38.491 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH (10th repetition): GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
+2023-04-16 18:21:17.172 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH (10th repetition): GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
 
-2023-04-13 13:28:38.491 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-04-13 13:28:38.495~324874542 Util -------------> WARNING:
-
-2023-04-13 13:28:38.495 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
-
-2023-04-13 13:28:38.495 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+2023-04-16 18:21:17.172 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
 
 
-2023-04-13 13:28:38.495~324925417 Util -------------> WARNING:
+2023-04-16 18:21:17.177~108167875 Util -------------> WARNING:
 
-2023-04-13 13:28:38.495 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
+2023-04-16 18:21:17.177 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
 
-2023-04-13 13:28:38.495 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-04-13 13:28:38.495~324967292 Util -------------> WARNING:
-
-2023-04-13 13:28:38.495 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
-
-2023-04-13 13:28:38.495 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+2023-04-16 18:21:17.177 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
 
 
-2023-04-13 13:28:38.496~325006917 Util -------------> WARNING:
+2023-04-16 18:21:17.177~108561666 Util -------------> WARNING:
 
-2023-04-13 13:28:38.495 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
+2023-04-16 18:21:17.177 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
 
-2023-04-13 13:28:38.495 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-04-13 13:28:38.496~325057333 Util -------------> WARNING:
-
-2023-04-13 13:28:38.496 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
-
-2023-04-13 13:28:38.496 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+2023-04-16 18:21:17.177 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
 
 
-2023-04-13 13:28:38.497~326056417 GaianNode -------------> WARNING:
+2023-04-16 18:21:17.177~108603333 Util -------------> WARNING:
 
-2023-04-13 13:28:38.496 ********** GDB_WARNING: NODE_START_EXCEPTION_ERROR: GaianNode terminating due to Exception, cause: java.lang.Exception: Unable to start GaianNode on port 6414 (GaianDB may already be running), cause: java.net.BindException: Address already in use (Bind failed)
+2023-04-16 18:21:17.177 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
+
+2023-04-16 18:21:17.177 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-04-16 18:21:17.177~108641000 Util -------------> WARNING:
+
+2023-04-16 18:21:17.177 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
+
+2023-04-16 18:21:17.177 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-04-16 18:21:17.178~109194416 Util -------------> WARNING:
+
+2023-04-16 18:21:17.177 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
+
+2023-04-16 18:21:17.177 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-04-16 18:21:17.178~109819583 GaianNode -------------> WARNING:
+
+2023-04-16 18:21:17.178 ********** GDB_WARNING: NODE_START_EXCEPTION_ERROR: GaianNode terminating due to Exception, cause: java.lang.Exception: Unable to start GaianNode on port 6414 (GaianDB may already be running), cause: java.net.BindException: Address already in use (Bind failed)
 	=> TRACE:     GaianNode.main:348 -> GaianNode.start:461 -> GaianNode.initialiseNode:901
 
-2023-04-13 13:28:38.496 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_START_EXCEPTION_ERROR
+2023-04-16 18:21:17.178 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_START_EXCEPTION_ERROR
 
 
-2023-04-13 13:28:38.497~326150875 GaianNode -------------> Gaian Node Exiting: GaianNode terminating due to Exception, cause: java.lang.Exception: Unable to start GaianNode on port 6414 (GaianDB may already be running), cause: java.net.BindException: Address already in use (Bind failed)
-2023-04-13 13:28:38.501~330238375 GaianNode -------------> Number of remaining GaianResult objects to close: 0
-2023-04-13 13:28:38.503~332780083 GaianNode -------------> Node thread count before exit: 6
-2023-04-13 13:28:38.558~387294833 DatabaseConnector ---------------> Connector 1 from INIT: WARNING:
+2023-04-16 18:21:17.179~109891041 GaianNode -------------> Gaian Node Exiting: GaianNode terminating due to Exception, cause: java.lang.Exception: Unable to start GaianNode on port 6414 (GaianDB may already be running), cause: java.net.BindException: Address already in use (Bind failed)
+2023-04-16 18:21:17.183~114660791 GaianNode -------------> Number of remaining GaianResult objects to close: 0
+2023-04-16 18:21:17.186~117078250 GaianNode -------------> Node thread count before exit: 6
+2023-04-16 18:21:17.240~171389625 DatabaseConnector ---------------> Connector 1 from INIT: WARNING:
 
-2023-04-13 13:28:38.558 ********** GDB_WARNING: ENGINE_JDBC_CONN_ATTEMPT_ERROR: Failed JDBC Connection attempt in 138 ms for: jdbc:derby:gaiandb;create=true, cause: java.sql.SQLException: Failed to start database 'gaiandb' with class loader sun.misc.Launcher$AppClassLoader@18b4aac2, see the next exception for details.; Common issues: missing jdbc driver, network/database unavailability (e.g. firewall), incorrect user/password and/or insufficient database access rights (e.g. if derby.database.defaultConnectionMode=noAccess in derby.properties)
+2023-04-16 18:21:17.240 ********** GDB_WARNING: ENGINE_JDBC_CONN_ATTEMPT_ERROR: Failed JDBC Connection attempt in 135 ms for: jdbc:derby:gaiandb;create=true, cause: java.sql.SQLException: Failed to start database 'gaiandb' with class loader sun.misc.Launcher$AppClassLoader@18b4aac2, see the next exception for details.; Common issues: missing jdbc driver, network/database unavailability (e.g. firewall), incorrect user/password and/or insufficient database access rights (e.g. if derby.database.defaultConnectionMode=noAccess in derby.properties)
 
-2023-04-13 13:28:38.558 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#ENGINE_JDBC_CONN_ATTEMPT_ERROR
+2023-04-16 18:21:17.240 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#ENGINE_JDBC_CONN_ATTEMPT_ERROR
 
 
