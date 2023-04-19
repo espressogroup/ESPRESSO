@@ -8,6 +8,7 @@ public class Barista {
     private static final String DB_PASSWORD = "engmohamed";
 
     public static void main(String[] args) {
+        System.out.println("Barista..");
         try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
              Statement statement = connection.createStatement()) {
 

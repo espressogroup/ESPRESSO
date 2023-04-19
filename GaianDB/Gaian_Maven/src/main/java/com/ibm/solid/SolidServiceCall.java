@@ -26,10 +26,12 @@ import static org.junit.Assert.assertEquals;
 
 
 public class SolidServiceCall {
+
     public class SearchResult {
         public int frequency;
         public String address;
     }
+
     public void filterData(String data) throws Exception {
         String whereClause;
         if (data != null)
@@ -45,6 +47,7 @@ public class SolidServiceCall {
 try {
     whereClause = data.replace("'", "");
     CSVWriter csvWriter = new CSVWriter(new FileWriter(csvFilePath));
+
 
     String[] header = {"TERM", "ADDRESS", "RELEVANCE"};
     csvWriter.writeNext(header);

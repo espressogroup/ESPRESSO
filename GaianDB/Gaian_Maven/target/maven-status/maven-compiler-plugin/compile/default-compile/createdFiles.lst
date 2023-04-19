@@ -181,7 +181,6 @@ com/ibm/gaiandb/webservices/scanner/json/JsonAttributes.class
 com/ibm/gaiandb/GaianServlet.class
 com/ibm/gaiandb/apps/sensormonitor/SensorMonitor$9.class
 com/ibm/gaiandb/lite/LiteConnection$1.class
-ranking/Test.class
 com/ibm/gaiandb/udpdriver/common/SocketHelper.class
 com/ibm/gaiandb/apps/dashboard/StatsChart.class
 com/ibm/gaiandb/searchapis/Entries.class

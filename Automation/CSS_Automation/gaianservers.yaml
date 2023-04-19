@@ -1,0 +1,34 @@
+---
+- name: Clone or update the ESPRESSO repository
+  hosts: solid_servers
+  become: yes
+
+  vars:
+    project_path: /usr/local/ESPRESSO
+
+  tasks:
+    - name: Check if GaianDB is already running
+      wait_for:
+        host: localhost
+        port: 6414
+        state: stopped
+        timeout: 5
+      ignore_errors: true
+      register: gaiandb_stopped
+
+    - name: Print GaianDB status
+      debug:
+        msg: "GaianDB is {{ 'stopped' if gaiandb_stopped is succeeded else 'already running' }}"
+
+    # If GaianDB is not running, run the script
+    - name: Make launchGaianServer.sh executable and start GaianDB
+      become: true
+      command: "{{ project_path }}/GaianDB/GaianS_V2.1.8_20230324/launchGaianServer.sh"
+      when: gaiandb_stopped is succeeded
+
+    - name: Make launchGaianServer.sh executable
+      become: true
+      file:
+        path: "{{ project_path }}/GaianDB/GaianS_V2.1.8_20230324/launchGaianServer.sh"
+        mode: "+x"
+      when: gaiandb_stopped is succeeded

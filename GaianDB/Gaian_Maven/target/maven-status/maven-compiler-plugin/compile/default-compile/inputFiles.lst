@@ -193,7 +193,6 @@
 /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/src/main/java/IntegrationSamples/com/ibm/gaiandb/distributed/SampleUDFs.java
 /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/src/main/java/Prototype/Connectors/com/ibm/gaiandb/clientseeker/AbstractSeeker.java
 /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/src/main/java/com/ibm/gaiandb/apps/dashboard/MonitorTab.java
-/Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/src/main/java/ranking/Test.java
 /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/src/main/java/com/ibm/gaiandb/apps/tools/replay/BrokerConnector.java
 /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/src/main/java/Prototype/Connectors/com/ibm/gaiandb/jdbc/discoveryclient/GaianPooledConnection.java
 /Users/ragab/ESPRESSO/Impementations/GithubRepo/ESPRESSO/GaianDB/Gaian_Maven/src/main/java/Prototype/UDPDriver/com/ibm/gaiandb/udpdriver/client/UDPResultSet.java

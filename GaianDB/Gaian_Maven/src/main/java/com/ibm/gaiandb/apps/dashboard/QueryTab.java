@@ -41,7 +41,6 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
-import barista.Barista;
 import barista.QueryBuilder;
 import com.ibm.db2j.GaianTable;
 import com.ibm.gaiandb.Logger;
@@ -203,7 +202,7 @@ public class QueryTab extends Tab {
 
 
 
-		//Ragab
+		//Ragab	enter action and button submit function
 		Action enter_submitAction = new AbstractAction() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -234,7 +233,6 @@ public class QueryTab extends Tab {
 				}
 
 				//Ragab
-			    System.out.println(">>>>"+sqlquery);
 				submitQuery(sqlquery);
 				// submitQuery(input.getText());
 			}
@@ -243,9 +241,7 @@ public class QueryTab extends Tab {
 
 		//Ragab
 		submit = new JButton("Keyword Search");
-
 		submit.addActionListener(enter_submitAction);
-
 		input.addActionListener(enter_submitAction);
 
 		resultsModel = new DefaultTableModel();
@@ -559,6 +555,8 @@ public class QueryTab extends Tab {
 	private long previousCellCount = 0;
 	private boolean memDecreasedSubstantially = false;
 
+	//Ragab_Comment
+	//This is the main function in the Dashborad QueryTab
 	protected synchronized void submitQuery(String sql) {
 		
 		if (null==sql || 0 == sql.trim().length() && null != executingSQL ) return;
@@ -572,22 +570,10 @@ public class QueryTab extends Tab {
 			return;
 		}
 
-
+		//Ragab Comment
+		// Was related to the front and Back Buttons, could be deleted?
 		addToSQLHistory(sql);
 
-	/*	//added by Reza Moosa
-
-		try {
-			String pathname = "C:\\Users\\dcsuser\\GaianProject\\GaianS-Demo\\gaiandb\\build\\GAIANDB_V2.1.8_20230228\\csvtestfiles\\DashQuery.txt";
-			FileWriter myWriter = new FileWriter(pathname);
-			myWriter.write(sql);
-			myWriter.close();
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-        // end Reza Moosa    */
-				
 		executingSQL = sql;
 		new Thread( new Runnable() {
 			public void run() {
@@ -836,19 +822,19 @@ public class QueryTab extends Tab {
 	}
 
 	private void back() {
-				
+
 		sqlHistory.set(sqlHistoryIndex--, input.getText());
 		input.setText( sqlHistory.get(sqlHistoryIndex) );
-		
+
 		if ( 0 == sqlHistoryIndex ) back.setEnabled(false);
 		forward.setEnabled(true);
 	}
 
 	private void forward() {
-		
+
 		sqlHistory.set(sqlHistoryIndex++, input.getText());
 		input.setText( sqlHistory.get(sqlHistoryIndex) );
-		
+
 		if ( sqlHistory.size()-1 == sqlHistoryIndex ) forward.setEnabled(false);
 		back.setEnabled(true);
 	}
