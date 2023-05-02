@@ -8,7 +8,7 @@ public class QueryBuilder {
     private static final String[] DEFAULT_COLUMNS = {"term"};
 
     public static String buildSqlQuery(String keyword) {
-        return buildSqlQuery(keyword, DEFAULT_COLUMNS, "=", true, 0, -1);
+        return buildSqlQuery(keyword, DEFAULT_COLUMNS, "=", false, 0, -1);
     }
 
     public static String buildSqlQuery(String keyword, String[] columns, String operator, boolean caseInsensitive, int offset, int limit) {
