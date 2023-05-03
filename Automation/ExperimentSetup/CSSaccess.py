@@ -101,6 +101,12 @@ class CSSPod:
 
     def login(self,USERNAME,PASSWORD):
         self.Access=CSSaccess(self.idp, USERNAME, PASSWORD)
-   
+
+class CSSServer:
+    def __init__(self, ADDRESS):
+        self.address=ADDRESS
+        self.idp = ADDRESS
+        self.cred_url = IDP+'idp/credentials/'
+        self.token_url = IDP+'.oidc/token'
 
 
