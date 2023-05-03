@@ -181,7 +181,6 @@ com/ibm/gaiandb/webservices/scanner/json/JsonAttributes.class
 com/ibm/gaiandb/GaianServlet.class
 com/ibm/gaiandb/apps/sensormonitor/SensorMonitor$9.class
 com/ibm/gaiandb/lite/LiteConnection$1.class
-ranking/Test.class
 com/ibm/gaiandb/udpdriver/common/SocketHelper.class
 com/ibm/gaiandb/apps/dashboard/StatsChart.class
 com/ibm/gaiandb/searchapis/Entries.class
@@ -343,6 +342,7 @@ com/ibm/gaiandb/searchapis/SearchSIAPI.class
 com/ibm/gaiandb/apps/sensormonitor/SensorMonitor$3.class
 com/ibm/gaiandb/apps/dashboard/TopologyTab$12.class
 com/ibm/gaiandb/apps/dashboard/MonitorTab$Node.class
+com/ibm/solid/SolidServiceCall$SearchResult.class
 com/ibm/gaiandb/GaianChildRSWrapper$MyResetableStream.class
 com/ibm/gaiandb/GaianResult$2.class
 com/ibm/watson/pml/pdp/IPolicyDecisionPoint.class
@@ -424,6 +424,7 @@ com/ibm/db2j/GaianTable.class
 com/ibm/gaiandb/apps/dashboard/LtAndDsGraph$Edge.class
 com/ibm/gaiandb/plugins/wpml/schema/AccessLogger.class
 com/ibm/gaiandb/GaianTask.class
+com/ibm/gaiandb/apps/dashboard/AboutTab.class
 com/ibm/es/api/search/RemoteSearchFactory.class
 com/ibm/gaiandb/security/client/GSSPrivilegedAction.class
 com/ibm/gaiandb/apps/dashboard/Dashboard$2$2.class

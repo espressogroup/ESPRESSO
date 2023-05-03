@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author Reza Moosaei 14.03.23
+ * @author Reza Moosaei, 3/7/23 6:03 PM
  */
 public class SqlParser {
     public Map<String, String> getCondition(String sql) throws JSQLParserException {

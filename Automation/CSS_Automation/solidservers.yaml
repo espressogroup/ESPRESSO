@@ -1,0 +1,24 @@
+---
+- name: Install Solid Community Server
+  hosts: solid_servers
+  #hosts:localhost
+  #connection: local
+  become: yes
+
+  tasks:
+    - name: Update package cache
+      dnf:
+        update_cache: yes
+
+    - name: Install node.js and npm
+      dnf:
+        name:
+          - nodejs
+          - npm
+        state: present
+
+
+    - name: Install Solid Community Server
+      npm:
+        name: "@solid/community-server"
+        global: yes

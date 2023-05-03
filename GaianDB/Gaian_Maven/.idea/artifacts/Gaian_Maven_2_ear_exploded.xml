@@ -2,10 +2,10 @@
   <artifact type="exploded-ear" name="Gaian_Maven_2:ear exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/Gaian_Maven_2_ear_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="Gaian_Maven/javaeeApplication/javaEEApplication" />
       <element id="directory" name="web.war">
         <element id="artifact" artifact-name="Gaian_Maven_2:war exploded" />
       </element>
+      <element id="javaee-facet-resources" facet="Gaian_Maven/javaeeApplication/javaEEApplication" />
     </root>
   </artifact>
 </component>

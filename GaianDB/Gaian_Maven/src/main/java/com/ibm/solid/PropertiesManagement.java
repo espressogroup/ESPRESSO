@@ -7,10 +7,9 @@ import java.util.Properties;
 import java.util.Set;
 
 /**
- * @author Reza Moosaei 14.03.23
+ * @author Reza Moosa
  */
 public class PropertiesManagement {
-
     private static PropertiesManagement propertiesManagement;
     private String configFileName = "gaiandb_config.properties";
     private final Properties configProp = new Properties();

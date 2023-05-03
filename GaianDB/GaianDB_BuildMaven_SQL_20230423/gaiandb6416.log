@@ -1,0 +1,152 @@
+2023-03-21 17:20:35.611~497891375 GaianNode -------------> isInitDataUpToDate = true = GAIANDB_JAR_MD5 Unknown = gdbJarMD5_previous Unknown && gdbDbTimestampAtStartup 1679413834071 > gdbJarFile.lastModified() 1679409743743
+java version "1.8.0_312"
+OpenJDK Runtime Environment (build 1.8.0_312-b07)
+OpenJDK 64-Bit Server VM (build 25.312-b07, mixed mode)
+
+GaianDB V2.1.8 - JAR sizes: [128, 128], timestamps: [2023/03/21-14:42:23, 2023/03/21-14:42:23]
+
+Features Summary: Federated access to JDBC RDBMS tables and CSV Flat files using a logical table abstraction layer;
+A stored procedures management API, e.g. to set and view all logical tables and data sources in the network;
+SQL Prepared Statement caching; Connection Pooling; Buffered and batched multi-threaded record fetching;
+Explain queries to show a query's route and row counts on node; Constant Column definitions for contextual annotations of logical tables;
+Discovery of other Gaian Nodes when 'MIN_DISCOVERED_CONNECTIONS' is set, with preferential attachment to highly connected nodes;
+Autonomic maintenance of 2-way connections, or re-discovery initiation upon loss of connections;
+Automated dynamic management of SQL VIEWS for logical tables and their derivative definitions containing provenance columns or explain columns;
+A Policy plugin interface to manipulate the incoming SQL queries or filter returned records;
+Flexible GaianDB node discovery using config variable 'DISCOVERY_IP' to specify a broadcast mask or multicast group address;
+New configuration parameters defining permitted hosts, denied hosts and cluster IDs to restrict connectivity between nodes;
+Connectivity resilience to variable network latency using property 'GAIAN_CONNECTIONS_CHECKER_HEARTBEAT_MS';
+MQTT listener & Message Storer; Command line processor; Logging levels; In Memory Tables and Indexing;
+Ability to also access an Omnifind text index using com.ibm.db2j.ICAREST('<search_string>');
+Excel Spreadsheet Data Source Type; 'Pass-through' SQL capability for insert/update/delete/call; Discovery Gateways for discovery across networks;
+Advanced API calls: listnodes(), listflood(), addgateway();
+Access control to allow/disallow SQL API configuration and propagated writes;
+Basic security: User authentication and low-level automatic scrambling of passwords in the config file;
+Detection and cancellation of hanging queries (not mistaken for long-running queries);
+Pass-through sub-queries using 'GaianQuery': define exposed data sources on each node which the query will be executed against;
+Performance metrics; Provenance columns: GAIAN_NODE, GAIAN_LEAF (queryable using option: 'with_provenance')
+
+PROCESS ID:		44922
+
+NODE ID:		RagabsMacBookProlocal:6416
+
+WORKING DIRECTORY:	/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig
+BYTECODE PATH:		/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes
+WORKSPACE:		/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig
+
+PHYSICAL DATABASE:	/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig/gaiandb6416
+LOG FILE:		/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig/gaiandb6416.log
+CONFIG FILE:		/Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/installConfig/gaiandb_config3.properties
+
+DERBY SERVER PORT:	6416
+PROVENANCE HOST(S):	0.0.0.0
+
+Network Interfaces: 
+utun5: utun5 /fe80:0:0:0:31b5:9747:76b2:365f%utun5, Address: /fe80:0:0:0:31b5:9747:76b2:365f%utun5 -> Broadcast: null
+utun4: utun4 /fe80:0:0:0:6f70:c9a0:1828:ead2%utun4, Address: /fe80:0:0:0:6f70:c9a0:1828:ead2%utun4 -> Broadcast: null
+utun2: utun2 /fe80:0:0:0:ce81:b1c:bd2c:69e%utun2, Address: /fe80:0:0:0:ce81:b1c:bd2c:69e%utun2 -> Broadcast: null
+utun1: utun1 /fe80:0:0:0:2820:511d:8992:8d51%utun1, Address: /fe80:0:0:0:2820:511d:8992:8d51%utun1 -> Broadcast: null
+utun0: utun0 /fe80:0:0:0:b92d:a89c:fe31:9142%utun0, Address: /fe80:0:0:0:b92d:a89c:fe31:9142%utun0 -> Broadcast: null
+llw0: llw0 /fe80:0:0:0:6462:66ff:fe44:6614%llw0, Address: /fe80:0:0:0:6462:66ff:fe44:6614%llw0 -> Broadcast: null
+awdl0: awdl0 /fe80:0:0:0:6462:66ff:fe44:6614%awdl0, Address: /fe80:0:0:0:6462:66ff:fe44:6614%awdl0 -> Broadcast: null
+anpi0: anpi0 /fe80:0:0:0:34aa:e9ff:fe78:b610%anpi0, Address: /fe80:0:0:0:34aa:e9ff:fe78:b610%anpi0 -> Broadcast: null
+anpi1: anpi1 /fe80:0:0:0:34aa:e9ff:fe78:b611%anpi1, Address: /fe80:0:0:0:34aa:e9ff:fe78:b611%anpi1 -> Broadcast: null
+anpi2: anpi2 /fe80:0:0:0:34aa:e9ff:fe78:b612%anpi2, Address: /fe80:0:0:0:34aa:e9ff:fe78:b612%anpi2 -> Broadcast: null
+utun3: utun3 /10.64.16.27, Address: /10.64.16.27 -> Broadcast: null
+en0: en0 /2001:630:d0:8e06:d45b:9735:11ae:b83%en0, /2001:630:d0:8e06:a435:455:4b63:8927%en0, /2001:630:d0:8e06:146c:fe4:7ec8:a23a%en0, /fe80:0:0:0:1473:6ade:da32:567c%en0, /10.9.153.10, Address: /2001:630:d0:8e06:d45b:9735:11ae:b83%en0 -> Broadcast: null, Address: /2001:630:d0:8e06:a435:455:4b63:8927%en0 -> Broadcast: null, Address: /2001:630:d0:8e06:146c:fe4:7ec8:a23a%en0 -> Broadcast: null, Address: /fe80:0:0:0:1473:6ade:da32:567c%en0 -> Broadcast: null, Address: /10.9.153.10 -> Broadcast: /10.9.155.255
+lo0: lo0 /fe80:0:0:0:0:0:0:1%lo0, /0:0:0:0:0:0:0:1%lo0, /127.0.0.1, Address: /fe80:0:0:0:0:0:0:1%lo0 -> Broadcast: null, Address: /0:0:0:0:0:0:0:1%lo0 -> Broadcast: null, Address: /127.0.0.1 -> Broadcast: null
+
+Hostname: Ragabs-MacBook-Pro.local
+Java localhost ip: 127.0.0.1
+Local address designating initial default interface for multicast: 10.64.16.27
+
+
+2023-03-21 17:20:35.623~509977000 GaianNode -------------> Initialising GaianNode...
+2023-03-21 17:20:35.623~510074417 GaianNode -------------> GAIANDB.jar library has not been changed (and db folder is more recent), so initialisation data (e.g. stored procs/funcs) is expected to be already loaded
+2023-03-21 17:20:35.623~510121834 GaianNode -------------> Node details: RagabsMacBookProlocal:6416 gaiandb <password>
+2023-03-21 17:20:35.623~510199750 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
+2023-03-21 17:20:35.623~510246875 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = 255.255.255.255
+2023-03-21 17:20:35.623~510281584 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
+2023-03-21 17:20:35.623~510315750 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
+2023-03-21 17:20:35.623~510345500 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
+2023-03-21 17:20:35.623~510379375 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
+2023-03-21 17:20:35.623~510415000 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
+2023-03-21 17:20:35.623~510458000 GaianNode -------------> Log level set to: NONE
+2023-03-21 17:20:35.912~799165917 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6416
+
+Tue Mar 21 17:20:36 GMT 2023 : Could not connect to Derby Network Server on host 0.0.0.0, port 6416: Connection refused (Connection refused)
+Tue Mar 21 17:20:36 GMT 2023 : Apache Derby Network Server - 10.10.2.1 - (1643489) started and ready to accept connections on port 6416
+2023-03-21 17:20:36.421~307971084 GaianNode -------------> 
+Derby Version: CSS10100/10.10.2.1 - (1643489)  - Java Version: 1.8.0_312 (OpenJDK 64-Bit Server VM)
+
+GaianNode started for Derby network server with sslMode=off on port: 6416 at Tue Mar 21 17:20:36 GMT 2023, startup time: 897ms
+
+2023-03-21 17:20:36.616~502920834 GaianNode -------------> Used Heap Memory changed by >10MB. jMemory (MB): 110.507464 (= 1%, jMemoryMax (MB): 7635.730432). jMemoryNonHeap (MB): 26.59992 - (suspected hanging queries being checked: 0)
+2023-03-21 17:20:36.621~508552209 Util -------------> WARNING:
+
+2023-03-21 17:20:36.621 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH (10th repetition): GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 17:20:36.621 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 17:20:36.621~508636709 Util -------------> WARNING:
+
+2023-03-21 17:20:36.621 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 17:20:36.621 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 17:20:36.621~508673459 Util -------------> WARNING:
+
+2023-03-21 17:20:36.621 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 17:20:36.621 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 17:20:36.621~508706084 Util -------------> WARNING:
+
+2023-03-21 17:20:36.621 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 17:20:36.621 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 17:20:36.622~508744667 Util -------------> WARNING:
+
+2023-03-21 17:20:36.621 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 17:20:36.621 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 17:20:36.622~508784959 Util -------------> WARNING:
+
+2023-03-21 17:20:36.622 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/ESPRESSO/Impementations/GDB/GaianDB_Maven/target/classes/
+
+2023-03-21 17:20:36.622 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-03-21 17:20:36.622~508815084 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 17:20:36.622 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 17:20:36.622 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+Tue Mar 21 17:20:41 GMT 2023 : Max threads changed to 1000.
+Tue Mar 21 17:20:41 GMT 2023 : Max threads changed to 1000.
+2023-03-21 17:20:41.712~599035125 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 17:20:41.712 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 17:20:41.712 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+
+2023-03-21 17:20:46.791~678206500 GaianNodeSeeker -------> WARNING:
+
+2023-03-21 17:20:46.790 ********** GDB_WARNING: DISCOVERY_MULTICAST_INTERFACES_ERROR: Unable to send non-multicast discovery message (skipped), cause: java.io.IOException: Can't assign requested address (sendto failed)
+	=> TRACE:     GaianNodeSeeker.sendMessage:1578 -> GaianNodeSeeker.sendMessage:1623 -> DatagramSocket.send:693 -> PlainDatagramSocketImpl.send:-2
+
+2023-03-21 17:20:46.790 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#DISCOVERY_MULTICAST_INTERFACES_ERROR
+
+

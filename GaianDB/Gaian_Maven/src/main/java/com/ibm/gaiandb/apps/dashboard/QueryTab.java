@@ -7,21 +7,16 @@
 
 package com.ibm.gaiandb.apps.dashboard;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Desktop;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.net.URI;
 import java.sql.Connection;
@@ -38,32 +33,19 @@ import java.util.Set;
 import java.util.Vector;
 import java.util.regex.Pattern;
 
-import javax.swing.AbstractCellEditor;
-import javax.swing.BorderFactory;
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JSplitPane;
-import javax.swing.JTable;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
+import barista.QueryBuilder;
 import com.ibm.db2j.GaianTable;
 import com.ibm.gaiandb.Logger;
 import com.ibm.gaiandb.apps.SecurityClientAgent;
 import com.ibm.gaiandb.diags.GDBMessages;
-
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class QueryTab extends Tab {
 
@@ -85,7 +67,8 @@ public class QueryTab extends Tab {
 	final Vector<String> sqlHistory = new Vector<String>();
 	private int sqlHistoryIndex = 0;
 
-	private final JTextArea input;
+	private final JTextField input;
+
 	private final JTextField reIterateBox;
 	private final JButton back;
 	private final JButton forward;
@@ -148,7 +131,7 @@ public class QueryTab extends Tab {
 	private final DefaultTableModel resultsModel;
 	private final DefaultListModel errorsModel;
 	
-	public QueryTab(final Dashboard container) {
+	public QueryTab(final Dashboard container) throws IOException {
 		super(container, new GridBagLayout());
 
 		GridBagConstraints labelConstraints = new GridBagConstraints();
@@ -175,9 +158,10 @@ public class QueryTab extends Tab {
 			Dashboard.BORDER_SIZE);
 		componentConstraints.weightx = 1;
 
-		input = new JTextArea();
+		input = new JTextField();
 		input.setFont(new Font("Monospaced", Font.PLAIN, input.getFont().getSize()));
-		input.setTabSize(INPUT_TAB_SIZE);
+		//Ragab (We need to Control the Size in a different Way)
+		//input.setT(INPUT_TAB_SIZE);
 		input.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent e) {
 				if (e.isControlDown() && e.getKeyChar() == '\n') {
@@ -216,22 +200,49 @@ public class QueryTab extends Tab {
 			}
 		});
 
-		submit = new JButton("Run");
-		submit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				if ( null != executingSQL ) { // Cancelling/Stopping query
+
+
+		//Ragab	enter action and button submit function
+		Action enter_submitAction = new AbstractAction() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+
+			if ( null != executingSQL ) { // Cancelling/Stopping query
 					lastCancelTime = System.currentTimeMillis();
-					submit.setText("Run");
+					//Ragab
+					submit.setText("Keyword Search");
 					queryInfo.setText("Cancelled at " + new SimpleDateFormat("HH:mm:ss").format(new Date()) + ". ");
 					executingSQL = null;
 					if ( null != stmt ) try { stmt.close();	stmt = null; } catch ( Exception ex ) { setErrorsWithCode(GDBMessages.CLIENT_STMT_CLOSE_ERROR, ex); }
 					return;
 				}
-				
-				submitQuery(input.getText());
+
+				String sqlquery = QueryBuilder.buildSqlQuery(input.getText());
+
+
+				//Ragab (If Empty Search...)
+				if (null==input.getText() || input.getText().equals(""))
+				{
+					JOptionPane.showMessageDialog(
+					QueryTab.this,
+					"Please Enter Keyword First!",
+					"Empty Search",
+					JOptionPane.ERROR_MESSAGE);
+
+					return;
+				}
+
+				//Ragab
+				submitQuery(sqlquery);
+				// submitQuery(input.getText());
 			}
-		});
+		};
+
+
+		//Ragab
+		submit = new JButton("Keyword Search");
+		submit.addActionListener(enter_submitAction);
+		input.addActionListener(enter_submitAction);
 
 		resultsModel = new DefaultTableModel();
 		results = new JTable(resultsModel);
@@ -327,10 +338,21 @@ public class QueryTab extends Tab {
 		GridBagConstraints c;
 
 		JPanel p1 = new JPanel(new GridBagLayout()), p2 = new JPanel(new GridBagLayout()), p3 = new JPanel(new GridBagLayout());
-		
+
+
 		labelConstraints.gridy = 0;
-		p1.add(new JLabel("SQL Query:"), labelConstraints);
-		
+		// Ragab (Remove this label for nwo)
+		//p1.add(new JLabel("Search Keyword:"), labelConstraints);
+
+		//Ragab
+		ImageIcon imageIcon = new ImageIcon(new ImageIcon("/Users/ragab/ESPRESSO/Impementations/GDB/Gaian_Maven/installConfig/espressologo.png")
+				.getImage().getScaledInstance(200, 100, Image.SCALE_DEFAULT));
+		JLabel picLabel = new JLabel(imageIcon);
+		picLabel.setHorizontalAlignment(JLabel.CENTER);
+		p1.add(picLabel, labelConstraints);
+
+
+
 		c = (GridBagConstraints)componentConstraints.clone();
 		c.gridwidth = 3;
 		c.gridheight = 4;
@@ -345,7 +367,8 @@ public class QueryTab extends Tab {
 		c.weightx = 1;
 		c.gridx = 0;
 		c.gridy = 5;
-		p1.add(apiCallsDropDown, c);
+		//Ragab
+		//p1.add(apiCallsDropDown, c);
 		
 //		c = (GridBagConstraints)componentConstraints.clone();
 //		c.gridwidth = 2;
@@ -365,11 +388,13 @@ public class QueryTab extends Tab {
 		c.gridy = 1;
 		c.weightx = 0;
 		c.weighty = 0;
-		p1.add(back, c);
+		//Ragab
+		//p1.add(back, c);
 		
 		c.gridx = 4;
 		c.anchor = GridBagConstraints.EAST;
-		p1.add(forward, c);
+		//Ragab
+		//p1.add(forward, c);
 		
 		c.weighty = 1;
 		c.anchor = GridBagConstraints.PAGE_END;
@@ -395,7 +420,8 @@ public class QueryTab extends Tab {
 		reIteratePanel.add(new JLabel("x "), c2);
 
 		c2.weightx = 1;
-		reIteratePanel.add(reIterateBox, c2);
+		//Ragab
+		//reIteratePanel.add(reIterateBox, c2);
 		
 		reIterateBox.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {}
@@ -408,7 +434,8 @@ public class QueryTab extends Tab {
 		c.fill = GridBagConstraints.HORIZONTAL; c.weighty = 0;
 		c.gridx = 3; c.gridy = 3; c.gridwidth = 2;
 		c.anchor = GridBagConstraints.NORTH;
-		p1.add(reIteratePanel, c);
+		//Ragab
+		//p1.add(reIteratePanel, c);
 		
 		
 		labelConstraints.gridy = 3;
@@ -434,6 +461,7 @@ public class QueryTab extends Tab {
 	
 		// Final Panel
 		labelConstraints.gridy = 0;
+
 		p3.add(new JLabel("Errors/Warnings:"), labelConstraints);
 
 		c = (GridBagConstraints)componentConstraints.clone();
@@ -469,7 +497,8 @@ public class QueryTab extends Tab {
 
 		c.anchor = GridBagConstraints.PAGE_END;
 		c.weighty = 0.2;
-		this.add(p3, c);
+		//Ragab
+		//	this.add(p3, c);
 		
 		initialiseResultsTable();
 		
@@ -526,6 +555,8 @@ public class QueryTab extends Tab {
 	private long previousCellCount = 0;
 	private boolean memDecreasedSubstantially = false;
 
+	//Ragab_Comment
+	//This is the main function in the Dashborad QueryTab
 	protected synchronized void submitQuery(String sql) {
 		
 		if (null==sql || 0 == sql.trim().length() && null != executingSQL ) return;
@@ -538,22 +569,11 @@ public class QueryTab extends Tab {
 				JOptionPane.ERROR_MESSAGE);
 			return;
 		}
-		
+
+		//Ragab Comment
+		// Was related to the front and Back Buttons, could be deleted?
 		addToSQLHistory(sql);
 
-	/*	//added by Reza Moosa
-
-		try {
-			String pathname = "C:\\Users\\dcsuser\\GaianProject\\GaianS-Demo\\gaiandb\\build\\GAIANDB_V2.1.8_20230228\\csvtestfiles\\DashQuery.txt";
-			FileWriter myWriter = new FileWriter(pathname);
-			myWriter.write(sql);
-			myWriter.close();
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-        // end Reza Moosa    */
-				
 		executingSQL = sql;
 		new Thread( new Runnable() {
 			public void run() {
@@ -777,7 +797,7 @@ public class QueryTab extends Tab {
 					
 					if ( startTime > lastCancelTime ) {
 						executingSQL = null;
-						submit.setText("Run");
+						submit.setText("Keyword Search");
 					}
 
 					// Try to free up some memory if a large number of cells has been cleared.
@@ -802,19 +822,19 @@ public class QueryTab extends Tab {
 	}
 
 	private void back() {
-				
+
 		sqlHistory.set(sqlHistoryIndex--, input.getText());
 		input.setText( sqlHistory.get(sqlHistoryIndex) );
-		
+
 		if ( 0 == sqlHistoryIndex ) back.setEnabled(false);
 		forward.setEnabled(true);
 	}
 
 	private void forward() {
-		
+
 		sqlHistory.set(sqlHistoryIndex++, input.getText());
 		input.setText( sqlHistory.get(sqlHistoryIndex) );
-		
+
 		if ( sqlHistory.size()-1 == sqlHistoryIndex ) forward.setEnabled(false);
 		back.setEnabled(true);
 	}

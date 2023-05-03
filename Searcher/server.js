@@ -24,16 +24,15 @@ app.post('/query', async (req, res) => {
     ns1:lemma ?"${keyword}".  
     }  ORDER BY DESC(?frequency) LIMIT 100 
   `;
-  const bindingsStream = await myEngine.queryBindings(query, { sources });
-  const bindings = await bindingsStream.toArray();
-  const result = bindings.map(item => ({ "address": item.get('address').value, "frequency": item.get('frequency').value }))
+ const bindingsStream = await myEngine.queryBindings(query, { sources });
+ const bindings = await bindingsStream.toArray();
+ const result = bindings.map(item => ({ "address": item.get('address').value, "frequency": item.get('frequency').value }))
   res.json(result)
 })
 
 app.listen(port, () => {
   console.log(`app listening on port ${port}`)
 })
-
 const readSources = async () => {
   const response = await axios.get("https://storage.inrupt.com/271193f6-926b-45c1-8fa8-b31cc03accb4/IndexSource-Address.csv", { responseType: 'blob', });
   const csvStr = await response.data;
