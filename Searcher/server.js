@@ -22,7 +22,7 @@ app.post('/query', async (req, res) => {
     [ ns1:address ?address ;
     ns1:frequency ?frequency ] ;
     ns1:lemma ?"${keyword}".  
-    }  ORDER BY DESC(?frequency) LIMIT 100 
+    } ORDER BY DESC(?fr)  
   `;
  const bindingsStream = await myEngine.queryBindings(query, { sources });
  const bindings = await bindingsStream.toArray();
