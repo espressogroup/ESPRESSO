@@ -53,7 +53,7 @@ try {
     csvWriter.writeNext(header);
 
     HttpResponse<JsonNode> response = null;
-    response = Unirest.post("http://localhost:3000/query")
+    response = Unirest.post(apiUrl)
                 .header("accept", "application/json")
                 .header("Content-Type", "application/json")
                 .body("{ \"keyword\" : \""+ whereClause +"\" }")

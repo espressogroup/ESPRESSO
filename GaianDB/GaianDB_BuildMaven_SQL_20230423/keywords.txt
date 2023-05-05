@@ -1,4 +1,0 @@
-coffee
-boom
-apple
-tea

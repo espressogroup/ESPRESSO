@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["index.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;AAAA,8EAA4D;AAC5D,qEAAmD","sourcesContent":["export * from './ActorRdfUpdateHypermediaPatchSparqlUpdate';\nexport * from './QuadDestinationPatchSparqlUpdate';\n"]}

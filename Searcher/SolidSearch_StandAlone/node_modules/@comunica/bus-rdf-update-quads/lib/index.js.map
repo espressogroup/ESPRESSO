@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["index.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;AAAA,wDAAsC;AACtC,mEAAiD;AACjD,qDAAmC;AACnC,0CAAwB","sourcesContent":["export * from './ActorRdfUpdateQuads';\nexport * from './ActorRdfUpdateQuadsDestination';\nexport * from './IQuadDestination';\nexport * from './utils';\n"]}

@@ -1,0 +1,10 @@
+{
+  "@context": "https://linkedsoftwaredependencies.org/bundles/npm/hello-world-module/^5.0.0/components/context.jsonld",
+  "@graph": [
+    {
+      "comment": "A complete Hello World instance",
+      "@type": "HelloWorld",
+      "@id": "urn:my-hello-world:core:HelloWorld"
+    }
+  ]
+}
