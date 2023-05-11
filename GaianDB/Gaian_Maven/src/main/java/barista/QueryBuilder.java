@@ -35,6 +35,8 @@ public class QueryBuilder {
             sql.append(" LIMIT ").append(offset).append(", ").append(limit);
         }
 
+        sql.append(" ORDER BY RELEVANCE DESC");
+
         return sql.toString();
     }
 

@@ -1,0 +1,21 @@
+{
+  "@context": [
+      "https://linkedsoftwaredependencies.org/bundles/npm/@solid/community-server/^5.0.0/components/context.jsonld",
+      "https://linkedsoftwaredependencies.org/bundles/npm/hello-world-module/^5.0.0/components/context.jsonld"
+    ],
+  "@graph": [
+    {
+      "comment": "Routes all OIDC related requests to the OIDC library.",
+      "@id": "urn:my-hello-world:core:SearchListener",
+      "@type": "RouterHandler",
+      "args_baseUrl": { "@id": "urn:solid-server:default:variable:baseUrl" },
+      "args_targetExtractor": { "@id": "urn:solid-server:default:TargetExtractor" },
+      "args_allowedMethods": [ "*" ],
+      "args_allowedPathNames": [ "^/query", "/query" ],
+      "args_handler": {
+        "@type": "SearchListener"
+      }
+    }
+  ]
+}
+
