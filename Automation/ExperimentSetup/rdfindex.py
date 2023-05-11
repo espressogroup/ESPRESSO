@@ -2,6 +2,8 @@ import os, re, math, random, shutil, cleantext
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 from rdflib.plugin import register, Serializer
 #from SPARQLWrapper import SPARQLWrapper
+import nltk
+from nltk.stem import WordNetLemmatizer
 
 class Appearance:
     """
@@ -19,25 +21,17 @@ class Appearance:
         return str(self.__dict__)
 
 def myclean(text):
-    res = cleantext.clean(text,
-    fix_unicode=True,               # fix various unicode errors
-    to_ascii=True,                  # transliterate to closest ASCII representation
-    lower=True,                     # lowercase text
-    no_line_breaks=True,           # fully strip line breaks as opposed to only normalizing them
-    no_urls=True,                  # replace all URLs with a special token
-    no_emails=True,                # replace all email addresses with a special token
-    no_phone_numbers=True,         # replace all phone numbers with a special token
-    no_numbers=True,               # replace all numbers with a special token
-    no_digits=True,                # replace all digits with a special token
-    no_currency_symbols=True,      # replace all currency symbols with a special token
-    no_punct=True,                 # remove punctuations
-    replace_with_punct="",          # instead of removing punctuations you may replace them
-    replace_with_url="<URL>",
-    replace_with_email="<EMAIL>",
-    replace_with_phone_number="<PHONE>",
-    replace_with_number="<NUMBER>",
-    replace_with_digit="0",
-    replace_with_currency_symbol="<CUR>",
+    res=cleantext.clean_words(text,
+    clean_all= False, # Execute all cleaning operations
+    extra_spaces=True ,  # Remove extra white spaces 
+    stemming=False , # Stem the words
+    stopwords=False ,# Remove stop words
+    lowercase=True ,# Convert to lowercase
+    numbers=True ,# Remove all digits 
+    punct=True ,# Remove all punctuations
+    #reg: str = '<regex>', # Remove parts of text based on regex
+    #reg_replace: str = '<replace_value>', # String to replace the regex used in reg
+    stp_lang='english'  # Language for stop words
     )
     return res
 
@@ -52,7 +46,7 @@ class RdfIndex:
         self.reprformat=reprformat
     def __repr__(self):
         """
-        String representation of the Database object
+        String representation of the index
         """
         return self.index.serialize(format=self.reprformat)
         #return self.index.serialize(format='json-ld', indent=4)
@@ -64,8 +58,9 @@ class RdfIndex:
         
         # Remove punctuation from the text.
         #clean_text = re.sub(r'[^\w\s]','', document['text'])
-        clean_text=myclean(document['text'])
-        terms = clean_text.split(' ')
+        #clean_text=myclean(document['text'])
+        #terms = clean_text.split(' ')
+        terms=myclean(document['text'])
         appearances_dict = dict()
         # Dictionary with each term and the frequency it appears in the text.
         for term in terms:
@@ -101,8 +96,10 @@ class RdfIndex:
         """
         
         # Remove punctuation from the text.
-        clean_text = re.sub(r'[^\w\s]','', text)
-        terms = clean_text.split(' ')
+        #clean_text = re.sub(r'[^\w\s]','', text)
+        #terms = clean_text.split(' ')
+        terms=myclean(text)
+        #print(terms)
         appearances_dict = dict()
         # Dictionary with each term and the frequency it appears in the text.
         for term in terms:
@@ -132,17 +129,6 @@ class RdfIndex:
         #self.index.update(update_dict)
         return id
     
-   # def lookup_query(self, query):
-        """
-        Returns the dictionary of terms with their correspondent Appearances. 
-        This is a very naive search since it will just split the terms and show
-        the documents where they appear.
-        """
-   #     return { term: self.index[term] for term in query.split(' ') if term in self.index }
-
-#def highlight_term(id, term, text):
-  #  replaced_text = text.replace(term, "\033[1;32;40m {term} \033[0;0m".format(term=term))
- #   return "--- document {id}: {replaced}".format(id=id, replaced=replaced_text)
 
 def InvIndex(directory,podname,podaddress,namespace,reprformat):
     #directory = '/Users/yurysavateev/Python/InvertedIndex/invind.py'

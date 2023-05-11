@@ -81,7 +81,7 @@ class CSSaccess:
             headers=headers,
             data=filetext
         )
-        return(res.text)
+        return res 
         
     def get_file(self,targetUrl):
         #targetUrl='http://localhost:3000/test1/file1.txt'
@@ -92,15 +92,67 @@ class CSSaccess:
         )
         return res.text
 
+    def delete_file(self,targetUrl):
+        print('deleting' + targetUrl)
+        #curl -X DELETE http://localhost:3000/myfile.txt
+        headers={  'authorization':'DPoP '+CSSA.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "DELETE", CSSA.dpopKey)}
+        res= requests.delete(targetUrl,
+                headers=headers
+        )
+        return res.text
+
+    def makefileaccessible(self,podname,filename):
+        targetUrl=self.idp+podname+'/'+filename+'.acl'
+        headers={  'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "GET", self.dpopKey)}
+
+        res= requests.get(targetUrl,
+           headers=headers
+        )
+        if not res.ok:
+            acldef='''@prefix : <#>.
+@prefix acl: <http://www.w3.org/ns/auth/acl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix c: <profile/card#>.
+
+:ControlReadWrite
+a acl:Authorization;
+acl:accessTo <'''+filename+'''>;
+acl:agent c:me, <mailto:ys1v22@soton.ac.uk>;
+acl:agentClass foaf:Agent;
+acl:mode acl:Control, acl:Read, acl:Write.'''
+            #print('no acl')
+            print(acldef)
+            headers={ 'content-type': 'text/turtle', 'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", self.dpopKey)}
+            res= requests.put(targetUrl,
+               headers=headers,
+                data=acldef
+            )
+        else:
+            headers={ "Content-Type": "application/sparql-update",'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PATCH", self.dpopKey)}
+            res= requests.patch(targetUrl,
+               headers=headers,
+                data="INSERT DATA { <#ControlReadWrite> <acl:agentClass> <foaf:Agent> }"
+            )
+        return res.text
+        #curl -X PATCH -H "Content-Type: application/sparql-update" \
+        #-d "INSERT DATA { <ex:s2> <ex:p2> <ex:o2> }" \
+        #http://localhost:3000/myfile.ttl
+
 class CSSPod:
-    def __init__(self, ADDRESS,index):
-        self.address=ADDRESS
-        self.idp = ADDRESS.rsplit('/', 1)[0]+'/'
+    def __init__(self, IDP,podname,indexname,email='',password=''):
+        self.podaddress=IDP+podname
+        self.idp = IDP
         self.Access=None
-        self.indexaddress=index
+        self.indexname=indexname
+        self.indexaddress=IDP+indexname
+        self.email=email
+        self.password=password
 
     def login(self,USERNAME,PASSWORD):
         self.Access=CSSaccess(self.idp, USERNAME, PASSWORD)
+
+    def selflogin(self):
+        self.Access=CSSaccess(self.idp, self.email, self.password)
 
 class CSSServer:
     def __init__(self, ADDRESS):
@@ -110,3 +162,101 @@ class CSSServer:
         self.token_url = IDP+'.oidc/token'
 
 
+
+class CssAcount:
+    def __init__(
+        self,
+        css_base_url: str,
+        name: str,
+        email: str,
+        password: str,
+        web_id: str,
+        pod_base_url: str,
+    ) -> None:
+        self.css_base_url = css_base_url
+        self.name = name
+        self.email = email
+        self.password = password
+        self.web_id = web_id
+        self.pod_base_url = pod_base_url
+
+
+class ClientCredentials:
+    def __init__(self, client_id: str, client_secret: str) -> None:
+        self.client_id = client_id
+        self.client_secret = client_secret
+
+
+def create_css_account(
+    css_base_url: str, name: str, email: str, password: str
+) -> CssAcount:
+    register_endpoint = f"{css_base_url}/idp/register/"
+
+    res = requests.post(
+        register_endpoint,
+        json={
+            "createWebId": "on",
+            "webId": "",
+            "register": "on",
+            "createPod": "on",
+            "podName": name,
+            "email": email,
+            "password": password,
+            "confirmPassword": password,
+        },
+        timeout=5000,
+    )
+
+    if not res.ok:
+        raise Exception(f"Could not create account: {res.status_code} {res.text}")
+
+    data = res.json()
+    account = CssAcount(
+        css_base_url=css_base_url,
+        name=name,
+        email=email,
+        password=password,
+        web_id=data["webId"],
+        pod_base_url=data["podBaseUrl"],
+    )
+    return account
+
+
+def get_client_credentials(account: CssAcount) -> ClientCredentials:
+    credentials_endpoint = f"{account.css_base_url}/idp/credentials/"
+
+    res = requests.post(
+        credentials_endpoint,
+        json={
+            "name": "test-client-credentials",
+            "email": account.email,
+            "password": account.password,
+        },
+        timeout=5000,
+    )
+
+    if not res.ok:
+        raise Exception(
+            f"Could not create client credentials: {res.status_code} {res.text}"
+        )
+
+    data = res.json()
+    return ClientCredentials(client_id=data["id"], client_secret=data["secret"])
+
+
+def given_random_account(css_base_url: str) -> CssAcount:
+    name = f"test-{uuid4()}"
+    email = f"{name}@example.org"
+    password = "12345"
+
+    return create_css_account(
+        css_base_url=css_base_url, name=name, email=email, password=password
+    )
+
+def get_file(targetUrl):
+        #targetUrl='http://localhost:3000/test1/file1.txt'
+    #headers={  'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "GET", self.dpopKey)}
+    res= requests.get(targetUrl,
+           #headers=headers
+    )
+    return res

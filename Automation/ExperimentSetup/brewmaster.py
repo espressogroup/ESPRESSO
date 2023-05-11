@@ -2,7 +2,7 @@ import CSSaccess, rdfindex
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 
 
-def crawl(address, CSSa, indexaddress):
+def crawl(address, CSSa):
     filedict= dict()
     data = CSSa.get_file(address)
     print(data)
@@ -27,9 +27,9 @@ def crawl(address, CSSa, indexaddress):
         print(r["f"])
         f=str(r["f"])
         if f[-1]=='/':
-            d=crawl(f,CSSa,indexaddress)
+            d=crawl(f,CSSa)
             filedict|=d
-        elif f!=indexaddress:
+        elif ('.' in f.rsplit('/')[-1]) and (not f.endswith('ttl')):
             filedict[f]=CSSa.get_file(f)
         else:
             pass
@@ -41,7 +41,7 @@ def crawl(address, CSSa, indexaddress):
 def crawllist(address, CSSa, indexaddress):
     filelist= []
     data = CSSa.get_file(address)
-    print(data)
+    #print(data)
     g=Graph().parse(data=data,publicID=address)
     #q1='''
     #prefix ldp: <http://www.w3.org/ns/ldp#>
