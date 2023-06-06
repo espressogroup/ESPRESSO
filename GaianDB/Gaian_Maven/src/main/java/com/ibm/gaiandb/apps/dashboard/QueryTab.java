@@ -15,15 +15,13 @@ import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.net.URI;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -582,7 +580,33 @@ public class QueryTab extends Tab {
 				resultsModel.setRowCount(0);
 				
 				long startTime = lastStartTime = System.currentTimeMillis();
-				
+				//Reza
+				Timestamp timestamp2 = new Timestamp(System.currentTimeMillis());
+				String timeStamp2 = String.valueOf(timestamp2);
+				String[] total = {timeStamp2, " Start of Submit Query "};
+				FileWriter fileWriter = null;
+				try {
+					fileWriter = new FileWriter("csvtestfiles/response.csv", true);
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+				BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
+				try {
+					bufferWriter.write(Arrays.toString(total));
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+				try {
+					bufferWriter.newLine();
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+				try {
+					bufferWriter.close();
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+
 				try {
 					if ( null == stmt ) stmt = conn.createStatement();
 //					stmt.setQueryTimeout(Dashboard.QUERY_TIMEOUT); // causes issues if the SQL is an INSERT
@@ -711,7 +735,23 @@ public class QueryTab extends Tab {
 					
 					
 					totalTime += System.currentTimeMillis();
-					
+
+					//Reza
+					Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+					String timeStamp = String.valueOf(timestamp);
+					String[] total2 = {timeStamp, "Total Execution Time: ", String.valueOf(totalTime)};
+					FileWriter fileWriter2 = new FileWriter("csvtestfiles/response.csv", true);
+					BufferedWriter bufferWriter2 = new BufferedWriter(fileWriter2);
+					bufferWriter2.write(Arrays.toString(total2));
+					bufferWriter2.newLine();
+					bufferWriter2.write("------------------------------------------------------------------------");
+					bufferWriter2.newLine();
+					bufferWriter2.close();
+
+
+
+
+
 					// Release/Clear statement and result-set asap
 					if ( null != stmt ) { stmt.close(); stmt = null; }
 

@@ -1,0 +1,10 @@
+import { Session } from "./Session";
+export declare function getDefaultSession(): Session;
+export declare const fetch: Session["fetch"];
+export declare const login: Session["login"];
+export declare const logout: Session["logout"];
+export declare const handleIncomingRedirect: Session["handleIncomingRedirect"];
+export declare const onLogin: Session["onLogin"];
+export declare const onLogout: Session["onLogout"];
+export declare const onSessionRestore: Session["onSessionRestore"];
+export declare const events: () => Session["events"];

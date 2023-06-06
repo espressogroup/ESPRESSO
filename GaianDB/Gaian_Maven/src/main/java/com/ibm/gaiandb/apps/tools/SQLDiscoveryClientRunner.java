@@ -18,7 +18,7 @@ import com.ibm.gaiandb.jdbc.discoveryclient.DiscoveryDriver;
 /**
  * @author DavidV
  */
-public class SQLDiscoveryClientRunner extends SQLRunner {
+public class SQLDiscoveryClientRunner extends com.ibm.gaiandb.tools.SQLRunner {
 
 //	Use PROPRIETARY notice if class contains a main() method, otherwise use COPYRIGHT notice.
 	public static final String COPYRIGHT_NOTICE = "(c) Copyright IBM Corp. 2012";

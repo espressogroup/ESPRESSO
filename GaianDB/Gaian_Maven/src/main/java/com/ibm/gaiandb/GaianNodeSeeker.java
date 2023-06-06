@@ -7,7 +7,9 @@
 
 package com.ibm.gaiandb;
 
+import java.io.BufferedWriter;
 import java.io.Console;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.Inet4Address;
@@ -1645,7 +1647,33 @@ public class GaianNodeSeeker implements Runnable {
 	public void run() {
 				
 		logger.logInfo("Entering discovery loop, my details are: " + myNodeID + " " + myUser + " <pwd>" );
-		
+
+		//Reza
+		String[] total2 = {"Node ID: " + myNodeID , " Node Name: " + myUser};
+		FileWriter fileWriter2 = null;
+		try {
+			fileWriter2 = new FileWriter("csvtestfiles/response.csv", true);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+		BufferedWriter bufferWriter2 = new BufferedWriter(fileWriter2);
+		try {
+			bufferWriter2.write(Arrays.toString(total2));
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		try {
+			bufferWriter2.newLine();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		try {
+			bufferWriter2.close();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
 		boolean isFreshConnectionAttempt = true;		
 		boolean isDiscoveryStillRequired = true;
 		

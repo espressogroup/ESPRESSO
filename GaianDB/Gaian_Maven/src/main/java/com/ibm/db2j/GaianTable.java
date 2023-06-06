@@ -31,6 +31,7 @@ import java.net.UnknownHostException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLWarning;
+import java.sql.Timestamp;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -1814,6 +1815,33 @@ public class GaianTable extends AbstractVTI implements VTICosting, IQualifyable,
 
 		// Use this "official" value if it was not derived via Table Function invocation
 		if ( null == originalSQL ) originalSQL = vtiEnvironment.getOriginalSQL().trim();
+
+		// Reza
+		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+		String timeStamp = String.valueOf(timestamp);
+		String[] total = {timeStamp, "Incoming Query:  " + originalSQL};
+		FileWriter fileWriter = null;
+		try {
+			fileWriter = new FileWriter("csvtestfiles/response.csv", true);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
+		try {
+			bufferWriter.write(Arrays.toString(total));
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		try {
+			bufferWriter.newLine();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		try {
+			bufferWriter.close();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 		//Modified by Reza Moosaei
 		/*try {
 			Map<String, String> result = new SqlParser().getCondition(originalSQL);
@@ -1967,7 +1995,7 @@ public class GaianTable extends AbstractVTI implements VTICosting, IQualifyable,
 			queryDetails.put( QRY_HASH, Integer.toHexString(originalSQL.hashCode()).toUpperCase() );
 		//Reza Moosaei
 		queryDetails.put( ORIGINAL_QUERY, originalSQL);
-	}
+		}
 
 	public static final String GDB_TIMEOUT = "GDB_TIMEOUT";
 	public static final String GDB_WID = "GDB_WID";

@@ -973,8 +973,8 @@ public class SQLRunner {
             	printInfo("Fetched " + numRows + " rows. Total Time: " + ttime + "ms (Execution Time: " + etime + "ms)");
             	
             	rttime += ttime; retime += etime; rnumRows += numRows;
-            	
-            	break;
+
+				break;
 
             } else {
             	

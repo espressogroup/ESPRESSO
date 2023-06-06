@@ -9,10 +9,7 @@ package com.ibm.gaiandb.jdbc.discoveryclient;
 
 
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -121,10 +118,10 @@ public class GaianConnectionSeeker {
 	
 	static { GaianDBConfig.setGaianNodeName("ClientSeeker_" + GaianDBConfig.getGaianNodeHostName().replaceAll("\\W", "")); }
 	private static final String myNodeID = GaianDBConfig.getGaianNodeID();
-	
+
 	private static Set<InetAddress> broadcastIPsSet = new HashSet<InetAddress>();
-	
-	
+
+
 	/**
 	 * The following methods are provided to manage the use of  multicast sockets
 	 */

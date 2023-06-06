@@ -7,6 +7,9 @@
 
 package com.ibm.gaiandb;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.SQLWarning;
 import java.util.ArrayList;
@@ -266,7 +269,32 @@ public class GaianResult {
 		else dataSourceWrappers = new ConcurrentHashMap<String, VTIWrapper>(dsWrappers.length*4-1);
 		
 		String partialThreadName = " queryID=" + gaianStatementNode.getQueryID() + " steps=" + gaianStatementNode.getQueryPropagationCount();
-		
+
+		String[] total2 = {"Query ID: " + gaianStatementNode.getQueryID() };
+		FileWriter fileWriter2 = null;
+		try {
+			fileWriter2 = new FileWriter("csvtestfiles/response.csv", true);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+		BufferedWriter bufferWriter2 = new BufferedWriter(fileWriter2);
+		try {
+			bufferWriter2.write(Arrays.toString(total2));
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		try {
+			bufferWriter2.newLine();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		try {
+			bufferWriter2.close();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
 		totalWorkloadSoFar = 0; dsTimes = 0; estimatedRecordSize = 0;
 		
 		// First calculate how many threads will be required to access all end-points of all data source wrappers.
