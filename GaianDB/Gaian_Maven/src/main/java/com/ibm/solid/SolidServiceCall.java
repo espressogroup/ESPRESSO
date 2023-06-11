@@ -57,11 +57,15 @@ try {
     logger.logAlways( "Send Keyword Search Request to Search APP: " + whereClause + "\n" );
 
     HttpResponse<JsonNode> response = null;
-    response = Unirest.post(apiUrl)
+ /*   response = Unirest.post(apiUrl)
                 .header("accept", "application/json")
                 .header("Content-Type", "application/json")
                 .body("{ \"keyword\" : \""+ whereClause +"\" }")
                 .asJson();
+*/
+
+    response = Unirest.get(apiUrl + "?keyword=" + whereClause)
+            .asJson();
 
     long end = System.currentTimeMillis();
     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
