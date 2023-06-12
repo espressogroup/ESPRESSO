@@ -4,7 +4,7 @@ from sys import argv
 def index(IDP,espressoindexfile,podname,podnum,podindexdir,espressopodname='ESPRESSO', espressoemail='espresso@example.com', podemail='@example.org', password='12345'):
             metaindexdata=''
             print('indexing '+ IDP)
-            for p in podnum:
+            for p in range(podnum):
                 pod=podname+str(p)
                 print('indexing pod '+pod)
                 email=pod+podemail
