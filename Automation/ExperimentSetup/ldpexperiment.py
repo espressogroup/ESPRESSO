@@ -323,30 +323,6 @@ def indexsizetest():
     print(indexfiles)
     print(indexsizes)
 
-def indexsizetest2():
-    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/']
-    espressopodname='ESPRESSO'
-    espressoemail='espresso@example.com'
-    espressoindexfile='ldpespressoindextest.csv'
-    podname='ldpindextest'
-    podemail='@example.org'
-    podindexdir='espressoindex/'
-    password='12345'
-    sourcedir='/Users/yurysavateev/dataset2'
-    numberofpods=1
-    n=20
-    sizes=[]
-    indexfiles=[]
-    indexsizes=[]
-    experiment=LDPexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexdir=podindexdir, password=password)
-    experiment.loaddir(sourcedir)
-    experiment.logicaldist(n,numberofpods,0,0)
-    experiment.podcreate()
-    experiment.upload()
-    experiment.index()
-    experiment.indexpub()
-    experiment.metaindexpub()
-
     for s in range(len(experiment.serverlist)):
             metaindexdata=''
             IDP = experiment.serverlist[s]
@@ -375,5 +351,31 @@ def indexsizetest2():
     print(indexfiles)
     print(indexsizes)
 
-indexsizetest2()
+
+
+def localindextest():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='locindespresso1s24p.csv'
+    podname='locind1s24p'
+    podemail='@example.org'
+    podindexdir='espressoindex/'
+    password='12345'
+    sourcedir='../../Datasets/100Files/'
+    numberofpods=24
+    n=100
+    sizes=[]
+    indexfiles=[]
+    indexsizes=[]
+    experiment=LDPexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexdir=podindexdir, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,0,0)
+    experiment.podcreate()
+    experiment.upload()
+    #experiment.index()
+    #experiment.indexpub()
+    #experiment.metaindexpub()
+
+localindextest()
 
