@@ -5,7 +5,7 @@ import requests
 import os, json
 import CSSaccess
 
-from solid.auth import Auth
+#from solid.auth import Auth
 
 def putdirCSS (directory,pod,IDP,USERNAME,PASSWORD,indexfile=''):
     CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
