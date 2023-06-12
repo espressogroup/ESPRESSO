@@ -1,5 +1,5 @@
 import brewmaster, CSSaccess, dpop_utils
-import sys.argv
+from sys import argv
 
 def index(IDP,espressoindexfile,podname,podnum,podindexdir,espressopodname='ESPRESSO', espressoemail='espresso@example.com', podemail='@example.org', password='12345'):
             metaindexdata=''
