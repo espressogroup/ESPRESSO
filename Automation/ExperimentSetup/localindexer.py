@@ -33,7 +33,7 @@ def index(IDP,espressoindexfile,podname,podnum,podindexdir,espressopodname='ESPR
 
     
 IDP=argv[1]
-esspressoindexfile=argv[2]
+espressoindexfile=argv[2]
 podname=argv[3]
 podnum=int(argv[4])
 podindexdir=argv[5]  
