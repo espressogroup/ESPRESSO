@@ -1,5 +1,5 @@
 espressetest.py
-Datasets/dir/
+Datasets/
 **/__pycache__
 **/.DS_Store
 ca.pem
