@@ -1,6 +1,6 @@
 import filesorter, distributor, dpop_utils, CSSaccess, brewmaster, rdfindex
 #import rdfindex
-import os, re, math, random, shutil, requests, json, base64, urllib.parse, cleantext
+import os, csv,re, math, random, shutil, requests, json, base64, urllib.parse, cleantext
 #from solid_client_credentials import SolidClientCredentialsAuth, DpopTokenProvider
 from solid.auth import Auth
 from solid.solid_api import SolidAPI
@@ -281,7 +281,7 @@ class CSSexperiment:
         for filename in os.listdir(datasource):
             f = os.path.join(datasource, filename)
             # checking if it is a file
-            if os.path.isfile(f) and not f.startswith('.'):
+            if os.path.isfile(f) and not filename.startswith('.'):
                 self.filelist.append(f)
 
     def logicaldist(self, n,numberofpods,podzipf,serverzipf):
@@ -290,7 +290,7 @@ class CSSexperiment:
         else:
             expfilelist=self.filelist
         exppodlist=filesorter.distribute(expfilelist,numberofpods, podzipf)
-        random.shuffle(exppodlist)
+        #random.shuffle(exppodlist)
         self.filedist=filesorter.distribute(exppodlist, len(self.serverlist), serverzipf)
         print(self.filedist)
 
@@ -319,7 +319,7 @@ class CSSexperiment:
                 email=pod+self.podemail
                 podfilelist=self.filedist[s][p]
                 IDP=self.serverlist[s]
-                print(podfilelist, pod, IDP, email, self.password)
+                #print(podfilelist, pod, IDP, email, self.password)
                 distributor.putlistCSS(podfilelist, pod, IDP, email, self.password)
 
     def index(self):
@@ -346,15 +346,24 @@ class CSSexperiment:
                 d=brewmaster.crawl(podaddress, CSSA)
                 print(d.keys())
 
+                #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
                 index=rdfindex.listindexer(d,namespace,reprformat)
                 indexdata=index.__repr__()
                 t=CSSA.put_file(pod, self.podindexname, indexdata, 'text/turtle')
-                metaindexdata+=indexaddress
-                metaindexdata+='\n'
+                addstring=indexaddress+chr(13)+'\n'
+                metaindexdata+=addstring
+                
             CSSAe=CSSaccess.CSSaccess(IDP, self.espressoemail, self.password)
             a=CSSAe.create_authstring()
             t=CSSAe.create_authtoken()
-            print(CSSAe.put_file(self.espressopodname, self.espressoindexfile, metaindexdata[:-1], 'text/csv'))
+            #with open('test.csv', 'w') as f:
+            #    csv_writer = csv.writer(f)
+            #    csv_writer.writerows(metaindexdata)
+            #    f.close()
+            #with open('test.csv', 'r') as f:
+            #    metaindexdatastr=f.read()
+            #    f.close()
+            print(CSSAe.put_file(self.espressopodname, self.espressoindexfile, metaindexdata, 'text/csv'))
             
 
     
@@ -409,7 +418,359 @@ def experiment1():
     experiment.indexpub()
     experiment.metaindexpub()
 
+def stresstest():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='espressoindex2.csv'
+    podname='stressdist'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/dataset2'
+    numberofpods=10
+    n=100
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,0,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+def csvexp():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='csvtestindex.csv'
+    podname='csvtest'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/dataset2'
+    numberofpods=5
+    n=10
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,0,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+def exp6s6p200f():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/','https://cups1.ecs.soton.ac.uk:3000/','https://cups2.ecs.soton.ac.uk:3000/','https://cups3.ecs.soton.ac.uk:3000/','https://cups4.ecs.soton.ac.uk:3000/','https://cups5.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='exp_6s6p200f.csv'
+    podname='exp_6s6p200fpod'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/ESPRESSO/Archive/100FilesDuplicate'
+    numberofpods=6
+    n=200
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,0,0)
+    #experiment.ESPRESSOcreate()
+    #experiment.podcreate()
+    #experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+def exp1s1p200f():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='exp_1s1p200f.csv'
+    podname='exp_1s1p200fpod'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/ESPRESSO/Archive/100FilesDuplicate'
+    numberofpods=1
+    n=200
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,0,0)
+    #experiment.ESPRESSOcreate()
+    #experiment.podcreate()
+    #experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+def exp6s24p200f():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/','https://cups1.ecs.soton.ac.uk:3000/','https://cups2.ecs.soton.ac.uk:3000/','https://cups3.ecs.soton.ac.uk:3000/','https://cups4.ecs.soton.ac.uk:3000/','https://cups5.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='exp_6s24p200f.csv'
+    podname='exp_6s24p200fpod'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/ESPRESSO/Archive/100FilesDuplicate'
+    numberofpods=24
+    n=200
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,0,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+def exp1s24p200f():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='exp_1s24p200f.csv'
+    podname='exp_1s24p200fpod'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/ESPRESSO/Archive/100FilesDuplicate'
+    numberofpods=24
+    n=200
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,0,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+def exp6s24p200fzipf():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/','https://cups1.ecs.soton.ac.uk:3000/','https://cups2.ecs.soton.ac.uk:3000/','https://cups3.ecs.soton.ac.uk:3000/','https://cups4.ecs.soton.ac.uk:3000/','https://cups5.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='exp_6s24p200fzipf.csv'
+    podname='exp_6s24p200fzipfpod'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/ESPRESSO/Archive/100FilesDuplicate'
+    numberofpods=24
+    n=200
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,1,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+def exp6s6p200fzipf():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/','https://cups1.ecs.soton.ac.uk:3000/','https://cups2.ecs.soton.ac.uk:3000/','https://cups3.ecs.soton.ac.uk:3000/','https://cups4.ecs.soton.ac.uk:3000/','https://cups5.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='exp_6s6p200fzipf.csv'
+    podname='exp_6s6p200fzipfpod'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/ESPRESSO/Archive/100FilesDuplicate'
+    numberofpods=6
+    n=200
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,1,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+def exp1s24p200fzipf():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='exp_1s24p200fzipf.csv'
+    podname='exp_1s24p200fzipfpod'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/ESPRESSO/Archive/100FilesDuplicate'
+    numberofpods=24
+    n=200
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,1,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
 
 
-experiment1()
+def exp6s6p100f():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/','https://cups1.ecs.soton.ac.uk:3000/','https://cups2.ecs.soton.ac.uk:3000/','https://cups3.ecs.soton.ac.uk:3000/','https://cups4.ecs.soton.ac.uk:3000/','https://cups5.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='exp_6s6p100f.csv'
+    podname='exp_6s6p100fpod'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/ESPRESSO/Archive/100Files'
+    numberofpods=6
+    n=100
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,0,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+def exp1s1p100f():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='exp_1s1p100f.csv'
+    podname='exp_1s1p100fpod'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/ESPRESSO/Archive/100Files'
+    numberofpods=1
+    n=100
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,0,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+def exp6s24p100f():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/','https://cups1.ecs.soton.ac.uk:3000/','https://cups2.ecs.soton.ac.uk:3000/','https://cups3.ecs.soton.ac.uk:3000/','https://cups4.ecs.soton.ac.uk:3000/','https://cups5.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='exp_6s24p100f.csv'
+    podname='exp_6s24p100fpod'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/ESPRESSO/Archive/100Files'
+    numberofpods=24
+    n=100
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,0,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+def exp1s24p100f():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='exp_1s24p100f.csv'
+    podname='exp_1s24p100fpod'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/ESPRESSO/Archive/100FilesDuplicate'
+    numberofpods=24
+    n=100
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,0,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+def exp6s24p100fzipf():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/','https://cups1.ecs.soton.ac.uk:3000/','https://cups2.ecs.soton.ac.uk:3000/','https://cups3.ecs.soton.ac.uk:3000/','https://cups4.ecs.soton.ac.uk:3000/','https://cups5.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='exp_6s24p100fzipf.csv'
+    podname='exp_6s24p100fzipfpod'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/ESPRESSO/Archive/100Files'
+    numberofpods=24
+    n=100
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,1,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+def exp6s6p100fzipf():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/','https://cups1.ecs.soton.ac.uk:3000/','https://cups2.ecs.soton.ac.uk:3000/','https://cups3.ecs.soton.ac.uk:3000/','https://cups4.ecs.soton.ac.uk:3000/','https://cups5.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='exp_6s6p100fzipf.csv'
+    podname='exp_6s6p100fzipfpod'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/ESPRESSO/Archive/100Files'
+    numberofpods=6
+    n=100
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,1,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+def exp1s24p100fzipf():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='exp_1s24p100fzipf.csv'
+    podname='exp_1s24p100fzipfpod'
+    podemail='@example.org'
+    podindexname='espressoindex.ttl'
+    password='12345'
+    sourcedir='/Users/yurysavateev/ESPRESSO/Archive/100Files'
+    numberofpods=24
+    n=100
+    experiment=CSSexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexname=podindexname, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,1,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.index()
+    experiment.indexpub()
+    experiment.metaindexpub()
+
+
+exp6s24p100f()
 

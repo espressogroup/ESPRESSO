@@ -93,13 +93,13 @@ class CSSaccess:
         return res.text
 
     def delete_file(self,targetUrl):
-        print('deleting' + targetUrl)
+        print('deleting ' + targetUrl)
         #curl -X DELETE http://localhost:3000/myfile.txt
-        headers={  'authorization':'DPoP '+CSSA.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "DELETE", CSSA.dpopKey)}
+        headers={  'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "DELETE", self.dpopKey)}
         res= requests.delete(targetUrl,
                 headers=headers
         )
-        return res.text
+        return res
 
     def makefileaccessible(self,podname,filename):
         targetUrl=self.idp+podname+'/'+filename+'.acl'
