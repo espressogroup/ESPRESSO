@@ -37,4 +37,5 @@ esspressoindexfile=argv[2]
 podname=argv[3]
 podnum=int(argv[4])
 podindexdir=argv[5]  
+print(IDP,espressoindexfile,podname,podnum,podindexdir)
 index(IDP,espressoindexfile,podname,podnum,podindexdir)
