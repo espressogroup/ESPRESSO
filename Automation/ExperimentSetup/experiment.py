@@ -2,8 +2,8 @@ import filesorter, distributor, dpop_utils, CSSaccess, brewmaster, rdfindex
 #import rdfindex
 import os, csv,re, math, random, shutil, requests, json, base64, urllib.parse, cleantext
 #from solid_client_credentials import SolidClientCredentialsAuth, DpopTokenProvider
-from solid.auth import Auth
-from solid.solid_api import SolidAPI
+#from solid.auth import Auth
+#from solid.solid_api import SolidAPI
 #from solid.auth import (ClientAuthenticator, OIDCRegistrationResponse)
 import ssl
 
