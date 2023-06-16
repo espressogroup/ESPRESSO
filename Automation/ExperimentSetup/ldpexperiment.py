@@ -463,5 +463,49 @@ def ldpexp6s6p200fzipf():
     #experiment.indexpub()
     #experiment.metaindexpub()
 
-ldpexp6s6p200fzipf()
+def ldpexp6s24p200fzipf():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/','https://srv03812.soton.ac.uk:3000/','https://cups2.ecs.soton.ac.uk:3000/','https://cups3.ecs.soton.ac.uk:3000/','https://cups4.ecs.soton.ac.uk:3000/','https://cups5.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='ldpexp6s24p200fzipf.csv'
+    podname='ldp6s24p200fzipf'
+    podemail='@example.org'
+    podindexdir='espressoindex/'
+    password='12345'
+    sourcedir='../../Datasets/100FilesDuplicate/'
+    numberofpods=24
+    n=200
+    experiment=LDPexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexdir=podindexdir, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,1,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    #experiment.index()
+    #experiment.indexpub()
+    #experiment.metaindexpub()
+
+def ldpexp6s24p200f():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/','https://srv03812.soton.ac.uk:3000/','https://cups2.ecs.soton.ac.uk:3000/','https://cups3.ecs.soton.ac.uk:3000/','https://cups4.ecs.soton.ac.uk:3000/','https://cups5.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='ldpexp6s24p200f.csv'
+    podname='ldp6s24p200f'
+    podemail='@example.org'
+    podindexdir='espressoindex/'
+    password='12345'
+    sourcedir='../../Datasets/100FilesDuplicate/'
+    numberofpods=24
+    n=200
+    experiment=LDPexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexdir=podindexdir, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,0,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    #experiment.index()
+    #experiment.indexpub()
+    #experiment.metaindexpub()
+
+ldpexp6s24p200f()
 
