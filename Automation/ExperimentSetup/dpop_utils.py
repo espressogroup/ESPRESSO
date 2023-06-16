@@ -67,6 +67,7 @@ def create_dpop_header(url: str, method: str, key: jwk.JWK) -> str:
 
 
 def jwt_encode(payload: dict, key: jwk.JWK, headers: Optional[dict]) -> str:
+    #instance = jwt.JWT()
     headers = headers or {}
     key_pem = key.export_to_pem(private_key=True, password=None).decode("utf-8")
     encoded_jwt = jwt.encode(
