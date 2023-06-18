@@ -152,16 +152,20 @@ def ldpindexdict(filedict):
 
 def uploadldpindex(ldpindex,podname,espressodir,CSSA):
     n=len(ldpindex.keys())
-    i=0
+    i=1
     for (name,body) in ldpindex.items():
         print('putting '+str(i)+'/'+str(n)+' '+name+' in ' + podname)
         i=i+1
         filename=espressodir+name
+        print(filename)
         res=CSSA.put_file(podname,filename,body,'text/csv')
         print(res)
         if (not res.ok):
             CSSA.create_authtoken()
             res=CSSA.put_file(podname,filename,body,'text/csv')
+            if (not res.ok):
+                print('Cannot upload index')
+                break
 
         
 

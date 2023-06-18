@@ -507,5 +507,27 @@ def ldpexp6s24p200f():
     #experiment.indexpub()
     #experiment.metaindexpub()
 
-ldpexp6s24p200f()
+def extraldpexp6s24p200f():
+    serverlist=['https://cupsa.ecs.soton.ac.uk:3000/','https://srv03812.soton.ac.uk:3000/','https://srv03911.soton.ac.uk:3000/','https://cups3.ecs.soton.ac.uk:3000/','https://cups4.ecs.soton.ac.uk:3000/','https://cups5.ecs.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    espressoindexfile='newldpexp6s24p200f.csv'
+    podname='newldp6s24p200f'
+    podemail='@example.org'
+    podindexdir='espressoindex/'
+    password='12345'
+    sourcedir='../../Datasets/100FilesDuplicate/'
+    numberofpods=24
+    n=200
+    experiment=LDPexperiment(serverlist,espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexdir=podindexdir, password=password)
+    experiment.loaddir(sourcedir)
+    experiment.logicaldist(n,numberofpods,0,0)
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    #experiment.index()
+    #experiment.indexpub()
+    #experiment.metaindexpub()
+
+extraldpexp6s24p200f()
 

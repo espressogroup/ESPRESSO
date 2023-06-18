@@ -82,6 +82,14 @@ class CSSaccess:
             data=filetext
         )
         return res 
+
+    def put_url(self,targetUrl,filetext,filetype):
+        headers={ 'content-type': filetype, 'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", self.dpopKey)}
+        res= requests.put(targetUrl,
+            headers=headers,
+            data=filetext
+        )
+        return res 
         
     def get_file(self,targetUrl):
         #targetUrl='http://localhost:3000/test1/file1.txt'
