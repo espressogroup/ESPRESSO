@@ -1,0 +1,7 @@
+Server,Keyword,Search Time,Execution Time,Total Time,Rows Fetched
+srv03768.soton.ac.uk,disease,srv03768:1687166591959:1,2528,2539,38
+srv03812.soton.ac.uk,disease,1552,2528,2539,38
+srv03911.soton.ac.uk,disease,"9 10:23:12.046, Incoming Query:  select TERM, ADDRESS, RELEVANCE from NEW com.ibm.db2j.GaianTable('LTSOLID', 'queryPath=srv03768 srv03815', 'TERM VARCHAR(255), ADDRESS VARCHAR(255), RELEVANCE VARCHAR(3)', 'srv03815') GQ WHERE (TERM = 'disease') AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=760C3AFC",2528,2539,38
+srv03814.soton.ac.uk,disease,"9 10:23:12.11, Incoming Query:  select TERM, ADDRESS, RELEVANCE from NEW com.ibm.db2j.GaianTable('LTSOLID', 'queryPath=srv03768 srv03816 srv03812', 'TERM VARCHAR(255), ADDRESS VARCHAR(255), RELEVANCE VARCHAR(3)', 'srv03812') GQ WHERE (TERM = 'disease') AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=760C3AFC",2528,2539,38
+srv03815.soton.ac.uk,disease,"9 10:23:12.093, Incoming Query:  select TERM, ADDRESS, RELEVANCE from NEW com.ibm.db2j.GaianTable('LTSOLID', 'queryPath=srv03768 srv03816 srv03812', 'TERM VARCHAR(255), ADDRESS VARCHAR(255), RELEVANCE VARCHAR(3)', 'srv03812') GQ WHERE (TERM = 'disease') AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=760C3AFC",2528,2539,38
+srv03816.soton.ac.uk,disease,"9 10:23:12.006, Incoming Query:  select TERM, ADDRESS, RELEVANCE from NEW com.ibm.db2j.GaianTable('LTSOLID', 'queryPath=srv03768 srv03815', 'TERM VARCHAR(255), ADDRESS VARCHAR(255), RELEVANCE VARCHAR(3)', 'srv03815') GQ WHERE (TERM = 'disease') AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=760C3AFC",2528,2539,38
