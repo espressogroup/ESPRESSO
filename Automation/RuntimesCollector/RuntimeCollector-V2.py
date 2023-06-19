@@ -7,7 +7,7 @@ import time
 # Experiments (Multi-Servers)
 servers = ['srv03768.soton.ac.uk',
            'srv03812.soton.ac.uk',
-           # 'srv03813.soton.ac.uk',
+           'srv03911.soton.ac.uk',
            'srv03814.soton.ac.uk',
            'srv03815.soton.ac.uk',
            'srv03816.soton.ac.uk'
@@ -15,7 +15,7 @@ servers = ['srv03768.soton.ac.uk',
 
 # SSH connection parameters
 username = 'mrmm1f23@soton.ac.uk'
-password = '01121809885_Soton'
+password = 'XX'
 
 script_directory = '/usr/local/Reza-WorkSpace/BuildGaian/GaianDB_BuildMaven_Keyword_20230611/'
 log_directory = '/usr/local/Reza-WorkSpace/BuildGaian/GaianDB_BuildMaven_Keyword_20230611/csvtestfiles/'
@@ -28,7 +28,7 @@ csv_file = 'runtimes.csv'
 
 # Retry parameters
 max_retries = 3
-retry_delay = 5  # seconds
+retry_delay = 5
 
 try:
     with open(csv_file, 'w', newline='') as file:

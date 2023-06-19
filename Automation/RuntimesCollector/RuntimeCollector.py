@@ -18,7 +18,7 @@ servers = ['srv03768.soton.ac.uk',
 
 # SSH connection parameters
 username = 'mrmm1f23@soton.ac.uk'
-password = '01121809885_Soton'
+password = 'XX'
 
 
 script_directory = '/usr/local/Reza-WorkSpace/BuildGaian/GaianDB_BuildMaven_Keyword_20230611/'
