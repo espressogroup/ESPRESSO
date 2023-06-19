@@ -1,0 +1,17 @@
+- name: Stopping Searcher Servers
+  hosts: solid_servers
+  become: yes
+
+  tasks:
+    # Find the process ID running on port 8080
+    - name: Find process ID
+      become: true
+      shell: "lsof -t -i :8080"
+      register: process_id
+      ignore_errors: yes
+
+    # Stop the process
+    - name: Stop the process
+      become: true
+      shell: "kill -9 {{ process_id.stdout }}"
+      when: process_id.stdout is defined

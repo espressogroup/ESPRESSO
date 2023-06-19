@@ -1,0 +1,37 @@
+---
+- name: Starting Gaian Servers
+  hosts: solid_servers
+  become: yes
+
+  vars:
+    project_path: /usr/local/Reza-WorkSpace
+
+  tasks:
+    - name: Make launchGaianServer.sh executable
+      become: true
+      file:
+        path: "{{ project_path }}/BuildGaian/GaianDB_BuildMaven_SQL_20230423-TEST/launchGaianServer.sh"
+        mode: "+x"
+
+    # Start GaianDB
+    - name: Start GaianDB
+      become: true
+      command: "{{ project_path }}/BuildGaian/GaianDB_BuildMaven_SQL_20230423-TEST/launchGaianServer.sh"
+      async: 3600
+      poll: 0
+      register: server_task
+
+    # Wait for the server to start
+    - name: Wait for server to start
+      become: true
+      wait_for:
+        host: "{{ inventory_hostname }}"
+        port: 6414
+        state: started
+      when: server_task is defined and server_task.finished
+
+    # Print server status
+    - name: Print server status
+      debug:
+        msg: "Server is running on {{ inventory_hostname }} with PID {{ server_task.ansible_pid }}"
+      when: server_task is defined and server_task.finished and server_task.status == 'SUCCESS'
