@@ -10,13 +10,13 @@
     - name: Make launchGaianServer.sh executable
       become: true
       file:
-        path: "{{ project_path }}/BuildGaian/GaianDB_BuildMaven_SQL_20230423-TEST/launchGaianServer.sh"
+        path: "{{ project_path }}/BuildGaian/GaianDB_BuildMaven_Keyword_20230611/launchGaianServer.sh"
         mode: "+x"
 
     # Start GaianDB
     - name: Start GaianDB
       become: true
-      command: "{{ project_path }}/BuildGaian/GaianDB_BuildMaven_SQL_20230423-TEST/launchGaianServer.sh"
+      command: "{{ project_path }}/BuildGaian/GaianDB_BuildMaven_Keyword_20230611/launchGaianServer.sh"
       async: 3600
       poll: 0
       register: server_task

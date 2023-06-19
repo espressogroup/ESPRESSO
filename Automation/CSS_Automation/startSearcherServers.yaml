@@ -8,7 +8,7 @@
   tasks:
     - name: Run server.js script
       become: true
-      shell: node --max-old-space-size=8000 /usr/local/Reza-WorkSpace/BuildGaian/SolidSearch_StandAlone/server.js
+      shell: node --max-old-space-size=8000 /usr/local/Reza-WorkSpace/BuildGaian/NewSearch_V2/index.js
       async: 3600
       poll: 0
       register: script_task
