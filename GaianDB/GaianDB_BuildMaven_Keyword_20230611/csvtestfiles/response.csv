@@ -545,3 +545,10 @@
 [Query ID: srv03768:1685559477542:12]
 [2023-05-31 19:57:57.558, Incoming Query:  select TERM, ADDRESS, RELEVANCE from NEW com.ibm.db2j.GaianTable('LTSOLID', 'queryPath=srv03768 srv03815', 'TERM VARCHAR(255), ADDRESS VARCHAR(255), RELEVANCE VARCHAR(3)', 'srv03815') GQ WHERE (TERM ='hemoproteins') AND GDB_QRYID=? AND GDB_QRYSTEPS=? -- GDB_HASH=12DBB0DB]
 [2023-05-31 19:57:58.547, Search APP Start Time: 19:57:57.560,  End time: 19:57:58.547,  Total Time: 987]
+[Node ID: cspc201,  Node Name: gaiandb]
+[2023-07-04 17:36:25.282, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2023-07-04 17:36:32.456,  Start of Submit Query ]
+[2023-07-04 17:36:32.472, Incoming Query:  SELECT * FROM LTSOLID WHERE term =  'corona' ORDER BY RELEVANCE DESC]
+[Query ID: cspc201:1688488592475:1]
+[2023-07-04 17:36:33.265, Total Execution Time: , 807]
+------------------------------------------------------------------------
