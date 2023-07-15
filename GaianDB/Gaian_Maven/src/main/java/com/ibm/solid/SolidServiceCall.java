@@ -9,12 +9,11 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.opencsv.CSVWriter;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.sql.Timestamp;
 import java.util.*;
 import java.time.LocalDateTime;
@@ -32,6 +31,9 @@ public class SolidServiceCall {
     public class SearchResult {
         public int frequency;
         public String address;
+    }
+    private String encodeValue(String value) throws UnsupportedEncodingException {
+        return URLEncoder.encode(value, StandardCharsets.UTF_8.toString());
     }
         public void filterData(String data) throws Exception {
         String whereClause;
@@ -64,7 +66,7 @@ try {
                 .asJson();
 */
 
-    response = Unirest.get(apiUrl + "?keyword=" + whereClause)
+    response = Unirest.get(apiUrl + "?keyword=" + encodeValue(whereClause))
             .asJson();
 
     long end = System.currentTimeMillis();
@@ -87,6 +89,8 @@ try {
     SearchResult[] resultArray = gson.fromJson(res, SearchResult[].class);
     for (SearchResult result : resultArray) {
         String[] fields = new String[3];
+      //  String[] term = whereClause.split(",");
+      //  fields[0] = term[0];
         fields[0] = whereClause;
         fields[1] = result.address;
         fields[2] = String.valueOf(result.frequency);
@@ -100,6 +104,8 @@ try {
         String[] header = {"TERM", "ADDRESS", "RELEVANCE"};
         csvWriter.writeNext(header);
         String[] fields = new String[3];
+     //   String[] term = whereClause.split(",");
+     //   fields[0] = term[0];
         fields[0] = whereClause;
         String messageError = "API request failed with status code: ";
         fields[1] = messageError;
