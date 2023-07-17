@@ -1,1 +1,2 @@
 "TERM","ADDRESS","RELEVANCE"
+"corona","API request failed with status code: ","org.apache.http.conn.HttpHostConnectException: Connect to localhost:8080 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information  csvtestfiles/solid.csv"
