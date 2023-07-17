@@ -1,7 +1,8 @@
-import CSSaccess, rdfindex, cleantext
+import CSSaccess, rdfindex, cleantext, string
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
-
-
+#from rdflib.namespace import ACL
+import concurrent.futures
+import time
 def crawl(address, CSSa):
     filedict= dict()
     data = CSSa.get_file(address)
@@ -36,7 +37,77 @@ def crawl(address, CSSa):
 
     return filedict
 
+def aclcrawl(address, CSSa):
+    filetuples= []
+    data = CSSa.get_file(address)
+    #print(data)
+    g=Graph().parse(data=data,publicID=address)
+    #q1='''
+    #prefix ldp: <http://www.w3.org/ns/ldp#>
+    
+    #SELECT ?s ?p ?o WHERE{
+    #   ?s ?p ?o .
+    #}
+    #'''
+    #for r in g.query(q1):
+    #    print(r)
+    q='''
+    prefix ldp: <http://www.w3.org/ns/ldp#>
+    
+    SELECT ?f WHERE{
+        ?a ldp:contains ?f.
+    }
+    '''
+    for r in g.query(q):
+        #print(r["f"])
+        f=str(r["f"])
+        if f[-1]=='/':
+            d=aclcrawl(f,CSSa)
+            filetuples=filetuples+d
+        elif ('.' in f.rsplit('/')[-1]) and (not f.endswith('ttl')) and (not f.endswith('.ndx')) and (not f.endswith('.file')) and (not f.endswith('.sum')):
+            text=CSSa.get_file(f)
+            webidlist=getwebidlist(f,CSSa)
+            filetuples.append((f,text,webidlist))
+        else:
+            pass
 
+    return filetuples
+
+def aclcrawlwebid(address, CSSa):
+    filetuples= []
+    data = CSSa.get_file(address)
+    #print(data)
+    g=Graph().parse(data=data,publicID=address)
+    #q1='''
+    #prefix ldp: <http://www.w3.org/ns/ldp#>
+    
+    #SELECT ?s ?p ?o WHERE{
+    #   ?s ?p ?o .
+    #}
+    #'''
+    #for r in g.query(q1):
+    #    print(r)
+    q='''
+    prefix ldp: <http://www.w3.org/ns/ldp#>
+    
+    SELECT ?f WHERE{
+        ?a ldp:contains ?f.
+    }
+    '''
+    for r in g.query(q):
+        #print(r["f"])
+        f=str(r["f"])
+        if f[-1]=='/':
+            d=aclcrawlwebid(f,CSSa)
+            filetuples=filetuples+d
+        elif ('.' in f.rsplit('/')[-1]) and (not f.endswith('ttl')) and (not f.endswith('.ndx')) and (not f.endswith('.file')) and (not f.endswith('.sum')) and (not f.endswith('.webid')):
+            text=CSSa.get_file(f)
+            webidlist=getwebidlistlist(f,CSSa)
+            filetuples.append((f,text,webidlist))
+        else:
+            pass
+
+    return filetuples
 
 def crawllist(address, CSSa):
     filelist= []
@@ -69,6 +140,114 @@ def crawllist(address, CSSa):
             filelist.append(f)
       
     return filelist
+
+def indexchecker(address, CSSa):
+    files= []
+    data = CSSa.get_file(address)
+    #print(data)
+    g=Graph().parse(data=data,publicID=address)
+    #q1='''
+    #prefix ldp: <http://www.w3.org/ns/ldp#>
+    
+    #SELECT ?s ?p ?o WHERE{
+    #   ?s ?p ?o .
+    #}
+    #'''
+    #for r in g.query(q1):
+    #    print(r)
+    q='''
+    prefix ldp: <http://www.w3.org/ns/ldp#>
+    
+    SELECT ?f WHERE{
+        ?a ldp:contains ?f.
+    }
+    '''
+    for r in g.query(q):
+        f=str(r["f"])
+        files.append(f.rsplit('/')[-1])
+
+    return files
+
+
+def getwebidlist(address,CSSA):
+    acladdress=address+'.acl'
+    acldata=CSSA.get_file(acladdress)
+    #print(acldata)
+    g=Graph().parse(data=acldata,publicID=acladdress)
+    ACL=Namespace('http://www.w3.org/ns/auth/acl')
+    #for s,p,o in g:
+        #print(s,p,o)
+    webidlist=[]
+    q='''prefix acl: <http://www.w3.org/ns/auth/acl#>
+
+    SELECT ?a ?f WHERE{
+        ?a a acl:Authorization.
+        ?a acl:mode acl:Read.
+        ?a acl:agent ?f.
+    }
+    '''
+    q1='''prefix acl: <http://www.w3.org/ns/auth/acl#>
+    SELECT (COUNT(?a) as ?n) WHERE{
+        ?a a acl:Authorization.
+        ?a acl:mode acl:Read.
+        ?a acl:agentClass foaf:Agent.
+    } 
+    '''
+    #for i in g.subjects('acl:mode','acl.Read'):
+        #print(i)
+        #for webid in g.object(i,ACL.agent):
+            #webidlist.append(str(webid))
+
+    for r in g.query(q1):
+        if int(r['n'])>0:
+            webidlist.append('*')
+    for r in g.query(q):
+        #print(r["f"])
+        f=str(r["f"])
+        webidlist.append(f)
+    webidstring=','.join(webidlist)
+    return webidstring
+
+def getwebidlistlist(address,CSSA):
+    acladdress=address+'.acl'
+    #print('getting webidlist for '+address)
+    acldata=CSSA.get_file(acladdress)
+    #print(acldata)
+    g=Graph().parse(data=acldata,publicID=acladdress)
+    ACL=Namespace('http://www.w3.org/ns/auth/acl')
+    #for s,p,o in g:
+        #print(s,p,o)
+    webidlist=[]
+    q='''prefix acl: <http://www.w3.org/ns/auth/acl#>
+
+    SELECT ?a ?f WHERE{
+        ?a a acl:Authorization.
+        ?a acl:mode acl:Read.
+        ?a acl:agent ?f.
+    }
+    '''
+    q1='''prefix acl: <http://www.w3.org/ns/auth/acl#>
+    SELECT (COUNT(?a) as ?n) WHERE{
+        ?a a acl:Authorization.
+        ?a acl:mode acl:Read.
+        ?a acl:agentClass foaf:Agent.
+    } 
+    '''
+    #for i in g.subjects('acl:mode','acl.Read'):
+        #print(i)
+        #for webid in g.object(i,ACL.agent):
+            #webidlist.append(str(webid))
+
+    for r in g.query(q1):
+        if int(r['n'])>0:
+            webidlist.append('*')
+    for r in g.query(q):
+        #print(r["f"])
+        f=str(r["f"])
+        webidlist.append(f)
+    return webidlist
+
+
 
 class Appearance:
     """
@@ -133,6 +312,34 @@ class LdpIndex:
         self.f=self.f+1
         filename=fileword+'.file'
         self.index[filename]=id
+        self.index['index.sum']=str(self.f)
+        #print(fileword,id)
+        for (key, freq) in appearances_dict.items():
+            if key not in self.index.keys():
+                self.index[key]=''           
+            self.index[key]=self.index[key]+fileword+','+str(freq)+'\r\n'                      
+
+        return id
+
+    def index_id_text_acl(self, id, text, webidliststring):
+        """
+        Process a given document, save it to the DB and update the index.
+         """
+        
+        terms=myclean(text)
+            #print(terms)
+        appearances_dict = dict()
+            # Dictionary with each term and the frequency it appears in the text.
+        for term in terms:
+            termword=term+'.ndx'
+            term_frequency = appearances_dict[termword] if termword in appearances_dict else 0
+            appearances_dict[termword] =  term_frequency + 1
+            
+        fileword='f'+str(self.f)
+        self.f=self.f+1
+        filename=fileword+'.file'
+        self.index[filename]=id+','+ webidliststring
+        self.index['index.sum']=str(self.f)
         #print(fileword,id)
         for (key, freq) in appearances_dict.items():
             if key not in self.index.keys():
@@ -141,6 +348,36 @@ class LdpIndex:
 
         return id
     
+    def indexwebid(self, id, text, webidlist):
+        terms=myclean(text)
+            #print(terms)
+        appearances_dict = dict()
+            # Dictionary with each term and the frequency it appears in the text.
+        for term in terms:
+            termword=term+'.ndx'
+            term_frequency = appearances_dict[termword] if termword in appearances_dict else 0
+            appearances_dict[termword] =  term_frequency + 1
+            
+        fileword='f'+str(self.f)
+        self.f=self.f+1
+        filename=fileword+'.file'
+        self.index[filename]=id
+        for webid in webidlist:
+            if webid=="*":
+                webidword='openaccess.webid'
+            else:
+                webidword=webid.translate(str.maketrans('', '', string.punctuation))+'.webid'
+            if webidword not in self.index.keys():
+                self.index[webidword]=''
+            self.index[webidword]=self.index[webidword]+fileword+'\r\n'
+        self.index['index.sum']=str(self.f)
+        #print(fileword,id)
+        for (key, freq) in appearances_dict.items():
+            if key not in self.index.keys():
+                self.index[key]=''           
+            self.index[key]=self.index[key]+fileword+','+str(freq)+'\r\n'                      
+
+        return id
 
 
 def ldpindexdict(filedict):
@@ -148,6 +385,20 @@ def ldpindexdict(filedict):
     for (id,text) in filedict.items():
         print('indexing '+id)
         ldpindex.index_id_text(id, text)
+    return ldpindex.index
+
+def aclindextuples(filetuples):
+    ldpindex=LdpIndex()
+    for (id,text,webidlist) in filetuples:
+        print('indexing '+id)
+        ldpindex.index_id_text_acl(id, text, webidlist)
+    return ldpindex.index
+
+def aclindextupleswebid(filetuples):
+    ldpindex=LdpIndex()
+    for (id,text,webidlist) in filetuples:
+        print('indexing '+id)
+        ldpindex.indexwebid(id, text, webidlist)
     return ldpindex.index
 
 def uploadldpindex(ldpindex,podname,espressodir,CSSA):
@@ -167,7 +418,33 @@ def uploadldpindex(ldpindex,podname,espressodir,CSSA):
                 print('Cannot upload index')
                 break
 
-        
+def uploadaclindex(ldpindex,indexdir,CSSA):
+    n=len(ldpindex.keys())
+    i=1
+    for (name,body) in ldpindex.items():
+        print('putting '+str(i)+'/'+str(n),end=' ')
+        i=i+1
+        targetUrl=indexdir+name
+        print(targetUrl,end=' ')
+        res=CSSA.put_url(targetUrl,body,'text/csv')
+        print(res,end='\r')
+        if (not res.ok):
+            CSSA.create_authtoken()
+            res=CSSA.put_url(targetUrl,body,'text/csv')
+            if (not res.ok):
+                print('Cannot upload index')
+                break
+
+def getacl(podpath, targetUrl, CSSA):
+    line=targetUrl[len(podpath):]
+    res=CSSA.get_file(podpath+line+'.acl')  
+    while not res.ok:
+        line= '/'.join(filepath.rsplit('/')[:-1])
+        res=CSSA.get_file(podpath+line+'.acl') 
+        if len(line)==0:
+            break
+    return res.text    
+
 
 def coffeefilter(metaindexaddress,keyword):
     res=CSSaccess.get_file(metaindexaddress)
@@ -191,4 +468,88 @@ def coffeefilter(metaindexaddress,keyword):
                 #print(filename, freq)
                 ans[filename]=int(freq)
     ans=dict(sorted(ans.items(), key=lambda x:x[1], reverse=True))
+    return ans
+
+def askindex(podindexaddress, keyword, webid):
+    
+    wordaddress=podindexaddress+keyword+'.ndx'
+    webidaddress=podindexaddress+webid.translate(str.maketrans('', '', string.punctuation))+'.webid'
+    wordres=CSSaccess.get_file(wordaddress)
+    ans=dict()       
+    if wordres.ok:
+        openaccessaddress=podindexaddress+'openaccess.webid'
+        openaccessres=CSSaccess.get_file(openaccessaddress)
+        openlist=openaccessres.text.rsplit('\r\n')[:-1]
+        webidaddress=podindexaddress+webid.translate(str.maketrans('', '', string.punctuation))+'.webid'
+        webidfilelist=[]
+        webidres=CSSaccess.get_file(webidaddress)
+        if webidres.ok:
+            webidfilelist=webidres.text.rsplit('\r\n')[:-1]
+
+        wordfilelist=wordres.text.rsplit('\r\n')[:-1]
+        worddic={filefreq.rsplit(',')[0]: filefreq.rsplit(',')[1] for filefreq in wordfilelist}
+            #print(filelist)
+        accessibleset =set(worddic.keys())&(set(openlist)|set(webidfilelist))
+        begtime=time.time_ns()
+        #with concurrent.futures.ThreadPoolExecutor(max_workers=len(accessibleset)) as exe:
+        #    futurelist = {exe.submit(CSSaccess.get_file, podindexaddress+fword+'.file'): fword for fword in accessibleset}
+        #    for future in concurrent.futures.as_completed(futurelist):
+        #        url = futurelist[future]
+        #        data = future.result().text
+        #        ans[data]=worddic[url]
+        for fword in accessibleset:
+            filepath=podindexaddress+fword+'.file'
+            filename=CSSaccess.get_file(filepath).text
+            ans[filename]=int(worddic[fword])
+        #for filefreq in wordfilelist:
+                #print(filefreq)
+        #    fword=filefreq.rsplit(',')[0]
+        #    if fword in accessiblelist:
+        #        filepath=podindexaddress+fword+'.file'
+        #        filename=CSSaccess.get_file(filepath).text
+        #        freq=filefreq.rsplit(',')[1]
+                #print(filename, freq)
+        #        ans[filename]=int(freq)
+        print(time.time_ns()-begtime)
+    return ans
+
+
+
+def coffeefilterthreaded(metaindexaddress,keyword,webid):
+    res=CSSaccess.get_file(metaindexaddress)
+    #print(res.text)
+    podindexlist=res.text.rsplit('\r\n')[:-1]
+    #print(podindexlist)
+    ans=dict()
+    #begtime=time.time_ns()
+    #print(n)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=len(podindexlist)) as executor:
+        futurelist = {executor.submit(askindex, podindex, keyword, webid): podindex for podindex in podindexlist}
+        for future in concurrent.futures.as_completed(futurelist):
+            url = futurelist[future]
+            try:
+                data = future.result()
+            except Exception as exc:
+                print('%r generated an exception: %s' % (url, exc))
+            else:
+                ans|=data
+
+    #print(time.time_ns()-begtime)
+    
+    return ans
+
+def coffeefilterunthreaded(metaindexaddress,keyword,webid):
+    res=CSSaccess.get_file(metaindexaddress)
+    #print(res.text)
+    podindexlist=res.text.rsplit('\r\n')[:-1]
+    #print(podindexlist)
+    ans=dict()
+    #begtime=time.time_ns()
+    #print(n)
+    for podindex in podindexlist:
+        res=askindex(podindex, keyword, webid)
+        ans|=res
+    
+    #print(time.time_ns()-begtime)
+    
     return ans

@@ -109,6 +109,47 @@ class CSSaccess:
         )
         return res
 
+    def adddefaultacl(self,fileaddress):
+        targetUrl=fileaddress+'.acl'
+        print('Adding .acl to '+ fileaddress)
+        acldef='''@prefix : <#>.
+@prefix acl: <http://www.w3.org/ns/auth/acl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix c: <profile/card#>.
+
+:ControlReadWrite
+a acl:Authorization;
+acl:accessTo <'''+fileaddress+'''>;
+acl:agent c:me, <mailto:ys1v22@soton.ac.uk>;
+acl:mode acl:Control, acl:Read, acl:Write.
+
+:Read
+a acl:Authorization;
+acl:accessTo <'''+fileaddress+'''>;
+acl:mode acl:Read.
+'''
+        #print(acldef)
+        headers={ 'content-type': 'text/turtle', 'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", self.dpopKey)}
+        res= requests.put(targetUrl,
+               headers=headers,
+                data=acldef
+            )
+        return res
+
+    def addreadrights(self,fileaddress,webidlist):
+        targetUrl=fileaddress+'.acl'
+        headers={ "Content-Type": "application/sparql-update",'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PATCH", self.dpopKey)}
+        webidstring='<'+'>,<'.join(webidlist)+'>'
+        data="INSERT DATA { <#Read> <acl:agent> "+webidstring+" }"
+        print(data)
+        res= requests.patch(targetUrl,
+               headers=headers,
+                data=data
+            )
+        print(res,end='\r')
+        #if res.ok:
+            #print('Added '+webidstring+' to '+targetUrl,end='\r')
+
     def makefileaccessible(self,podname,filename):
         targetUrl=self.idp+podname+'/'+filename+'.acl'
         headers={  'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "GET", self.dpopKey)}

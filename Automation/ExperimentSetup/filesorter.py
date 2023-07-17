@@ -1,4 +1,4 @@
-import os, math, random, shutil
+import os, math, random, shutil, numpy
 
 def distribute(files,places,zipf):
     #a=1
@@ -101,7 +101,35 @@ def sort_local (datasource,targetdir, numberofservers, serverzipf,numberofpods,p
                 shutil.copy(src, dst)
         print("end server")
 
-
+def normaldistribute(files,places,disp):
+    if disp==0:
+        numbers=[math.floor(len(files)/places)]*places
+    else:
+        loc=float(len(files))/places
+        scale=loc*disp
+        ran=numpy.random.normal(loc,scale,places)
+        total=0
+        for i in range(places):
+            if ran[i]<0:
+                ran[i]=1
+            total += ran[i]
+            #a/=((i+1)*zipf)
+        print (total)
+        numbers=[]
+        for i in range(places):
+            numbers.append(math.floor(ran[i]*len(files)/total))
+    print(sum(numbers))
+    for i in range(len(files)-sum(numbers)):
+        j=math.floor(random.random()*places)
+        numbers[j]=numbers[j]+1
+    print(numbers)
+    res=[]
+    pos=0
+    for i in range(places):
+        res.append(files[pos:pos+numbers[i]])
+        pos=pos+numbers[i]
+    return (res)
+    
 
 class sortimage:
     def __init__(self):
