@@ -258,7 +258,7 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 	}
 
 	public static void main(String[] args) {
-		String queryString = "select TERM, ADDRESS from NEW com.ibm.db2j.GaianTable('LTSOLID', 'queryPath=srv03815', 'TERM VARCHAR(255), ADDRESS VARCHAR(255)', 'srv03815') GQ WHERE (term = 'Latte') AND GDB_QRYID=? AND GDB_QRYSTEPS=?";
+		String queryString = "select TERM, ADDRESS from NEW com.ibm.db2j.GaianTable('LTSOLID', 'queryPath=srv03815', 'Search_Parameters VARCHAR(255), Document_URL VARCHAR(255)', 'srv03815') GQ WHERE (term = 'Latte') AND GDB_QRYID=? AND GDB_QRYSTEPS=?";
 
 		if (hasGaianTable(queryString)) {
 			Map<String, String> sqlData = parseGaianTableQuery(queryString);

@@ -11,7 +11,7 @@ keyword_file="keywords.txt"
 # Loop over each keyword in the file
 while read keyword; do
   # Generate the SQL command for the current keyword
-  sql_command="SELECT * FROM LTSOLID WHERE term LIKE '%$keyword%'"
+  sql_command="SELECT * FROM LTSOLID WHERE Search_Parameters LIKE '%$keyword%'"
 
   # Measure the execution time of the SQL command
   start_time=$(date +%s.%N)

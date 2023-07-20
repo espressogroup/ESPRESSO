@@ -18,7 +18,7 @@ public class Configuration {
                 "MAP_COLUMNS_BY_POSITION");
         PropertiesManagement.getInstance(fileName).addProperty(
                 "LT" + logicalTableName + "_DEF",
-                "TERM VARCHAR(255), ADDRESS VARCHAR(255), RELEVANCE VARCHAR(3)");
+                "Search_Parameters VARCHAR(255), Document_URL VARCHAR(255), RELEVANCE VARCHAR(3)");
         PropertiesManagement.getInstance(fileName).addProperty(
                 "LT" + logicalTableName + "_DS0_VTI",
                 "com.ibm.db2j.FileImport");

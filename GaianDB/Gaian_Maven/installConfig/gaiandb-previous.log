@@ -1,4 +1,4 @@
-2023-05-30 15:10:57.562~343622500 GaianNode -------------> isInitDataUpToDate = true = GAIANDB_JAR_MD5 Unknown = gdbJarMD5_previous Unknown && gdbDbTimestampAtStartup 1685441143149 > gdbJarFile.lastModified() 1685002527257
+2023-07-18 13:55:21.498~263846600 GaianNode -------------> isInitDataUpToDate = true = GAIANDB_JAR_MD5 Unknown = gdbJarMD5_previous Unknown && gdbDbTimestampAtStartup 1689684565145 > gdbJarFile.lastModified() 1689681813025
 GaianDB Custom Version: Reza Moosaei 2023_03_29_34
 java version "1.8.0_362"
 IBM Semeru Runtime Open Edition (build 1.8.0_362-b09)
@@ -7,7 +7,7 @@ OpenJ9   - e68fb241f
 OMR      - f491bbf6f
 JCL      - eebde685ec based on jdk8u362-b09)
 
-GaianDB V2.1.8 - JAR sizes: [0, 0], timestamps: [2023/05/25-09:15:27, 2023/05/25-09:15:27]
+GaianDB V2.1.8 - JAR sizes: [0, 0], timestamps: [2023/07/18-13:03:33, 2023/07/18-13:03:33]
 
 Features Summary: Federated access to JDBC RDBMS tables and CSV Flat files using a logical table abstraction layer;
 A stored procedures management API, e.g. to set and view all logical tables and data sources in the network;
@@ -30,17 +30,17 @@ Detection and cancellation of hanging queries (not mistaken for long-running que
 Pass-through sub-queries using 'GaianQuery': define exposed data sources on each node which the query will be executed against;
 Performance metrics; Provenance columns: GAIAN_NODE, GAIAN_LEAF (queryable using option: 'with_provenance')
 
-PROCESS ID:		16144
+PROCESS ID:		18668
 
 NODE ID:		cspc201
 
-WORKING DIRECTORY:	C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig
-BYTECODE PATH:		C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\target\classes
-WORKSPACE:		C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig
+WORKING DIRECTORY:	C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig
+BYTECODE PATH:		C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\target\classes
+WORKSPACE:		C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig
 
-PHYSICAL DATABASE:	C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\gaiandb
-LOG FILE:		C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\gaiandb.log
-CONFIG FILE:		C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\gaiandb_config.properties
+PHYSICAL DATABASE:	C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig\gaiandb
+LOG FILE:		C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig\gaiandb.log
+CONFIG FILE:		C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig\gaiandb_config.properties
 
 DERBY SERVER PORT:	6414
 PROVENANCE HOST(S):	0.0.0.0
@@ -49,14 +49,14 @@ Network Interfaces:
 lo: Software Loopback Interface 1 /127.0.0.1, /0:0:0:0:0:0:0:1, Address: /127.0.0.1 -> Broadcast: /127.255.255.255, Address: /0:0:0:0:0:0:0:1 -> Broadcast: null
 net0: Microsoft 6to4 Adapter 
 eth0: WAN Miniport (Network Monitor) 
-wlan0: Intel(R) Wi-Fi 6 AX201 160MHz /10.9.244.241, /2001:630:d0:8f01:22fd:9261:5a56:2303, /2001:630:d0:8f01:d07c:41d2:d3c2:c722, /fe80:0:0:0:e9b0:ef47:bcef:3e83%wlan0, Address: /10.9.244.241 -> Broadcast: /10.9.247.255, Address: /2001:630:d0:8f01:22fd:9261:5a56:2303 -> Broadcast: null, Address: /2001:630:d0:8f01:d07c:41d2:d3c2:c722 -> Broadcast: null, Address: /fe80:0:0:0:e9b0:ef47:bcef:3e83%wlan0 -> Broadcast: null
+wlan0: Intel(R) Wi-Fi 6 AX201 160MHz /192.168.1.102, /2a01:4b00:8468:5a00:7e74:3e17:daa3:9fac, /fd00:0:0:0:2243:5b77:42be:4369, /2a01:4b00:8468:5a00:a828:6b5:342c:ad4d, /fd00:0:0:0:a828:6b5:342c:ad4d, /fe80:0:0:0:e9b0:ef47:bcef:3e83%wlan0, Address: /192.168.1.102 -> Broadcast: /192.168.1.255, Address: /2a01:4b00:8468:5a00:7e74:3e17:daa3:9fac -> Broadcast: null, Address: /fd00:0:0:0:2243:5b77:42be:4369 -> Broadcast: null, Address: /2a01:4b00:8468:5a00:a828:6b5:342c:ad4d -> Broadcast: null, Address: /fd00:0:0:0:a828:6b5:342c:ad4d -> Broadcast: null, Address: /fe80:0:0:0:e9b0:ef47:bcef:3e83%wlan0 -> Broadcast: null
 net1: Microsoft IP-HTTPS Platform Adapter 
 net2: WAN Miniport (IKEv2) 
 eth1: Microsoft Kernel Debug Network Adapter 
 eth2: Realtek USB GbE Family Controller 
 eth3: Bluetooth Device (Personal Area Network) /fe80:0:0:0:4fb4:85b3:cd15:9bc3%eth3, Address: /fe80:0:0:0:4fb4:85b3:cd15:9bc3%eth3 -> Broadcast: null
 net3: WAN Miniport (L2TP) 
-eth4: PANGP Virtual Ethernet Adapter 
+eth4: PANGP Virtual Ethernet Adapter /192.168.45.26, Address: /192.168.45.26 -> Broadcast: /192.168.45.26
 net4: Microsoft Teredo Tunneling Adapter 
 eth5: WAN Miniport (IP) 
 eth6: WAN Miniport (IPv6) 
@@ -91,837 +91,346 @@ eth13: WAN Miniport (IPv6)-QoS Packet Scheduler-0000
 eth14: WAN Miniport (Network Monitor)-WFP Native MAC Layer LightWeight Filter-0000 
 eth15: WAN Miniport (Network Monitor)-Npcap Packet Driver (NPCAP)-0000 
 eth16: WAN Miniport (Network Monitor)-QoS Packet Scheduler-0000 
+eth17: PANGP Virtual Ethernet Adapter-WFP Native MAC Layer LightWeight Filter-0000 
+eth18: PANGP Virtual Ethernet Adapter-Npcap Packet Driver (NPCAP)-0000 
+eth19: PANGP Virtual Ethernet Adapter-QoS Packet Scheduler-0000 
+eth20: PANGP Virtual Ethernet Adapter-WFP 802.3 MAC Layer LightWeight Filter-0000 
 
 Hostname: cspc201
-Java localhost ip: 10.9.244.241
-Local address designating initial default interface for multicast: 10.9.244.241
+Java localhost ip: 192.168.1.102
+Local address designating initial default interface for multicast: 192.168.1.102
 
 
-2023-05-30 15:10:57.933~714389900 GaianNode -------------> Initialising GaianNode...
-2023-05-30 15:10:57.933~714484600 GaianNode -------------> GAIANDB.jar library has not been changed (and db folder is more recent), so initialisation data (e.g. stored procs/funcs) is expected to be already loaded
-2023-05-30 15:10:57.933~714550200 GaianNode -------------> Node details: cspc201 gaiandb <password>
-2023-05-30 15:10:57.933~714664000 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
-2023-05-30 15:10:57.933~714722900 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = <Default=230.255.255.255>
-2023-05-30 15:10:57.933~714784800 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
-2023-05-30 15:10:57.933~714904400 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
-2023-05-30 15:10:57.933~714998200 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
-2023-05-30 15:10:57.933~715125100 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
-2023-05-30 15:10:57.933~715214600 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
-2023-05-30 15:10:57.933~715344000 GaianNode -------------> Log level set to: MORE
-2023-05-30 15:10:57.937~719198000 GaianDBConfig ------------------------> Reloading config after auto-update...
-2023-05-30 15:10:57.951~732729400 DataSourcesManager ---------> Checking Logical Tables: [LTSOLID, GDB_LTNULL, LT0, GDB_LTLOG, DERBY_TABLES]
-2023-05-30 15:10:57.951~733337500 DataSourcesManager ---------> Signatures differ for LT: LTSOLID, *** OLD: null; *** NEW: {LTSOLID_DS0_ARGS=<GAIAN_WORKSPACE>/csvtestfiles/solid.csv, LTSOLID_DS0_VTI=com.ibm.db2j.FileImport, NODE_CONSTANTS=null, LTSOLID_CONSTANTS=, LTSOLID_DEF=TERM VARCHAR(255), ADDRESS VARCHAR(255), RELEVANCE VARCHAR(3), LTSOLID_DS0_OPTIONS=MAP_COLUMNS_BY_POSITION}
-2023-05-30 15:10:57.951~733466000 DataSourcesManager ---------> ******* Re-loading Logical Table: LTSOLID
-2023-05-30 15:10:57.951~733655300 DataSourcesManager ---------> Logical Table definition changed for: LTSOLID, ltNewDef = TERM VARCHAR(255), ADDRESS VARCHAR(255), RELEVANCE VARCHAR(3); Constant Cols: null
-2023-05-30 15:10:57.959~740887200 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [TERM VARCHAR(255), ADDRESS VARCHAR(255), RELEVANCE VARCHAR(3)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-05-30 15:10:57.961~742440900 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-05-30 15:10:57.961~742596900 GaianResultSetMetaData ----------> ltColCount = 10, specialColCount (constant + hidden cols) = 7
-2023-05-30 15:10:57.971~752406500 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, cspc201, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-05-30 15:10:57.972~752919200 DataSourcesManager ---------> LTSOLID logical table ResultSetMetaData: [TERM, ADDRESS, RELEVANCE, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
-2023-05-30 15:10:57.972~753248700 DataSourcesManager ---------> LTSOLID loading global gaian connections: [], length 0
-2023-05-30 15:10:57.972~753312500 DataSourcesManager ---------> LTSOLID physical nodes to be loaded: [LTSOLID_DS0]
-2023-05-30 15:10:57.976~757739200 DataSourcesManager ---------> LTSOLID_DS0 is a VTIWrapper File Node, file name def = C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/solid.csv
-2023-05-30 15:10:57.976~758359300 VTIFile --------------------> LTSOLID_DS0 Building new VTIWrapper File based on: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/solid.csv
-2023-05-30 15:10:57.978~759067800 VTIWrapper ----------------------> LTSOLID_DS0 Set physical column names to: [TERM, ADDRESS, RELEVANCE]
-2023-05-30 15:10:57.984~766192200 FileImport -----------------> Searching under config folder C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\FileImportControls\, all sub-locations of relativeDir: Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\csvtestfiles\
-2023-05-30 15:10:57.987~768039900 FileImport -----------------> Resolved controlfilePath: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\FileImportControls\FileImportDefaults.properties
-2023-05-30 15:10:58.003~784503900 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 3, special cols: 0
-2023-05-30 15:10:58.003~784792500 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-05-30 15:10:58.003~784885900 GaianResultSetMetaData ----------> ltColCount = 3, specialColCount (constant + hidden cols) = 0
-2023-05-30 15:10:58.003~784981800 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL]
-2023-05-30 15:10:58.004~785527400 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3]
-2023-05-30 15:10:58.004~785684000 VTIFile --------------------> LTSOLID_DS0 Created initial File handle for Stack Pool
-2023-05-30 15:10:58.004~785913500 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 3, special cols: 0
-2023-05-30 15:10:58.004~786054700 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-05-30 15:10:58.004~786133800 GaianResultSetMetaData ----------> ltColCount = 3, specialColCount (constant + hidden cols) = 0
-2023-05-30 15:10:58.004~786230500 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL]
-2023-05-30 15:10:58.005~786652500 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3]
-2023-05-30 15:10:58.005~786815300 VTIWrapper ----------------------> INIT: LTSOLID_DS0 Mapping logical to physical col ids. Resolving 3 logical col names for 3 cols of the physical source. isMapByPosition ? true
-2023-05-30 15:10:58.007~788018600 DataSourcesManager ---------> Signatures differ for LT: GDB_LTNULL, *** OLD: null; *** NEW: {NODE_CONSTANTS=null, GDB_LTNULL_DEF=CNULL CHAR(1)}
-2023-05-30 15:10:58.007~788257800 DataSourcesManager ---------> ******* Re-loading Logical Table: GDB_LTNULL
-2023-05-30 15:10:58.007~788413600 DataSourcesManager ---------> Logical Table definition changed for: GDB_LTNULL, ltNewDef = CNULL CHAR(1); Constant Cols: 
-2023-05-30 15:10:58.007~788988500 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [CNULL CHAR(1)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-05-30 15:10:58.008~789839700 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-05-30 15:10:58.008~789982100 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 7
-2023-05-30 15:10:58.009~790327100 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, cspc201, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-05-30 15:10:58.009~790856100 DataSourcesManager ---------> GDB_LTNULL logical table ResultSetMetaData: [CNULL, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
-2023-05-30 15:10:58.009~791183100 DataSourcesManager ---------> GDB_LTNULL loading global gaian connections: [], length 0
-2023-05-30 15:10:58.009~791263800 DataSourcesManager ---------> GDB_LTNULL physical nodes to be loaded: None
-2023-05-30 15:10:58.010~791618000 DataSourcesManager ---------> Signatures differ for LT: LT0, *** OLD: null; *** NEW: {LT0_DS0_OPTIONS=INMEMORY, NODE_CONSTANTS=null, LT0_DS0_C2=COLUMN3, LT0_DS0_C3=COLUMN1, LT0_DS0_VTI=com.ibm.db2j.FileImport, LT0_DS0_ARGS=<GAIAN_WORKSPACE>/csvtestfiles/datafile.dat, LT0_DS0_C1=COLUMN2, LT0_DEF=LOCATION VARCHAR(30), MISC VARCHAR(30), NUMBER INTEGER}
-2023-05-30 15:10:58.010~791717000 DataSourcesManager ---------> ******* Re-loading Logical Table: LT0
-2023-05-30 15:10:58.018~800059200 DataSourcesManager ---------> Logical Table definition changed for: LT0, ltNewDef = LOCATION VARCHAR(30), MISC VARCHAR(30), NUMBER INTEGER; Constant Cols: 
-2023-05-30 15:10:58.019~800707900 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [LOCATION VARCHAR(30), MISC VARCHAR(30), NUMBER INTEGER], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-05-30 15:10:58.020~801641900 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-05-30 15:10:58.020~801758400 GaianResultSetMetaData ----------> ltColCount = 10, specialColCount (constant + hidden cols) = 7
-2023-05-30 15:10:58.020~802058500 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, cspc201, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-05-30 15:10:58.021~802443600 DataSourcesManager ---------> LT0 logical table ResultSetMetaData: [LOCATION, MISC, NUMBER, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
-2023-05-30 15:10:58.021~803464500 DataSourcesManager ---------> LT0 loading global gaian connections: [], length 0
-2023-05-30 15:10:58.021~803588000 DataSourcesManager ---------> LT0 physical nodes to be loaded: [LT0_DS0]
-2023-05-30 15:10:58.021~803695800 DataSourcesManager ---------> LT0_DS0 is a VTIWrapper File Node, file name def = C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/datafile.dat
-2023-05-30 15:10:58.021~803795100 VTIFile --------------------> LT0_DS0 Building new VTIWrapper File based on: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/datafile.dat
-2023-05-30 15:10:58.024~805449800 VTIWrapper ----------------------> LT0_DS0 Set physical column names to: [COLUMN2, COLUMN3, COLUMN1]
-2023-05-30 15:10:58.024~805872600 VTIWrapper ----------------------> LT0_DS0 Loading rows in memory asynchronously (using physical source for queries meanwhile)
-2023-05-30 15:10:58.025~806533600 FileImport -----------------> Resolved controlfilePath: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/datafile.dat.properties
-2023-05-30 15:10:58.026~807451100 VTIWrapper ----------------------> LT0_DS0 InMemLoader: Synchronizing on Re-init lock
-2023-05-30 15:10:58.028~810087200 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 8, special cols: 0
-2023-05-30 15:10:58.029~810317900 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-05-30 15:10:58.029~810421100 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 0
-2023-05-30 15:10:58.029~810541400 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-05-30 15:10:58.029~810999600 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6, COLUMN7, COLUMN8]
-2023-05-30 15:10:58.029~811113900 VTIFile --------------------> LT0_DS0 Created initial File handle for Stack Pool
-2023-05-30 15:10:58.030~811323100 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 8, special cols: 0
-2023-05-30 15:10:58.030~811518800 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-05-30 15:10:58.030~811602600 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 0
-2023-05-30 15:10:58.030~811716300 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-05-30 15:10:58.030~812201100 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6, COLUMN7, COLUMN8]
-2023-05-30 15:10:58.031~812344700 VTIWrapper ----------------------> INIT: LT0_DS0 Mapping logical to physical col ids. Resolving 3 logical col names for 8 cols of the physical source. isMapByPosition ? false
-2023-05-30 15:10:58.031~812473700 VTIWrapper ----------------------> INIT: LT0_DS0 Found that mapped column LOCATION->COLUMN2 is physical colindex 2
-2023-05-30 15:10:58.031~812563600 VTIWrapper ----------------------> INIT: LT0_DS0 Found that mapped column MISC->COLUMN3 is physical colindex 3
-2023-05-30 15:10:58.031~812647700 VTIWrapper ----------------------> INIT: LT0_DS0 Found that mapped column NUMBER->COLUMN1 is physical colindex 1
-2023-05-30 15:10:58.031~812748700 VTIWrapper ----------------------> LT0_DS0 InMemLoader: Starting to load in-memory rows
-2023-05-30 15:10:58.031~812869300 VTIFile --------------------> LT0_DS0 InMemLoader: LT0_DS0 Getting all rows from file: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/datafile.dat
-2023-05-30 15:10:58.031~813136400 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 8, special cols: 0
-2023-05-30 15:10:58.031~813392100 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-05-30 15:10:58.031~813480000 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 0
-2023-05-30 15:10:58.031~813598200 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-05-30 15:10:58.031~813202700 DataSourcesManager ---------> Signatures differ for LT: GDB_LTLOG, *** OLD: null; *** NEW: {GDB_LTLOG_DS0_ARGS=C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/gaiandb.log, NODE_CONSTANTS=null, GDB_LTLOG_DEF=COLUMN1 VARCHAR(255), GDB_LTLOG_DS0_VTI=com.ibm.db2j.FileImport}
-2023-05-30 15:10:58.033~813836400 DataSourcesManager ---------> ******* Re-loading Logical Table: GDB_LTLOG
-2023-05-30 15:10:58.033~814023100 DataSourcesManager ---------> Logical Table definition changed for: GDB_LTLOG, ltNewDef = COLUMN1 VARCHAR(255); Constant Cols: 
-2023-05-30 15:10:58.033~814155300 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6, COLUMN7, COLUMN8]
-2023-05-30 15:10:58.033~814260700 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Got rows and meta-data from data source. Refreshing physical mappings against logical defs
-2023-05-30 15:10:58.033~814403800 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Mapping logical to physical col ids. Resolving 3 logical col names for 8 cols of the physical source. isMapByPosition ? false
-2023-05-30 15:10:58.033~814494300 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Found that mapped column LOCATION->COLUMN2 is physical colindex 2
-2023-05-30 15:10:58.033~814547800 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [COLUMN1 VARCHAR(255)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-05-30 15:10:58.033~814590300 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Found that mapped column MISC->COLUMN3 is physical colindex 3
-2023-05-30 15:10:58.033~814685100 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Found that mapped column NUMBER->COLUMN1 is physical colindex 1
-2023-05-30 15:10:58.034~814822900 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Clearing and re-loading in-memory rows
-2023-05-30 15:10:58.034~814980600 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Clearing indexes, count 0
-2023-05-30 15:10:58.034~815424900 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-05-30 15:10:58.046~827982400 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 7
-2023-05-30 15:10:58.046~828035500 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 8, special cols: 0
-2023-05-30 15:10:58.047~828424400 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-05-30 15:10:58.047~828659100 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 0
-2023-05-30 15:10:58.047~828547400 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, cspc201, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-05-30 15:10:58.047~828818400 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-05-30 15:10:58.047~829230500 DataSourcesManager ---------> GDB_LTLOG logical table ResultSetMetaData: [COLUMN1, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
-2023-05-30 15:10:58.047~829257400 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6, COLUMN7, COLUMN8]
-2023-05-30 15:10:58.048~829559300 DataSourcesManager ---------> GDB_LTLOG loading global gaian connections: [], length 0
-2023-05-30 15:10:58.048~829689100 DataSourcesManager ---------> GDB_LTLOG physical nodes to be loaded: [GDB_LTLOG_DS0]
-2023-05-30 15:10:58.048~829969500 DataSourcesManager ---------> GDB_LTLOG_DS0 is a VTIWrapper File Node, file name def = C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/gaiandb.log
-2023-05-30 15:10:58.048~830054400 VTIFile --------------------> GDB_LTLOG_DS0 Building new VTIWrapper File based on: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/gaiandb.log
-2023-05-30 15:10:58.048~830331000 VTIWrapper ----------------------> GDB_LTLOG_DS0 Set physical column names to: [COLUMN1]
-2023-05-30 15:10:58.049~830695100 FileImport -----------------> Searching under config folder C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\FileImportControls\, all sub-locations of relativeDir: Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\
-2023-05-30 15:10:58.050~831563200 FileImport -----------------> Resolved controlfilePath: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\FileImportControls\FileImportDefaults.properties
-2023-05-30 15:10:58.050~832115100 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 recycleResult(): Stored FileImport object for C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/datafile.dat in Pool for re-use. Pool current size/max = 1/10
-2023-05-30 15:10:58.050~832235900 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Loaded all 8 rows in memory for Resource: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/datafile.dat
-2023-05-30 15:10:58.050~832355100 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Rows loaded in memory. Reloading indexes, count 0
-2023-05-30 15:10:58.051~832507000 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 INMEMORY setting: ON
-2023-05-30 15:10:58.051~832612700 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 wasRowsInMemory: true, isRowsInMemory: true, existing in-mem coltypes: false
-2023-05-30 15:10:58.066~847287200 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 1, special cols: 0
-2023-05-30 15:10:58.066~847565400 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-05-30 15:10:58.066~847691700 GaianResultSetMetaData ----------> ltColCount = 1, specialColCount (constant + hidden cols) = 0
-2023-05-30 15:10:58.066~847815300 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL]
-2023-05-30 15:10:58.067~848280200 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1]
-2023-05-30 15:10:58.067~848399300 VTIFile --------------------> GDB_LTLOG_DS0 Created initial File handle for Stack Pool
-2023-05-30 15:10:58.067~848649900 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 1, special cols: 0
-2023-05-30 15:10:58.067~848806600 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-05-30 15:10:58.067~848904100 GaianResultSetMetaData ----------> ltColCount = 1, specialColCount (constant + hidden cols) = 0
-2023-05-30 15:10:58.067~848993900 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL]
-2023-05-30 15:10:58.068~849443400 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1]
-2023-05-30 15:10:58.068~849573300 VTIWrapper ----------------------> INIT: GDB_LTLOG_DS0 Mapping logical to physical col ids. Resolving 1 logical col names for 1 cols of the physical source. isMapByPosition ? false
-2023-05-30 15:10:58.068~849676900 VTIWrapper ----------------------> INIT: GDB_LTLOG_DS0 Found that mapped column COLUMN1->COLUMN1 is physical colindex 1
-2023-05-30 15:10:58.068~849969000 DataSourcesManager ---------> Signatures differ for LT: DERBY_TABLES, *** OLD: null; *** NEW: {DERBY_TABLES_DS0_C2=TABLETYPE, DERBY_TABLES_DEF=TABNAME VARCHAR(30), TABTYPE CHAR, COLNAME VARCHAR(30), COLTYPE VARCHAR(80), DERBY_TABLES_DS0_C3=COLUMNNAME, DERBY_TABLES_DS0_CONNECTION=localderby sys.systables,sys.syscolumns where tableid=referenceid, DERBY_TABLES_DS0_C4=COLUMNDATATYPE, localderby_USR=null, NODE_CONSTANTS=null, localderby_PWD=null, localderby_DRIVER=null, localderby_URL=null, DERBY_TABLES_DS0_C1=TABLENAME}
-2023-05-30 15:10:58.068~850054600 DataSourcesManager ---------> ******* Re-loading Logical Table: DERBY_TABLES
-2023-05-30 15:10:58.068~850158500 DataSourcesManager ---------> Logical Table definition changed for: DERBY_TABLES, ltNewDef = TABNAME VARCHAR(30), TABTYPE CHAR, COLNAME VARCHAR(30), COLTYPE VARCHAR(80); Constant Cols: 
-2023-05-30 15:10:58.069~851123300 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [TABNAME VARCHAR(30), TABTYPE CHAR, COLNAME VARCHAR(30), COLTYPE VARCHAR(80)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-05-30 15:10:58.071~852050000 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-05-30 15:10:58.071~852149400 GaianResultSetMetaData ----------> ltColCount = 11, specialColCount (constant + hidden cols) = 7
-2023-05-30 15:10:58.071~852451800 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, cspc201, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-05-30 15:10:58.072~852855300 DataSourcesManager ---------> DERBY_TABLES logical table ResultSetMetaData: [TABNAME, TABTYPE, COLNAME, COLTYPE, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
-2023-05-30 15:10:58.072~853033300 DataSourcesManager ---------> DERBY_TABLES loading global gaian connections: [], length 0
-2023-05-30 15:10:58.072~853112200 DataSourcesManager ---------> DERBY_TABLES physical nodes to be loaded: [DERBY_TABLES_DS0]
-2023-05-30 15:10:58.072~853252100 DataSourcesManager ---------> DERBY_TABLES_DS0 is a VTIWrapper RDB Node, isGaian = false
-2023-05-30 15:10:58.073~854697200 VTIRDBResult ---------------> DERBY_TABLES_DS0 Building new VTIRDBResult based on: org.apache.derby.jdbc.EmbeddedDriver'jdbc:derby:gaiandb;create=true'gaiandb, RDBMS provider is Derby
-2023-05-30 15:10:58.074~855763000 VTIWrapper ----------------------> DERBY_TABLES_DS0 Set physical column names to: [TABLENAME, TABLETYPE, COLUMNNAME, COLUMNDATATYPE]
-2023-05-30 15:10:58.075~855970200 VTIRDBResult ---------------> DERBY_TABLES_DS0 table def = sys.systables,sys.syscolumns where (tableid=referenceid)
-2023-05-30 15:10:58.075~856616500 VTIRDBResult ---------------> INIT: DERBY_TABLES_DS0 inMemoryRows is null: true, isNodeInMemoryOptionSet: false
-2023-05-30 15:10:58.076~856962300 DataSourcesManager ---------> Number of updated/reloaded Logical Tables (incl dependencies): 5/5, skipped: 0
-2023-05-30 15:10:58.076~857363400 DataSourcesManager ---------> INIT: refreshLogicalTables.. cleanup requested for oldDataSources: []
-2023-05-30 15:10:58.076~857566200 DataSourcesManager ---------> INIT: Clearing data sources pool for ID that is no longer referenced: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/gaiandb.log
-2023-05-30 15:10:58.076~857785700 GaianDBConfig ------------------------> Loaded JDBC driver: org.apache.derby.jdbc.EmbeddedDriver
-2023-05-30 15:10:58.077~858753300 DatabaseConnector ---------------> INIT: Getting DB Connection for: jdbc:derby:gaiandb;create=true (1 concurrent, synchronous timeout 0ms)
-2023-05-30 15:10:58.078~859029900 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6414
+2023-07-18 13:55:21.997~763546300 GaianNode -------------> Initialising GaianNode...
+2023-07-18 13:55:21.997~763690900 GaianNode -------------> GAIANDB.jar library has not been changed (and db folder is more recent), so initialisation data (e.g. stored procs/funcs) is expected to be already loaded
+2023-07-18 13:55:21.998~763943700 GaianNode -------------> Node details: cspc201 gaiandb <password>
+2023-07-18 13:55:21.998~764221200 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
+2023-07-18 13:55:21.998~764321800 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = <Default=230.255.255.255>
+2023-07-18 13:55:21.998~764406300 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
+2023-07-18 13:55:21.998~764493400 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
+2023-07-18 13:55:21.998~764572300 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
+2023-07-18 13:55:21.998~764656500 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
+2023-07-18 13:55:21.998~764738700 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
+2023-07-18 13:55:21.999~764853700 GaianNode -------------> Log level set to: MORE
+2023-07-18 13:55:22.003~768685400 GaianDBConfig ------------------------> Reloading config after auto-update...
+2023-07-18 13:55:22.017~783609700 DataSourcesManager ---------> Checking Logical Tables: [LTSOLID, GDB_LTNULL, LT0, GDB_LTLOG, DERBY_TABLES]
+2023-07-18 13:55:22.018~784401100 DataSourcesManager ---------> Signatures differ for LT: LTSOLID, *** OLD: null; *** NEW: {LTSOLID_DS0_ARGS=<GAIAN_WORKSPACE>/csvtestfiles/solid.csv, LTSOLID_DS0_VTI=com.ibm.db2j.FileImport, NODE_CONSTANTS=null, LTSOLID_CONSTANTS=, LTSOLID_DEF=Search Parameters VARCHAR(255), Document URL VARCHAR(255), RELEVANCE VARCHAR(3), LTSOLID_DS0_OPTIONS=MAP_COLUMNS_BY_POSITION}
+2023-07-18 13:55:22.019~784699900 DataSourcesManager ---------> ******* Re-loading Logical Table: LTSOLID
+2023-07-18 13:55:22.019~784932900 DataSourcesManager ---------> Logical Table definition changed for: LTSOLID, ltNewDef = SEARCH PARAMETERS VARCHAR(255), DOCUMENT URL VARCHAR(255), RELEVANCE VARCHAR(3); Constant Cols: null
+2023-07-18 13:55:22.023~789116100 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [SEARCH PARAMETERS VARCHAR(255), DOCUMENT URL VARCHAR(255), RELEVANCE VARCHAR(3)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2023-07-18 13:55:22.025~791610300 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
+2023-07-18 13:55:22.025~791854100 Util -------------> WARNING:
 
-2023-05-30 15:10:58.520~301796200 DatabaseConnector ---------------> ******* Connector 1 from INIT: Obtained JDBC Connection org.apache.derby.impl.jdbc.EmbedConnection40@-829063752 (XID = 37721), (SESSIONID = 2), (DATABASE = gaiandb), (DRDAID = null)  in 441 ms for: jdbc:derby:gaiandb;create=true, Pool size: 1
-Tue May 30 15:10:58 BST 2023 : Apache Derby Network Server - 10.10.1.1 - (1458268) started and ready to accept connections on port 6414
-2023-05-30 15:10:59.146~927859100 GaianNode -------------> 
+2023-07-18 13:55:22.025 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH (10th repetition): GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 37/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
+
+2023-07-18 13:55:22.025 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-07-18 13:55:22.026~791961800 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
+2023-07-18 13:55:22.026~792144800 Util -------------> WARNING:
+
+2023-07-18 13:55:22.026 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 37/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
+
+2023-07-18 13:55:22.026 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-07-18 13:55:22.026~792243200 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
+2023-07-18 13:55:22.026~792406800 Util -------------> WARNING:
+
+2023-07-18 13:55:22.026 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 37/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
+
+2023-07-18 13:55:22.026 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-07-18 13:55:22.026~792507400 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
+2023-07-18 13:55:22.026~792681500 Util -------------> WARNING:
+
+2023-07-18 13:55:22.026 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 37/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
+
+2023-07-18 13:55:22.026 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-07-18 13:55:22.026~792791100 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
+2023-07-18 13:55:22.026~792934200 Util -------------> WARNING:
+
+2023-07-18 13:55:22.026 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 37/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
+
+2023-07-18 13:55:22.026 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-07-18 13:55:22.027~793015400 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
+2023-07-18 13:55:22.027~793154600 Util -------------> WARNING:
+
+2023-07-18 13:55:22.027 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 37/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
+
+2023-07-18 13:55:22.027 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+
+
+2023-07-18 13:55:22.027~793238300 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
+2023-07-18 13:55:22.027~793369300 DataSourcesManager ---------> WARNING:
+
+2023-07-18 13:55:22.027 ********** GDB_WARNING: ENGINE_LT_META_DATA_LOAD_ERROR: LTSOLID Could not load table meta data so cannot reload table, cause: java.lang.Exception: Invalid type definition syntax for column 'SEARCH': PARAMETERS
+
+2023-07-18 13:55:22.027 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#ENGINE_LT_META_DATA_LOAD_ERROR
+
+
+2023-07-18 13:55:22.027~793834800 DataSourcesManager ---------> Signatures differ for LT: GDB_LTNULL, *** OLD: null; *** NEW: {NODE_CONSTANTS=null, GDB_LTNULL_DEF=CNULL CHAR(1)}
+2023-07-18 13:55:22.027~793921700 DataSourcesManager ---------> ******* Re-loading Logical Table: GDB_LTNULL
+2023-07-18 13:55:22.028~794092800 DataSourcesManager ---------> Logical Table definition changed for: GDB_LTNULL, ltNewDef = CNULL CHAR(1); Constant Cols: 
+2023-07-18 13:55:22.028~794593700 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [CNULL CHAR(1)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2023-07-18 13:55:22.029~795406200 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2023-07-18 13:55:22.029~795664400 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 7
+2023-07-18 13:55:22.036~801822200 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, cspc201, NULL, NULL, NULL, NULL, NULL, NULL]
+2023-07-18 13:55:22.037~802591700 DataSourcesManager ---------> GDB_LTNULL logical table ResultSetMetaData: [CNULL, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
+2023-07-18 13:55:22.037~803027900 DataSourcesManager ---------> GDB_LTNULL loading global gaian connections: [], length 0
+2023-07-18 13:55:22.037~803136000 DataSourcesManager ---------> GDB_LTNULL physical nodes to be loaded: None
+2023-07-18 13:55:22.038~803501300 DataSourcesManager ---------> Signatures differ for LT: LT0, *** OLD: null; *** NEW: {LT0_DS0_OPTIONS=INMEMORY, NODE_CONSTANTS=null, LT0_DS0_C2=COLUMN3, LT0_DS0_C3=COLUMN1, LT0_DS0_VTI=com.ibm.db2j.FileImport, LT0_DS0_ARGS=<GAIAN_WORKSPACE>/csvtestfiles/datafile.dat, LT0_DS0_C1=COLUMN2, LT0_DEF=LOCATION VARCHAR(30), MISC VARCHAR(30), NUMBER INTEGER}
+2023-07-18 13:55:22.038~803597200 DataSourcesManager ---------> ******* Re-loading Logical Table: LT0
+2023-07-18 13:55:22.038~803727600 DataSourcesManager ---------> Logical Table definition changed for: LT0, ltNewDef = LOCATION VARCHAR(30), MISC VARCHAR(30), NUMBER INTEGER; Constant Cols: 
+2023-07-18 13:55:22.038~804399200 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [LOCATION VARCHAR(30), MISC VARCHAR(30), NUMBER INTEGER], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2023-07-18 13:55:22.039~805329400 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2023-07-18 13:55:22.040~805453400 GaianResultSetMetaData ----------> ltColCount = 10, specialColCount (constant + hidden cols) = 7
+2023-07-18 13:55:22.040~805812500 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, cspc201, NULL, NULL, NULL, NULL, NULL, NULL]
+2023-07-18 13:55:22.040~806435000 DataSourcesManager ---------> LT0 logical table ResultSetMetaData: [LOCATION, MISC, NUMBER, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
+2023-07-18 13:55:22.041~806789000 DataSourcesManager ---------> LT0 loading global gaian connections: [], length 0
+2023-07-18 13:55:22.041~806899300 DataSourcesManager ---------> LT0 physical nodes to be loaded: [LT0_DS0]
+2023-07-18 13:55:22.048~813730800 DataSourcesManager ---------> LT0_DS0 is a VTIWrapper File Node, file name def = C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/datafile.dat
+2023-07-18 13:55:22.048~814428600 VTIFile --------------------> LT0_DS0 Building new VTIWrapper File based on: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/datafile.dat
+2023-07-18 13:55:22.049~814915500 VTIWrapper ----------------------> LT0_DS0 Set physical column names to: [COLUMN2, COLUMN3, COLUMN1]
+2023-07-18 13:55:22.049~815171600 VTIWrapper ----------------------> LT0_DS0 Loading rows in memory asynchronously (using physical source for queries meanwhile)
+2023-07-18 13:55:22.050~815699200 VTIWrapper ----------------------> LT0_DS0 InMemLoader: Synchronizing on Re-init lock
+2023-07-18 13:55:22.056~821722300 FileImport -----------------> Resolved controlfilePath: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/datafile.dat.properties
+2023-07-18 13:55:22.078~844451500 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 8, special cols: 0
+2023-07-18 13:55:22.078~844800900 GaianResultSetMetaData ----------> Building row template from special columns: []
+2023-07-18 13:55:22.078~844912200 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 0
+2023-07-18 13:55:22.079~845056100 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL]
+2023-07-18 13:55:22.079~845712900 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6, COLUMN7, COLUMN8]
+2023-07-18 13:55:22.079~845882300 VTIFile --------------------> LT0_DS0 Created initial File handle for Stack Pool
+2023-07-18 13:55:22.080~846219300 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 8, special cols: 0
+2023-07-18 13:55:22.080~846561600 GaianResultSetMetaData ----------> Building row template from special columns: []
+2023-07-18 13:55:22.080~846691400 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 0
+2023-07-18 13:55:22.080~846852400 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL]
+2023-07-18 13:55:22.081~847395600 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6, COLUMN7, COLUMN8]
+2023-07-18 13:55:22.081~847626600 VTIWrapper ----------------------> INIT: LT0_DS0 Mapping logical to physical col ids. Resolving 3 logical col names for 8 cols of the physical source. isMapByPosition ? false
+2023-07-18 13:55:22.081~847752300 VTIWrapper ----------------------> INIT: LT0_DS0 Found that mapped column LOCATION->COLUMN2 is physical colindex 2
+2023-07-18 13:55:22.081~847862300 VTIWrapper ----------------------> INIT: LT0_DS0 Found that mapped column MISC->COLUMN3 is physical colindex 3
+2023-07-18 13:55:22.081~847958100 VTIWrapper ----------------------> INIT: LT0_DS0 Found that mapped column NUMBER->COLUMN1 is physical colindex 1
+2023-07-18 13:55:22.083~849201300 DataSourcesManager ---------> Signatures differ for LT: GDB_LTLOG, *** OLD: null; *** NEW: {GDB_LTLOG_DS0_ARGS=C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig/gaiandb.log, NODE_CONSTANTS=null, GDB_LTLOG_DEF=COLUMN1 VARCHAR(255), GDB_LTLOG_DS0_VTI=com.ibm.db2j.FileImport}
+2023-07-18 13:55:22.083~849334400 DataSourcesManager ---------> ******* Re-loading Logical Table: GDB_LTLOG
+2023-07-18 13:55:22.083~849480100 DataSourcesManager ---------> Logical Table definition changed for: GDB_LTLOG, ltNewDef = COLUMN1 VARCHAR(255); Constant Cols: 
+2023-07-18 13:55:22.084~849997200 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [COLUMN1 VARCHAR(255)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2023-07-18 13:55:22.085~850562300 VTIWrapper ----------------------> LT0_DS0 InMemLoader: Starting to load in-memory rows
+2023-07-18 13:55:22.085~850738600 VTIFile --------------------> LT0_DS0 InMemLoader: LT0_DS0 Getting all rows from file: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/datafile.dat
+2023-07-18 13:55:22.085~850980900 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 8, special cols: 0
+2023-07-18 13:55:22.085~851211700 GaianResultSetMetaData ----------> Building row template from special columns: []
+2023-07-18 13:55:22.085~851314400 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 0
+2023-07-18 13:55:22.086~851470200 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL]
+2023-07-18 13:55:22.086~851969100 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6, COLUMN7, COLUMN8]
+2023-07-18 13:55:22.086~852082000 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Got rows and meta-data from data source. Refreshing physical mappings against logical defs
+2023-07-18 13:55:22.086~852223300 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Mapping logical to physical col ids. Resolving 3 logical col names for 8 cols of the physical source. isMapByPosition ? false
+2023-07-18 13:55:22.086~852327600 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Found that mapped column LOCATION->COLUMN2 is physical colindex 2
+2023-07-18 13:55:22.086~852434900 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Found that mapped column MISC->COLUMN3 is physical colindex 3
+2023-07-18 13:55:22.087~852524700 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Found that mapped column NUMBER->COLUMN1 is physical colindex 1
+2023-07-18 13:55:22.087~852672200 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Clearing and re-loading in-memory rows
+2023-07-18 13:55:22.087~852786300 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Clearing indexes, count 0
+2023-07-18 13:55:22.086~851504900 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2023-07-18 13:55:22.087~853015000 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 7
+2023-07-18 13:55:22.087~853336900 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, cspc201, NULL, NULL, NULL, NULL, NULL, NULL]
+2023-07-18 13:55:22.101~868499600 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 8, special cols: 0
+2023-07-18 13:55:22.103~868642800 DataSourcesManager ---------> GDB_LTLOG logical table ResultSetMetaData: [COLUMN1, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
+2023-07-18 13:55:22.103~868931900 GaianResultSetMetaData ----------> Building row template from special columns: []
+2023-07-18 13:55:22.103~869001400 DataSourcesManager ---------> GDB_LTLOG loading global gaian connections: [], length 0
+2023-07-18 13:55:22.103~869065800 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 0
+2023-07-18 13:55:22.103~869153300 DataSourcesManager ---------> GDB_LTLOG physical nodes to be loaded: [GDB_LTLOG_DS0]
+2023-07-18 13:55:22.103~869263700 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL]
+2023-07-18 13:55:22.103~869334300 DataSourcesManager ---------> GDB_LTLOG_DS0 is a VTIWrapper File Node, file name def = C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig/gaiandb.log
+2023-07-18 13:55:22.103~869478900 VTIFile --------------------> GDB_LTLOG_DS0 Building new VTIWrapper File based on: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig/gaiandb.log
+2023-07-18 13:55:22.105~870881900 VTIWrapper ----------------------> GDB_LTLOG_DS0 Set physical column names to: [COLUMN1]
+2023-07-18 13:55:22.105~871260300 FileImport -----------------> Searching under config folder C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig\FileImportControls\, all sub-locations of relativeDir: Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig\
+2023-07-18 13:55:22.104~870004900 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6, COLUMN7, COLUMN8]
+2023-07-18 13:55:22.106~872099300 FileImport -----------------> Resolved controlfilePath: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig\FileImportControls\FileImportDefaults.properties
+2023-07-18 13:55:22.113~878966600 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 recycleResult(): Stored FileImport object for C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/datafile.dat in Pool for re-use. Pool current size/max = 1/10
+2023-07-18 13:55:22.113~879106400 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Loaded all 8 rows in memory for Resource: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/datafile.dat
+2023-07-18 13:55:22.113~879190100 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Rows loaded in memory. Reloading indexes, count 0
+2023-07-18 13:55:22.113~879356100 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 INMEMORY setting: ON
+2023-07-18 13:55:22.113~879461300 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 wasRowsInMemory: true, isRowsInMemory: true, existing in-mem coltypes: false
+2023-07-18 13:55:22.127~893497200 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 1, special cols: 0
+2023-07-18 13:55:22.128~893796300 GaianResultSetMetaData ----------> Building row template from special columns: []
+2023-07-18 13:55:22.128~893924200 GaianResultSetMetaData ----------> ltColCount = 1, specialColCount (constant + hidden cols) = 0
+2023-07-18 13:55:22.128~894034100 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL]
+2023-07-18 13:55:22.129~894526300 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1]
+2023-07-18 13:55:22.129~894695100 VTIFile --------------------> GDB_LTLOG_DS0 Created initial File handle for Stack Pool
+2023-07-18 13:55:22.129~895057800 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 1, special cols: 0
+2023-07-18 13:55:22.129~895197500 GaianResultSetMetaData ----------> Building row template from special columns: []
+2023-07-18 13:55:22.129~895286200 GaianResultSetMetaData ----------> ltColCount = 1, specialColCount (constant + hidden cols) = 0
+2023-07-18 13:55:22.129~895389600 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL]
+2023-07-18 13:55:22.130~895983500 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1]
+2023-07-18 13:55:22.130~896156200 VTIWrapper ----------------------> INIT: GDB_LTLOG_DS0 Mapping logical to physical col ids. Resolving 1 logical col names for 1 cols of the physical source. isMapByPosition ? false
+2023-07-18 13:55:22.130~896269700 VTIWrapper ----------------------> INIT: GDB_LTLOG_DS0 Found that mapped column COLUMN1->COLUMN1 is physical colindex 1
+2023-07-18 13:55:22.131~896797400 DataSourcesManager ---------> Signatures differ for LT: DERBY_TABLES, *** OLD: null; *** NEW: {DERBY_TABLES_DS0_C2=TABLETYPE, DERBY_TABLES_DEF=TABNAME VARCHAR(30), TABTYPE CHAR, COLNAME VARCHAR(30), COLTYPE VARCHAR(80), DERBY_TABLES_DS0_C3=COLUMNNAME, DERBY_TABLES_DS0_CONNECTION=localderby sys.systables,sys.syscolumns where tableid=referenceid, DERBY_TABLES_DS0_C4=COLUMNDATATYPE, localderby_USR=null, NODE_CONSTANTS=null, localderby_PWD=null, localderby_DRIVER=null, localderby_URL=null, DERBY_TABLES_DS0_C1=TABLENAME}
+2023-07-18 13:55:22.131~896923400 DataSourcesManager ---------> ******* Re-loading Logical Table: DERBY_TABLES
+2023-07-18 13:55:22.131~897075800 DataSourcesManager ---------> Logical Table definition changed for: DERBY_TABLES, ltNewDef = TABNAME VARCHAR(30), TABTYPE CHAR, COLNAME VARCHAR(30), COLTYPE VARCHAR(80); Constant Cols: 
+2023-07-18 13:55:22.132~897719300 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [TABNAME VARCHAR(30), TABTYPE CHAR, COLNAME VARCHAR(30), COLTYPE VARCHAR(80)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2023-07-18 13:55:22.133~898745500 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2023-07-18 13:55:22.133~898906500 GaianResultSetMetaData ----------> ltColCount = 11, specialColCount (constant + hidden cols) = 7
+2023-07-18 13:55:22.134~899187400 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, cspc201, NULL, NULL, NULL, NULL, NULL, NULL]
+2023-07-18 13:55:22.134~899718700 DataSourcesManager ---------> DERBY_TABLES logical table ResultSetMetaData: [TABNAME, TABTYPE, COLNAME, COLTYPE, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
+2023-07-18 13:55:22.134~899899300 DataSourcesManager ---------> DERBY_TABLES loading global gaian connections: [], length 0
+2023-07-18 13:55:22.134~899972100 DataSourcesManager ---------> DERBY_TABLES physical nodes to be loaded: [DERBY_TABLES_DS0]
+2023-07-18 13:55:22.135~900071900 DataSourcesManager ---------> DERBY_TABLES_DS0 is a VTIWrapper RDB Node, isGaian = false
+2023-07-18 13:55:22.135~900986300 VTIRDBResult ---------------> DERBY_TABLES_DS0 Building new VTIRDBResult based on: org.apache.derby.jdbc.EmbeddedDriver'jdbc:derby:gaiandb;create=true'gaiandb, RDBMS provider is Derby
+2023-07-18 13:55:22.136~901464600 VTIWrapper ----------------------> DERBY_TABLES_DS0 Set physical column names to: [TABLENAME, TABLETYPE, COLUMNNAME, COLUMNDATATYPE]
+2023-07-18 13:55:22.136~901629200 VTIRDBResult ---------------> DERBY_TABLES_DS0 table def = sys.systables,sys.syscolumns where (tableid=referenceid)
+2023-07-18 13:55:22.136~901708300 VTIRDBResult ---------------> INIT: DERBY_TABLES_DS0 inMemoryRows is null: true, isNodeInMemoryOptionSet: false
+2023-07-18 13:55:22.136~901800500 DataSourcesManager ---------> Number of updated/reloaded Logical Tables (incl dependencies): 5/5, skipped: 0
+2023-07-18 13:55:22.137~902161600 DataSourcesManager ---------> INIT: refreshLogicalTables.. cleanup requested for oldDataSources: []
+2023-07-18 13:55:22.137~902418700 DataSourcesManager ---------> INIT: Clearing data sources pool for ID that is no longer referenced: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig/gaiandb.log
+2023-07-18 13:55:22.137~902623600 GaianDBConfig ------------------------> Loaded JDBC driver: org.apache.derby.jdbc.EmbeddedDriver
+2023-07-18 13:55:22.151~917429600 DatabaseConnector ---------------> INIT: Getting DB Connection for: jdbc:derby:gaiandb;create=true (1 concurrent, synchronous timeout 0ms)
+2023-07-18 13:55:22.152~917895000 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6414
+
+2023-07-18 13:55:22.551~316694400 DatabaseConnector ---------------> ******* Connector 1 from INIT: Obtained JDBC Connection org.apache.derby.impl.jdbc.EmbedConnection40@1935488894 (XID = 39570), (SESSIONID = 3), (DATABASE = gaiandb), (DRDAID = null)  in 395 ms for: jdbc:derby:gaiandb;create=true, Pool size: 1
+Tue Jul 18 13:55:22 BST 2023 : Apache Derby Network Server - 10.10.1.1 - (1458268) started and ready to accept connections on port 6414
+2023-07-18 13:55:23.162~928375000 GaianNode -------------> 
 Derby Version: CSS10100/10.10.1.1 - (1458268)  - Java Version: 1.8.0_362 (Eclipse OpenJ9 VM)
 
-GaianNode started for Derby network server with sslMode=off on port: 6414 at Tue May 30 15:10:59 BST 2023, startup time: 1690ms
+GaianNode started for Derby network server with sslMode=off on port: 6414 at Tue Jul 18 13:55:23 BST 2023, startup time: 1786ms
 
-2023-05-30 15:10:59.148~929282300 GaianNode -------------> Derby Network Server maxThreads: 0, timeSliceBeforeYieldPerThread: 0
-2023-05-30 15:10:59.199~980394700 DataSourcesManager ---------> Checking views status with: select tablename,columnname,columndatatype from sys.syscolumns, sys.systables st, sys.sysschemas ss where referenceid = tableid and tabletype='V' and schemaname='GAIANDB' and st.schemaid=ss.schemaid and tablename in ('LTSOLID','GDB_LTNULL','LT0','GDB_LTLOG','DERBY_TABLES') order by tablename, columnnumber
-2023-05-30 15:10:59.246~28239700 DataSourcesManager ---------> UP-TO-DATE VIEWS (5/5): [LTSOLID, GDB_LTNULL, LT0, GDB_LTLOG, DERBY_TABLES]
-2023-05-30 15:10:59.260~41504900 GaianNodeSeeker -------> Entering discovery loop, my details are: cspc201 gaiandb <pwd>
-2023-05-30 15:10:59.370~150822400 GaianNodeSeeker -------> Resolving MULTICAST_INTERFACES: ALL
-2023-05-30 15:10:59.601~382758400 GaianNodeSeeker -------> Joining multicast group: /230.255.255.255 on interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:00.144~926259500 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:00.574~355550400 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:00.574~355690900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:00.606~387151200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:00.637~418892200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:04.272~53297700 DatabaseConnectionsChecker ------> New number of potentially hanging queries being checked (involving a GaianNode data source): 0
-2023-05-30 15:11:04.319~99915100 GaianNode -------------> New node thread count: 12
-Tue May 30 15:11:04 BST 2023 : Log Connections turned on.
-Tue May 30 15:11:04 BST 2023 : Connection number: 7.
-Tue May 30 15:11:04 BST 2023 : Max threads changed to 1000.
-Tue May 30 15:11:04 BST 2023 : Max threads changed to 1000.
-Tue May 30 15:11:04 BST 2023 : Connection number: 8.
-2023-05-30 15:11:04.322~102706000 GaianNode -------------> Derby Network Server maxThreads set to: 1000
-2023-05-30 15:11:05.252~34062100 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:05.253~34393800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:05.284~65659300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:05.314~95927400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-Tue May 30 15:11:06 BST 2023 : Connection number: 9.
-2023-05-30 15:11:06.271~53310400 GaianTable -------> GDB_LTNULL queryID=null steps=-1 GaianTable() Constructor:
+2023-07-18 13:55:23.164~929743400 GaianNode -------------> Derby Network Server maxThreads: 0, timeSliceBeforeYieldPerThread: 0
+2023-07-18 13:55:23.206~972361300 DataSourcesManager ---------> Checking views status with: select tablename,columnname,columndatatype from sys.syscolumns, sys.systables st, sys.sysschemas ss where referenceid = tableid and tabletype='V' and schemaname='GAIANDB' and st.schemaid=ss.schemaid and tablename in ('GDB_LTNULL','LT0','GDB_LTLOG','DERBY_TABLES') order by tablename, columnnumber
+2023-07-18 13:55:23.245~10762000 DataSourcesManager ---------> UP-TO-DATE VIEWS (4/4): [GDB_LTNULL, LT0, GDB_LTLOG, DERBY_TABLES]
+2023-07-18 13:55:23.259~24770100 GaianNodeSeeker -------> Entering discovery loop, my details are: cspc201 gaiandb <pwd>
+2023-07-18 13:55:23.392~157135700 GaianNodeSeeker -------> Resolving MULTICAST_INTERFACES: ALL
+2023-07-18 13:55:23.651~416874600 GaianNodeSeeker -------> Joining multicast group: /230.255.255.255 on interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:24.542~307380200 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:25.360~126057800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:25.360~126172100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:25.404~169817800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:25.451~216441800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:25.496~261911400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:28.263~29143400 DatabaseConnectionsChecker ------> New number of potentially hanging queries being checked (involving a GaianNode data source): 0
+2023-07-18 13:55:28.295~60805800 GaianNode -------------> New node thread count: 12
+Tue Jul 18 13:55:28 BST 2023 : Log Connections turned on.
+Tue Jul 18 13:55:28 BST 2023 : Connection number: 7.
+Tue Jul 18 13:55:28 BST 2023 : Max threads changed to 1000.
+Tue Jul 18 13:55:28 BST 2023 : Max threads changed to 1000.
+Tue Jul 18 13:55:28 BST 2023 : Connection number: 8.
+2023-07-18 13:55:28.298~63863800 GaianNode -------------> Derby Network Server maxThreads set to: 1000
+2023-07-18 13:55:29.614~380475200 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:29.615~380800600 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:29.653~418648800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:29.698~464202000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:29.744~509753800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+Tue Jul 18 13:55:31 BST 2023 : Connection number: 9.
+2023-07-18 13:55:31.567~333071600 GaianTable -------> GDB_LTNULL queryID=null steps=-1 GaianTable() Constructor:
 ========================================================================================================================================================================
 New GaianTable VTI Call, table = GDB_LTNULL, explain = true, withProvenance = true
-2023-05-30 15:11:06.271~53399900 GaianTable -------> GDB_LTNULL queryID=null steps=-1 Resolving logical table
-2023-05-30 15:11:06.271~53481700 GaianTable -------> GDB_LTNULL queryID=null steps=-1 Establishing logical table definition and set of data sources
-2023-05-30 15:11:06.271~53537700 GaianTable -------> GDB_LTNULL queryID=null steps=-1 Got new meta data for LT def, numCols: 8, numExposedCols: 8
-2023-05-30 15:11:06.271~53572700 GaianTable -------> GDB_LTNULL queryID=null steps=-1 MetaData to be returned to Derby: [CNULL CHAR(1), GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-05-30 15:11:06.273~54685500 GaianTable -------> ******* INITIALISING SYSTEM QUERY - THIS WILL SUBSEQUENTLY ONLY BE LOGGED WHEN LOGLEVEL=ALL
+2023-07-18 13:55:31.567~333163900 GaianTable -------> GDB_LTNULL queryID=null steps=-1 Resolving logical table
+2023-07-18 13:55:31.567~333250100 GaianTable -------> GDB_LTNULL queryID=null steps=-1 Establishing logical table definition and set of data sources
+2023-07-18 13:55:31.567~333323200 GaianTable -------> GDB_LTNULL queryID=null steps=-1 Got new meta data for LT def, numCols: 8, numExposedCols: 8
+2023-07-18 13:55:31.567~333367300 GaianTable -------> GDB_LTNULL queryID=null steps=-1 MetaData to be returned to Derby: [CNULL CHAR(1), GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2023-07-18 13:55:31.569~334573400 GaianTable -------> ******* INITIALISING SYSTEM QUERY - THIS WILL SUBSEQUENTLY ONLY BE LOGGED WHEN LOGLEVEL=ALL
 SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0
-2023-05-30 15:11:06.278~59008400 GaianTable -------> GDB_LTNULL queryID=null steps=-1 GaianTable() Constructor:
+2023-07-18 13:55:31.573~339325300 GaianTable -------> GDB_LTNULL queryID=null steps=-1 GaianTable() Constructor:
 ========================================================================================================================================================================
 New GaianTable VTI Call, table = GDB_LTNULL, explain = true, withProvenance = true
-2023-05-30 15:11:10.460~240985800 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:10.460~241658700 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:10.479~260856300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:10.511~292799100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:15.151~933682800 GaianTable -------> LTSOLID queryID=null steps=-1 GaianTable() Constructor:
-========================================================================================================================================================================
-New GaianTable VTI Call, table = LTSOLID, explain = false, withProvenance = false
-2023-05-30 15:11:15.151~933993500 GaianTable -------> LTSOLID queryID=null steps=-1 Resolving logical table
-2023-05-30 15:11:15.153~934687500 GaianTable -------> LTSOLID queryID=null steps=-1 Establishing logical table definition and set of data sources
-2023-05-30 15:11:15.153~934887200 GaianTable -------> LTSOLID queryID=null steps=-1 Got new meta data for LT def, numCols: 3, numExposedCols: 3
-2023-05-30 15:11:15.153~934976800 GaianTable -------> LTSOLID queryID=null steps=-1 MetaData to be returned to Derby: [TERM VARCHAR(255), ADDRESS VARCHAR(255), RELEVANCE VARCHAR(3)]
-2023-05-30 15:11:15.156~937769400 GaianTable -------> LTSOLID queryID=null steps=-1 Entered getEstimatedCostPerInstantiation(), returning 100.0
-2023-05-30 15:11:15.156~937924600 GaianTable -------> LTSOLID queryID=null steps=-1 Entered getEstimatedRowCount(), returning 1.0
-2023-05-30 15:11:15.156~938008400 GaianTable -------> LTSOLID queryID=null steps=-1 Entered supportsMultipleInstantiations(), returning true
-2023-05-30 15:11:15.156~938087100 GaianTable -------> LTSOLID queryID=null steps=-1 Entering GaianTable.close()
-2023-05-30 15:11:15.157~938165200 GaianTable -------> LTSOLID queryID=null steps=-1 Entered clearResultAndInMemoryCache(), gaianResult isNull? true
-2023-05-30 15:11:15.162~943369200 GaianTable -------> LTSOLID queryID=null steps=-1 GaianTable() Constructor:
-========================================================================================================================================================================
-New GaianTable VTI Call, table = LTSOLID, explain = false, withProvenance = false
-2023-05-30 15:11:15.163~944422800 GaianTable -------> LTSOLID queryID=null steps=-1 Qualifiers: C1='coffee'
-2023-05-30 15:11:15.163~944889100 GaianTable -------> LTSOLID queryID=null steps=-1 Original SQL is not a JOIN and has one FROM and WHERE token and no positional parms, EXTRACTED PREDICATES: term =  'coffee', table alias: GQ
-2023-05-30 15:11:15.163~945005900 GaianTable -------> LTSOLID queryID=null steps=-1 Entered clearResultAndInMemoryCache(), gaianResult isNull? true
-2023-05-30 15:11:15.163~945058800 GaianTable -------> LTSOLID queryID=null steps=-1 Initialising query: Getting table def and data sources
-2023-05-30 15:11:15.163~945110800 GaianTable -------> LTSOLID queryID=null steps=-1 Resolving logical table
-2023-05-30 15:11:15.164~945257300 GaianTable -------> LTSOLID queryID=null steps=-1 Establishing logical table definition and set of data sources
-2023-05-30 15:11:15.164~945325600 GaianTable -------> LTSOLID queryID=null steps=-1 Retrieved node definitions: [LTSOLID_DS0]
-2023-05-30 15:11:15.164~945366600 GaianTable -------> LTSOLID queryID=null steps=-1 MetaData for rows passed to Derby: [TERM VARCHAR(255), ADDRESS VARCHAR(255), RELEVANCE VARCHAR(3)]
-2023-05-30 15:11:15.164~945433700 GaianTable -------> LTSOLID queryID=null steps=-1 Creating a new queryID, and associated propagationCount=0 for this Query
-2023-05-30 15:11:15.164~945516800 GaianTable -------> ******* LTSOLID queryID=cspc201:1685455875164:1 steps=0 executeFastPathQuery():
-========================================================================================================================================================================
-
-2023-05-30 15:11:15.164 -------> NEW INCOMING SQL QUERY: SELECT * FROM LTSOLID WHERE term =  'coffee' ORDER BY RELEVANCE DESC
-
-
-2023-05-30 15:11:15.164~945584200 GaianTable -------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 Logical projectedColumns = [1, 2, 3]
-2023-05-30 15:11:15.164~945642200 GaianTable -------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 Physical projectedColumns = [1, 2, 3]
-2023-05-30 15:11:15.164~945920500 GaianTable -------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 Physical Qualifiers after branch prune: TERM='coffee'
-2023-05-30 15:11:15.165~946229800 GaianTable -------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 Physical Qualifiers after leaf prune: TERM='coffee'
-2023-05-30 15:11:15.165~946393900 GaianTable -------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 Remaining nodes after pruning: [LTSOLID_DS0]
-2023-05-30 15:11:15.171~952252800 GaianResult -----------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 Using fetch buffer size 100
-2023-05-30 15:11:15.171~953113600 GaianResult -----------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 Added thread count for dsWrapper: LTSOLID_DS0: 1, runningTotal: 1
-2023-05-30 15:11:15.173~954213700 GaianResult -----------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 Kicked off all 1 exec threads, exec complete
-2023-05-30 15:11:15.173~954379100 GaianResult -----------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 nextRow(): Fetching new batch of 100000 rows from : 0. Row Buffer sizes: Results 0/100, Recycled 0/100
-2023-05-30 15:11:15.173~954493100 GaianResult -----------> GaianDataSourceExecutor-1: run(): Starting to process child data source wrapper for: LTSOLID_DS0, dsInstanceID: null
-2023-05-30 15:11:15.173~954570400 GaianResult -----------> GaianDataSourceExecutor-1: Start exec time:1685455875173
-2023-05-30 15:11:15.173~954639400 VTIFile --------------------> executing VTIFile.. isRowsInMemory? false
-2023-05-30 15:11:15.173~954782300 VTIFile --------------------> Getting handle for file data.. isRowsInMemory? false
-2023-05-30 15:11:15.173~954837400 VTIFile --------------------> VTIFile original-sql: SELECT * FROM LTSOLID WHERE term =  'coffee' ORDER BY RELEVANCE DESC
-2023-05-30 15:11:15.173~955047700 FileImport -----------------> Searching under config folder C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\FileImportControls\, all sub-locations of relativeDir: Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\csvtestfiles\
-2023-05-30 15:11:15.175~956915800 FileImport -----------------> Resolved controlfilePath: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\FileImportControls\FileImportDefaults.properties
-2023-05-30 15:11:15.178~959779400 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 3, special cols: 0
-2023-05-30 15:11:15.178~959876700 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-05-30 15:11:15.178~959926400 GaianResultSetMetaData ----------> ltColCount = 3, specialColCount (constant + hidden cols) = 0
-2023-05-30 15:11:15.178~960003900 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL]
-2023-05-30 15:11:15.179~960332600 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3]
-2023-05-30 15:11:15.261~41932000 Gaian-SOLID Connector ------> Send Keyword Search Request to Search APP: coffee
-
-2023-05-30 15:11:15.877~659076000 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:15.878~659672500 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:15.895~676242200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:15.926~707803300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:16.176~957347500 GaianResult -----------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 Exec Thread Timeout: Long running query detected -  checking for hanging data sources amongst ~1/1 remaining ones: [LTSOLID_DS0]
-2023-05-30 15:11:17.021~802502400 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-05-30 15:11:17.021~802852200 Util -------------> WARNING:
-
-2023-05-30 15:11:17.021 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH (10th repetition): GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 27-Advisory Report/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
-
-2023-05-30 15:11:17.021 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-05-30 15:11:17.021~802926500 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-05-30 15:11:17.022~803313700 Util -------------> WARNING:
-
-2023-05-30 15:11:17.022 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 27-Advisory Report/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
-
-2023-05-30 15:11:17.022 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-05-30 15:11:17.022~803422500 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-05-30 15:11:17.022~803638000 Util -------------> WARNING:
-
-2023-05-30 15:11:17.022 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 27-Advisory Report/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
-
-2023-05-30 15:11:17.022 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-05-30 15:11:17.022~803750400 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-05-30 15:11:17.023~804170000 Util -------------> WARNING:
-
-2023-05-30 15:11:17.023 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 27-Advisory Report/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
-
-2023-05-30 15:11:17.023 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-05-30 15:11:17.023~804282200 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-05-30 15:11:17.023~804501700 Util -------------> WARNING:
-
-2023-05-30 15:11:17.023 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 27-Advisory Report/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
-
-2023-05-30 15:11:17.023 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-05-30 15:11:17.023~804610100 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-05-30 15:11:17.023~804815800 Util -------------> WARNING:
-
-2023-05-30 15:11:17.023 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 27-Advisory Report/ESPRESSO/GaianDB/Gaian_Maven/target/classes/
-
-2023-05-30 15:11:17.023 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-05-30 15:11:17.023~804923400 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-05-30 15:11:17.038~819530500 FileImport -----------------> WARNING:
-
-2023-05-30 15:11:17.024 ********** GDB_ERROR: : Solid service call has been failed
-	com.mashape.unirest.http.exceptions.UnirestException: java.net.SocketException: Connection reset
-	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:143)
-	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68)
-	at com.ibm.solid.SolidServiceCall.filterData(SolidServiceCall.java:64)
-	at com.ibm.db2j.FileImport.<init>(FileImport.java:225)
-	at com.ibm.gaiandb.VTIFile.execute(VTIFile.java:229)
-	at com.ibm.gaiandb.GaianResult.executeQueryAgainstDataSource(GaianResult.java:474)
-	at com.ibm.gaiandb.GaianResult.run(GaianResult.java:555)
-	at com.ibm.gaiandb.GaianSubResult.run(GaianSubResult.java:37)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:826)
-Caused by: java.net.SocketException: Connection reset
-	at java.net.SocketInputStream.read(SocketInputStream.java:210)
-	at java.net.SocketInputStream.read(SocketInputStream.java:141)
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:139)
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:155)
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:284)
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140)
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57)
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:261)
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:165)
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167)
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:272)
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:124)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:138)
-	... 10 more
-
-2023-05-30 15:11:17.024 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#
-
-
-2023-05-30 15:11:17.038~819946700 VTIFile --------------------> GaianDataSourceExecutor-1: Created a new FileImport() instance as the Pool was empty
-2023-05-30 15:11:17.039~820233200 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 3, special cols: 0
-2023-05-30 15:11:17.039~820374000 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-05-30 15:11:17.039~820436400 GaianResultSetMetaData ----------> ltColCount = 3, specialColCount (constant + hidden cols) = 0
-2023-05-30 15:11:17.039~820529400 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL]
-2023-05-30 15:11:17.039~820832900 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3]
-2023-05-30 15:11:17.039~820953800 AbstractVTI ------> GaianDataSourceExecutor-1: setExtractConditions(): all query's logical col ids: [0, 1, 2], columnsMappingToPhysicalOnes: [0, 1, 2]
-2023-05-30 15:11:17.039~821024400 AbstractVTI ------> Mapped and reduced projection for VTI to: [1, 2, 3]
-2023-05-30 15:11:17.040~821263300 AbstractVTI ------> Mapped qualifiers for VTI to: C1='coffee'
-2023-05-30 15:11:17.040~821453800 AbstractVTI ------> Mapped and reduced qualifiers for VTI to: C1='coffee'
-2023-05-30 15:11:17.040~821745800 VTIFile --------------------> ******* GaianDataSourceExecutor-1: LTSOLID_DS0 OBTAINED ROWS USING:
-
-2023-05-30 15:11:17.040 ---------------> OBTAINED rows from: FileImport('C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/solid.csv')
-
-2023-05-30 15:11:17.041~822134300 GaianResult -----------> GaianDataSourceExecutor-1: LTSOLID_DS0 End exec time:1685455877040
-2023-05-30 15:11:17.050~831129400 GaianResult -----------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 LTSOLID_DS0 Put poison pill on resultRowsBuffer as there are no more executing threads
-2023-05-30 15:11:17.050~831243600 GaianResult -----------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 LTSOLID_DS0: NO MORE ROWS IN THIS RESULT SET - recyling dataSource
-2023-05-30 15:11:17.050~831311400 GaianResult -----------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 LTSOLID_DS0 nextRow(): Processed New Data Source, (0/1 remaining), NumRows fetched so far: 1
-	>>Performance metrics: Exec time: 1867ms, Fetch time: 10ms
-2023-05-30 15:11:17.050~831447800 VTIWrapper ----------------------> GaianDataSourceExecutor-1: LTSOLID_DS0 recycleResult(): Stored FileImport object for C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/solid.csv in Pool for re-use. Pool current size/max = 1/10
-2023-05-30 15:11:17.050~831263300 GaianResult -----------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 Entering GaianResult.close()
-2023-05-30 15:11:17.050~831774900 GaianResult -----------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 Fetch complete, rowCount = 1
-	>>OVERALL QUERY TIME: 1880ms (ALL EXECS: 1870ms, ALL FETCHES: 1877ms)
-
-2023-05-30 15:11:19.521~303010900 GaianNode -------------> New node thread count: 14
-2023-05-30 15:11:20.665~447403200 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:20.666~447978300 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:20.692~473539900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:20.723~504463400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:25.735~516481200 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:25.736~516937500 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:25.761~543071300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:25.791~573189800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:30.662~443622400 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:30.663~444288900 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:30.694~475534000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:30.726~507279600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:35.745~526262100 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:35.745~526507600 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:35.768~549259700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:35.799~580708500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:40.966~748156500 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:40.967~748677800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:40.990~771971100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:41.022~803468200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:46.062~843106000 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:46.062~843648600 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:46.084~865104500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:46.115~896456500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:51.141~922654300 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:51.142~923083800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:51.161~942026300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:51.191~972692600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:56.214~996914400 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:56.216~997443000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:11:56.238~19506700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:11:56.270~51376000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:01.257~39125600 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:01.258~39599000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:01.286~67377900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:01.317~98850700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:06.170~952015900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:06.171~952254600 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:06.196~977404400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:06.222~3475200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:11.237~18201300 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:11.237~18454800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:11.257~38591500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:11.289~70472200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:16.288~69888300 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:16.289~70267400 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:16.319~100844800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:16.350~131408100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:20.130~912418700 GaianNode -------------> New node thread count: 13
-2023-05-30 15:12:21.474~255910300 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:21.475~256357800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:21.500~281370000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:21.531~312973300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:26.517~299014800 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:26.517~299481000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:26.538~319427600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:26.570~351496600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:31.544~326204700 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:31.545~326496200 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:31.573~354535000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:31.604~385581200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:36.585~367516400 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:36.586~368129100 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:36.617~398875200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:36.648~429836200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:41.624~406878700 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:41.626~407416600 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:41.656~436975300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:41.687~467922200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:46.660~441261900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:46.660~441924200 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:46.684~465436400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:46.715~495927500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:51.709~491443800 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:51.710~491869000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:51.740~521867300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:51.772~553663200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:56.754~536665600 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:56.756~536968600 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:12:56.773~554648500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:12:56.804~585592700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:01.800~580896600 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:01.800~581333300 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:01.827~608508100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:01.859~640444900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:06.854~636783400 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:06.856~637316500 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:06.879~660739000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:06.910~691776800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:11.895~676561800 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:11.895~677284300 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:11.913~695183600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:11.945~726424700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:16.914~695650600 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:16.914~696345100 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:16.936~717579700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:16.968~749393300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:21.941~722606600 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:21.942~723142200 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:21.959~740208000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:21.989~770680900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:26.945~726083500 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:26.945~726577500 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:26.967~748976500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:26.999~780390500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:32.014~796083800 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:32.015~796678800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:32.045~826808200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:32.075~856547100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:37.072~854295900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:37.074~854848600 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:37.104~885749000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:37.136~917087800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:42.168~950540800 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:42.169~950828400 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:42.189~970514700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:42.220~1317600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:47.185~966735800 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:47.186~967127600 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:47.207~988513800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:47.238~19142800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:52.243~24806900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:52.243~25310600 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:52.261~42273100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:52.293~74786100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:57.281~62882900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:57.282~63487900 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:13:57.304~85223500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:13:57.335~116487300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:02.309~89976500 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:02.309~90219900 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:02.339~121239300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:02.369~151331400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:07.390~171179800 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:07.390~171419700 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:07.419~200134500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:07.449~230841900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:12.316~97938500 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:12.316~98171800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:12.333~114685900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:12.364~145833700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:17.364~144669700 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:17.364~144911500 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:17.380~161630100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:17.412~193261000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:22.420~200782800 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:22.420~201072000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:22.440~220873200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:22.471~252453200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:26.573~355308300 GaianTable -------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 Entering GaianTable.close()
-2023-05-30 15:14:26.574~355426200 GaianTable -------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 Entered clearResultAndInMemoryCache(), gaianResult isNull? false
-2023-05-30 15:14:26.574~355566600 GaianResult -----------> LTSOLID queryID=cspc201:1685455875164:1 steps=0 Entering GaianResult.close()
-2023-05-30 15:14:26.574~356244800 GaianTable -------> LTSOLID queryID=null steps=-1 GaianTable() Constructor:
-========================================================================================================================================================================
-New GaianTable VTI Call, table = LTSOLID, explain = false, withProvenance = false
-2023-05-30 15:14:26.577~358276700 GaianTable -------> LTSOLID queryID=null steps=-1 Qualifiers: C1='coffee'
-2023-05-30 15:14:26.577~358553500 GaianTable -------> LTSOLID queryID=null steps=-1 Original SQL is not a JOIN and has one FROM and WHERE token and no positional parms, EXTRACTED PREDICATES: term =  'coffee', table alias: GQ
-2023-05-30 15:14:26.577~358606300 GaianTable -------> LTSOLID queryID=null steps=-1 Entered clearResultAndInMemoryCache(), gaianResult isNull? true
-2023-05-30 15:14:26.577~358645500 GaianTable -------> LTSOLID queryID=null steps=-1 Initialising query: Getting table def and data sources
-2023-05-30 15:14:26.577~358684300 GaianTable -------> LTSOLID queryID=null steps=-1 Resolving logical table
-2023-05-30 15:14:26.578~358882700 GaianTable -------> LTSOLID queryID=null steps=-1 Establishing logical table definition and set of data sources
-2023-05-30 15:14:26.578~358948900 GaianTable -------> LTSOLID queryID=null steps=-1 Retrieved node definitions: [LTSOLID_DS0]
-2023-05-30 15:14:26.578~358976600 GaianTable -------> LTSOLID queryID=null steps=-1 MetaData for rows passed to Derby: [TERM VARCHAR(255), ADDRESS VARCHAR(255), RELEVANCE VARCHAR(3)]
-2023-05-30 15:14:26.578~359032100 GaianTable -------> LTSOLID queryID=null steps=-1 Creating a new queryID, and associated propagationCount=0 for this Query
-2023-05-30 15:14:26.578~359101900 GaianTable -------> ******* LTSOLID queryID=cspc201:1685456066578:2 steps=0 executeFastPathQuery():
-========================================================================================================================================================================
-
-2023-05-30 15:14:26.578 -------> NEW INCOMING SQL QUERY: SELECT * FROM LTSOLID WHERE term =  'coffee' ORDER BY RELEVANCE DESC
-
-
-2023-05-30 15:14:26.578~359149700 GaianTable -------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 Logical projectedColumns = [1, 2, 3]
-2023-05-30 15:14:26.578~359176100 GaianTable -------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 Physical projectedColumns = [1, 2, 3]
-2023-05-30 15:14:26.578~359249800 GaianTable -------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 Physical Qualifiers after branch prune: TERM='coffee'
-2023-05-30 15:14:26.578~359293700 GaianTable -------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 Physical Qualifiers after leaf prune: TERM='coffee'
-2023-05-30 15:14:26.578~359315000 GaianTable -------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 Remaining nodes after pruning: [LTSOLID_DS0]
-2023-05-30 15:14:26.578~359350000 GaianResult -----------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 Using fetch buffer size 100
-2023-05-30 15:14:26.578~359648600 GaianResult -----------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 Added thread count for dsWrapper: LTSOLID_DS0: 1, runningTotal: 1
-2023-05-30 15:14:26.579~359825700 GaianResult -----------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 Kicked off all 1 exec threads, exec complete
-2023-05-30 15:14:26.579~359901900 GaianResult -----------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 nextRow(): Fetching new batch of 100000 rows from : 0. Row Buffer sizes: Results 0/100, Recycled 0/100
-2023-05-30 15:14:26.579~360173800 GaianResult -----------> GaianDataSourceExecutor-2: run(): Starting to process child data source wrapper for: LTSOLID_DS0, dsInstanceID: null
-2023-05-30 15:14:26.580~360834100 GaianResult -----------> GaianDataSourceExecutor-2: Start exec time:1685456066580
-2023-05-30 15:14:26.580~360885700 VTIFile --------------------> executing VTIFile.. isRowsInMemory? false
-2023-05-30 15:14:26.580~361020800 VTIFile --------------------> GaianDataSourceExecutor-2: VTIFile Synchronising on Re-init lock (reload triggered by file modification)
-2023-05-30 15:14:26.580~361051900 VTIFile --------------------> GaianDataSourceExecutor-2: VTIFile WAITING on Re-init lock for execs to complete, numExecThread 0
-2023-05-30 15:14:26.580~361229300 VTIFile --------------------> VTIFile original-sql: SELECT * FROM LTSOLID WHERE term =  'coffee' ORDER BY RELEVANCE DESC
-2023-05-30 15:14:26.580~361370000 FileImport -----------------> Searching under config folder C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\FileImportControls\, all sub-locations of relativeDir: Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\csvtestfiles\
-2023-05-30 15:14:26.581~361976300 FileImport -----------------> Resolved controlfilePath: C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig\FileImportControls\FileImportDefaults.properties
-2023-05-30 15:14:26.582~363720900 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 3, special cols: 0
-2023-05-30 15:14:26.582~363791100 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-05-30 15:14:26.582~363812800 GaianResultSetMetaData ----------> ltColCount = 3, specialColCount (constant + hidden cols) = 0
-2023-05-30 15:14:26.582~363842000 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL]
-2023-05-30 15:14:26.582~363941200 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3]
-2023-05-30 15:14:26.583~365023900 Gaian-SOLID Connector ------> Send Keyword Search Request to Search APP: coffee
-
-2023-05-30 15:14:26.842~623711800 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-05-30 15:14:26.843~624236800 FileImport -----------------> WARNING:
-
-2023-05-30 15:14:26.842 ********** GDB_ERROR: : Solid service call has been failed
-	com.mashape.unirest.http.exceptions.UnirestException: java.net.SocketException: Connection reset
-	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:143)
-	at com.mashape.unirest.request.BaseRequest.asJson(BaseRequest.java:68)
-	at com.ibm.solid.SolidServiceCall.filterData(SolidServiceCall.java:64)
-	at com.ibm.db2j.FileImport.<init>(FileImport.java:225)
-	at com.ibm.gaiandb.VTIFile.execute(VTIFile.java:178)
-	at com.ibm.gaiandb.GaianResult.executeQueryAgainstDataSource(GaianResult.java:474)
-	at com.ibm.gaiandb.GaianResult.run(GaianResult.java:555)
-	at com.ibm.gaiandb.GaianSubResult.run(GaianSubResult.java:37)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:826)
-Caused by: java.net.SocketException: Connection reset
-	at java.net.SocketInputStream.read(SocketInputStream.java:210)
-	at java.net.SocketInputStream.read(SocketInputStream.java:141)
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:139)
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:155)
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:284)
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:140)
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:57)
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:261)
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:165)
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:167)
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:272)
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:124)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:271)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at com.mashape.unirest.http.HttpClientHelper.request(HttpClientHelper.java:138)
-	... 10 more
-
-2023-05-30 15:14:26.842 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#
-
-
-2023-05-30 15:14:26.843~624289500 VTIFile --------------------> GaianDataSourceExecutor-2: Created new FileImport() instance as Pool was empty
-2023-05-30 15:14:26.843~624341300 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 3, special cols: 0
-2023-05-30 15:14:26.843~624397000 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-05-30 15:14:26.843~624416300 GaianResultSetMetaData ----------> ltColCount = 3, specialColCount (constant + hidden cols) = 0
-2023-05-30 15:14:26.843~624448300 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL]
-2023-05-30 15:14:26.843~624576000 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3]
-2023-05-30 15:14:26.843~624666900 VTIWrapper ----------------------> GaianDataSourceExecutor-2: LTSOLID_DS0 Mapping logical to physical col ids. Resolving 3 logical col names for 3 cols of the physical source. isMapByPosition ? true
-2023-05-30 15:14:26.843~624716000 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 3, special cols: 0
-2023-05-30 15:14:26.843~624793600 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-05-30 15:14:26.843~624831500 GaianResultSetMetaData ----------> ltColCount = 3, specialColCount (constant + hidden cols) = 0
-2023-05-30 15:14:26.843~624873500 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL]
-2023-05-30 15:14:26.845~626200600 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3]
-2023-05-30 15:14:26.845~626261100 AbstractVTI ------> GaianDataSourceExecutor-2: setExtractConditions(): all query's logical col ids: [0, 1, 2], columnsMappingToPhysicalOnes: [0, 1, 2]
-2023-05-30 15:14:26.845~626301900 AbstractVTI ------> Mapped and reduced projection for VTI to: [1, 2, 3]
-2023-05-30 15:14:26.845~626338100 AbstractVTI ------> Mapped qualifiers for VTI to: C1='coffee'
-2023-05-30 15:14:26.845~626376900 AbstractVTI ------> Mapped and reduced qualifiers for VTI to: C1='coffee'
-2023-05-30 15:14:26.845~626435000 VTIFile --------------------> ******* GaianDataSourceExecutor-2: LTSOLID_DS0 OBTAINED ROWS USING:
-
-2023-05-30 15:14:26.845 ---------------> OBTAINED rows from: FileImport('C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/solid.csv')
-
-2023-05-30 15:14:26.845~626458100 GaianResult -----------> GaianDataSourceExecutor-2: LTSOLID_DS0 End exec time:1685456066845
-2023-05-30 15:14:26.846~627850600 GaianResult -----------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 LTSOLID_DS0 Put poison pill on resultRowsBuffer as there are no more executing threads
-2023-05-30 15:14:26.846~627894700 GaianResult -----------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 LTSOLID_DS0: NO MORE ROWS IN THIS RESULT SET - recyling dataSource
-2023-05-30 15:14:26.846~627922600 GaianResult -----------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 LTSOLID_DS0 nextRow(): Processed New Data Source, (0/1 remaining), NumRows fetched so far: 1
-	>>Performance metrics: Exec time: 265ms, Fetch time: 1ms
-2023-05-30 15:14:26.846~627914400 GaianResult -----------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 Entering GaianResult.close()
-2023-05-30 15:14:26.846~627986300 GaianResult -----------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 Fetch complete, rowCount = 1
-	>>OVERALL QUERY TIME: 268ms (ALL EXECS: 267ms, ALL FETCHES: 267ms)
-
-2023-05-30 15:14:26.846~628002800 VTIWrapper ----------------------> GaianDataSourceExecutor-2: LTSOLID_DS0 recycleResult(): Stored FileImport object for C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 27-Advisory Report\ESPRESSO\GaianDB\Gaian_Maven\installConfig/csvtestfiles/solid.csv in Pool for re-use. Pool current size/max = 1/10
-2023-05-30 15:14:27.456~237810000 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:27.456~238049500 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:27.489~270305600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:27.519~300963900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:31.442~224027700 GaianNode -------------> New node thread count: 14
-2023-05-30 15:14:32.537~318329700 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:32.537~318567600 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:32.563~344452400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:32.594~375688800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:37.584~366033000 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:37.585~366254400 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:37.602~383971800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:37.634~415753200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:42.624~406130700 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:42.625~406358400 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:42.643~424464900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:42.674~455242700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:47.673~454438500 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:47.673~454651300 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:47.689~470590300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:47.720~502350400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:52.723~504556700 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:52.723~504827800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:52.749~530749100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:52.780~561457900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:57.772~553811100 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:57.772~554056300 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:14:57.793~573992000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:14:57.824~604833400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:02.822~603016300 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:02.822~603237200 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:02.841~622122600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:02.871~652862100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:07.866~647527400 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:07.866~648123000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:07.886~667089600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:07.916~698286300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:12.923~704408200 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:12.923~704622700 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:12.952~733298200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:12.983~765378100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:18.024~805298900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:18.024~805620400 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:18.051~832734500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:18.083~864684800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:23.229~10222900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:23.229~10889600 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:23.250~31786200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:23.282~63500300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:26.956~737594300 GaianNode -------------> New node thread count: 13
-2023-05-30 15:15:28.292~73410600 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:28.292~73820300 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:28.314~95879600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:28.345~126865400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:33.335~116651500 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:33.336~117074400 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:33.366~147185500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:33.397~178605900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:38.397~178833900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:38.398~179460400 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:38.425~206686100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:38.456~237593100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:43.442~223608300 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:43.442~223955900 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:43.474~255295500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:43.506~287605500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:48.495~277053900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:48.496~277472400 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:48.518~299135500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:48.548~329671500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:53.531~312012000 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:53.531~312582000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:53.554~335624600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:53.586~367394000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:58.575~356819500 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:58.576~357220500 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:15:58.593~373960600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:15:58.624~405718000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:03.597~379070100 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:03.597~379257800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:03.621~402743600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:03.652~433136900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:08.639~421003300 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:08.639~421202500 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:08.669~450314900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:08.700~481186600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:13.688~468914900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:13.688~469302600 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:13.706~487846800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:13.737~518691300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:18.728~509771800 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:18.728~510201800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:18.759~539919200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:18.789~571078800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:23.778~559168900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:23.778~559586900 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:23.798~579134000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:23.829~610198600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:28.812~594090900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:28.813~594458200 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:28.832~612947500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:28.863~644171400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:33.857~639257100 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:33.858~639708300 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:33.877~658747700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:33.908~689697200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:38.763~544984800 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:38.763~545238500 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:38.793~574794500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:38.824~605801100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:43.822~604334600 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:43.823~604605000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:43.845~627009800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:43.876~657935600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:48.860~641235100 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:48.860~641434800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:48.880~661414500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:48.910~691667500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:53.903~685674300 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:53.905~685868400 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:53.922~703131200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:53.952~733899600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:59.097~879368000 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:59.098~879833000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:16:59.130~911515600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:16:59.161~942786900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:04.144~925279500 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:04.144~925537600 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:04.171~952923800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:04.203~984825200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:09.189~970184700 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:09.189~970680300 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:09.210~991448700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:09.242~23209100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:14.237~18422200 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:14.237~18824200 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:14.263~44294000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:14.294~75414900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:19.272~53381900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:19.272~53647200 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:19.303~84072000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:19.334~116199200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:24.338~118882000 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:24.338~119222800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:24.356~137378600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:24.387~168251900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:29.364~145449000 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:29.364~145818300 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:29.383~164347900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:29.414~196191600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:34.395~177135100 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:34.396~177531000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:34.418~199045900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:34.448~229546900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:39.445~225987100 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:39.445~226406000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:39.462~243378900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:39.492~273790100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:44.468~249947200 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:44.468~250181800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:44.500~280964300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:44.530~311642800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:49.380~161455200 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:49.380~161698100 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:49.409~190045200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:49.441~222199800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:54.442~224062000 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:54.442~224255600 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:54.473~254663400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:54.505~286077600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:59.498~279951100 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:59.499~280127800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:17:59.516~297666400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:17:59.548~328979800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:18:04.553~335027200 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:18:04.553~335286000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:18:04.576~357452200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:18:04.607~388593400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:18:09.601~382501900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:18:09.601~382705800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.244.241]
-2023-05-30 15:18:09.632~413988000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:18:09.664~445731000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-05-30 15:18:09.682~463777100 GaianTable -------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 Entering GaianTable.close()
-2023-05-30 15:18:09.682~463868900 GaianTable -------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 Entered clearResultAndInMemoryCache(), gaianResult isNull? false
-2023-05-30 15:18:09.682~463905000 GaianResult -----------> LTSOLID queryID=cspc201:1685456066578:2 steps=0 Entering GaianResult.close()
+2023-07-18 13:55:34.758~524384400 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:34.759~524823800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:34.806~571348900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:34.851~617054700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:34.897~662818400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:39.884~649575400 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:39.884~650078000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:39.917~682825600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:39.963~728881500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:40.008~773526800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:45.027~793537700 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:45.027~793833100 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:45.061~826506000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:45.107~872355300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:45.152~917936900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:50.170~936680900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:50.171~936956700 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:50.214~979959200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:50.260~26109200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:50.305~71055100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:55.307~73391400 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:55.307~73748500 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:55:55.344~109610300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:55.390~155401000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:55:55.435~200743500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:00.449~215427600 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:00.449~215674200 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:00.495~261150800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:00.542~308054000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:00.587~352320000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:05.595~361719000 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:05.596~361999800 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:05.638~403546500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:05.684~449698800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:05.729~494838900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:10.663~428751900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:10.663~429044500 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:10.700~466158400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:10.746~511754900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:10.791~557201700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:15.656~421824300 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:15.656~422140900 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:15.703~468913400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:15.746~511302000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:15.791~556784400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:20.665~431205200 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:20.666~431493900 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:20.703~468598600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:20.750~515279200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:20.795~560102100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:25.669~434994900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:25.669~435289700 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:25.706~472217000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:25.753~518778800 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:25.799~564834000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:30.767~532711300 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:30.767~533028100 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:30.807~572862000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:30.853~618920200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:30.899~665187700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:35.868~633897200 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:35.868~634200700 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:35.910~675504500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:35.956~721612700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:36.001~766788200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:40.981~746937400 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:40.981~747223000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:41.023~788505300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:41.069~834798100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:41.116~881344200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:46.083~849173900 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:46.083~849508100 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:46.124~890017200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:46.171~936374500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:46.216~982070200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:51.198~963759700 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:51.198~964043200 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:51.237~2896300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:51.283~48374300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:51.328~94082300 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:56.285~51518600 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:56.286~51832000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:56:56.328~93876100 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:56.374~140431200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:56:56.421~186525600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:57:01.394~159831700 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:57:01.394~160189300 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:57:01.436~201615700 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:57:01.482~247729500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:57:01.527~293062900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:57:06.496~262280000 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:57:06.497~262557000 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:57:06.531~296670900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:57:06.577~342377900 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:57:06.623~388476400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:57:11.576~342446600 GaianNodeSeeker -------> Sending msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:57:11.577~342750100 GaianNodeSeeker -------> Sent msg: REQ cspc201 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /192.168.45.26, /192.168.1.102]
+2023-07-18 13:57:11.617~383151400 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:57:11.664~429432200 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2023-07-18 13:57:11.709~474404600 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
