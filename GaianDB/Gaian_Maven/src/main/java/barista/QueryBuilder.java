@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class QueryBuilder {
-    private static final String[] DEFAULT_COLUMNS = {"term"};
+    private static final String[] DEFAULT_COLUMNS = {"Search_Parameters"};
 
     public static String buildSqlQuery(String keyword) {
         return buildSqlQuery(keyword, DEFAULT_COLUMNS, "=", false, 0, -1);

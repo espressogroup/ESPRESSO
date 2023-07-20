@@ -51,7 +51,7 @@ try {
     whereClause = data.replace("'", "");
     CSVWriter csvWriter = new CSVWriter(new FileWriter(csvFilePath));
 
-    String[] header = {"TERM", "ADDRESS", "RELEVANCE"};
+    String[] header = {"Search_Parameters", "Document_URL", "RELEVANCE"};
     csvWriter.writeNext(header);
 
     long start = System.currentTimeMillis();
@@ -101,7 +101,7 @@ try {
 } catch (Exception e) {
     try {
         CSVWriter csvWriter = new CSVWriter(new FileWriter(csvFilePath));
-        String[] header = {"TERM", "ADDRESS", "RELEVANCE"};
+        String[] header = {"Search Parameters", "Document URL", "RELEVANCE"};
         csvWriter.writeNext(header);
         String[] fields = new String[3];
      //   String[] term = whereClause.split(",");
