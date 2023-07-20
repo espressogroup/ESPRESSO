@@ -604,7 +604,7 @@ acl:agentClass foaf:Agent.'''
                 headers={ 'content-type': 'text/turtle', 'authorization':'DPoP '+CSSA.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", CSSA.dpopKey)}
                 res= requests.put(targetUrl,headers=headers,data=acldef)
                 #res=CSSAccess.get_file(indexaddress+'.acl')
-                print(res)
+                print(targetUrl,res)
     
     def metaindexpub(self):
         for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):
@@ -828,10 +828,10 @@ def demo2400test2():
     #experiment.saveexp(podname+'exp.ttl')
     #print('experiment saved')
     experiment.loadexp(podname+'exp.ttl')
-    #experiment.ESPRESSOcreate()
-    #print('ESPRESSO checked')
-    #experiment.podcreate()
-    #print('Pods created')
+    experiment.ESPRESSOcreate()
+    print('ESPRESSO checked')
+    experiment.podcreate()
+    print('Pods created')
     experiment.upload()
     print('Pods populated')
     experiment.aclindexthreaded()
@@ -880,7 +880,7 @@ def webid2400test():
     #experiment.podcreate()
     #print('ESPRESSO checked')
     #print('Pods created')
-    #experiment.upload()
+    experiment.upload()
     #print('Pods populated')
     #experiment.aclindexwebidthreaded()
     #print('pods indexed')

@@ -3,6 +3,8 @@ from rdflib import URIRef, BNode, Literal, Graph, Namespace
 #from rdflib.namespace import ACL
 import concurrent.futures
 import time
+from multiprocessing import Pool
+
 def crawl(address, CSSa):
     filedict= dict()
     data = CSSa.get_file(address)
@@ -471,18 +473,21 @@ def coffeefilter(metaindexaddress,keyword):
     return ans
 
 def askindex(podindexaddress, keyword, webid):
-    
+    begtime=time.time_ns()
     wordaddress=podindexaddress+keyword+'.ndx'
     webidaddress=podindexaddress+webid.translate(str.maketrans('', '', string.punctuation))+'.webid'
     wordres=CSSaccess.get_file(wordaddress)
+    ndxtime=time.time_ns()-begtime
     ans=dict()       
     if wordres.ok:
         openaccessaddress=podindexaddress+'openaccess.webid'
         openaccessres=CSSaccess.get_file(openaccessaddress)
+        openaccesstime=time.time_ns()-begtime
         openlist=openaccessres.text.rsplit('\r\n')[:-1]
         webidaddress=podindexaddress+webid.translate(str.maketrans('', '', string.punctuation))+'.webid'
         webidfilelist=[]
         webidres=CSSaccess.get_file(webidaddress)
+        webidtime=time.time_ns()-begtime
         if webidres.ok:
             webidfilelist=webidres.text.rsplit('\r\n')[:-1]
 
@@ -490,17 +495,17 @@ def askindex(podindexaddress, keyword, webid):
         worddic={filefreq.rsplit(',')[0]: filefreq.rsplit(',')[1] for filefreq in wordfilelist}
             #print(filelist)
         accessibleset =set(worddic.keys())&(set(openlist)|set(webidfilelist))
-        begtime=time.time_ns()
-        #with concurrent.futures.ThreadPoolExecutor(max_workers=len(accessibleset)) as exe:
-        #    futurelist = {exe.submit(CSSaccess.get_file, podindexaddress+fword+'.file'): fword for fword in accessibleset}
-        #    for future in concurrent.futures.as_completed(futurelist):
-        #        url = futurelist[future]
-        #        data = future.result().text
-        #        ans[data]=worddic[url]
-        for fword in accessibleset:
-            filepath=podindexaddress+fword+'.file'
-            filename=CSSaccess.get_file(filepath).text
-            ans[filename]=int(worddic[fword])
+        settime=round(time.time_ns()-begtime)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=len(accessibleset)) as exe:
+            futurelist = {exe.submit(CSSaccess.get_file, podindexaddress+fword+'.file'): fword for fword in accessibleset}
+            for future in concurrent.futures.as_completed(futurelist):
+                url = futurelist[future]
+                data = future.result().text
+                ans[data]=worddic[url]
+        #for fword in accessibleset:
+        #    filepath=podindexaddress+fword+'.file'
+        #    filename=CSSaccess.get_file(filepath).text
+        #    ans[filename]=int(worddic[fword])
         #for filefreq in wordfilelist:
                 #print(filefreq)
         #    fword=filefreq.rsplit(',')[0]
@@ -510,7 +515,8 @@ def askindex(podindexaddress, keyword, webid):
         #        freq=filefreq.rsplit(',')[1]
                 #print(filename, freq)
         #        ans[filename]=int(freq)
-        print(time.time_ns()-begtime)
+        totaltime=(time.time_ns()-begtime)
+        print('for '+podindexaddress,'ndx',round(ndxtime/1000000,3),'oa',round((openaccesstime-ndxtime)/1000000,3),'webid',round((webidtime-openaccesstime)/1000000,3),'set',round((settime-webidtime)/1000000,3),'filetime',round((totaltime-webidtime)/1000000,3),'total',totaltime/1000000)
     return ans
 
 
@@ -552,4 +558,60 @@ def coffeefilterunthreaded(metaindexaddress,keyword,webid):
     
     #print(time.time_ns()-begtime)
     
+    return ans
+
+def calculate(func, args):
+    result = func(*args)
+    return result
+
+
+
+def coffeefilterpooled(metaindexaddress,keyword,webid):
+    res=CSSaccess.get_file(metaindexaddress)
+    #print(res.text)
+    podindexlist=res.text.rsplit('\r\n')[:-1]
+    #print(podindexlist)
+    ans=dict()
+    #begtime=time.time_ns()
+    #print(n)
+    n=len(podindexlist)
+    with Pool(n) as pool:
+        
+    #print 'pool = %s' % pool
+    
+    #
+    # Tests
+    #
+
+        TASKS = [(askindex, (podindex, keyword, webid)) for podindex in podindexlist]
+
+        results = [pool.apply_async(calculate, t) for t in TASKS]
+    #imap_it = pool.imap(calculatestar, TASKS)
+    #imap_unordered_it = pool.imap_unordered(calculatestar, TASKS)
+
+    #print 'Ordered results using pool.apply_async():'
+        for r in results:
+            ans|=r.get()
+    #print
+
+    #print 'Ordered results using pool.imap():'
+    #for x in imap_it:
+    #    print '\t', x
+    #print
+
+    #print 'Unordered results using pool.imap_unordered():'
+    #for x in imap_unordered_it:
+    #    print '\t', x
+    #print
+
+    #print 'Ordered results using pool.map() --- will block till complete:'
+    #for x in pool.map(calculatestar, TASKS):
+    #    print '\t', x
+
+    #multiple_results = [pool.apply_async(askindex, (podindex, keyword, webid)) for podindex in podindexlist]
+    #for res in multiple_results:
+    #    ans|=res.get()
+    
+    #print(time.time_ns()-begtime)
+    print ('Done: ',metaindexaddress)
     return ans

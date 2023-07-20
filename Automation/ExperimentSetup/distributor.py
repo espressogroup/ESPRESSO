@@ -70,35 +70,3 @@ def postdirtopod (directory,pod,api):
     return pod
 
 
-def postdirNSS (directory,pod,IDP,USERNAME,PASSWORD):
-    auth = Auth()
-    assert not auth.is_login
-    auth.login(IDP, USERNAME, PASSWORD)
-    assert auth.is_login
-
-    api = SolidAPI(auth)
-    postdirtopod(directory,pod,api)
-
-
-class Pod:
-    """
-    Class to work with pods.
-    """
-    def __init__(self, IDP,podname):
-        self.idp = IDP
-        self.username = ''
-        self.password = ''
-        self.podname=podname
-        self.Access=null
-
-    def __repr__(self):
-        """
-        Return Pod address. Can be changed later
-        """
-        return str(self.idp+self.podname)
-
-    def login(self,USERNAME,PASSWORD):
-        self.Access=CSSaccess.CSSaccess(self.idp, USERNAME, PASSWORD)
-        a=self.Access.create_authstring()
-        t=self.Access.create_authtoken()
-        return self.Access
