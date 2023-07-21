@@ -1,0 +1,7 @@
+---
+- hosts: solid_servers
+  tasks:
+    - name: Upload directory from local to remote machine
+      copy:
+        src: /path/to/source
+        dest: /remote/path
