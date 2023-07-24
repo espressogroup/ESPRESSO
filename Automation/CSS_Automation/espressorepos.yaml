@@ -14,6 +14,13 @@
       dnf:
         update_cache: yes
 
+    # Install Git package if it's not installed
+    - name: Install Git package
+      dnf:
+        name: git
+        state: present
+      when: ansible_pkg_mgr == "dnf" and not ansible_check_mode
+
     # Clone the project if it doesn't exist
     - name: Clone GitHub project
       git:
