@@ -5,7 +5,7 @@
 
   vars:
     git_user: MohamedRagabAnas
-    git_token: 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
+    git_token: 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
     github_url: https://{{ git_user }}:{{ git_token }}@github.com/espressogroup/ESPRESSO.git
     project_path: /usr/local/ESPRESSO
 
