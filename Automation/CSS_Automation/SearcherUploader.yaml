@@ -1,7 +1,17 @@
 ---
-- hosts: solid_servers
+- name: Create VMExper directory and copy files
+  hosts: solid_servers
+  become: true
   tasks:
-    - name: Upload directory from local to remote machine
+    - name: Create directory if it doesn't exist
+      file:
+        path: /usr/local/50VMExper
+        state: directory
+      register: dir_created
+
+    - name: Copy directory from local to remote
       copy:
-        src: /path/to/source
-        dest: /remote/path
+        src:  "/Users/ragab/ESPRESSO\ Project/Impementations/GithubRepo/ESPRESSO/Searcher"
+        dest: /usr/local/50VMExper/
+        remote_src: yes
+      when: dir_created.changed
