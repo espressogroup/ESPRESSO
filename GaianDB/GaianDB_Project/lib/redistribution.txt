@@ -1,0 +1,10 @@
+When distributing your application that uses the OpenFaces library, please make sure to include the following notice in your documentation:
+
+[Name of your software] uses the following third-party libraries:
+1. Software developed by the JDOM Project (http://www.jdom.org/).
+2. The JFreeChart library (http://www.jfree.org/jfreechart/) that is covered by the LGPL. It can be downloaded from http://www.teamdev.com/.
+3. The JCommon class library (http://www.jfree.org/jcommon/) that is covered by the LGPL.
+4. The CSS Parser library (http://cssparser.sourceforge.net/) that is covered by the LGPL.
+5. Parts of code from Apache MyFaces Project (http://myfaces.apache.org/) that is licensed under Apache License, Version 2.0.
+6. Parts of code from JSON software (http://www.json.org/).
+7. Parts of code from Apache Commons codec (http://jakarta.apache.org/commons/codec/) that is licensed under Apache License, Version 2.0
