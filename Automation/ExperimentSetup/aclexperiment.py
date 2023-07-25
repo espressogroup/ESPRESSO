@@ -894,4 +894,53 @@ def webid2400test():
     print('indices checked')
 
 
-webid2400test()
+def webid50Ragab():
+    serverlist=['https://srv03911.soton.ac.uk:3000/','https://srv03912.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    
+    podname='ragab50pod'
+    espressoindexfile=podname+'metaindex.csv'
+    podemail='@example.org'
+    podindexdir='espressoindex/'
+    password='12345'
+    sourcedir='/Users/ragab/PycharmProjects/DatasetSplitter/demoDS/'
+    numberofpods=10
+    n=50
+    mean=3
+    disp=0
+    medsizeacl=15
+    lowsizeacl=5
+    experiment=ACLexperiment(espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexdir=podindexdir, password=password)
+    experiment.loadserverlist(serverlist)
+    print('serverlist loaded')
+    experiment.loaddir(sourcedir)
+    print('files loaded')
+    experiment.logicaldist(n,numberofpods,0,0)
+    print('files distributed')
+    experiment.imaginefiles()
+    print('files imagined')
+    experiment.imaginetypedacl(mean, disp, medsizeacl, lowsizeacl)
+    print('files acl imagined')
+    experiment.saveexp(podname+'exp.ttl')
+    print('experiment saved')
+    #experiment.loadexp(podname+'exp.ttl')
+    experiment.ESPRESSOcreate()
+    print('ESPRESSO checked')
+    experiment.podcreate()
+    print('Pods created')
+    experiment.upload()
+    print('Pods populated')
+    experiment.aclindexwebidthreaded()
+    print('pods indexed')
+    experiment.aclmetaindex()
+    print('metaindices created')
+    experiment.indexpub()
+    print('indices opened')
+    experiment.metaindexpub()
+    print('metaindices opened')
+    experiment.indexfixerwebid()
+    print('indices checked')
+
+
+webid50Ragab()
