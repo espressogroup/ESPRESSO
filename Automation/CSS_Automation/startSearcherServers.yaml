@@ -3,12 +3,12 @@
   become: yes
 
   vars:
-    script_directory: /usr/local/Reza-WorkSpace/BuildGaian/SolidSearch_StandAlone/
+    script_directory: /usr/local/Reza-WorkSpace/BuildGaian/NewSearch_V4/
 
   tasks:
     - name: Run server.js script
       become: true
-      shell: node --max-old-space-size=8000 /usr/local/Reza-WorkSpace/BuildGaian/NewSearch_V2/index.js
+      shell: node /usr/local/Reza-WorkSpace/BuildGaian/NewSearch_V4/index.js
       async: 3600
       poll: 0
       register: script_task
