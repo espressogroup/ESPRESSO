@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# SSH username and password
+ssh_user="mrmm1f23@soton.ac.uk"
+ssh_password="01121809885_Soton"
+
+# List of target machines (hostnames or IP addresses)
+target_machines=("srv03812.soton.ac.uk")
+
+# Base path of the GaianDB script on the target machines
+project_path="/usr/local/Reza-WorkSpace"
+launch_script="${project_path}/BuildGaian/GaianDB_BuildMaven_Keyword_NewBarista/launchGaianServer.sh"
+
+# Loop through the target machines and start GaianDB on each machine
+for machine in "${target_machines[@]}"; do
+    echo "Starting GaianDB on ${machine}..."
+
+    # Make launchGaianServer.sh executable with sudo and provide password directly
+    sshpass -p "${ssh_password}" ssh "${ssh_user}@${machine}" "echo '${ssh_password}' | sudo -S chmod +x '${launch_script}'"
+
+    # Start GaianDB with sudo and provide password directly
+    sshpass -p "${ssh_password}" ssh "${ssh_user}@${machine}" "echo '${ssh_password}' | sudo -S '${launch_script}' &"
+
+    # Wait for the server to start (timeout: 60 seconds)
+    timeout 60 sshpass -p "${ssh_password}" ssh "${ssh_user}@${machine}" "sudo echo '${ssh_password}' | sh -c 'while ! nc -z localhost 6414; do sleep 1; done'"
+
+    # Check if the server started successfully
+    if sshpass -p "${ssh_password}" ssh "${ssh_user}@${machine}" "sudo echo '${ssh_password}' | nc -z localhost 6414"; then
+        # Server started successfully
+        echo "GaianDB started on ${machine} with PID $(sshpass -p "${ssh_password}" ssh "${ssh_user}@${machine}" "echo '${ssh_password}' | sudo -S echo $$")"
+    else
+        echo "GaianDB failed to start on ${machine}."
+    fi
+done
