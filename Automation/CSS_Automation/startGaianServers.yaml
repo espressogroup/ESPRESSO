@@ -13,10 +13,12 @@
         path: "{{ project_path }}/BuildGaian/GaianDB_BuildMaven_Keyword_NewBarista/launchGaianServer.sh"
         mode: "+x"
 
-    # Start GaianDB
+    # Change directory and start GaianDB
     - name: Start GaianDB
       become: true
-      command: "{{ project_path }}/BuildGaian/GaianDB_BuildMaven_Keyword_NewBarista/launchGaianServer.sh"
+      shell: "{{ project_path }}/BuildGaian/GaianDB_BuildMaven_Keyword_NewBarista/launchGaianServer.sh"
+      args:
+        chdir: "{{ project_path }}/BuildGaian/GaianDB_BuildMaven_Keyword_NewBarista"
       async: 3600
       poll: 0
       register: server_task

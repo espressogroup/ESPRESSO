@@ -15,11 +15,8 @@ launch_script="${project_path}/BuildGaian/GaianDB_BuildMaven_Keyword_NewBarista/
 for machine in "${target_machines[@]}"; do
     echo "Starting GaianDB on ${machine}..."
 
-    # Make launchGaianServer.sh executable with sudo and provide password directly
-    sshpass -p "${ssh_password}" ssh "${ssh_user}@${machine}" "echo '${ssh_password}' | sudo -S chmod +x '${launch_script}'"
-
     # Start GaianDB with sudo and provide password directly
-    sshpass -p "${ssh_password}" ssh "${ssh_user}@${machine}" "echo '${ssh_password}' | sudo -S '${launch_script}' &"
+    sshpass -p "${ssh_password}" ssh "${ssh_user}@${machine}" "cd '${project_path}/BuildGaian/GaianDB_BuildMaven_Keyword_NewBarista/' && echo '${ssh_password}' | sudo -S sh 'launchGaianServer.sh' &"
 
     # Wait for the server to start (timeout: 60 seconds)
     timeout 60 sshpass -p "${ssh_password}" ssh "${ssh_user}@${machine}" "sudo echo '${ssh_password}' | sh -c 'while ! nc -z localhost 6414; do sleep 1; done'"
