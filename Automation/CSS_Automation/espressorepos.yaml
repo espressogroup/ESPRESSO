@@ -10,9 +10,9 @@
     project_path: /usr/local/ESPRESSO
 
   tasks:
-    - name: Update package cache
-      dnf:
-        update_cache: yes
+#    - name: Update package cache
+#      dnf:
+#        update_cache: yes
 
     # Install Git package if it's not installed
     - name: Install Git package
