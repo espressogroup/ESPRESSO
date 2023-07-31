@@ -39,7 +39,7 @@ public class SqlParser {
 
                 Expression where = plainSelect.getWhere();
                 if (where != null) {
-                    System.out.println("WHERE clause: " + where);
+                    System.out.println("WHEREclause: " + where);
                     Expression rightExpression = ((EqualsTo) where).getRightExpression();
                     Expression leftExpression = ((EqualsTo) where).getLeftExpression();
                     result.put("rightExpression", rightExpression.toString());

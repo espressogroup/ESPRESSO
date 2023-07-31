@@ -36,6 +36,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import com.ibm.gaiandb.diags.GDBMessages;
 import com.ibm.gaiandb.udpdriver.client.UDPDriver;
+import com.ibm.solid.PropertiesManagement;
 
 /**
 	 * This class establishes and maintains network connectivity for the gaian node
@@ -1649,30 +1650,33 @@ public class GaianNodeSeeker implements Runnable {
 		logger.logInfo("Entering discovery loop, my details are: " + myNodeID + " " + myUser + " <pwd>" );
 
 		//Reza
-		String[] total2 = {"Node ID: " + myNodeID , " Node Name: " + myUser};
-		FileWriter fileWriter2 = null;
-		try {
-			fileWriter2 = new FileWriter("csvtestfiles/response.csv", true);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
+	//	String[] total2 = {"Node ID: " + myNodeID , " Node Name: " + myUser};
+	//	FileWriter fileWriter2 = null;
+	//	try {
+	//		String solidConfigFileName = GaianNode.SOLID_CONFIG_FILE_NAME;
+	//		String responseFilePath = PropertiesManagement.getInstance(solidConfigFileName)
+	//				.getProperty("SOLID_RESPONSE_FILE_PATH");
+	//		fileWriter2 = new FileWriter(responseFilePath, true);
+	//	} catch (IOException e) {
+	//		throw new RuntimeException(e);
+	//	}
 
-		BufferedWriter bufferWriter2 = new BufferedWriter(fileWriter2);
-		try {
-			bufferWriter2.write(Arrays.toString(total2));
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-		try {
-			bufferWriter2.newLine();
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-		try {
-			bufferWriter2.close();
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
+	//	BufferedWriter bufferWriter2 = new BufferedWriter(fileWriter2);
+	//	try {
+	//		bufferWriter2.write(Arrays.toString(total2));
+	//	} catch (IOException e) {
+	//		throw new RuntimeException(e);
+	//	}
+	//	try {
+	//		bufferWriter2.newLine();
+	//	} catch (IOException e) {
+	//		throw new RuntimeException(e);
+	//	}
+	///	try {
+		//	bufferWriter2.close();
+	//	} catch (IOException e) {
+	//		throw new RuntimeException(e);
+	//	}
 
 		boolean isFreshConnectionAttempt = true;		
 		boolean isDiscoveryStillRequired = true;

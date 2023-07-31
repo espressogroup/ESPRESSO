@@ -9,12 +9,14 @@ package com.ibm.db2j;
 
 import com.ibm.gaiandb.SecurityManager;
 import com.ibm.gaiandb.*;
+import com.ibm.gaiandb.GaianNode;
 import com.ibm.gaiandb.apps.SecurityClientAgent;
 import com.ibm.gaiandb.diags.GDBMessages;
 import com.ibm.gaiandb.policyframework.SQLQueryElements;
 import com.ibm.gaiandb.policyframework.SQLQueryFilter;
 import com.ibm.gaiandb.policyframework.SQLResultFilter;
 import com.ibm.gaiandb.policyframework.SQLResultFilterX;
+import com.ibm.solid.PropertiesManagement;
 import org.apache.derby.iapi.error.StandardException;
 import org.apache.derby.iapi.services.context.ContextManager;
 import org.apache.derby.iapi.sql.conn.LanguageConnectionContext;
@@ -1816,13 +1818,16 @@ public class GaianTable extends AbstractVTI implements VTICosting, IQualifyable,
 		// Use this "official" value if it was not derived via Table Function invocation
 		if ( null == originalSQL ) originalSQL = vtiEnvironment.getOriginalSQL().trim();
 
-		// Reza
+		// Reza Moosa
+		String solidConfigFileName = GaianNode.SOLID_CONFIG_FILE_NAME;
+		String responseFilePath = PropertiesManagement.getInstance(solidConfigFileName)
+				.getProperty("SOLID_RESPONSE_FILE_PATH");
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		String timeStamp = String.valueOf(timestamp);
 		String[] total = {timeStamp, "Incoming Query:  " + originalSQL};
 		FileWriter fileWriter = null;
 		try {
-			fileWriter = new FileWriter("csvtestfiles/response.csv", true);
+			fileWriter = new FileWriter(responseFilePath, true);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -1839,9 +1844,12 @@ public class GaianTable extends AbstractVTI implements VTICosting, IQualifyable,
 		}
 		try {
 			bufferWriter.close();
-		} catch (IOException e) {
+	    } catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+
+
+
 		//Modified by Reza Moosaei
 		/*try {
 			Map<String, String> result = new SqlParser().getCondition(originalSQL);

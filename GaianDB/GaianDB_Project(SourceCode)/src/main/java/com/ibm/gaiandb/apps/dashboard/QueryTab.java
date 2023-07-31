@@ -17,6 +17,8 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
 import java.io.File;
+import com.ibm.gaiandb.GaianNode;
+import com.ibm.gaiandb.GaianNode;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
@@ -41,9 +43,11 @@ import javax.swing.table.TableColumnModel;
 
 import barista.QueryBuilder;
 import com.ibm.db2j.GaianTable;
+import com.ibm.gaiandb.GaianNode;
 import com.ibm.gaiandb.Logger;
 import com.ibm.gaiandb.apps.SecurityClientAgent;
 import com.ibm.gaiandb.diags.GDBMessages;
+import com.ibm.solid.PropertiesManagement;
 
 public class QueryTab extends Tab {
 
@@ -580,13 +584,17 @@ public class QueryTab extends Tab {
 				resultsModel.setRowCount(0);
 				
 				long startTime = lastStartTime = System.currentTimeMillis();
-				//Reza
+
+				//Reza Moosa
+				String solidConfigFileName = GaianNode.SOLID_CONFIG_FILE_NAME;
+				String responseFilePath = PropertiesManagement.getInstance(solidConfigFileName)
+						.getProperty("SOLID_RESPONSE_FILE_PATH");
 				Timestamp timestamp2 = new Timestamp(System.currentTimeMillis());
 				String timeStamp2 = String.valueOf(timestamp2);
 				String[] total = {timeStamp2, " Start of Submit Query "};
 				FileWriter fileWriter = null;
 				try {
-					fileWriter = new FileWriter("csvtestfiles/response.csv", true);
+					fileWriter = new FileWriter(responseFilePath, true);
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
@@ -606,6 +614,7 @@ public class QueryTab extends Tab {
 				} catch (IOException e) {
 					throw new RuntimeException(e);
 				}
+
 
 				try {
 					if ( null == stmt ) stmt = conn.createStatement();
@@ -736,11 +745,11 @@ public class QueryTab extends Tab {
 					
 					totalTime += System.currentTimeMillis();
 
-					//Reza
+					//Reza Moosa
 					Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 					String timeStamp = String.valueOf(timestamp);
 					String[] total2 = {timeStamp, "Total Execution Time: ", String.valueOf(totalTime)};
-					FileWriter fileWriter2 = new FileWriter("csvtestfiles/response.csv", true);
+					FileWriter fileWriter2 = new FileWriter(responseFilePath, true);
 					BufferedWriter bufferWriter2 = new BufferedWriter(fileWriter2);
 					bufferWriter2.write(Arrays.toString(total2));
 					bufferWriter2.newLine();

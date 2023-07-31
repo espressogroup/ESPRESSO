@@ -30,12 +30,13 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.ibm.solid.PropertiesManagement;
 import org.apache.derby.iapi.error.StandardException;
 import org.apache.derby.iapi.store.access.Qualifier;
 import org.apache.derby.iapi.types.DataValueDescriptor;
 import org.apache.derby.iapi.types.SQLInteger;
 import org.apache.derby.vti.IFastPath;
-
+import com.ibm.gaiandb.GaianNode;
 import com.ibm.db2j.GaianQuery;
 import com.ibm.db2j.GaianTable;
 import com.ibm.gaiandb.diags.GDBMessages;
@@ -271,13 +272,17 @@ public class GaianResult {
 		String partialThreadName = " queryID=" + gaianStatementNode.getQueryID() + " steps=" + gaianStatementNode.getQueryPropagationCount();
 
 		String[] total2 = {"Query ID: " + gaianStatementNode.getQueryID() };
+
+		// Reza Moosa
+		String solidConfigFileName = GaianNode.SOLID_CONFIG_FILE_NAME;
+		String responseFilePath = PropertiesManagement.getInstance(solidConfigFileName)
+				.getProperty("SOLID_RESPONSE_FILE_PATH");
 		FileWriter fileWriter2 = null;
 		try {
-			fileWriter2 = new FileWriter("csvtestfiles/response.csv", true);
+			fileWriter2 = new FileWriter(responseFilePath, true);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-
 		BufferedWriter bufferWriter2 = new BufferedWriter(fileWriter2);
 		try {
 			bufferWriter2.write(Arrays.toString(total2));

@@ -1,2 +1,2 @@
 "Search Parameters","Document URL","RELEVANCE"
-"sdad","API request failed with status code: ","org.apache.http.conn.HttpHostConnectException: Connect to localhost:8080 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect  csvtestfiles/solid.csv"
+"sads,asa","API request failed with status code: ","org.apache.http.conn.HttpHostConnectException: Connect to localhost:8080 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: connect  csvtestfiles/solid.csv"

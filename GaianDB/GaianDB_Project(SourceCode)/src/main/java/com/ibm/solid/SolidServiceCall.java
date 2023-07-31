@@ -43,11 +43,14 @@ public class SolidServiceCall {
             return;
         }
         String solidConfigFileName = GaianNode.SOLID_CONFIG_FILE_NAME;
+        String responseFilePath = PropertiesManagement.getInstance(solidConfigFileName)
+                    .getProperty("SOLID_RESPONSE_FILE_PATH");
         String apiUrl = PropertiesManagement.getInstance(solidConfigFileName)
                 .getProperty("SOLID_API_URL");
         String csvFilePath = PropertiesManagement.getInstance(solidConfigFileName)
                 .getProperty("SOLID_CSV_FILE_PATH");
-try {
+
+    try {
     whereClause = data.replace("'", "");
     CSVWriter csvWriter = new CSVWriter(new FileWriter(csvFilePath));
 
@@ -69,19 +72,19 @@ try {
     response = Unirest.get(apiUrl + "?keyword=" + encodeValue(whereClause))
             .asJson();
 
-    long end = System.currentTimeMillis();
-    Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-    String timeStamp = String.valueOf(timestamp);
-    String end2 = String.valueOf(java.time.LocalTime.now());
-    String duration = String.valueOf(end - start);
-    String[] total = {timeStamp, "Search APP Start Time: " + start2 , " End time: " + end2, " Total Time: " + duration };
-    logger.logAlways( "Receive Response from Search APP" + "  Total Execution Time: " + total + "\n" );
+        long end = System.currentTimeMillis();
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        String timeStamp = String.valueOf(timestamp);
+        String end2 = String.valueOf(java.time.LocalTime.now());
+        String duration = String.valueOf(end - start);
+        String[] total = {timeStamp, "Search APP Start Time: " + start2 , " End time: " + end2, " Total Time: " + duration };
+        logger.logAlways( "Receive Response from Search APP" + "  Total Execution Time: " + total + "\n" );
 
-    FileWriter fileWriter = new FileWriter("csvtestfiles/response.csv", true);
-    BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
-    bufferWriter.write(Arrays.toString(total));
-    bufferWriter.newLine();
-    bufferWriter.close();
+        FileWriter fileWriter = new FileWriter(responseFilePath, true);
+        BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
+        bufferWriter.write(Arrays.toString(total));
+        bufferWriter.newLine();
+        bufferWriter.close();
 
     Gson gson = new Gson();
     String res = response.getBody().toString();
