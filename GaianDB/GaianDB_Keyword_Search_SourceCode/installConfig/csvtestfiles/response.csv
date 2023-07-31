@@ -279,3 +279,9 @@
 [2023-07-30 21:26:37.704,  Start of Submit Query ]
 [2023-07-30 21:26:37.706, Incoming Query:  SELECT * FROM LTSOLID WHERE Search_Parameters =  'sads,asa' ORDER BY RELEVANCE DESC]
 [Query ID: cspc201:1690748797708:2]
+[2023-07-31 14:17:58.352, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2023-07-31 14:18:20.13,  Start of Submit Query ]
+[2023-07-31 14:18:20.181, Incoming Query:  SELECT * FROM LTSOLID WHERE Search_Parameters =  'corona,https://srv03812.soton.ac.uk:3000/webidpod0/profile/card#me' ORDER BY RELEVANCE DESC]
+[Query ID: RagabsMacBookProlocal:1690809500185:1]
+[2023-07-31 14:18:20.726, Total Execution Time: , 592]
+------------------------------------------------------------------------

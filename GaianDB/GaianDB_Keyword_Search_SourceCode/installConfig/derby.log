@@ -1,25 +1,18 @@
 ----------------------------------------------------------------
-Sun Jul 30 21:25:41 BST 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0189-a87a-67c5-000000596090 
-on database directory C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig\gaiandb with class loader sun.misc.Launcher$AppClassLoader@7be9923 
-Loaded from file:/C:/Users/dcsuser/.m2/repository/org/apache/derby/derby/10.10.1.1/derby-10.10.1.1.jar
-java.vendor=IBM Corporation
-java.runtime.version=1.8.0_362-b09
-java.fullversion=1.8.0_362-b09
-JRE 1.8.0 Windows 11 amd64-64-Bit Compressed References 20230207_599 (JIT enabled, AOT enabled)
-OpenJ9   - e68fb241f
-OMR      - f491bbf6f
-JCL      - eebde685ec based on jdk8u362-b09
-user.dir=C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\installConfig
-os.name=Windows 11
-os.arch=amd64
-os.version=10.0
+Mon Jul 31 14:31:18 BST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0189-ac25-6159-00001bb5bce8 
+on database directory /Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_SourceCode/installConfig/gaiandb with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Loaded from file:/Users/ragab/.m2/repository/org/apache/derby/derby/10.10.1.1/derby-10.10.1.1.jar
+java.vendor=Amazon.com Inc.
+java.runtime.version=1.8.0_312-b07
+user.dir=/Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_SourceCode/installConfig
+os.name=Mac OS X
+os.arch=x86_64
+os.version=13.2.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
-Sun Jul 30 21:25:42 BST 2023 : Apache Derby Network Server - 10.10.1.1 - (1458268) started and ready to accept connections on port 6414
-Sun Jul 30 21:25:47 BST 2023 : Log Connections turned on.
-Sun Jul 30 21:25:47 BST 2023 : Connection number: 7.
-Sun Jul 30 21:25:47 BST 2023 : Max threads changed to 1000.
-Sun Jul 30 21:25:47 BST 2023 : Connection number: 8.
-Sun Jul 30 21:25:53 BST 2023 : Connection number: 9.
-Sun Jul 30 21:25:54 BST 2023 Thread[DRDAConnThread_2,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {9}), Apache Derby Network Server connected to database gaiandb;mode=null
+Mon Jul 31 14:31:20 BST 2023 : Apache Derby Network Server - 10.10.1.1 - (1458268) started and ready to accept connections on port 6414
+Mon Jul 31 14:31:25 BST 2023 : Log Connections turned on.
+Mon Jul 31 14:31:25 BST 2023 : Connection number: 7.
+Mon Jul 31 14:31:25 BST 2023 : Max threads changed to 1000.
+Mon Jul 31 14:31:25 BST 2023 : Connection number: 8.

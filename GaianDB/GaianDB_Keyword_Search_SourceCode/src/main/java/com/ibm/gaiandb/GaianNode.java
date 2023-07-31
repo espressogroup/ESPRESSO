@@ -609,6 +609,7 @@ public class GaianNode {
 			System.out.println(workspaceText);
 //			System.out.println( "DERBY SYSTEMHOME:\t" + System.getProperty("derby.system.home") );
 
+
 			String dbName = GaianDBConfig.getGaianNodeDatabaseName();
 
 			new File(LOG_DIR).mkdir();
@@ -951,7 +952,9 @@ public class GaianNode {
 					+ "Derby " + derbyVersionInfo + "- Java Version: " + javaVersionS + " (" + System.getProperty("java.vm.name") + ")\n\n"
 					+ "GaianNode started for Derby network server with sslMode=" + nsc.getCurrentProperties().getProperty("derby.drda.sslMode")
 					+ " on port: " + mPort + " at " + new Date(System.currentTimeMillis())
-					+ ", startup time: " + (System.currentTimeMillis() - initt) + "ms\n";
+					+ ", startup time: " + (System.currentTimeMillis() - initt) + "ms.\n";
+
+
 
 			if (null != mLogFile) System.out.println(startedMsg);
 			logger.logAlways( /*"GaianNode started\n" +*/ startedMsg);
