@@ -552,3 +552,12 @@
 [Query ID: cspc201:1688488592475:1]
 [2023-07-04 17:36:33.265, Total Execution Time: , 807]
 ------------------------------------------------------------------------
+[2023-07-31 13:53:28.197, Incoming Query:  SELECT * FROM LTSOLID WHERE Search_Parameters='corona,https://srv03812.soton.ac.uk:3000/webidpod0/profile/card#me']
+[Query ID: srv03768:1690808008199:0]
+[2023-07-31 13:53:30.042, Search APP Start Time: 13:53:28.256,  End time: 13:53:30.042,  Total Time: 1795]
+[2023-07-31 13:53:39.076, Incoming Query:  SELECT * FROM LTSOLID WHERE Search_Parameters='cancer,https://srv03812.soton.ac.uk:3000/webidpod0/profile/card#me']
+[Query ID: srv03768:1690808019077:1]
+[2023-07-31 13:54:10.801, Search APP Start Time: 13:53:39.086,  End time: 13:54:10.801,  Total Time: 31715]
+[2023-07-31 13:54:19.019, Incoming Query:  SELECT * FROM LTSOLID WHERE Search_Parameters='cancer,https://srv03812.soton.ac.uk:3000/webidpod0/profile/card#me']
+[Query ID: srv03768:1690808059020:2]
+[2023-07-31 13:54:47.584, Search APP Start Time: 13:54:19.032,  End time: 13:54:47.584,  Total Time: 28552]
