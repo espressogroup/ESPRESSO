@@ -3,12 +3,12 @@
   become: yes
 
   vars:
-    script_directory: /usr/local/Reza-WorkSpace/BuildGaian/NewSearch_V4/
+    Search_Project_Path: "/usr/local/ESPRESSO/Searcher/SolidSearch_HTTPGet_Keyword/"
 
   tasks:
     - name: Run server.js script
       become: true
-      shell: node /usr/local/Reza-WorkSpace/BuildGaian/NewSearch_V4/index.js
+      shell: node  /usr/local/ESPRESSO/Searcher/SolidSearch_HTTPGet_Keyword/index.js
       async: 3600
       poll: 0
       register: script_task

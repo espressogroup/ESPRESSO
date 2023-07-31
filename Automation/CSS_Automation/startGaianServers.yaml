@@ -4,21 +4,21 @@
   become: yes
 
   vars:
-    project_path: /usr/local/Reza-WorkSpace
+    Gaian_Build_path: /usr/local/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build
 
   tasks:
     - name: Make launchGaianServer.sh executable
       become: true
       file:
-        path: "{{ project_path }}/BuildGaian/GaianDB_BuildMaven_Keyword_NewBarista/launchGaianServer.sh"
+        path: "{{ Gaian_Build_path }}/launchGaianServer.sh"
         mode: "+x"
 
     # Change directory and start GaianDB
     - name: Start GaianDB
       become: true
-      shell: "{{ project_path }}/BuildGaian/GaianDB_BuildMaven_Keyword_NewBarista/launchGaianServer.sh"
+      shell: "{{ Gaian_Build_path }}/launchGaianServer.sh"
       args:
-        chdir: "{{ project_path }}/BuildGaian/GaianDB_BuildMaven_Keyword_NewBarista"
+        chdir: "{{ Gaian_Build_path }}"
       async: 3600
       poll: 0
       register: server_task
