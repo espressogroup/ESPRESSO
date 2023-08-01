@@ -111,6 +111,43 @@ def aclcrawlwebid(address, CSSa):
 
     return filetuples
 
+def aclcrawlwebidnew(address,podaddress, CSSa):
+    filetuples= []
+    data = CSSa.get_file(address)
+    #print(data)
+    g=Graph().parse(data=data,publicID=address)
+    #q1='''
+    #prefix ldp: <http://www.w3.org/ns/ldp#>
+    
+    #SELECT ?s ?p ?o WHERE{
+    #   ?s ?p ?o .
+    #}
+    #'''
+    #for r in g.query(q1):
+    #    print(r)
+    q='''
+    prefix ldp: <http://www.w3.org/ns/ldp#>
+    
+    SELECT ?f WHERE{
+        ?a ldp:contains ?f.
+    }
+    '''
+    for r in g.query(q):
+        #print(r["f"])
+        f=str(r["f"])
+        if f[-1]=='/':
+            d=aclcrawlwebidnew(f,podaddress,CSSa)
+            filetuples=filetuples+d
+        elif ('.' in f.rsplit('/')[-1]) and (not f.endswith('ttl')) and (not f.endswith('.ndx')) and (not f.endswith('.file')) and (not f.endswith('.sum')) and (not f.endswith('.webid')):
+            text=CSSa.get_file(f)
+            webidlist=getwebidlistlist(f,CSSa)
+            ftrunc=f[len(podaddress):]
+            filetuples.append((ftrunc,text,webidlist))
+        else:
+            pass
+
+    return filetuples
+
 def crawllist(address, CSSa):
     filelist= []
     data = CSSa.get_file(address)
@@ -438,7 +475,7 @@ def aclindextupleswebidnew(filetuples):
     ldpindex=LdpIndex()
     for (id,text,webidlist) in filetuples:
         print('indexing '+id)
-        ldpindex.indexwebid(id, text, webidlist)
+        ldpindex.indexwebidnew(id, text, webidlist)
     return ldpindex.index
 
 

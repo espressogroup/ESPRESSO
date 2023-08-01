@@ -476,7 +476,7 @@ class ACLexperiment:
                     CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
                     CSSA.create_authstring()
                     CSSA.create_authtoken()
-                    d=brewmaster.aclcrawlwebid(podaddress, CSSA)
+                    d=brewmaster.aclcrawlwebidnew(podaddress,podaddress, CSSA)
                     indexaddress=str(self.image.value(pnode,self.namespace.IndexAddress))
                     index=brewmaster.aclindextupleswebidnew(d)
                     executor.submit(brewmaster.uploadaclindex, index, indexaddress, CSSA)
@@ -548,6 +548,35 @@ class ACLexperiment:
                 
                 #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
                 index=brewmaster.aclindextupleswebid(d)
+                print('should be in index of' +podname +':' +str(len(index.keys())))
+                for f in n:
+                    index.pop(f)
+                #for f in self.forbidden:
+                    #index.pop(f+'.ndx','no key')
+                print("Difference?"+str(len(index.keys())))
+                brewmaster.uploadaclindex(index, indexaddress, CSSA)
+    
+    def indexfixerwebidnew(self):
+        for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):
+            IDP=str(self.image.value(snode,self.namespace.Address))
+            metaindexdata=''
+            for pnode in self.image.objects(snode,self.namespace.Contains):
+                podaddress=str(self.image.value(pnode,self.namespace.Address))
+                podname=str(self.image.value(pnode,self.namespace.Name))
+                USERNAME=str(self.image.value(pnode,self.namespace.Email))
+                PASSWORD=self.password
+                #addstring=indexaddress+'\r\n'
+                #metaindexdata+=addstring
+                CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
+                CSSA.create_authstring()
+                CSSA.create_authtoken()
+                indexaddress=str(self.image.value(pnode,self.namespace.IndexAddress))
+                n=brewmaster.indexchecker(indexaddress, CSSA)
+                print('currently in index of' +podname +':' +str(len(n)))
+                d=brewmaster.aclcrawlwebidnew(podaddress, podaddress,CSSA)
+                
+                #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
+                index=brewmaster.aclindextupleswebidnew(d)
                 print('should be in index of' +podname +':' +str(len(index.keys())))
                 for f in n:
                     index.pop(f)
@@ -1024,7 +1053,7 @@ def experimenttemplate():
     print('indices opened')
     experiment.metaindexpub()
     print('metaindices opened')
-    experiment.indexfixerwebid()
+    experiment.indexfixerwebidnew()
     print('indices checked')
 
 
