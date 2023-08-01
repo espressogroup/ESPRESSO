@@ -461,6 +461,27 @@ class ACLexperiment:
                     executor.submit(brewmaster.uploadaclindex, index, indexaddress, CSSA)
                     #brewmaster.uploadaclindex(index, indexaddress, CSSA)
 
+    def aclindexwebidnewthreaded(self):
+        with concurrent.futures.ThreadPoolExecutor(max_workers=60) as executor:
+        # submit tasks
+            for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):
+                IDP=str(self.image.value(snode,self.namespace.Address))
+                metaindexdata=''
+            
+                for pnode in self.image.objects(snode,self.namespace.Contains):
+                    podaddress=str(self.image.value(pnode,self.namespace.Address))
+                    podname=str(self.image.value(pnode,self.namespace.Name))
+                    USERNAME=str(self.image.value(pnode,self.namespace.Email))
+                    PASSWORD=self.password
+                    CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
+                    CSSA.create_authstring()
+                    CSSA.create_authtoken()
+                    d=brewmaster.aclcrawlwebid(podaddress, CSSA)
+                    indexaddress=str(self.image.value(pnode,self.namespace.IndexAddress))
+                    index=brewmaster.aclindextupleswebidnew(d)
+                    executor.submit(brewmaster.uploadaclindex, index, indexaddress, CSSA)
+                    #brewmaster.uploadaclindex(index, indexaddress, CSSA)
+
 
     def aclmetaindex(self):  
         for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):
@@ -941,6 +962,71 @@ def webid50Ragab():
     print('metaindices opened')
     experiment.indexfixerwebid()
     print('indices checked')
+
+
+def experimenttemplate():
+    #list of servers in the experiment:
+    serverlist=['https://srv03812.soton.ac.uk:3000/','https://srv03813.soton.ac.uk:3000/','https://srv03814.soton.ac.uk:3000/','https://srv03815.soton.ac.uk:3000/','https://srv03816.soton.ac.uk:3000/','https://srv03911.soton.ac.uk:3000/']
+    #name of the ESPRESSO pod. ESPRESSO is default.
+    espressopodname='ESPRESSO'
+    #email to register the ESPRESSO pod. espresso@example.com is default.
+    espressoemail='espresso@example.com'
+    #name for the pods in the experiment the pods will be called podname0, podmane1, etc.
+    podname='webidpod'
+    #name for the metaindex file.
+    espressoindexfile=podname+'metaindex.csv'
+    #email to register the pod. the emails will be podname0@example.org, podname1@example.org, etc.
+    podemail='@example.org'
+    #folder where the pod indices will go
+    podindexdir='espressoindex/'
+    #same password for all the logins
+    password='12345'
+    #local directory from where to take the files
+    sourcedir='/Users/yurysavateev/dataset4'
+    #total number of pods
+    numberofpods=60
+    #total number of files
+    n=2400
+    #on average how many pods can read a given file
+    mean=15
+    #relative deviation of the previous, can be left 0
+    disp=0
+    #how many files on average a pod can read
+    medsizeacl=600
+    #how many files a low access pod can read
+    lowsizeacl=100
+    #initializing the experiment
+    experiment=ACLexperiment(espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexdir=podindexdir, password=password)
+    experiment.loadserverlist(serverlist)
+    print('serverlist loaded')
+    experiment.loaddir(sourcedir)
+    print('files loaded')
+    experiment.logicaldist(n,numberofpods,0.2,0)
+    print('files distributed')
+    experiment.imaginefiles()
+    print('files imagined')
+    experiment.imaginetypedacl(mean, disp, medsizeacl, lowsizeacl)
+    print('files acl imagined')
+    experiment.saveexp(podname+'exp.ttl')
+    print('experiment saved')
+    #experiment.loadexp(podname+'exp.ttl')
+    experiment.ESPRESSOcreate()
+    print('ESPRESSO checked')
+    experiment.podcreate()
+    print('Pods created')
+    experiment.upload()
+    print('Pods populated')
+    experiment.aclindexwebidnewthreaded()
+    print('pods indexed')
+    experiment.aclmetaindex()
+    print('metaindices created')
+    experiment.indexpub()
+    print('indices opened')
+    experiment.metaindexpub()
+    print('metaindices opened')
+    experiment.indexfixerwebid()
+    print('indices checked')
+
 
 
 webid50Ragab()
