@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="af135863-393f-47ad-a8ba-280f05ed08b3" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2PMuHEWyty35K4T0UCXtxBLRTiD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/dcsuser/Desktop/New-Solid/Meeting/Week 39/ESPRESSO/GaianDB/GaianDB_Project(SourceCode)",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dcsuser\Desktop\New-Solid\Meeting\Week 37\ESPRESSO\GaianDB\Gaian_Maven\lib" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Dash">
+    <configuration name="Dash" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.ibm.gaiandb.apps.dashboard.Dashboard" />
+      <module name="Gaian_Maven" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/installConfig" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GN" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.ibm.gaiandb.GaianNode" />
+      <module name="Gaian_Maven" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/installConfig" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.GN" />
+      <item itemvalue="Application.Dash" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="af135863-393f-47ad-a8ba-280f05ed08b3" name="Changes" comment="" />
+      <created>1683279181835</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683279181835</updated>
+      <workItem from="1683279183027" duration="62000" />
+      <workItem from="1683284812634" duration="37000" />
+      <workItem from="1683577776285" duration="1362000" />
+      <workItem from="1683611065737" duration="1836000" />
+      <workItem from="1683663618346" duration="626000" />
+      <workItem from="1683708293305" duration="31000" />
+      <workItem from="1684095915049" duration="1193000" />
+      <workItem from="1684781591473" duration="1221000" />
+      <workItem from="1684785859748" duration="1302000" />
+      <workItem from="1684878216075" duration="8730000" />
+      <workItem from="1684918517146" duration="10241000" />
+      <workItem from="1684943493486" duration="4184000" />
+      <workItem from="1684957646685" duration="743000" />
+      <workItem from="1684958414583" duration="15383000" />
+      <workItem from="1686043700643" duration="2672000" />
+      <workItem from="1686213673743" duration="731000" />
+      <workItem from="1686218315196" duration="23000" />
+      <workItem from="1686495262174" duration="2056000" />
+      <workItem from="1688753548643" duration="143000" />
+      <workItem from="1688753705552" duration="7038000" />
+      <workItem from="1688800810250" duration="2107000" />
+      <workItem from="1688837369254" duration="1233000" />
+      <workItem from="1689153463122" duration="725000" />
+      <workItem from="1689441041107" duration="60000" />
+      <workItem from="1689680516468" duration="2763000" />
+      <workItem from="1689683638711" duration="655000" />
+      <workItem from="1689684320782" duration="561000" />
+      <workItem from="1689684900122" duration="928000" />
+      <workItem from="1689790929776" duration="1630000" />
+      <workItem from="1690202142433" duration="53000" />
+      <workItem from="1690209036572" duration="2313000" />
+      <workItem from="1690272866039" duration="2753000" />
+      <workItem from="1690467955439" duration="625000" />
+      <workItem from="1690473089562" duration="3242000" />
+      <workItem from="1690478672715" duration="4000" />
+      <workItem from="1690479108995" duration="5193000" />
+      <workItem from="1690487778956" duration="1547000" />
+      <workItem from="1690490214153" duration="862000" />
+      <workItem from="1690491135595" duration="2519000" />
+      <workItem from="1690523432728" duration="9523000" />
+      <workItem from="1690540200138" duration="8908000" />
+      <workItem from="1690740807266" duration="8160000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ibm/gaiandb/apps/dashboard/QueryTab.java</url>
+          <line>221</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ibm/db2j/FileImport.java</url>
+          <line>216</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
