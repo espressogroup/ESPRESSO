@@ -284,7 +284,7 @@ def getwebidlistlist(address,CSSA):
         #print(r["f"])
         f=str(r["f"])
         webidlist.append(f)
-    return webidlist
+    return list(set(webidlist))
 
 
 
