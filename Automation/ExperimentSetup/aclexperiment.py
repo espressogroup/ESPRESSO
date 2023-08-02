@@ -1058,12 +1058,12 @@ def experimenttemplate():
 
 
 
-def webid1podRagab():
+def webidRagab4podsexp():
     serverlist = ['https://srv03911.soton.ac.uk:3000/', 'https://srv03912.soton.ac.uk:3000/']
     espressopodname = 'ESPRESSO'
     espressoemail = 'espresso@example.com'
 
-    podname = 'ragab1pod'
+    podname = 'ragabpod'
     espressoindexfile = podname + 'metaindex.csv'
     podemail = '@example.org'
     podindexdir = 'espressoindex/'
@@ -1109,4 +1109,4 @@ def webid1podRagab():
     print('indices checked')
 
 
-webid1podRagab()
+webidRagab4podsexp()
