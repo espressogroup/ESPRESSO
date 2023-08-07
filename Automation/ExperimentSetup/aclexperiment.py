@@ -1109,4 +1109,105 @@ def webidRagab4podsexp():
     print('indices checked')
 
 
-webidRagab4podsexp()
+def webid2400NewIndexTestRagab():
+    serverlist=['https://srv03812.soton.ac.uk:3000/','https://srv03813.soton.ac.uk:3000/','https://srv03814.soton.ac.uk:3000/','https://srv03815.soton.ac.uk:3000/','https://srv03816.soton.ac.uk:3000/','https://srv03911.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    
+    podname='newIndexingpod'
+    espressoindexfile=podname+'metaindex.csv'
+    podemail='@example.org'
+    podindexdir='espressoindex/'
+    password='12345'
+    sourcedir='/Users/ragab/PycharmProjects/DatasetSplitter/DemoPaperDS'
+    numberofpods=60
+    n=2400
+    mean=15
+    disp=0
+    medsizeacl=600
+    lowsizeacl=100
+    experiment=ACLexperiment(espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexdir=podindexdir, password=password)
+    experiment.loadserverlist(serverlist)
+    print('serverlist loaded')
+    experiment.loaddir(sourcedir)
+    print('files loaded')
+    experiment.logicaldist(n,numberofpods,0.2,0)
+    print('files distributed')
+    experiment.imaginefiles()
+    print('files imagined')
+    experiment.imaginetypedacl(mean, disp, medsizeacl, lowsizeacl)
+    print('files acl imagined')
+    experiment.saveexp(podname+'exp.ttl')
+    print('experiment saved')
+    #experiment.loadexp(podname+'exp.ttl')
+    experiment.ESPRESSOcreate()
+    print('ESPRESSO checked')
+    experiment.podcreate()
+    print('Pods created')
+    experiment.upload()
+    print('Pods populated')
+    experiment.aclindexwebidnewthreaded()
+    print('pods indexed')
+    experiment.aclmetaindex()
+    print('metaindices created')
+    experiment.indexpub()
+    print('indices opened')
+    experiment.metaindexpub()
+    print('metaindices opened')
+    experiment.indexfixerwebidnew()
+    print('indices checked')
+
+
+def webid2400OldIndexTestRagab():
+    serverlist=['https://srv03812.soton.ac.uk:3000/','https://srv03813.soton.ac.uk:3000/','https://srv03814.soton.ac.uk:3000/','https://srv03815.soton.ac.uk:3000/','https://srv03816.soton.ac.uk:3000/','https://srv03911.soton.ac.uk:3000/']
+    espressopodname='ESPRESSO'
+    espressoemail='espresso@example.com'
+    
+    podname='oldIndexingpod'
+    espressoindexfile=podname+'metaindex.csv'
+    podemail='@example.org'
+    podindexdir='espressoindex/'
+    password='12345'
+    sourcedir='/Users/ragab/PycharmProjects/DatasetSplitter/DemoPaperDS'
+    numberofpods=60
+    n=2400
+    mean=15
+    disp=0
+    medsizeacl=600
+    lowsizeacl=100
+    experiment=ACLexperiment(espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexdir=podindexdir, password=password)
+    experiment.loadserverlist(serverlist)
+    print('serverlist loaded')
+    experiment.loaddir(sourcedir)
+    print('files loaded')
+    experiment.logicaldist(n,numberofpods,0.2,0)
+    print('files distributed')
+    experiment.imaginefiles()
+    print('files imagined')
+    experiment.imaginetypedacl(mean, disp, medsizeacl, lowsizeacl)
+    print('files acl imagined')
+    experiment.saveexp(podname+'exp.ttl')
+    print('experiment saved')
+    #experiment.loadexp(podname+'exp.ttl')
+    experiment.ESPRESSOcreate()
+    print('ESPRESSO checked')
+    experiment.podcreate()
+    print('Pods created')
+    experiment.upload()
+    print('Pods populated')
+    experiment.aclindexwebidthreaded()
+    print('pods indexed')
+    experiment.aclmetaindex()
+    print('metaindices created')
+    experiment.indexpub()
+    print('indices opened')
+    experiment.metaindexpub()
+    print('metaindices opened')
+    experiment.indexfixerwebid()
+    print('indices checked')
+
+
+
+
+
+webid2400OldIndexTestRagab()

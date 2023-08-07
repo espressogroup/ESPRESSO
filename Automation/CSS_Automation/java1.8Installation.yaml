@@ -1,0 +1,16 @@
+---
+- name: Install Java 1.8
+  hosts: solid_servers
+  become: yes
+
+  tasks:
+    - name: Check if Java 1.8 is installed
+      command: java -version
+      register: java_version_output
+      ignore_errors: yes
+
+    - name: Install Java 1.8
+      yum:
+        name: java-1.8.0-openjdk
+        state: present
+      when: "'1.8' not in java_version_output.stderr"

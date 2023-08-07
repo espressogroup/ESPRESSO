@@ -3,12 +3,12 @@
   become: yes
 
   vars:
-    Search_Project_Path: "/usr/local/ESPRESSO/Searcher/SolidSearch_HTTPGet_Keyword/"
+    Search_Project_Path: /usr/local/ESPRESSO/Searcher/NewSearch_HTTPGet_Keyword_New/
 
   tasks:
     - name: Run server.js script
       become: true
-      shell: node  /usr/local/ESPRESSO/Searcher/SolidSearch_HTTPGet_Keyword/index.js
+      shell: node  "{{ Search_Project_Path }}/index.js"
       async: 3600
       poll: 0
       register: script_task
