@@ -27,14 +27,14 @@ app.get('/query', async (req, res) => {
             if(webIdAccess.status !== 200){
                 continue;
             }
-            const webIdRow = webIdAccess.data.split("\r\n").filter(i => i.length > 0);
+            const webIdRow = webIdAccess.data.split("\r\n").filter(i => i.length > 0);     // f1, 4          f1,doc12.dat
         	const ndxRow = response.data.split("\r\n").filter(i => i.length > 0);
             for (let i = 0; i < ndxRow.length; i++) {
                 const [fileId, frequency] = ndxRow[i].split(",");
-                console.log(fileId);
-                for (let j = 0; j < webIdRow.length; j++) {
-      			const [fileId2, fileName] = webIdRow[j].split(",");
-                if (fileId == fileId2) {
+              //  for (let j = 0; j < webIdRow.length; j++) {
+                const access = webIdRow.find(i => i.split(",")[0] == fileId); 		
+                if (access) {
+					const [fileId2, fileName] = access.split(",");
                     const newvalue = { "address": `${baseAdress}${fileName}`, "frequency": frequency }
                     integratedResult = [...integratedResult, newvalue];
                 }
@@ -46,7 +46,7 @@ app.get('/query', async (req, res) => {
 });
 
 const readSources = async () => {
-    const response = await axios.get("https://srv03911.soton.ac.uk:3000/ESPRESSO/ragab1podmetaindex.csv", { responseType: 'blob' });
+    const response = await axios.get("https://srv039.sot.ac.uk:3000/ESP/ragpodmetaindex.csv", { responseType: 'blob' });
     const csvStr = await response.data;
     const result = csvStr.split("\r\n").filter(i => i.length > 0);
     return result;
