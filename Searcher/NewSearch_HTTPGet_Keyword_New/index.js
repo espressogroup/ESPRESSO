@@ -27,7 +27,7 @@ app.get('/query', async (req, res) => {
             if(webIdAccess.status !== 200){
                 continue;
             }
-            const webIdRow = webIdAccess.data.split("\r\n").filter(i => i.length > 0);     // f1, 4          f1,doc12.dat
+            const webIdRow = webIdAccess.data.split("\r\n").filter(i => i.length > 0);     
         	const ndxRow = response.data.split("\r\n").filter(i => i.length > 0);
             for (let i = 0; i < ndxRow.length; i++) {
                 const [fileId, frequency] = ndxRow[i].split(",");
@@ -38,7 +38,7 @@ app.get('/query', async (req, res) => {
                     const newvalue = { "address": `${baseAdress}${fileName}`, "frequency": frequency }
                     integratedResult = [...integratedResult, newvalue];
                 }
-		   	}
+		   	//}
            }
         }
     }
@@ -46,7 +46,7 @@ app.get('/query', async (req, res) => {
 });
 
 const readSources = async () => {
-    const response = await axios.get("https://srv039.sot.ac.uk:3000/ESP/ragpodmetaindex.csv", { responseType: 'blob' });
+    const response = await axios.get("https://srv03812.soton.ac.uk:3000/ESPRESSO/ragab1podmetaindex.csv", { responseType: 'blob' });
     const csvStr = await response.data;
     const result = csvStr.split("\r\n").filter(i => i.length > 0);
     return result;
