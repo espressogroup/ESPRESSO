@@ -9,11 +9,11 @@ app.listen(port, () => {
 })
 
 
-const certificate = fs.readFileSync('ca.pem');
-const httpsAgent = new https.Agent({
-    ca: certificate,
-    rejectUnauthorized: false});
-const axiosInstance = axios.create({httpsAgent});
+// const certificate = fs.readFileSync('ca.pem');
+// const httpsAgent = new https.Agent({
+//     ca: certificate,
+//     rejectUnauthorized: false});
+// const axiosInstance = axios.create({httpsAgent});
 
 
 function compareAlphanumeric(id1, id2) {
@@ -44,9 +44,9 @@ app.get('/query', async (req, res) => {
     for (let index = 0; index < sources.length; index++) {
         const source = sources[index];
         const baseAdress = source.replace(/\/espressoindex\//,"/");
-        const response = await axiosInstance.get(`${source}${searchWord}.ndx`).then((resp) => resp).catch((resp) => resp.response);
+        const response = await axios.get(`${source}${searchWord}.ndx`).then((resp) => resp).catch((resp) => resp.response);
         if (response.status === 200) {
-            const webIdAccess = await axiosInstance.get(`${source}${webIdQuery}.webid`).then((resp) => resp).catch((resp) => resp.response);
+            const webIdAccess = await axios.get(`${source}${webIdQuery}.webid`).then((resp) => resp).catch((resp) => resp.response);
             if (webIdAccess.status === 200) {
                 const webIdRows = webIdAccess.data.split("\r\n").filter(i => i.length > 0);
                 const ndxRows = response.data.split("\r\n").filter(i => i.length > 0);
@@ -77,7 +77,7 @@ app.get('/query', async (req, res) => {
 });
 
 const readSources = async () => {
-    const response = await axiosInstance.get("https://srv03812.soton.ac.uk:3000/ESPRESSO/newIndexingpodmetaindex.csv", { responseType: 'blob' });
+    const response = await axios.get("https://srv03812.soton.ac.uk:3000/ESPRESSO/newIndexingpodmetaindex.csv", { responseType: 'blob' });
     const csvStr = await response.data;
     const result = csvStr.split("\r\n").filter(i => i.length > 0);
 
