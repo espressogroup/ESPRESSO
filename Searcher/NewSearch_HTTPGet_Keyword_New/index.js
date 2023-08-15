@@ -45,9 +45,29 @@ app.get('/query', async (req, res) => {
   res.json(integratedResult)
 });
 
-const readSources = async () => {
-    const response = await axios.get("https://srv03812.soton.ac.uk:3000/ESPRESSO/ragab1podmetaindex.csv", { responseType: 'blob' });
-    const csvStr = await response.data;
+async function readSources() {
+    const urlArgument = process.argv[2];
+    const metaIndexname=process.argv[3];
+    const response = await axios.get(`https://${urlArgument}:3000/ESPRESSO/${metaIndexname}`, { responseType: 'blob' });
+    const csvStr = response.data.toString();
     const result = csvStr.split("\r\n").filter(i => i.length > 0);
+
     return result;
 }
+
+async function readSources() {
+    const urlArgument = process.argv[2];
+    const metaIndexname=process.argv[3];
+    const response = await axios.get(`https://${urlArgument}:3000/ESPRESSO/${metaIndexname}`, { responseType: 'blob' });
+    const csvStr = response.data.toString();
+    const result = csvStr.split("\r\n").filter(i => i.length > 0);
+
+    return result;
+}
+
+// const readSources = async () => {
+//     const response = await axios.get("https://srv03812.soton.ac.uk:3000/ESPRESSO/ragab1podmetaindex.csv", { responseType: 'blob' });
+//     const csvStr = await response.data;
+//     const result = csvStr.split("\r\n").filter(i => i.length > 0);
+//     return result;
+// }
