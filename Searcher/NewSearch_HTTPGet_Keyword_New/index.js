@@ -4,7 +4,7 @@ const port = 8080
 const axios = require('axios');
 const fs = require("fs");
 app.listen(port, () => {
-    console.log(`app listening on port ${port}`)
+    console.log(`app (OLD) listening on port ${port}`)
 })
 
 app.get('/query', async (req, res) => {
