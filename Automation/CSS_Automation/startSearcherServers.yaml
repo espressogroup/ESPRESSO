@@ -4,11 +4,12 @@
 
   vars:
     Search_Project_Path: /usr/local/ESPRESSO/Searcher/NewSearch_HTTPGet_Keyword_New/
+    MetaIndex: "newIndexingMetaIndex.csv"
 
   tasks:
     - name: Run server.js script
       become: true
-      shell: node  "{{ Search_Project_Path }}/index.js"
+      shell: node  "{{ Search_Project_Path }}/index.js {{ ansible_host }} {{MetaIndex}}"
       async: 3600
       poll: 0
       register: script_task
