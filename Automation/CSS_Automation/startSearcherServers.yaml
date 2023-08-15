@@ -9,7 +9,7 @@
   tasks:
     - name: Run server.js script
       become: true
-      shell: "node  {{ Search_Project_Path }}/index.js {{ ansible_host }} {{MetaIndex}}"
+      shell: "node  {{ Search_Project_Path }}/index_MergeSort_Optmized.js {{ ansible_host }} {{MetaIndex}}"
       async: 3600
       poll: 0
       register: script_task
