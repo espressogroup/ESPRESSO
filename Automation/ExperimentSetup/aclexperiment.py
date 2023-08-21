@@ -1059,7 +1059,7 @@ def experimenttemplate():
 
 
 def webidRagab4podsexp():
-    serverlist = ['https://srv03911.soton.ac.uk:3000/', 'https://srv03912.soton.ac.uk:3000/']
+    serverlist = ['https://srv03813.soton.ac.uk:3000/', 'https://srv03914.soton.ac.uk:3000/']
     espressopodname = 'ESPRESSO'
     espressoemail = 'espresso@example.com'
 
@@ -1210,4 +1210,4 @@ def webid2400OldIndexTestRagab():
 
 
 
-webid2400NewIndexTestRagab()
+webidRagab4podsexp()
