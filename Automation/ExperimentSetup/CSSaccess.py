@@ -120,7 +120,7 @@ class CSSaccess:
 :ControlReadWrite
 a acl:Authorization;
 acl:accessTo <'''+fileaddress+'''>;
-acl:agent c:me, <mailto:ys1v22@soton.ac.uk>;
+acl:agent c:me;
 acl:mode acl:Control, acl:Read, acl:Write.
 
 :Read
@@ -166,7 +166,7 @@ acl:mode acl:Read.
 :ControlReadWrite
 a acl:Authorization;
 acl:accessTo <'''+filename+'''>;
-acl:agent c:me, <mailto:ys1v22@soton.ac.uk>;
+acl:agent c:me;
 acl:agentClass foaf:Agent;
 acl:mode acl:Control, acl:Read, acl:Write.'''
             #print('no acl')

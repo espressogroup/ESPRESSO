@@ -1,4 +1,4 @@
-import CSSaccess, rdfindex, cleantext, string
+import CSSaccess, cleantext, string
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 #from rdflib.namespace import ACL
 import concurrent.futures
