@@ -1,0 +1,2330 @@
+@prefix ns1: <http://example.org/SOLIDindex/> .
+
+[] ns1:Address "https://srv03812.soton.ac.uk:3000/" ;
+    ns1:Contains _:S0P0,
+        _:S0P1,
+        _:S0P2,
+        _:S0P3,
+        _:S0P4,
+        _:S0P5,
+        _:S0P6,
+        _:S0P7,
+        _:S0P8,
+        _:S0P9 ;
+    ns1:ContainsEspressoPod [ ns1:Address "https://srv03812.soton.ac.uk:3000/ESPRESSO" ;
+            ns1:MetaindexAddress "https://srv03812.soton.ac.uk:3000/ESPRESSO/aclthreadindex.csv" ;
+            ns1:Name "ESPRESSO/" ;
+            ns1:Type ns1:EspressoPod ] ;
+    ns1:RegisterEndpoint "https://srv03812.soton.ac.uk:3000/idp/register/" ;
+    ns1:Type ns1:Server .
+
+[] ns1:Address "https://srv03813.soton.ac.uk:3000/" ;
+    ns1:Contains _:S1P0,
+        _:S1P1,
+        _:S1P2,
+        _:S1P3,
+        _:S1P4,
+        _:S1P5,
+        _:S1P6,
+        _:S1P7,
+        _:S1P8,
+        _:S1P9 ;
+    ns1:ContainsEspressoPod [ ns1:Address "https://srv03813.soton.ac.uk:3000/ESPRESSO" ;
+            ns1:MetaindexAddress "https://srv03813.soton.ac.uk:3000/ESPRESSO/aclthreadindex.csv" ;
+            ns1:Name "ESPRESSO/" ;
+            ns1:Type ns1:EspressoPod ] ;
+    ns1:RegisterEndpoint "https://srv03813.soton.ac.uk:3000/idp/register/" ;
+    ns1:Type ns1:Server .
+
+[] ns1:Address "https://srv03814.soton.ac.uk:3000/" ;
+    ns1:Contains _:S2P0,
+        _:S2P1,
+        _:S2P2,
+        _:S2P3,
+        _:S2P4,
+        _:S2P5,
+        _:S2P6,
+        _:S2P7,
+        _:S2P8,
+        _:S2P9 ;
+    ns1:ContainsEspressoPod [ ns1:Address "https://srv03814.soton.ac.uk:3000/ESPRESSO" ;
+            ns1:MetaindexAddress "https://srv03814.soton.ac.uk:3000/ESPRESSO/aclthreadindex.csv" ;
+            ns1:Name "ESPRESSO/" ;
+            ns1:Type ns1:EspressoPod ] ;
+    ns1:RegisterEndpoint "https://srv03814.soton.ac.uk:3000/idp/register/" ;
+    ns1:Type ns1:Server .
+
+[] ns1:Address "https://srv03815.soton.ac.uk:3000/" ;
+    ns1:Contains _:S3P0,
+        _:S3P1,
+        _:S3P2,
+        _:S3P3,
+        _:S3P4,
+        _:S3P5,
+        _:S3P6,
+        _:S3P7,
+        _:S3P8,
+        _:S3P9 ;
+    ns1:ContainsEspressoPod [ ns1:Address "https://srv03815.soton.ac.uk:3000/ESPRESSO" ;
+            ns1:MetaindexAddress "https://srv03815.soton.ac.uk:3000/ESPRESSO/aclthreadindex.csv" ;
+            ns1:Name "ESPRESSO/" ;
+            ns1:Type ns1:EspressoPod ] ;
+    ns1:RegisterEndpoint "https://srv03815.soton.ac.uk:3000/idp/register/" ;
+    ns1:Type ns1:Server .
+
+[] ns1:Address "https://srv03816.soton.ac.uk:3000/" ;
+    ns1:Contains _:S4P0,
+        _:S4P1,
+        _:S4P2,
+        _:S4P3,
+        _:S4P4,
+        _:S4P5,
+        _:S4P6,
+        _:S4P7,
+        _:S4P8,
+        _:S4P9 ;
+    ns1:ContainsEspressoPod [ ns1:Address "https://srv03816.soton.ac.uk:3000/ESPRESSO" ;
+            ns1:MetaindexAddress "https://srv03816.soton.ac.uk:3000/ESPRESSO/aclthreadindex.csv" ;
+            ns1:Name "ESPRESSO/" ;
+            ns1:Type ns1:EspressoPod ] ;
+    ns1:RegisterEndpoint "https://srv03816.soton.ac.uk:3000/idp/register/" ;
+    ns1:Type ns1:Server .
+
+[] ns1:Address "https://srv03911.soton.ac.uk:3000/" ;
+    ns1:Contains _:S5P0,
+        _:S5P1,
+        _:S5P2,
+        _:S5P3,
+        _:S5P4,
+        _:S5P5,
+        _:S5P6,
+        _:S5P7,
+        _:S5P8,
+        _:S5P9 ;
+    ns1:ContainsEspressoPod [ ns1:Address "https://srv03911.soton.ac.uk:3000/ESPRESSO" ;
+            ns1:MetaindexAddress "https://srv03911.soton.ac.uk:3000/ESPRESSO/aclthreadindex.csv" ;
+            ns1:Name "ESPRESSO/" ;
+            ns1:Type ns1:EspressoPod ] ;
+    ns1:RegisterEndpoint "https://srv03911.soton.ac.uk:3000/idp/register/" ;
+    ns1:Type ns1:Server .
+
+_:S0P0F0 ns1:AccessibleBy _:S0P2,
+        _:S0P9,
+        _:S2P6,
+        _:S2P9,
+        _:S3P2,
+        _:S3P5,
+        _:S4P6,
+        _:S4P9,
+        _:S5P4,
+        _:S5P5 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod0/File69.dat" ;
+    ns1:Filename "File69.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File69.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P1F0 ns1:AccessibleBy _:S0P3,
+        _:S0P9,
+        _:S1P2,
+        _:S1P3,
+        _:S1P8,
+        _:S3P7,
+        _:S3P9,
+        _:S5P1,
+        _:S5P6,
+        _:S5P9 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod1/File41.dat" ;
+    ns1:Filename "File41.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File41.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P2F0 ns1:AccessibleBy _:S0P4,
+        _:S0P6,
+        _:S1P0,
+        _:S1P6,
+        _:S1P7,
+        _:S2P3,
+        _:S2P6,
+        _:S3P5,
+        _:S4P0,
+        _:S4P7 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod2/File55.dat" ;
+    ns1:Filename "File55.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File55.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P2F1 ns1:AccessibleBy _:S0P5,
+        _:S1P2,
+        _:S2P2,
+        _:S2P5,
+        _:S3P0,
+        _:S3P8,
+        _:S3P9,
+        _:S4P0,
+        _:S4P9,
+        _:S5P9 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod2/File82.dat" ;
+    ns1:Filename "File82.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File82.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P3F0 ns1:AccessibleBy _:S0P5,
+        _:S0P7,
+        _:S1P0,
+        _:S1P3,
+        _:S3P0,
+        _:S3P2,
+        _:S3P3,
+        _:S3P5,
+        _:S3P9,
+        _:S5P3 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod3/File96.dat" ;
+    ns1:Filename "File96.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File96.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P4F0 ns1:AccessibleBy _:S0P0,
+        _:S0P3,
+        _:S0P9,
+        _:S3P2,
+        _:S3P4,
+        _:S4P1,
+        _:S5P1,
+        _:S5P3,
+        _:S5P5,
+        _:S5P6 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod4/File97.dat" ;
+    ns1:Filename "File97.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File97.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P4F1 ns1:AccessibleBy _:S0P0,
+        _:S0P1,
+        _:S0P2,
+        _:S2P0,
+        _:S2P8,
+        _:S3P2,
+        _:S4P3,
+        _:S4P8,
+        _:S4P9,
+        _:S5P8 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod4/File83.dat" ;
+    ns1:Filename "File83.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File83.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P5F0 ns1:AccessibleBy _:S0P7,
+        _:S1P2,
+        _:S2P4,
+        _:S2P9,
+        _:S3P7,
+        _:S3P9,
+        _:S4P1,
+        _:S4P3,
+        _:S5P3,
+        _:S5P8 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod5/File54.dat" ;
+    ns1:Filename "File54.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File54.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P5F1 ns1:AccessibleBy _:S1P0,
+        _:S1P3,
+        _:S1P8,
+        _:S2P3,
+        _:S2P8,
+        _:S2P9,
+        _:S3P4,
+        _:S3P9,
+        _:S4P3,
+        _:S5P8 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod5/File40.dat" ;
+    ns1:Filename "File40.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File40.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P5F2 ns1:AccessibleBy _:S0P2,
+        _:S0P6,
+        _:S1P2,
+        _:S2P2,
+        _:S2P4,
+        _:S2P5,
+        _:S3P0,
+        _:S5P3,
+        _:S5P8,
+        _:S5P9 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod5/File68.dat" ;
+    ns1:Filename "File68.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File68.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P6F0 ns1:AccessibleBy _:S1P0,
+        _:S1P8,
+        _:S2P6,
+        _:S2P8,
+        _:S4P0,
+        _:S4P3,
+        _:S4P7,
+        _:S4P9,
+        _:S5P7,
+        _:S5P8 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod6/File56.dat" ;
+    ns1:Filename "File56.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File56.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P6F1 ns1:AccessibleBy _:S1P9,
+        _:S2P4,
+        _:S2P5,
+        _:S2P7,
+        _:S3P1,
+        _:S3P2,
+        _:S4P2,
+        _:S5P4,
+        _:S5P5,
+        _:S5P6 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod6/File42.dat" ;
+    ns1:Filename "File42.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File42.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P7F0 ns1:AccessibleBy _:S0P7,
+        _:S0P9,
+        _:S1P3,
+        _:S1P4,
+        _:S1P5,
+        _:S2P1,
+        _:S3P0,
+        _:S3P6,
+        _:S3P7,
+        _:S5P6 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod7/File95.dat" ;
+    ns1:Filename "File95.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File95.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P8F0 ns1:AccessibleBy _:S0P4,
+        _:S1P2,
+        _:S1P6,
+        _:S2P1,
+        _:S2P7,
+        _:S3P7,
+        _:S4P4,
+        _:S4P9,
+        _:S5P0,
+        _:S5P1 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod8/File81.dat" ;
+    ns1:Filename "File81.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File81.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P8F1 ns1:AccessibleBy _:S1P7,
+        _:S1P8,
+        _:S2P2,
+        _:S2P3,
+        _:S2P9,
+        _:S3P2,
+        _:S5P2,
+        _:S5P3,
+        _:S5P4,
+        _:S5P9 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod8/File80.dat" ;
+    ns1:Filename "File80.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File80.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P9F0 ns1:AccessibleBy _:S0P1,
+        _:S0P2,
+        _:S0P3,
+        _:S1P6,
+        _:S2P0,
+        _:S3P3,
+        _:S4P0,
+        _:S4P4,
+        _:S5P0,
+        _:S5P2 ;
+    ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod9/File94.dat" ;
+    ns1:Filename "File94.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File94.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P0F0 ns1:AccessibleBy _:S0P0,
+        _:S0P3,
+        _:S0P6,
+        _:S1P0,
+        _:S2P0,
+        _:S2P2,
+        _:S3P2,
+        _:S4P1,
+        _:S5P2,
+        _:S5P3 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod0/File43.dat" ;
+    ns1:Filename "File43.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File43.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P0F1 ns1:AccessibleBy _:S0P1,
+        _:S0P3,
+        _:S1P4,
+        _:S1P7,
+        _:S1P9,
+        _:S3P7,
+        _:S3P8,
+        _:S4P7,
+        _:S5P4,
+        _:S5P9 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod0/File57.dat" ;
+    ns1:Filename "File57.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File57.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P0F2 ns1:AccessibleBy _:S0P4,
+        _:S0P7,
+        _:S1P7,
+        _:S2P2,
+        _:S2P3,
+        _:S2P6,
+        _:S2P7,
+        _:S3P1,
+        _:S3P9,
+        _:S4P3 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod0/File53.dat" ;
+    ns1:Filename "File53.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File53.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P1F0 ns1:AccessibleBy _:S0P5,
+        _:S0P7,
+        _:S1P5,
+        _:S2P3,
+        _:S2P4,
+        _:S3P2,
+        _:S3P9,
+        _:S4P7,
+        _:S5P0,
+        _:S5P5 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod1/File47.dat" ;
+    ns1:Filename "File47.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File47.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P1F1 ns1:AccessibleBy _:S0P4,
+        _:S0P7,
+        _:S1P4,
+        _:S1P8,
+        _:S2P6,
+        _:S2P8,
+        _:S2P9,
+        _:S3P1,
+        _:S4P7,
+        _:S4P9 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod1/File90.dat" ;
+    ns1:Filename "File90.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File90.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P2F0 ns1:AccessibleBy _:S0P3,
+        _:S1P4,
+        _:S2P3,
+        _:S3P2,
+        _:S3P5,
+        _:S3P8,
+        _:S4P1,
+        _:S5P3,
+        _:S5P5,
+        _:S5P8 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod2/File84.dat" ;
+    ns1:Filename "File84.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File84.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P3F0 ns1:AccessibleBy _:S0P6,
+        _:S1P0,
+        _:S1P8,
+        _:S2P0,
+        _:S2P6,
+        _:S3P9,
+        _:S5P0,
+        _:S5P4,
+        _:S5P6,
+        _:S5P9 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod3/File85.dat" ;
+    ns1:Filename "File85.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File85.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P3F1 ns1:AccessibleBy _:S0P3,
+        _:S0P4,
+        _:S0P6,
+        _:S1P1,
+        _:S2P4,
+        _:S4P0,
+        _:S4P3,
+        _:S4P7,
+        _:S5P1,
+        _:S5P9 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod3/File91.dat" ;
+    ns1:Filename "File91.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File91.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P4F0 ns1:AccessibleBy _:S0P0,
+        _:S0P1,
+        _:S0P6,
+        _:S1P0,
+        _:S1P4,
+        _:S1P9,
+        _:S2P1,
+        _:S3P2,
+        _:S3P6,
+        _:S3P9 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod4/File46.dat" ;
+    ns1:Filename "File46.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File46.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P4F1 ns1:AccessibleBy _:S1P3,
+        _:S1P4,
+        _:S2P0,
+        _:S2P4,
+        _:S2P7,
+        _:S4P0,
+        _:S4P2,
+        _:S4P7,
+        _:S5P1,
+        _:S5P9 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod4/File52.dat" ;
+    ns1:Filename "File52.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File52.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P5F0 ns1:AccessibleBy _:S0P2,
+        _:S0P3,
+        _:S0P6,
+        _:S1P2,
+        _:S1P3,
+        _:S2P1,
+        _:S2P8,
+        _:S3P5,
+        _:S4P4,
+        _:S5P8 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod5/File44.dat" ;
+    ns1:Filename "File44.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File44.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P5F1 ns1:AccessibleBy _:S2P5,
+        _:S2P6,
+        _:S2P7,
+        _:S3P0,
+        _:S3P3,
+        _:S3P5,
+        _:S4P1,
+        _:S4P3,
+        _:S5P0,
+        _:S5P9 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod5/File50.dat" ;
+    ns1:Filename "File50.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File50.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P6F0 ns1:AccessibleBy _:S0P8,
+        _:S1P4,
+        _:S1P6,
+        _:S1P7,
+        _:S2P0,
+        _:S2P5,
+        _:S3P4,
+        _:S4P0,
+        _:S4P4,
+        _:S5P8 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod6/File78.dat" ;
+    ns1:Filename "File78.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File78.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P6F1 ns1:AccessibleBy _:S1P3,
+        _:S1P6,
+        _:S2P1,
+        _:S2P3,
+        _:S2P7,
+        _:S3P0,
+        _:S4P0,
+        _:S4P7,
+        _:S5P0,
+        _:S5P2 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod6/File87.dat" ;
+    ns1:Filename "File87.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File87.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P7F0 ns1:AccessibleBy _:S0P1,
+        _:S0P5,
+        _:S0P6,
+        _:S0P9,
+        _:S2P7,
+        _:S3P1,
+        _:S3P2,
+        _:S4P6,
+        _:S4P8,
+        _:S5P2 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod7/File93.dat" ;
+    ns1:Filename "File93.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File93.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P8F0 ns1:AccessibleBy _:S0P5,
+        _:S1P3,
+        _:S1P6,
+        _:S2P5,
+        _:S3P3,
+        _:S4P1,
+        _:S4P7,
+        _:S4P8,
+        _:S5P4,
+        _:S5P6 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod8/File92.dat" ;
+    ns1:Filename "File92.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File92.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S1P9F0 ns1:AccessibleBy _:S0P0,
+        _:S1P0,
+        _:S1P5,
+        _:S1P9,
+        _:S2P1,
+        _:S3P4,
+        _:S4P1,
+        _:S5P2,
+        _:S5P3,
+        _:S5P6 ;
+    ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod9/File86.dat" ;
+    ns1:Filename "File86.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File86.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P0F0 ns1:AccessibleBy _:S0P6,
+        _:S0P8,
+        _:S2P0,
+        _:S3P1,
+        _:S3P3,
+        _:S3P8,
+        _:S4P1,
+        _:S4P7,
+        _:S5P6,
+        _:S5P9 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod0/File79.dat" ;
+    ns1:Filename "File79.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File79.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P1F0 ns1:AccessibleBy _:S0P3,
+        _:S1P1,
+        _:S1P6,
+        _:S1P7,
+        _:S3P3,
+        _:S3P4,
+        _:S3P6,
+        _:S4P2,
+        _:S5P3,
+        _:S5P7 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod1/File51.dat" ;
+    ns1:Filename "File51.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File51.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P1F1 ns1:AccessibleBy _:S0P0,
+        _:S1P1,
+        _:S1P9,
+        _:S2P0,
+        _:S2P1,
+        _:S3P6,
+        _:S3P8,
+        _:S4P1,
+        _:S4P6,
+        _:S5P8 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod1/File45.dat" ;
+    ns1:Filename "File45.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File45.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P2F0 ns1:AccessibleBy _:S0P1,
+        _:S0P2,
+        _:S0P6,
+        _:S1P7,
+        _:S2P0,
+        _:S2P4,
+        _:S3P7,
+        _:S4P5,
+        _:S5P1,
+        _:S5P4 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod2/File4.dat" ;
+    ns1:Filename "File4.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File4.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P2F1 ns1:AccessibleBy _:S0P4,
+        _:S0P7,
+        _:S1P3,
+        _:S1P6,
+        _:S2P0,
+        _:S2P7,
+        _:S3P2,
+        _:S4P1,
+        _:S5P4,
+        _:S5P7 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod2/File22.dat" ;
+    ns1:Filename "File22.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File22.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P2F2 ns1:AccessibleBy _:S0P1,
+        _:S0P3,
+        _:S0P7,
+        _:S1P0,
+        _:S1P1,
+        _:S1P4,
+        _:S3P7,
+        _:S4P6,
+        _:S5P0,
+        _:S5P3 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod2/File36.dat" ;
+    ns1:Filename "File36.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File36.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P3F0 ns1:AccessibleBy _:S0P6,
+        _:S1P7,
+        _:S2P0,
+        _:S2P6,
+        _:S2P8,
+        _:S2P9,
+        _:S3P2,
+        _:S4P5,
+        _:S5P2,
+        _:S5P6 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod3/File100.dat" ;
+    ns1:Filename "File100.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File100.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P3F1 ns1:AccessibleBy _:S0P4,
+        _:S1P2,
+        _:S1P6,
+        _:S1P8,
+        _:S2P3,
+        _:S3P4,
+        _:S4P3,
+        _:S4P7,
+        _:S5P5,
+        _:S5P8 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod3/File37.dat" ;
+    ns1:Filename "File37.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File37.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P3F2 ns1:AccessibleBy _:S0P6,
+        _:S0P7,
+        _:S1P0,
+        _:S2P3,
+        _:S2P4,
+        _:S2P6,
+        _:S3P8,
+        _:S5P4,
+        _:S5P5,
+        _:S5P7 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod3/File23.dat" ;
+    ns1:Filename "File23.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File23.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P4F0 ns1:AccessibleBy _:S0P0,
+        _:S0P5,
+        _:S0P7,
+        _:S0P8,
+        _:S2P2,
+        _:S2P4,
+        _:S2P7,
+        _:S3P8,
+        _:S4P2,
+        _:S4P8 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod4/File5.dat" ;
+    ns1:Filename "File5.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File5.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P4F1 ns1:AccessibleBy _:S0P3,
+        _:S0P8,
+        _:S1P7,
+        _:S2P1,
+        _:S2P2,
+        _:S2P5,
+        _:S2P8,
+        _:S3P9,
+        _:S4P8,
+        _:S5P2 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod4/File7.dat" ;
+    ns1:Filename "File7.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File7.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P5F0 ns1:AccessibleBy _:S1P1,
+        _:S1P4,
+        _:S1P5,
+        _:S2P1,
+        _:S4P0,
+        _:S4P8,
+        _:S4P9,
+        _:S5P1,
+        _:S5P5,
+        _:S5P9 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod5/File35.dat" ;
+    ns1:Filename "File35.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File35.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P6F0 ns1:AccessibleBy _:S0P4,
+        _:S0P5,
+        _:S1P3,
+        _:S1P5,
+        _:S1P9,
+        _:S2P1,
+        _:S2P8,
+        _:S3P1,
+        _:S4P6,
+        _:S5P2 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod6/File21.dat" ;
+    ns1:Filename "File21.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File21.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P7F0 ns1:AccessibleBy _:S0P5,
+        _:S1P3,
+        _:S1P5,
+        _:S3P0,
+        _:S3P1,
+        _:S3P2,
+        _:S3P9,
+        _:S4P2,
+        _:S4P7,
+        _:S5P0 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod7/File20.dat" ;
+    ns1:Filename "File20.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File20.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P7F1 ns1:AccessibleBy _:S0P1,
+        _:S0P4,
+        _:S1P3,
+        _:S1P5,
+        _:S1P7,
+        _:S1P8,
+        _:S2P1,
+        _:S3P0,
+        _:S5P2,
+        _:S5P3 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod7/File34.dat" ;
+    ns1:Filename "File34.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File34.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P8F0 ns1:AccessibleBy _:S0P1,
+        _:S0P3,
+        _:S0P9,
+        _:S1P1,
+        _:S1P2,
+        _:S1P7,
+        _:S4P1,
+        _:S4P8,
+        _:S4P9,
+        _:S5P7 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod8/File6.dat" ;
+    ns1:Filename "File6.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File6.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P8F1 ns1:AccessibleBy _:S0P6,
+        _:S0P9,
+        _:S2P1,
+        _:S2P3,
+        _:S2P4,
+        _:S3P3,
+        _:S4P7,
+        _:S4P9,
+        _:S5P0,
+        _:S5P5 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod8/File2.dat" ;
+    ns1:Filename "File2.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File2.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S2P9F0 ns1:AccessibleBy _:S1P9,
+        _:S2P3,
+        _:S2P9,
+        _:S3P2,
+        _:S3P6,
+        _:S4P3,
+        _:S4P5,
+        _:S4P6,
+        _:S5P1,
+        _:S5P6 ;
+    ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod9/File30.dat" ;
+    ns1:Filename "File30.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File30.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P0F0 ns1:AccessibleBy _:S0P3,
+        _:S0P7,
+        _:S1P2,
+        _:S1P8,
+        _:S1P9,
+        _:S2P5,
+        _:S4P4,
+        _:S4P5,
+        _:S5P5,
+        _:S5P6 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod0/File24.dat" ;
+    ns1:Filename "File24.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File24.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P0F1 ns1:AccessibleBy _:S0P2,
+        _:S0P4,
+        _:S0P6,
+        _:S1P6,
+        _:S2P1,
+        _:S2P9,
+        _:S3P0,
+        _:S3P1,
+        _:S3P8,
+        _:S4P8 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod0/File18.dat" ;
+    ns1:Filename "File18.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File18.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P1F0 ns1:AccessibleBy _:S0P4,
+        _:S1P2,
+        _:S2P1,
+        _:S2P4,
+        _:S2P8,
+        _:S2P9,
+        _:S3P4,
+        _:S4P4,
+        _:S5P0,
+        _:S5P3 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod1/File19.dat" ;
+    ns1:Filename "File19.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File19.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P2F0 ns1:AccessibleBy _:S0P1,
+        _:S1P1,
+        _:S1P6,
+        _:S1P7,
+        _:S2P6,
+        _:S3P2,
+        _:S4P2,
+        _:S4P5,
+        _:S5P0,
+        _:S5P9 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod2/File25.dat" ;
+    ns1:Filename "File25.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File25.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P2F1 ns1:AccessibleBy _:S0P6,
+        _:S1P0,
+        _:S2P0,
+        _:S2P4,
+        _:S2P5,
+        _:S2P7,
+        _:S3P3,
+        _:S3P6,
+        _:S4P1,
+        _:S5P7 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod2/File31.dat" ;
+    ns1:Filename "File31.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File31.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P3F0 ns1:AccessibleBy _:S0P0,
+        _:S0P9,
+        _:S1P3,
+        _:S2P4,
+        _:S2P7,
+        _:S3P0,
+        _:S3P6,
+        _:S4P4,
+        _:S5P3,
+        _:S5P8 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod3/File3.dat" ;
+    ns1:Filename "File3.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File3.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P3F1 ns1:AccessibleBy _:S0P4,
+        _:S0P9,
+        _:S1P0,
+        _:S2P0,
+        _:S3P7,
+        _:S4P1,
+        _:S5P0,
+        _:S5P2,
+        _:S5P3,
+        _:S5P9 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod3/File1.dat" ;
+    ns1:Filename "File1.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File1.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P3F2 ns1:AccessibleBy _:S0P9,
+        _:S1P1,
+        _:S2P3,
+        _:S2P4,
+        _:S2P6,
+        _:S2P9,
+        _:S3P5,
+        _:S3P8,
+        _:S5P7,
+        _:S5P9 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod3/File27.dat" ;
+    ns1:Filename "File27.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File27.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P3F3 ns1:AccessibleBy _:S0P7,
+        _:S0P9,
+        _:S1P0,
+        _:S1P2,
+        _:S1P6,
+        _:S1P9,
+        _:S3P3,
+        _:S4P7,
+        _:S5P7,
+        _:S5P8 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod3/File33.dat" ;
+    ns1:Filename "File33.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File33.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P4F0 ns1:AccessibleBy _:S0P0,
+        _:S0P8,
+        _:S1P6,
+        _:S1P8,
+        _:S2P5,
+        _:S3P2,
+        _:S3P6,
+        _:S4P0,
+        _:S5P7,
+        _:S5P9 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod4/File32.dat" ;
+    ns1:Filename "File32.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File32.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P4F1 ns1:AccessibleBy _:S0P7,
+        _:S0P8,
+        _:S1P3,
+        _:S1P7,
+        _:S2P6,
+        _:S3P1,
+        _:S3P6,
+        _:S4P2,
+        _:S4P6,
+        _:S5P0 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod4/File26.dat" ;
+    ns1:Filename "File26.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File26.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P5F0 ns1:AccessibleBy _:S0P0,
+        _:S1P2,
+        _:S1P5,
+        _:S1P6,
+        _:S2P2,
+        _:S3P2,
+        _:S3P3,
+        _:S3P8,
+        _:S4P8,
+        _:S5P5 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod5/File17.dat" ;
+    ns1:Filename "File17.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File17.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P6F0 ns1:AccessibleBy _:S1P3,
+        _:S1P5,
+        _:S2P0,
+        _:S2P2,
+        _:S3P3,
+        _:S3P4,
+        _:S3P5,
+        _:S4P2,
+        _:S4P4,
+        _:S5P5 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod6/File16.dat" ;
+    ns1:Filename "File16.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File16.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P6F1 ns1:AccessibleBy _:S0P1,
+        _:S1P1,
+        _:S1P3,
+        _:S1P4,
+        _:S4P5,
+        _:S4P6,
+        _:S4P9,
+        _:S5P0,
+        _:S5P1,
+        _:S5P9 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod6/File28.dat" ;
+    ns1:Filename "File28.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File28.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P7F0 ns1:AccessibleBy _:S0P5,
+        _:S1P7,
+        _:S1P8,
+        _:S2P0,
+        _:S2P4,
+        _:S2P6,
+        _:S3P0,
+        _:S3P3,
+        _:S4P4,
+        _:S5P3 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod7/File14.dat" ;
+    ns1:Filename "File14.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File14.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P8F0 ns1:AccessibleBy _:S0P2,
+        _:S0P6,
+        _:S1P4,
+        _:S1P7,
+        _:S3P1,
+        _:S3P7,
+        _:S4P3,
+        _:S4P5,
+        _:S4P9,
+        _:S5P2 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod8/File15.dat" ;
+    ns1:Filename "File15.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File15.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S3P9F0 ns1:AccessibleBy _:S0P8,
+        _:S1P0,
+        _:S1P1,
+        _:S1P6,
+        _:S2P0,
+        _:S3P0,
+        _:S4P5,
+        _:S4P8,
+        _:S5P0,
+        _:S5P5 ;
+    ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod9/File29.dat" ;
+    ns1:Filename "File29.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File29.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P0F0 ns1:AccessibleBy _:S0P5,
+        _:S1P5,
+        _:S2P3,
+        _:S2P6,
+        _:S3P2,
+        _:S3P3,
+        _:S3P4,
+        _:S3P5,
+        _:S3P6,
+        _:S4P0 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod0/File11.dat" ;
+    ns1:Filename "File11.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File11.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P1F0 ns1:AccessibleBy _:S0P5,
+        _:S2P3,
+        _:S2P6,
+        _:S3P7,
+        _:S3P8,
+        _:S4P1,
+        _:S4P3,
+        _:S4P7,
+        _:S5P0,
+        _:S5P2 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod1/File39.dat" ;
+    ns1:Filename "File39.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File39.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P1F1 ns1:AccessibleBy _:S0P7,
+        _:S1P3,
+        _:S1P8,
+        _:S1P9,
+        _:S2P5,
+        _:S3P2,
+        _:S3P6,
+        _:S5P1,
+        _:S5P5,
+        _:S5P6 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod1/File38.dat" ;
+    ns1:Filename "File38.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File38.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P2F0 ns1:AccessibleBy _:S0P9,
+        _:S1P0,
+        _:S1P1,
+        _:S1P4,
+        _:S1P6,
+        _:S2P0,
+        _:S2P1,
+        _:S4P3,
+        _:S4P5,
+        _:S5P6 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod2/File10.dat" ;
+    ns1:Filename "File10.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File10.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P3F0 ns1:AccessibleBy _:S0P3,
+        _:S0P9,
+        _:S1P4,
+        _:S2P7,
+        _:S3P0,
+        _:S3P5,
+        _:S3P8,
+        _:S4P2,
+        _:S4P7,
+        _:S5P2 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod3/File8.dat" ;
+    ns1:Filename "File8.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File8.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P3F1 ns1:AccessibleBy _:S1P0,
+        _:S1P4,
+        _:S2P2,
+        _:S2P3,
+        _:S2P8,
+        _:S3P0,
+        _:S3P2,
+        _:S4P1,
+        _:S5P5,
+        _:S5P6 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod3/File12.dat" ;
+    ns1:Filename "File12.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File12.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P4F0 ns1:AccessibleBy _:S0P1,
+        _:S1P2,
+        _:S1P6,
+        _:S2P1,
+        _:S2P5,
+        _:S2P7,
+        _:S3P3,
+        _:S4P0,
+        _:S4P7,
+        _:S5P1 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod4/File13.dat" ;
+    ns1:Filename "File13.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File13.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P5F0 ns1:AccessibleBy _:S0P6,
+        _:S2P2,
+        _:S2P6,
+        _:S2P8,
+        _:S2P9,
+        _:S3P2,
+        _:S3P6,
+        _:S4P3,
+        _:S5P1,
+        _:S5P6 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod5/File9.dat" ;
+    ns1:Filename "File9.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File9.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P5F1 ns1:AccessibleBy _:S0P2,
+        _:S0P3,
+        _:S0P9,
+        _:S1P8,
+        _:S2P9,
+        _:S3P7,
+        _:S3P9,
+        _:S4P4,
+        _:S5P3,
+        _:S5P4 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod5/File48.dat" ;
+    ns1:Filename "File48.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File48.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P5F2 ns1:AccessibleBy _:S0P1,
+        _:S1P2,
+        _:S2P0,
+        _:S2P4,
+        _:S4P3,
+        _:S4P4,
+        _:S4P6,
+        _:S5P2,
+        _:S5P3,
+        _:S5P6 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod5/File60.dat" ;
+    ns1:Filename "File60.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File60.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P6F0 ns1:AccessibleBy _:S1P2,
+        _:S1P8,
+        _:S2P5,
+        _:S3P0,
+        _:S4P1,
+        _:S4P3,
+        _:S4P5,
+        _:S5P4,
+        _:S5P7,
+        _:S5P9 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod6/File74.dat" ;
+    ns1:Filename "File74.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File74.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P6F1 ns1:AccessibleBy _:S0P3,
+        _:S0P7,
+        _:S1P0,
+        _:S1P2,
+        _:S1P7,
+        _:S2P1,
+        _:S2P2,
+        _:S3P2,
+        _:S3P4,
+        _:S3P5 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod6/File75.dat" ;
+    ns1:Filename "File75.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File75.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P7F0 ns1:AccessibleBy _:S0P9,
+        _:S1P5,
+        _:S1P7,
+        _:S1P8,
+        _:S2P4,
+        _:S3P3,
+        _:S3P6,
+        _:S4P1,
+        _:S4P7,
+        _:S5P7 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod7/File61.dat" ;
+    ns1:Filename "File61.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File61.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P8F0 ns1:AccessibleBy _:S2P2,
+        _:S2P3,
+        _:S3P1,
+        _:S3P2,
+        _:S3P7,
+        _:S3P8,
+        _:S4P1,
+        _:S4P8,
+        _:S5P3,
+        _:S5P7 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod8/File49.dat" ;
+    ns1:Filename "File49.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File49.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P8F1 ns1:AccessibleBy _:S1P0,
+        _:S1P6,
+        _:S1P9,
+        _:S2P7,
+        _:S2P8,
+        _:S3P8,
+        _:S4P5,
+        _:S4P6,
+        _:S4P8,
+        _:S5P1 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod8/File77.dat" ;
+    ns1:Filename "File77.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File77.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P9F0 ns1:AccessibleBy _:S0P1,
+        _:S1P3,
+        _:S1P4,
+        _:S2P2,
+        _:S2P6,
+        _:S2P8,
+        _:S4P3,
+        _:S5P5,
+        _:S5P7,
+        _:S5P9 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod9/File63.dat" ;
+    ns1:Filename "File63.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File63.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S4P9F1 ns1:AccessibleBy _:S0P0,
+        _:S1P0,
+        _:S1P2,
+        _:S1P6,
+        _:S2P5,
+        _:S2P6,
+        _:S3P0,
+        _:S3P3,
+        _:S4P7,
+        _:S4P9 ;
+    ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod9/File88.dat" ;
+    ns1:Filename "File88.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File88.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P0F0 ns1:AccessibleBy _:S0P0,
+        _:S1P0,
+        _:S1P2,
+        _:S1P5,
+        _:S1P8,
+        _:S2P0,
+        _:S2P4,
+        _:S3P1,
+        _:S5P3,
+        _:S5P8 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod0/File89.dat" ;
+    ns1:Filename "File89.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File89.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P0F1 ns1:AccessibleBy _:S0P7,
+        _:S0P8,
+        _:S1P7,
+        _:S2P6,
+        _:S3P0,
+        _:S4P1,
+        _:S4P4,
+        _:S4P7,
+        _:S5P4,
+        _:S5P5 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod0/File62.dat" ;
+    ns1:Filename "File62.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File62.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P0F2 ns1:AccessibleBy _:S0P3,
+        _:S0P4,
+        _:S0P7,
+        _:S1P1,
+        _:S1P5,
+        _:S2P4,
+        _:S3P9,
+        _:S4P7,
+        _:S5P3,
+        _:S5P7 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod0/File76.dat" ;
+    ns1:Filename "File76.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File76.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P1F0 ns1:AccessibleBy _:S0P2,
+        _:S1P1,
+        _:S1P3,
+        _:S1P4,
+        _:S2P0,
+        _:S2P4,
+        _:S3P6,
+        _:S3P9,
+        _:S4P0,
+        _:S4P8 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod1/File72.dat" ;
+    ns1:Filename "File72.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File72.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P2F0 ns1:AccessibleBy _:S0P4,
+        _:S0P5,
+        _:S1P1,
+        _:S2P5,
+        _:S3P8,
+        _:S3P9,
+        _:S4P2,
+        _:S4P5,
+        _:S4P9,
+        _:S5P0 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod2/File66.dat" ;
+    ns1:Filename "File66.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File66.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P3F0 ns1:AccessibleBy _:S0P1,
+        _:S0P7,
+        _:S0P9,
+        _:S1P4,
+        _:S2P4,
+        _:S3P2,
+        _:S3P3,
+        _:S4P0,
+        _:S4P8,
+        _:S5P3 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod3/File99.dat" ;
+    ns1:Filename "File99.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File99.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P4F0 ns1:AccessibleBy _:S0P3,
+        _:S1P4,
+        _:S1P7,
+        _:S1P9,
+        _:S2P8,
+        _:S2P9,
+        _:S3P1,
+        _:S3P8,
+        _:S4P3,
+        _:S5P7 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod4/File98.dat" ;
+    ns1:Filename "File98.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File98.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P5F0 ns1:AccessibleBy _:S0P7,
+        _:S0P9,
+        _:S1P1,
+        _:S1P3,
+        _:S2P1,
+        _:S2P4,
+        _:S3P6,
+        _:S4P2,
+        _:S4P9,
+        _:S5P8 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod5/File67.dat" ;
+    ns1:Filename "File67.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File67.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P6F0 ns1:AccessibleBy _:S1P1,
+        _:S1P2,
+        _:S1P5,
+        _:S1P7,
+        _:S2P0,
+        _:S2P6,
+        _:S3P3,
+        _:S4P5,
+        _:S4P8,
+        _:S5P1 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod6/File73.dat" ;
+    ns1:Filename "File73.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File73.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P6F1 ns1:AccessibleBy _:S0P0,
+        _:S0P5,
+        _:S2P2,
+        _:S2P7,
+        _:S3P5,
+        _:S4P1,
+        _:S4P7,
+        _:S5P1,
+        _:S5P5,
+        _:S5P7 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod6/File65.dat" ;
+    ns1:Filename "File65.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File65.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P6F2 ns1:AccessibleBy _:S0P5,
+        _:S0P7,
+        _:S0P9,
+        _:S1P9,
+        _:S2P4,
+        _:S2P8,
+        _:S3P1,
+        _:S3P2,
+        _:S3P3,
+        _:S5P3 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod6/File71.dat" ;
+    ns1:Filename "File71.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File71.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P7F0 ns1:AccessibleBy _:S0P6,
+        _:S1P0,
+        _:S1P1,
+        _:S1P4,
+        _:S2P2,
+        _:S2P5,
+        _:S2P7,
+        _:S3P2,
+        _:S3P8,
+        _:S5P6 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod7/File59.dat" ;
+    ns1:Filename "File59.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File59.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P8F0 ns1:AccessibleBy _:S1P4,
+        _:S1P8,
+        _:S2P4,
+        _:S2P7,
+        _:S3P6,
+        _:S4P1,
+        _:S4P6,
+        _:S4P8,
+        _:S5P3,
+        _:S5P4 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod8/File58.dat" ;
+    ns1:Filename "File58.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File58.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P9F0 ns1:AccessibleBy _:S1P1,
+        _:S1P7,
+        _:S1P8,
+        _:S2P2,
+        _:S2P6,
+        _:S2P9,
+        _:S4P0,
+        _:S4P7,
+        _:S4P8,
+        _:S5P2 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod9/File70.dat" ;
+    ns1:Filename "File70.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File70.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S5P9F1 ns1:AccessibleBy _:S0P7,
+        _:S1P0,
+        _:S1P1,
+        _:S1P9,
+        _:S3P2,
+        _:S3P5,
+        _:S3P6,
+        _:S3P7,
+        _:S5P0,
+        _:S5P6 ;
+    ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod9/File64.dat" ;
+    ns1:Filename "File64.dat" ;
+    ns1:Filetype "text/plain" ;
+    ns1:LocalAddress "/Users/yurysavateev/dataset2/File64.dat" ;
+    ns1:Type ns1:File ;
+    ns1:Uploaded "N" .
+
+_:S0P8 ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod8/" ;
+    ns1:Contains _:S0P8F0,
+        _:S0P8F1 ;
+    ns1:Email "aclthreadpod8@example.org" ;
+    ns1:IndexAddress "https://srv03812.soton.ac.uk:3000/aclthreadpod8/espressoindex/" ;
+    ns1:Name "aclthreadpod8" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03812.soton.ac.uk:3000/aclthreadpod8/profile/card#me" .
+
+_:S0P2 ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod2/" ;
+    ns1:Contains _:S0P2F0,
+        _:S0P2F1 ;
+    ns1:Email "aclthreadpod2@example.org" ;
+    ns1:IndexAddress "https://srv03812.soton.ac.uk:3000/aclthreadpod2/espressoindex/" ;
+    ns1:Name "aclthreadpod2" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03812.soton.ac.uk:3000/aclthreadpod2/profile/card#me" .
+
+_:S3P4 ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod4/" ;
+    ns1:Contains _:S3P4F0,
+        _:S3P4F1 ;
+    ns1:Email "aclthreadpod4@example.org" ;
+    ns1:IndexAddress "https://srv03815.soton.ac.uk:3000/aclthreadpod4/espressoindex/" ;
+    ns1:Name "aclthreadpod4" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03815.soton.ac.uk:3000/aclthreadpod4/profile/card#me" .
+
+_:S4P2 ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod2/" ;
+    ns1:Contains _:S4P2F0 ;
+    ns1:Email "aclthreadpod2@example.org" ;
+    ns1:IndexAddress "https://srv03816.soton.ac.uk:3000/aclthreadpod2/espressoindex/" ;
+    ns1:Name "aclthreadpod2" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03816.soton.ac.uk:3000/aclthreadpod2/profile/card#me" .
+
+_:S4P6 ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod6/" ;
+    ns1:Contains _:S4P6F0,
+        _:S4P6F1 ;
+    ns1:Email "aclthreadpod6@example.org" ;
+    ns1:IndexAddress "https://srv03816.soton.ac.uk:3000/aclthreadpod6/espressoindex/" ;
+    ns1:Name "aclthreadpod6" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03816.soton.ac.uk:3000/aclthreadpod6/profile/card#me" .
+
+_:S4P4 ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod4/" ;
+    ns1:Contains _:S4P4F0 ;
+    ns1:Email "aclthreadpod4@example.org" ;
+    ns1:IndexAddress "https://srv03816.soton.ac.uk:3000/aclthreadpod4/espressoindex/" ;
+    ns1:Name "aclthreadpod4" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03816.soton.ac.uk:3000/aclthreadpod4/profile/card#me" .
+
+_:S0P0 ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod0/" ;
+    ns1:Contains _:S0P0F0 ;
+    ns1:Email "aclthreadpod0@example.org" ;
+    ns1:IndexAddress "https://srv03812.soton.ac.uk:3000/aclthreadpod0/espressoindex/" ;
+    ns1:Name "aclthreadpod0" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03812.soton.ac.uk:3000/aclthreadpod0/profile/card#me" .
+
+_:S3P5 ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod5/" ;
+    ns1:Contains _:S3P5F0 ;
+    ns1:Email "aclthreadpod5@example.org" ;
+    ns1:IndexAddress "https://srv03815.soton.ac.uk:3000/aclthreadpod5/espressoindex/" ;
+    ns1:Name "aclthreadpod5" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03815.soton.ac.uk:3000/aclthreadpod5/profile/card#me" .
+
+_:S3P7 ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod7/" ;
+    ns1:Contains _:S3P7F0 ;
+    ns1:Email "aclthreadpod7@example.org" ;
+    ns1:IndexAddress "https://srv03815.soton.ac.uk:3000/aclthreadpod7/espressoindex/" ;
+    ns1:Name "aclthreadpod7" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03815.soton.ac.uk:3000/aclthreadpod7/profile/card#me" .
+
+_:S4P5 ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod5/" ;
+    ns1:Contains _:S4P5F0,
+        _:S4P5F1,
+        _:S4P5F2 ;
+    ns1:Email "aclthreadpod5@example.org" ;
+    ns1:IndexAddress "https://srv03816.soton.ac.uk:3000/aclthreadpod5/espressoindex/" ;
+    ns1:Name "aclthreadpod5" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03816.soton.ac.uk:3000/aclthreadpod5/profile/card#me" .
+
+_:S5P4 ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod4/" ;
+    ns1:Contains _:S5P4F0 ;
+    ns1:Email "aclthreadpod4@example.org" ;
+    ns1:IndexAddress "https://srv03911.soton.ac.uk:3000/aclthreadpod4/espressoindex/" ;
+    ns1:Name "aclthreadpod4" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03911.soton.ac.uk:3000/aclthreadpod4/profile/card#me" .
+
+_:S0P4 ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod4/" ;
+    ns1:Contains _:S0P4F0,
+        _:S0P4F1 ;
+    ns1:Email "aclthreadpod4@example.org" ;
+    ns1:IndexAddress "https://srv03812.soton.ac.uk:3000/aclthreadpod4/espressoindex/" ;
+    ns1:Name "aclthreadpod4" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03812.soton.ac.uk:3000/aclthreadpod4/profile/card#me" .
+
+_:S0P5 ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod5/" ;
+    ns1:Contains _:S0P5F0,
+        _:S0P5F1,
+        _:S0P5F2 ;
+    ns1:Email "aclthreadpod5@example.org" ;
+    ns1:IndexAddress "https://srv03812.soton.ac.uk:3000/aclthreadpod5/espressoindex/" ;
+    ns1:Name "aclthreadpod5" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03812.soton.ac.uk:3000/aclthreadpod5/profile/card#me" .
+
+_:S1P5 ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod5/" ;
+    ns1:Contains _:S1P5F0,
+        _:S1P5F1 ;
+    ns1:Email "aclthreadpod5@example.org" ;
+    ns1:IndexAddress "https://srv03813.soton.ac.uk:3000/aclthreadpod5/espressoindex/" ;
+    ns1:Name "aclthreadpod5" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03813.soton.ac.uk:3000/aclthreadpod5/profile/card#me" .
+
+_:S1P9 ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod9/" ;
+    ns1:Contains _:S1P9F0 ;
+    ns1:Email "aclthreadpod9@example.org" ;
+    ns1:IndexAddress "https://srv03813.soton.ac.uk:3000/aclthreadpod9/espressoindex/" ;
+    ns1:Name "aclthreadpod9" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03813.soton.ac.uk:3000/aclthreadpod9/profile/card#me" .
+
+_:S2P9 ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod9/" ;
+    ns1:Contains _:S2P9F0 ;
+    ns1:Email "aclthreadpod9@example.org" ;
+    ns1:IndexAddress "https://srv03814.soton.ac.uk:3000/aclthreadpod9/espressoindex/" ;
+    ns1:Name "aclthreadpod9" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03814.soton.ac.uk:3000/aclthreadpod9/profile/card#me" .
+
+_:S3P1 ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod1/" ;
+    ns1:Contains _:S3P1F0 ;
+    ns1:Email "aclthreadpod1@example.org" ;
+    ns1:IndexAddress "https://srv03815.soton.ac.uk:3000/aclthreadpod1/espressoindex/" ;
+    ns1:Name "aclthreadpod1" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03815.soton.ac.uk:3000/aclthreadpod1/profile/card#me" .
+
+_:S4P9 ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod9/" ;
+    ns1:Contains _:S4P9F0,
+        _:S4P9F1 ;
+    ns1:Email "aclthreadpod9@example.org" ;
+    ns1:IndexAddress "https://srv03816.soton.ac.uk:3000/aclthreadpod9/espressoindex/" ;
+    ns1:Name "aclthreadpod9" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03816.soton.ac.uk:3000/aclthreadpod9/profile/card#me" .
+
+_:S5P8 ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod8/" ;
+    ns1:Contains _:S5P8F0 ;
+    ns1:Email "aclthreadpod8@example.org" ;
+    ns1:IndexAddress "https://srv03911.soton.ac.uk:3000/aclthreadpod8/espressoindex/" ;
+    ns1:Name "aclthreadpod8" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03911.soton.ac.uk:3000/aclthreadpod8/profile/card#me" .
+
+_:S0P1 ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod1/" ;
+    ns1:Contains _:S0P1F0 ;
+    ns1:Email "aclthreadpod1@example.org" ;
+    ns1:IndexAddress "https://srv03812.soton.ac.uk:3000/aclthreadpod1/espressoindex/" ;
+    ns1:Name "aclthreadpod1" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03812.soton.ac.uk:3000/aclthreadpod1/profile/card#me" .
+
+_:S2P8 ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod8/" ;
+    ns1:Contains _:S2P8F0,
+        _:S2P8F1 ;
+    ns1:Email "aclthreadpod8@example.org" ;
+    ns1:IndexAddress "https://srv03814.soton.ac.uk:3000/aclthreadpod8/espressoindex/" ;
+    ns1:Name "aclthreadpod8" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03814.soton.ac.uk:3000/aclthreadpod8/profile/card#me" .
+
+_:S3P9 ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod9/" ;
+    ns1:Contains _:S3P9F0 ;
+    ns1:Email "aclthreadpod9@example.org" ;
+    ns1:IndexAddress "https://srv03815.soton.ac.uk:3000/aclthreadpod9/espressoindex/" ;
+    ns1:Name "aclthreadpod9" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03815.soton.ac.uk:3000/aclthreadpod9/profile/card#me" .
+
+_:S4P0 ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod0/" ;
+    ns1:Contains _:S4P0F0 ;
+    ns1:Email "aclthreadpod0@example.org" ;
+    ns1:IndexAddress "https://srv03816.soton.ac.uk:3000/aclthreadpod0/espressoindex/" ;
+    ns1:Name "aclthreadpod0" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03816.soton.ac.uk:3000/aclthreadpod0/profile/card#me" .
+
+_:S5P1 ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod1/" ;
+    ns1:Contains _:S5P1F0 ;
+    ns1:Email "aclthreadpod1@example.org" ;
+    ns1:IndexAddress "https://srv03911.soton.ac.uk:3000/aclthreadpod1/espressoindex/" ;
+    ns1:Name "aclthreadpod1" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03911.soton.ac.uk:3000/aclthreadpod1/profile/card#me" .
+
+_:S2P3 ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod3/" ;
+    ns1:Contains _:S2P3F0,
+        _:S2P3F1,
+        _:S2P3F2 ;
+    ns1:Email "aclthreadpod3@example.org" ;
+    ns1:IndexAddress "https://srv03814.soton.ac.uk:3000/aclthreadpod3/espressoindex/" ;
+    ns1:Name "aclthreadpod3" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03814.soton.ac.uk:3000/aclthreadpod3/profile/card#me" .
+
+_:S2P5 ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod5/" ;
+    ns1:Contains _:S2P5F0 ;
+    ns1:Email "aclthreadpod5@example.org" ;
+    ns1:IndexAddress "https://srv03814.soton.ac.uk:3000/aclthreadpod5/espressoindex/" ;
+    ns1:Name "aclthreadpod5" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03814.soton.ac.uk:3000/aclthreadpod5/profile/card#me" .
+
+_:S5P2 ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod2/" ;
+    ns1:Contains _:S5P2F0 ;
+    ns1:Email "aclthreadpod2@example.org" ;
+    ns1:IndexAddress "https://srv03911.soton.ac.uk:3000/aclthreadpod2/espressoindex/" ;
+    ns1:Name "aclthreadpod2" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03911.soton.ac.uk:3000/aclthreadpod2/profile/card#me" .
+
+_:S5P7 ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod7/" ;
+    ns1:Contains _:S5P7F0 ;
+    ns1:Email "aclthreadpod7@example.org" ;
+    ns1:IndexAddress "https://srv03911.soton.ac.uk:3000/aclthreadpod7/espressoindex/" ;
+    ns1:Name "aclthreadpod7" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03911.soton.ac.uk:3000/aclthreadpod7/profile/card#me" .
+
+_:S2P2 ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod2/" ;
+    ns1:Contains _:S2P2F0,
+        _:S2P2F1,
+        _:S2P2F2 ;
+    ns1:Email "aclthreadpod2@example.org" ;
+    ns1:IndexAddress "https://srv03814.soton.ac.uk:3000/aclthreadpod2/espressoindex/" ;
+    ns1:Name "aclthreadpod2" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03814.soton.ac.uk:3000/aclthreadpod2/profile/card#me" .
+
+_:S2P7 ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod7/" ;
+    ns1:Contains _:S2P7F0,
+        _:S2P7F1 ;
+    ns1:Email "aclthreadpod7@example.org" ;
+    ns1:IndexAddress "https://srv03814.soton.ac.uk:3000/aclthreadpod7/espressoindex/" ;
+    ns1:Name "aclthreadpod7" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03814.soton.ac.uk:3000/aclthreadpod7/profile/card#me" .
+
+_:S3P0 ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod0/" ;
+    ns1:Contains _:S3P0F0,
+        _:S3P0F1 ;
+    ns1:Email "aclthreadpod0@example.org" ;
+    ns1:IndexAddress "https://srv03815.soton.ac.uk:3000/aclthreadpod0/espressoindex/" ;
+    ns1:Name "aclthreadpod0" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03815.soton.ac.uk:3000/aclthreadpod0/profile/card#me" .
+
+_:S3P6 ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod6/" ;
+    ns1:Contains _:S3P6F0,
+        _:S3P6F1 ;
+    ns1:Email "aclthreadpod6@example.org" ;
+    ns1:IndexAddress "https://srv03815.soton.ac.uk:3000/aclthreadpod6/espressoindex/" ;
+    ns1:Name "aclthreadpod6" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03815.soton.ac.uk:3000/aclthreadpod6/profile/card#me" .
+
+_:S3P8 ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod8/" ;
+    ns1:Contains _:S3P8F0 ;
+    ns1:Email "aclthreadpod8@example.org" ;
+    ns1:IndexAddress "https://srv03815.soton.ac.uk:3000/aclthreadpod8/espressoindex/" ;
+    ns1:Name "aclthreadpod8" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03815.soton.ac.uk:3000/aclthreadpod8/profile/card#me" .
+
+_:S4P3 ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod3/" ;
+    ns1:Contains _:S4P3F0,
+        _:S4P3F1 ;
+    ns1:Email "aclthreadpod3@example.org" ;
+    ns1:IndexAddress "https://srv03816.soton.ac.uk:3000/aclthreadpod3/espressoindex/" ;
+    ns1:Name "aclthreadpod3" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03816.soton.ac.uk:3000/aclthreadpod3/profile/card#me" .
+
+_:S4P8 ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod8/" ;
+    ns1:Contains _:S4P8F0,
+        _:S4P8F1 ;
+    ns1:Email "aclthreadpod8@example.org" ;
+    ns1:IndexAddress "https://srv03816.soton.ac.uk:3000/aclthreadpod8/espressoindex/" ;
+    ns1:Name "aclthreadpod8" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03816.soton.ac.uk:3000/aclthreadpod8/profile/card#me" .
+
+_:S0P3 ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod3/" ;
+    ns1:Contains _:S0P3F0 ;
+    ns1:Email "aclthreadpod3@example.org" ;
+    ns1:IndexAddress "https://srv03812.soton.ac.uk:3000/aclthreadpod3/espressoindex/" ;
+    ns1:Name "aclthreadpod3" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03812.soton.ac.uk:3000/aclthreadpod3/profile/card#me" .
+
+_:S0P6 ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod6/" ;
+    ns1:Contains _:S0P6F0,
+        _:S0P6F1 ;
+    ns1:Email "aclthreadpod6@example.org" ;
+    ns1:IndexAddress "https://srv03812.soton.ac.uk:3000/aclthreadpod6/espressoindex/" ;
+    ns1:Name "aclthreadpod6" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03812.soton.ac.uk:3000/aclthreadpod6/profile/card#me" .
+
+_:S0P9 ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod9/" ;
+    ns1:Contains _:S0P9F0 ;
+    ns1:Email "aclthreadpod9@example.org" ;
+    ns1:IndexAddress "https://srv03812.soton.ac.uk:3000/aclthreadpod9/espressoindex/" ;
+    ns1:Name "aclthreadpod9" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03812.soton.ac.uk:3000/aclthreadpod9/profile/card#me" .
+
+_:S1P8 ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod8/" ;
+    ns1:Contains _:S1P8F0 ;
+    ns1:Email "aclthreadpod8@example.org" ;
+    ns1:IndexAddress "https://srv03813.soton.ac.uk:3000/aclthreadpod8/espressoindex/" ;
+    ns1:Name "aclthreadpod8" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03813.soton.ac.uk:3000/aclthreadpod8/profile/card#me" .
+
+_:S2P1 ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod1/" ;
+    ns1:Contains _:S2P1F0,
+        _:S2P1F1 ;
+    ns1:Email "aclthreadpod1@example.org" ;
+    ns1:IndexAddress "https://srv03814.soton.ac.uk:3000/aclthreadpod1/espressoindex/" ;
+    ns1:Name "aclthreadpod1" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03814.soton.ac.uk:3000/aclthreadpod1/profile/card#me" .
+
+_:S5P0 ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod0/" ;
+    ns1:Contains _:S5P0F0,
+        _:S5P0F1,
+        _:S5P0F2 ;
+    ns1:Email "aclthreadpod0@example.org" ;
+    ns1:IndexAddress "https://srv03911.soton.ac.uk:3000/aclthreadpod0/espressoindex/" ;
+    ns1:Name "aclthreadpod0" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03911.soton.ac.uk:3000/aclthreadpod0/profile/card#me" .
+
+_:S5P5 ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod5/" ;
+    ns1:Contains _:S5P5F0 ;
+    ns1:Email "aclthreadpod5@example.org" ;
+    ns1:IndexAddress "https://srv03911.soton.ac.uk:3000/aclthreadpod5/espressoindex/" ;
+    ns1:Name "aclthreadpod5" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03911.soton.ac.uk:3000/aclthreadpod5/profile/card#me" .
+
+_:S5P6 ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod6/" ;
+    ns1:Contains _:S5P6F0,
+        _:S5P6F1,
+        _:S5P6F2 ;
+    ns1:Email "aclthreadpod6@example.org" ;
+    ns1:IndexAddress "https://srv03911.soton.ac.uk:3000/aclthreadpod6/espressoindex/" ;
+    ns1:Name "aclthreadpod6" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03911.soton.ac.uk:3000/aclthreadpod6/profile/card#me" .
+
+_:S5P9 ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod9/" ;
+    ns1:Contains _:S5P9F0,
+        _:S5P9F1 ;
+    ns1:Email "aclthreadpod9@example.org" ;
+    ns1:IndexAddress "https://srv03911.soton.ac.uk:3000/aclthreadpod9/espressoindex/" ;
+    ns1:Name "aclthreadpod9" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03911.soton.ac.uk:3000/aclthreadpod9/profile/card#me" .
+
+_:S1P1 ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod1/" ;
+    ns1:Contains _:S1P1F0,
+        _:S1P1F1 ;
+    ns1:Email "aclthreadpod1@example.org" ;
+    ns1:IndexAddress "https://srv03813.soton.ac.uk:3000/aclthreadpod1/espressoindex/" ;
+    ns1:Name "aclthreadpod1" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03813.soton.ac.uk:3000/aclthreadpod1/profile/card#me" .
+
+_:S1P2 ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod2/" ;
+    ns1:Contains _:S1P2F0 ;
+    ns1:Email "aclthreadpod2@example.org" ;
+    ns1:IndexAddress "https://srv03813.soton.ac.uk:3000/aclthreadpod2/espressoindex/" ;
+    ns1:Name "aclthreadpod2" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03813.soton.ac.uk:3000/aclthreadpod2/profile/card#me" .
+
+_:S1P6 ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod6/" ;
+    ns1:Contains _:S1P6F0,
+        _:S1P6F1 ;
+    ns1:Email "aclthreadpod6@example.org" ;
+    ns1:IndexAddress "https://srv03813.soton.ac.uk:3000/aclthreadpod6/espressoindex/" ;
+    ns1:Name "aclthreadpod6" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03813.soton.ac.uk:3000/aclthreadpod6/profile/card#me" .
+
+_:S3P3 ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod3/" ;
+    ns1:Contains _:S3P3F0,
+        _:S3P3F1,
+        _:S3P3F2,
+        _:S3P3F3 ;
+    ns1:Email "aclthreadpod3@example.org" ;
+    ns1:IndexAddress "https://srv03815.soton.ac.uk:3000/aclthreadpod3/espressoindex/" ;
+    ns1:Name "aclthreadpod3" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03815.soton.ac.uk:3000/aclthreadpod3/profile/card#me" .
+
+_:S1P3 ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod3/" ;
+    ns1:Contains _:S1P3F0,
+        _:S1P3F1 ;
+    ns1:Email "aclthreadpod3@example.org" ;
+    ns1:IndexAddress "https://srv03813.soton.ac.uk:3000/aclthreadpod3/espressoindex/" ;
+    ns1:Name "aclthreadpod3" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03813.soton.ac.uk:3000/aclthreadpod3/profile/card#me" .
+
+_:S1P4 ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod4/" ;
+    ns1:Contains _:S1P4F0,
+        _:S1P4F1 ;
+    ns1:Email "aclthreadpod4@example.org" ;
+    ns1:IndexAddress "https://srv03813.soton.ac.uk:3000/aclthreadpod4/espressoindex/" ;
+    ns1:Name "aclthreadpod4" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03813.soton.ac.uk:3000/aclthreadpod4/profile/card#me" .
+
+_:S0P7 ns1:Address "https://srv03812.soton.ac.uk:3000/aclthreadpod7/" ;
+    ns1:Contains _:S0P7F0 ;
+    ns1:Email "aclthreadpod7@example.org" ;
+    ns1:IndexAddress "https://srv03812.soton.ac.uk:3000/aclthreadpod7/espressoindex/" ;
+    ns1:Name "aclthreadpod7" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03812.soton.ac.uk:3000/aclthreadpod7/profile/card#me" .
+
+_:S1P7 ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod7/" ;
+    ns1:Contains _:S1P7F0 ;
+    ns1:Email "aclthreadpod7@example.org" ;
+    ns1:IndexAddress "https://srv03813.soton.ac.uk:3000/aclthreadpod7/espressoindex/" ;
+    ns1:Name "aclthreadpod7" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03813.soton.ac.uk:3000/aclthreadpod7/profile/card#me" .
+
+_:S2P0 ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod0/" ;
+    ns1:Contains _:S2P0F0 ;
+    ns1:Email "aclthreadpod0@example.org" ;
+    ns1:IndexAddress "https://srv03814.soton.ac.uk:3000/aclthreadpod0/espressoindex/" ;
+    ns1:Name "aclthreadpod0" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03814.soton.ac.uk:3000/aclthreadpod0/profile/card#me" .
+
+_:S2P6 ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod6/" ;
+    ns1:Contains _:S2P6F0 ;
+    ns1:Email "aclthreadpod6@example.org" ;
+    ns1:IndexAddress "https://srv03814.soton.ac.uk:3000/aclthreadpod6/espressoindex/" ;
+    ns1:Name "aclthreadpod6" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03814.soton.ac.uk:3000/aclthreadpod6/profile/card#me" .
+
+_:S4P1 ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod1/" ;
+    ns1:Contains _:S4P1F0,
+        _:S4P1F1 ;
+    ns1:Email "aclthreadpod1@example.org" ;
+    ns1:IndexAddress "https://srv03816.soton.ac.uk:3000/aclthreadpod1/espressoindex/" ;
+    ns1:Name "aclthreadpod1" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03816.soton.ac.uk:3000/aclthreadpod1/profile/card#me" .
+
+_:S1P0 ns1:Address "https://srv03813.soton.ac.uk:3000/aclthreadpod0/" ;
+    ns1:Contains _:S1P0F0,
+        _:S1P0F1,
+        _:S1P0F2 ;
+    ns1:Email "aclthreadpod0@example.org" ;
+    ns1:IndexAddress "https://srv03813.soton.ac.uk:3000/aclthreadpod0/espressoindex/" ;
+    ns1:Name "aclthreadpod0" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03813.soton.ac.uk:3000/aclthreadpod0/profile/card#me" .
+
+_:S4P7 ns1:Address "https://srv03816.soton.ac.uk:3000/aclthreadpod7/" ;
+    ns1:Contains _:S4P7F0 ;
+    ns1:Email "aclthreadpod7@example.org" ;
+    ns1:IndexAddress "https://srv03816.soton.ac.uk:3000/aclthreadpod7/espressoindex/" ;
+    ns1:Name "aclthreadpod7" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03816.soton.ac.uk:3000/aclthreadpod7/profile/card#me" .
+
+_:S5P3 ns1:Address "https://srv03911.soton.ac.uk:3000/aclthreadpod3/" ;
+    ns1:Contains _:S5P3F0 ;
+    ns1:Email "aclthreadpod3@example.org" ;
+    ns1:IndexAddress "https://srv03911.soton.ac.uk:3000/aclthreadpod3/espressoindex/" ;
+    ns1:Name "aclthreadpod3" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03911.soton.ac.uk:3000/aclthreadpod3/profile/card#me" .
+
+_:S2P4 ns1:Address "https://srv03814.soton.ac.uk:3000/aclthreadpod4/" ;
+    ns1:Contains _:S2P4F0,
+        _:S2P4F1 ;
+    ns1:Email "aclthreadpod4@example.org" ;
+    ns1:IndexAddress "https://srv03814.soton.ac.uk:3000/aclthreadpod4/espressoindex/" ;
+    ns1:Name "aclthreadpod4" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03814.soton.ac.uk:3000/aclthreadpod4/profile/card#me" .
+
+_:S3P2 ns1:Address "https://srv03815.soton.ac.uk:3000/aclthreadpod2/" ;
+    ns1:Contains _:S3P2F0,
+        _:S3P2F1 ;
+    ns1:Email "aclthreadpod2@example.org" ;
+    ns1:IndexAddress "https://srv03815.soton.ac.uk:3000/aclthreadpod2/espressoindex/" ;
+    ns1:Name "aclthreadpod2" ;
+    ns1:Type ns1:Pod ;
+    ns1:WebID "https://srv03815.soton.ac.uk:3000/aclthreadpod2/profile/card#me" .
+

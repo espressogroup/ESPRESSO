@@ -69,4 +69,3 @@ def postdirtopod (directory,pod,api):
             api.put_file(file_url, filetext, 'text/markdown')
     return pod
 
-

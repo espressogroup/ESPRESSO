@@ -1,5 +1,8 @@
 import brewmaster, CSSaccess, dpop_utils, requests
 from sys import argv
+import threading
+import time, tqdm
+import concurrent.futures
 
 def index(IDP,espressoindexfile,podname,podnum,podindexdir,espressopodname='ESPRESSO', espressoemail='espresso@example.com', podemail='@example.org', password='12345'):
             metaindexdata=''
@@ -71,10 +74,33 @@ acl:agentClass foaf:Agent.'''
                 #res=CSSAccess.get_file(indexaddress+'.acl')
             print(res)
             print(indexaddress)
-    
+
+def indexexperiment(IDP,podname,numberofpods,podindexdir,podemail='@example.org',password='12345'):
+    print('indexing '+ IDP+podname)
+    #IDP=str(self.image.value(snode,self.namespace.Address))
+    with concurrent.futures.ThreadPoolExecutor(max_workers=int(numberofpods)) as executor:
+        # submit tasks
+            
+        for i in range(int(numberofpods)):
+            thispodname=podname+str(i)
+            podaddress=IDP+thispodname+'/'
+            #podname=str(self.image.value(pnode,self.namespace.Name))
+            USERNAME=thispodname+podemail
+            PASSWORD=password
+            CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
+            CSSA.create_authstring()
+            CSSA.create_authtoken()
+            d=brewmaster.aclcrawlwebidnew(podaddress,podaddress, CSSA)
+            indexaddress=podaddress+podindexdir
+            index=brewmaster.aclindextupleswebidnew(d)
+            executor.submit(brewmaster.uploadaclindexwithbar, index, indexaddress, CSSA)
+            #brewmaster.uploadaclindexwithbar(index,indexaddress,CSSA)
+
+
 IDP=argv[1]
-espressoindexfile=argv[2]
-podname=argv[3]
+#espressoindexfile=argv[2]
+podname=argv[2]
+numberofpods=argv[3]
 podindexdir=argv[4]  
-print(IDP,espressoindexfile,podname,podindexdir)
-indexpod(IDP,espressoindexfile,podname,podindexdir)
+print(IDP,podname,numberofpods,podindexdir)
+indexexperiment(IDP,podname,numberofpods,podindexdir)

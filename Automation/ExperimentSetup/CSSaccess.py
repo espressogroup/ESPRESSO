@@ -101,7 +101,7 @@ class CSSaccess:
         return res.text
 
     def delete_file(self,targetUrl):
-        print('deleting ' + targetUrl)
+        #print('deleting ' + targetUrl)
         #curl -X DELETE http://localhost:3000/myfile.txt
         headers={  'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "DELETE", self.dpopKey)}
         res= requests.delete(targetUrl,
@@ -111,7 +111,7 @@ class CSSaccess:
 
     def adddefaultacl(self,fileaddress):
         targetUrl=fileaddress+'.acl'
-        print('Adding .acl to '+ fileaddress)
+        #print('Adding .acl to '+ fileaddress)
         acldef='''@prefix : <#>.
 @prefix acl: <http://www.w3.org/ns/auth/acl#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
@@ -141,12 +141,12 @@ acl:mode acl:Read.
         headers={ "Content-Type": "application/sparql-update",'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PATCH", self.dpopKey)}
         webidstring='<'+'>,<'.join(webidlist)+'>'
         data="INSERT DATA { <#Read> <acl:agent> "+webidstring+" }"
-        print(data)
+        #print(data)
         res= requests.patch(targetUrl,
                headers=headers,
                 data=data
             )
-        print(res,end='\r')
+        #print(res,end='\r')
         #if res.ok:
             #print('Added '+webidstring+' to '+targetUrl,end='\r')
 

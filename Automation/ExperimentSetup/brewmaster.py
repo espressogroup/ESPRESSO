@@ -2,7 +2,7 @@ import CSSaccess, cleantext, string
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 #from rdflib.namespace import ACL
 import concurrent.futures
-import time
+import time, tqdm
 from multiprocessing import Pool
 
 def crawl(address, CSSa):
@@ -479,39 +479,46 @@ def aclindextupleswebidnew(filetuples):
     return ldpindex.index
 
 
-def uploadldpindex(ldpindex,podname,espressodir,CSSA):
+def uploadaclindexwithbar(ldpindex,indexdir,CSSA):
     n=len(ldpindex.keys())
     i=1
+    pbar = tqdm.tqdm(total=n)
+    
+    
     for (name,body) in ldpindex.items():
-        print('putting '+str(i)+'/'+str(n)+' '+name+' in ' + podname)
-        i=i+1
-        filename=espressodir+name
-        print(filename)
-        res=CSSA.put_file(podname,filename,body,'text/csv')
-        print(res)
-        if (not res.ok):
-            CSSA.create_authtoken()
-            res=CSSA.put_file(podname,filename,body,'text/csv')
-            if (not res.ok):
-                print('Cannot upload index')
-                break
-
-def uploadaclindex(ldpindex,indexdir,CSSA):
-    n=len(ldpindex.keys())
-    i=1
-    for (name,body) in ldpindex.items():
-        print('putting '+str(i)+'/'+str(n),end=' ')
+        #print('putting '+str(i)+'/'+str(n),end=' ')
         i=i+1
         targetUrl=indexdir+name
-        print(targetUrl,end=' ')
+        #print(targetUrl,end=' ')
         res=CSSA.put_url(targetUrl,body,'text/csv')
-        print(res,end='\r')
+        #print(res,end='\r')
         if (not res.ok):
             CSSA.create_authtoken()
             res=CSSA.put_url(targetUrl,body,'text/csv')
             if (not res.ok):
                 print('Cannot upload index')
                 break
+        pbar.update(1)
+    pbar.close()
+    print('index for',indexdir,'is uploaded',n,'files')
+
+def uploadaclindex(ldpindex,indexdir,CSSA):
+    n=len(ldpindex.keys())
+    i=1
+    for (name,body) in ldpindex.items():
+        #print('putting '+str(i)+'/'+str(n),end=' ')
+        i=i+1
+        targetUrl=indexdir+name
+        #print(targetUrl,end=' ')
+        res=CSSA.put_url(targetUrl,body,'text/csv')
+        #print(res,end='\r')
+        if (not res.ok):
+            CSSA.create_authtoken()
+            res=CSSA.put_url(targetUrl,body,'text/csv')
+            if (not res.ok):
+                print('Cannot upload index')
+                break
+    print('index for',indexdir,'is uploaded',n,'files')
 
 def getacl(podpath, targetUrl, CSSA):
     line=targetUrl[len(podpath):]
