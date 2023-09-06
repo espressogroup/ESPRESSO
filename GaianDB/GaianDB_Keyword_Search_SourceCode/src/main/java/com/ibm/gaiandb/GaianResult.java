@@ -273,7 +273,7 @@ public class GaianResult {
 
 		String[] total2 = {"Query ID: " + gaianStatementNode.getQueryID() };
 
-		// Reza Moosa
+		// Reza Moosaei
 		String solidConfigFileName = GaianNode.SOLID_CONFIG_FILE_NAME;
 		String responseFilePath = PropertiesManagement.getInstance(solidConfigFileName)
 				.getProperty("SOLID_RESPONSE_FILE_PATH");

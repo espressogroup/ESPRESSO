@@ -1,7 +1,8 @@
 package com.ibm.solid;
 
 /**
- * @author Reza Moosa
+ * @author Reza Moosaei
+ * Configuration of Logical Table
  */
 public class Configuration {
     public static void config(String fileName) {

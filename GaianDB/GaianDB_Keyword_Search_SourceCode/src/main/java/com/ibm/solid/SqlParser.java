@@ -17,10 +17,10 @@ import java.util.Map;
 
 /**
  * @author Reza Moosaei, 3/7/23 6:03 PM
+ * Parsing User SQL query to extract Keyword
  */
 public class SqlParser {
     public Map<String, String> getCondition(String sql) throws JSQLParserException {
-        //sql = "SELECT * FROM mytable WHERE id = 1 ORDER BY name DESC LIMIT 10";
         Map<String, String> result = new HashMap<>();
         StringReader stream = new StringReader(sql);
         Statement statement = CCJSqlParserUtil.parse(stream);
@@ -31,10 +31,8 @@ public class SqlParser {
                 PlainSelect plainSelect = (PlainSelect) selectBody;
 
                 List<SelectItem> selectItems = plainSelect.getSelectItems();
-                //System.out.println("SELECT fields:");
                 result.put("tableName", plainSelect.getFromItem().toString());
                 for (SelectItem selectItem : selectItems) {
-                    // System.out.println(selectItem.toString());
                 }
 
                 Expression where = plainSelect.getWhere();

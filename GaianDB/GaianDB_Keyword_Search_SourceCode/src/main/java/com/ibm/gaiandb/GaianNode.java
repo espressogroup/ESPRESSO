@@ -380,6 +380,7 @@ public class GaianNode {
 			SOLID_CONFIG_FILE_NAME = args[3];
 		}
 		//Modified By Reza Moosaei
+		// Generate new configuration in gaiandb_config.properties for SOLID
 		Configuration.config(SOLID_CONFIG_FILE_NAME);
 
 		gdbNodeSingleton = this;
@@ -716,13 +717,6 @@ public class GaianNode {
 //	 }
 
 	private void initialiseNode() throws Throwable {
-
-		//Modified By Reza Moosaei
-        /*synchronized (this) {
-            Configuration.config();
-        }*/
-//		createLogicalTableViews();
-//		String configFileName = GaianDBConfig.getConfigFile().getCanonicalPath();
 
 		String dbmsg = "PHYSICAL DATABASE:\t" + new File(GDB_WORKSPACE, GaianDBConfig.getGaianNodeDatabaseName()).getCanonicalPath() + "\n";
 		String logmsg = "LOG FILE:\t\t" + (null == mLogFile ? "None (console)" : new File(LOG_DIR, mLogFile).getCanonicalPath()) + "\n";

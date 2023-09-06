@@ -113,17 +113,6 @@ public class VTIFile extends VTIWrapper {
 		//super.execute(arguments, qualifiers, projectedColumns, dsInstanceID);
 		logger.logInfo("executing VTIFile.. isRowsInMemory? " + isRowsInMemory);
 		GaianChildVTI result = null;
-		//Reza Moosaei
-        /*String originalSQL = (String) arguments.get(GaianTable.ORIGINAL_QUERY);
-        try {
-            Map<String, String> sqlResult = new SqlParser().getCondition(originalSQL);
-            if ("LTSOLID".equals(sqlResult.get("tableName"))
-                    || "ltsolid".equals(sqlResult.get("tableName")))
-                new SolidServiceCall().filterData(sqlResult.get("rightExpression"));
-        } catch (Exception ex) {
-            logger.logException("", "Solid service call has been failed", ex);
-            //throw new SQLException(ex);
-        }*/
 		String filePath = null;
 
 		if (true == isPluralized() && null != dsInstanceID) {
@@ -172,7 +161,8 @@ public class VTIFile extends VTIWrapper {
 						result = null;
 						if (null == result) {
 							try {
-								//Reza Moosaei
+								//Added by Reza Moosaei
+								// call FileImport constructor and pass query and address
 								String originalSQL = (String) arguments.get(GaianTable.ORIGINAL_QUERY);
 								logger.logAlways("VTIFile original-sql: " + originalSQL);
 								result = new FileImport(filePath, originalSQL);
@@ -223,7 +213,8 @@ public class VTIFile extends VTIWrapper {
 						result = new InMemoryRows();
 					else
 						try {
-							//Reza Moosaei
+							// Reza Moosaei
+							// call FileImport constructor and pass query and address
 							String originalSQL = (String) arguments.get(GaianTable.ORIGINAL_QUERY);
 							logger.logAlways("VTIFile original-sql: " + originalSQL);
 							result = new FileImport(filePath, originalSQL);
