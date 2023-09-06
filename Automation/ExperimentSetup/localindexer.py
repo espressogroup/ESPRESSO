@@ -96,11 +96,34 @@ def indexexperiment(IDP,podname,numberofpods,podindexdir,podemail='@example.org'
             executor.submit(brewmaster.uploadaclindexwithbar, index, indexaddress, CSSA)
             #brewmaster.uploadaclindexwithbar(index,indexaddress,CSSA)
 
+def uploadlocalindexexperiment(IDP,podname,serno,numberofpods,podindexdir,locdir,podemail='@example.org',password='12345'):
+    with concurrent.futures.ThreadPoolExecutor(max_workers=60) as executor:
+                serword='S'+serno
+                for i in range(int(numberofpods)):
+                    thispodname=podname+str(i)
+                    podaddress=IDP+thispodname+'/'
+                    #podname=str(self.image.value(pnode,self.namespace.Name))
+                    USERNAME=thispodname+podemail
+                    PASSWORD=password
+                    CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
+                    CSSA.create_authstring()
+                    CSSA.create_authtoken()
+                    indexaddress=podaddress+podindexdir
+                    filename=locdir+'/'+serword+podname+'.locind'
+                    f = open(filename, "r")
+                    indexstr=f.read()
+                    f.close()
+                    index=eval(indexstr)
+                    print('starting uploading',filename)
+                    executor.submit(brewmaster.uploadaclindexwithbar, index, indexaddress, CSSA)
+
 
 IDP=argv[1]
 #espressoindexfile=argv[2]
 podname=argv[2]
+serno=argv[2]
 numberofpods=argv[3]
 podindexdir=argv[4]  
+locdir=argv[5]
 print(IDP,podname,numberofpods,podindexdir)
-indexexperiment(IDP,podname,numberofpods,podindexdir)
+uploadlocalindexexperiment(IDP,podname,serno,numberofpods,podindexdir,locdir)
