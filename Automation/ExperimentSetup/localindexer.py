@@ -121,9 +121,10 @@ def uploadlocalindexexperiment(IDP,podname,serno,numberofpods,podindexdir,locdir
 IDP=argv[1]
 #espressoindexfile=argv[2]
 podname=argv[2]
-serno=argv[2]
+#serno=argv[2]
 numberofpods=argv[3]
 podindexdir=argv[4]  
-locdir=argv[5]
+#locdir=argv[5]
 print(IDP,podname,numberofpods,podindexdir)
-uploadlocalindexexperiment(IDP,podname,serno,numberofpods,podindexdir,locdir)
+#uploadlocalindexexperiment(IDP,podname,serno,numberofpods,podindexdir,locdir)
+indexexperiment(IDP,podname,numberofpods,podindexdir)
