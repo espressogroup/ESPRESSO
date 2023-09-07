@@ -213,16 +213,8 @@ class ESPRESSOexperiment:
             for anode in accanodelist:
                 self.image.add((fnode,self.namespace.AccessibleBy,anode))
     
-    def imagineaclperc(self,percs,openperc,numofwebids,mean, disp):
+    def imagineaclnormal(self,openperc,numofwebids,mean, disp):
         anodelist=[]
-        sanodelist=[]
-        for i in range(len(percs)):
-            saword='SA'+str(i)
-            sanode=BNode(saword)
-            webid='mailto:sagent'+str(i)+'@example.org'
-            self.image.add((sanode,self.namespace.WebID,Literal(webid)))
-            self.image.add((sanode,self.namespace.Power,Literal(str(percs[i]))))
-            sanodelist.append(sanode)
 
         for i in range(numofwebids):
             aword='A'+str(i)
@@ -241,12 +233,7 @@ class ESPRESSOexperiment:
         for fnode in openfilelist:
             self.image.add((fnode,self.namespace.Type,self.namespace.OpenFile))
 
-        for sanode in sanodelist:
-            n=floor(len(filelist)*(int(self.image.value(sanode,self.namespace.Power))/100))
-            chfilelist=random.sample(filelist, n)
-            for fnode in filelist:
-                self.image.add((fnode,self.namespace.AccessibleBy,sanode))
-
+        
         for fnode in filelist:
             if disp==0:
                 n=mean
@@ -260,6 +247,29 @@ class ESPRESSOexperiment:
             #print(fnode,n)
             for anode in accanodelist:
                 self.image.add((fnode,self.namespace.AccessibleBy,anode))
+    
+    def imagineaclspecial(self,percs):
+        sanodelist=[]
+        for i in range(len(percs)):
+            saword='SA'+str(i)
+            sanode=BNode(saword)
+            webid='mailto:sagent'+str(i)+'@example.org'
+            self.image.add((sanode,self.namespace.WebID,Literal(webid)))
+            self.image.add((sanode,self.namespace.Power,Literal(str(percs[i]))))
+            sanodelist.append(sanode)
+
+        fnodelist=self.image.subjects(self.namespace.Type,self.namespace.File)
+        filelist=[]
+        for fnode in fnodelist:
+            filelist.append(fnode)
+
+        for sanode in sanodelist:
+            n=floor(len(filelist)*(int(self.image.value(sanode,self.namespace.Power))/100))
+            chfilelist=random.sample(filelist, n)
+            print('sanode',n)
+            for fnode in chfilelist:
+                self.image.add((fnode,self.namespace.AccessibleBy,sanode))
+
 
     def saveexp(self,filename):
         with open(filename, 'w') as f:
@@ -348,11 +358,13 @@ class ESPRESSOexperiment:
         podaddress=str(self.image.value(pnode,self.namespace.Address))
         d=brewmaster.crawl(podaddress, CSSA)
         files=d.keys()
-        print(files)
+        pbar=tqdm.tqdm(len(files))
         for targetUrl in files:
             res=CSSA.delete_file(targetUrl)
             if not res.ok:
                 CSSA.create_authtoken()
+            pbar.update(1)
+        pbar.close()
             
     def uploadpnode(self,pnode):
         podaddress=str(self.image.value(pnode,self.namespace.Address))
@@ -459,7 +471,19 @@ class ESPRESSOexperiment:
             for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):
                 IDP=str(self.image.value(snode,self.namespace.Address))
                 for pnode in self.image.objects(snode,self.namespace.Contains):
-                    executor.submit(self.uploadpnodewithbar, pnode,IDP)
+                    podaddress=str(self.image.value(pnode,self.namespace.Address))
+                    USERNAME=str(self.image.value(pnode,self.namespace.Email))
+                    PASSWORD=self.password
+                    CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
+                    CSSA.create_authstring()
+                    CSSA.create_authtoken()
+                    filetuplelist=[]
+                    for fnode in self.image.objects(pnode,self.namespace.Contains):
+                        targetUrl=str(self.image.value(fnode,self.namespace.Address))
+                        filetype=str(self.image.value(fnode,self.namespace.Filetype))
+                        f=str(self.image.value(fnode,self.namespace.LocalAddress))
+                        filetuplelist.apend((f,targetUrl,filetype))
+                    executor.submit(distributor.uploadllistwithbar, filetuplelist,podaddress,CSSA)
     
     def uploadwithbars(self):
         #with concurrent.futures.ThreadPoolExecutor(max_workers=60) as executor:
@@ -525,6 +549,7 @@ class ESPRESSOexperiment:
         for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):
                 IDP=str(self.image.value(snode,self.namespace.Address))
                 serword='S'+str(i)
+                i=i+1
                 for pnode in self.image.objects(snode,self.namespace.Contains):
                     podaddress=str(self.image.value(pnode,self.namespace.Address))
                     podname=str(self.image.value(pnode,self.namespace.Name))
@@ -887,7 +912,7 @@ def exp1S1P1000F800MB():
     experiment.indexfixerwebidnew()
     print('indices checked')
 
-def exp1S50P1000F1MB():
+def exp1S50P1000F1MBbar():
     #list of servers in the experiment:
     serverlist=serverlistglobal[:1]
     #name of the ESPRESSO pod. ESPRESSO is default.
@@ -895,7 +920,7 @@ def exp1S50P1000F1MB():
     #email to register the ESPRESSO pod. espresso@example.com is default.
     espressoemail='espresso@example.com'
     #name for the pods in the experiment the pods will be called podname0, podmane1, etc.
-    podname='exp1S50P1000F1MBnew'
+    podname='exp1S50P1000F1MBbar'
     #name for the metaindex file.
     espressoindexfile=podname+'metaindex.csv'
     #email to register the pod. the emails will be podname0@example.org, podname1@example.org, etc.
@@ -924,13 +949,87 @@ def exp1S50P1000F1MB():
     experiment=ESPRESSOexperiment(podname=podname)
     experiment.loadserverlist(serverlist)
     print('serverlist loaded')
+    experiment.loaddir(sourcedir)
+    print('files loaded')
+    experiment.logicaldist(n,numberofpods,0,0)
+    print('files distributed')
+    experiment.imaginefiles()
+    print('files imagined')
+    experiment.imagineaclnormal(openperc,numofwebids,mean,disp)
+    experiment.imagineaclspecial(percs)
+    print('files acl imagined')
+    experiment.saveexp(podname+'exp.ttl')
+    print('experiment saved')
+    #experiment.loadexp(podname+'exp.ttl')
+    print('experiment loaded')
+    #experiment.ESPRESSOcreate()
+    print('ESPRESSO checked')
+    experiment.podcreate()
+    print('Pods created')
+    experiment.uploadwithbars()
+    print('Pods populated')
+    experiment.uploadacl()
+    print('Pods acls assigned')
+    #experiment.aclindexwebidnewthreaded()
+    #os.mkdir(podname)
+    experiment.storeindexlocal(podname)
+    print('pods indexed')
+    #experiment.uploadindexlocal(podname)
+    print('indices uploaded')
+    #experiment.aclmetaindex()
+    print('metaindices created')
+    #experiment.indexpub()
+    print('indices opened')
+    #experiment.metaindexpub()
+    print('metaindices opened')
+    #experiment.indexfixerwebidnew()
+    print('indices checked')
+
+def expDemoSingapore():
+    #list of servers in the experiment:
+    serverlist=serverlistglobal[:6]
+    #name of the ESPRESSO pod. ESPRESSO is default.
+    espressopodname='ESPRESSO'
+    #email to register the ESPRESSO pod. espresso@example.com is default.
+    espressoemail='espresso@example.com'
+    #name for the pods in the experiment the pods will be called podname0, podmane1, etc.
+    podname='expDemoSingapore'
+    #name for the metaindex file.
+    espressoindexfile=podname+'metaindex.csv'
+    #email to register the pod. the emails will be podname0@example.org, podname1@example.org, etc.
+    podemail='@example.org'
+    #folder where the pod indices will go
+    podindexdir='espressoindex/'
+    #same password for all the logins
+    password='12345'
+    #local directory from where to take the files
+    sourcedir='/Users/yurysavateev/dataset4'
+    #total number of pods
+    numberofpods=60
+    #total number of files
+    n=2400
+    #percs of sp.agents
+    percs=[100,25,4]
+    #percent of openfiles
+    openperc=0
+    #number of agents
+    numofwebids=60
+    #on average how many webids can read a given file
+    mean=15
+    #relative deviation of the previous, can be left 0
+    disp=0
+    #initializing the experiment
+    experiment=ESPRESSOexperiment(podname=podname)
+    experiment.loadserverlist(serverlist)
+    print('serverlist loaded')
     #experiment.loaddir(sourcedir)
     print('files loaded')
-    #experiment.logicaldist(n,numberofpods,0,0)
+    #experiment.logicaldist(n,numberofpods,0.2,0)
     print('files distributed')
     #experiment.imaginefiles()
     print('files imagined')
-    #experiment.imagineaclperc(percs,openperc,numofwebids,mean,disp)
+    #experiment.imagineaclnormal(openperc,numofwebids,mean,disp)
+    #experiment.imagineaclspecial(percs)
     print('files acl imagined')
     #experiment.saveexp(podname+'exp.ttl')
     print('experiment saved')
@@ -946,17 +1045,18 @@ def exp1S50P1000F1MB():
     print('Pods acls assigned')
     #experiment.aclindexwebidnewthreaded()
     #os.mkdir(podname)
-    #experiment.storeindexlocal(podname)
+    experiment.storeindexlocal(podname)
     print('pods indexed')
     experiment.uploadindexlocal(podname)
     print('indices uploaded')
-    #experiment.aclmetaindex()
+    experiment.aclmetaindex()
     print('metaindices created')
-    #experiment.indexpub()
+    experiment.indexpub()
     print('indices opened')
-    #experiment.metaindexpub()
+    experiment.metaindexpub()
     print('metaindices opened')
-    #experiment.indexfixerwebidnew()
+    experiment.indexfixerwebidnew()
     print('indices checked')
 
-exp1S50P1000F1MB()
+
+exp1S50P1000F1MBbar()

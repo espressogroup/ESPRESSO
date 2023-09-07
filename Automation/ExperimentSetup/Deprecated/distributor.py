@@ -4,6 +4,7 @@ import dpop_utils
 import requests
 import os, json
 import CSSaccess
+import tqdm
 
 #from solid.auth import Auth
 
@@ -69,3 +70,15 @@ def postdirtopod (directory,pod,api):
             api.put_file(file_url, filetext, 'text/markdown')
     return pod
 
+def uploadllistwithbar (filetuplelist,podaddress,CSSA):
+    pbar=tqdm.tqdm(len(filetuplelist),desc=podaddress)
+    for f,targetUrl,filetype in filetuplelist:
+            file = open(f, "rb")
+            filetext=file.read().decode('latin1')
+            file.close()
+            res=CSSA.put_url(targetUrl, filetext, filetype)
+            if not res.ok:
+                print(res)
+                continue
+            pbar.update(1)
+    pbar.close()

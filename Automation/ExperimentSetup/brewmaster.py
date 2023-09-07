@@ -473,16 +473,19 @@ def aclindextupleswebid(filetuples):
 
 def aclindextupleswebidnew(filetuples):
     ldpindex=LdpIndex()
+    pbar=tqdm.tqdm(len(filetuples))
     for (id,text,webidlist) in filetuples:
-        print('indexing '+id)
+        #print('indexing '+id)
         ldpindex.indexwebidnew(id, text, webidlist)
+        pbar.update(1)
+    pbar.close()
     return ldpindex.index
 
 
 def uploadaclindexwithbar(ldpindex,indexdir,CSSA):
     n=len(ldpindex.keys())
     i=1
-    pbar = tqdm.tqdm(total=n)
+    pbar = tqdm.tqdm(total=n,desc=indexdir)
     
     
     for (name,body) in ldpindex.items():

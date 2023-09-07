@@ -96,10 +96,10 @@ def indexexperiment(IDP,podname,numberofpods,podindexdir,podemail='@example.org'
             executor.submit(brewmaster.uploadaclindexwithbar, index, indexaddress, CSSA)
             #brewmaster.uploadaclindexwithbar(index,indexaddress,CSSA)
 
-def uploadlocalindexexperiment(IDP,podname,serno,numberofpods,podindexdir,locdir,podemail='@example.org',password='12345'):
+def uploadlocalindexexperiment(IDP,podname,serno,lowpod,highpod,podindexdir,locdir,podemail='@example.org',password='12345'):
     with concurrent.futures.ThreadPoolExecutor(max_workers=60) as executor:
                 serword='S'+serno
-                for i in range(int(numberofpods)):
+                for i in range(int(lowpod),int(highpod)):
                     thispodname=podname+str(i)
                     podaddress=IDP+thispodname+'/'
                     #podname=str(self.image.value(pnode,self.namespace.Name))
@@ -109,7 +109,7 @@ def uploadlocalindexexperiment(IDP,podname,serno,numberofpods,podindexdir,locdir
                     CSSA.create_authstring()
                     CSSA.create_authtoken()
                     indexaddress=podaddress+podindexdir
-                    filename=locdir+'/'+serword+podname+'.locind'
+                    filename=locdir+'/'+serword+thispodname+'.locind'
                     f = open(filename, "r")
                     indexstr=f.read()
                     f.close()
@@ -121,10 +121,11 @@ def uploadlocalindexexperiment(IDP,podname,serno,numberofpods,podindexdir,locdir
 IDP=argv[1]
 #espressoindexfile=argv[2]
 podname=argv[2]
-#serno=argv[2]
-numberofpods=argv[3]
-podindexdir=argv[4]  
-#locdir=argv[5]
-print(IDP,podname,numberofpods,podindexdir)
-#uploadlocalindexexperiment(IDP,podname,serno,numberofpods,podindexdir,locdir)
-indexexperiment(IDP,podname,numberofpods,podindexdir)
+serno=argv[3]
+lowpod=argv[4]
+highpod=argv[5]
+podindexdir=argv[6]  
+locdir=argv[7]
+#print(IDP,podname,numberofpods,podindexdir)
+uploadlocalindexexperiment(IDP,podname,serno,lowpod,highpod,podindexdir,locdir)
+#indexexperiment(IDP,podname,numberofpods,podindexdir)

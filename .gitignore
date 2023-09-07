@@ -3,4 +3,6 @@ Datasets/
 **/__pycache__
 **/.DS_Store
 ca.pem
+**/*.ttl
+**/*.locind
 
