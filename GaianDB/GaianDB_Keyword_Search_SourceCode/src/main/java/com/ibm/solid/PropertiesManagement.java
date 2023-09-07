@@ -7,7 +7,8 @@ import java.util.Properties;
 import java.util.Set;
 
 /**
- * @author Reza Moosa
+ * @author Reza Moosaei
+ * Generate gaiandb_Config.properties
  */
 public class PropertiesManagement {
     private static PropertiesManagement propertiesManagement;

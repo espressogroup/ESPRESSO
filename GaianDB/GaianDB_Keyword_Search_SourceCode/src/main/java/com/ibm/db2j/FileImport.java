@@ -210,7 +210,9 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 	 */
 	public FileImport(String s, String sqlQuery) throws Exception {
 		this(s);
-		//Reza Moosaei
+		// new code added by Reza Moosaei
+		// Reformat User SQL query, call SqlParser and GaianDB-Solid connector (SolidServiceCall)
+		// receive CSV file from GaianDB-SOlid connector (SolidServiceCall)
 		try {
 			String originalSqlQuery = sqlQuery;
 			if (hasGaianTable(sqlQuery)) {
@@ -225,11 +227,9 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 				new SolidServiceCall().filterData(sqlResult.get("rightExpression"));
 		} catch (Exception ex) {
 			logger.logException("", "Solid service call has been failed", ex);
-			//throw new SQLException(ex);
 		}
 	}
 
-	//Reza Moosaei
 	public static Map<String,String> parseGaianTableQuery(String queryString) {
 		Map<String,String> result = new HashMap<>();
 		// Extract LTSOLID from the query string

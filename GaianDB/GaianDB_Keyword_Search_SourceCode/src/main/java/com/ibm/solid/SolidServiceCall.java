@@ -22,6 +22,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  author: Reza Moosaei 09.04.2023
+ GaianDB-Solid connector
  */
 
 
@@ -62,12 +63,6 @@ public class SolidServiceCall {
     logger.logAlways( "Send Keyword Search Request to Search APP: " + whereClause + "\n" );
 
     HttpResponse<JsonNode> response = null;
- /*   response = Unirest.post(apiUrl)
-                .header("accept", "application/json")
-                .header("Content-Type", "application/json")
-                .body("{ \"keyword\" : \""+ whereClause +"\" }")
-                .asJson();
-*/
 
     response = Unirest.get(apiUrl + "?keyword=" + encodeValue(whereClause))
             .asJson();
@@ -88,18 +83,14 @@ public class SolidServiceCall {
 
     Gson gson = new Gson();
     String res = response.getBody().toString();
-  //  System.out.println(res);
     SearchResult[] resultArray = gson.fromJson(res, SearchResult[].class);
     for (SearchResult result : resultArray) {
         String[] fields = new String[3];
-      //  String[] term = whereClause.split(",");
-      //  fields[0] = term[0];
         fields[0] = whereClause;
         fields[1] = result.address;
         fields[2] = String.valueOf(result.frequency);
         csvWriter.writeNext(fields);
-      // System.out.println(result.address + " " + result.frequency);
-    }
+          }
     csvWriter.close();
 } catch (Exception e) {
     try {
@@ -107,8 +98,6 @@ public class SolidServiceCall {
         String[] header = {"Search Parameters", "Document URL", "RELEVANCE"};
         csvWriter.writeNext(header);
         String[] fields = new String[3];
-     //   String[] term = whereClause.split(",");
-     //   fields[0] = term[0];
         fields[0] = whereClause;
         String messageError = "API request failed with status code: ";
         fields[1] = messageError;

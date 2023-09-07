@@ -1818,7 +1818,8 @@ public class GaianTable extends AbstractVTI implements VTICosting, IQualifyable,
 		// Use this "official" value if it was not derived via Table Function invocation
 		if ( null == originalSQL ) originalSQL = vtiEnvironment.getOriginalSQL().trim();
 
-		// Reza Moosa
+		// New code added by Reza Moosaei
+		// Set performance measurement
 		String solidConfigFileName = GaianNode.SOLID_CONFIG_FILE_NAME;
 		String responseFilePath = PropertiesManagement.getInstance(solidConfigFileName)
 				.getProperty("SOLID_RESPONSE_FILE_PATH");
@@ -1850,21 +1851,8 @@ public class GaianTable extends AbstractVTI implements VTICosting, IQualifyable,
 
 
 
-		//Modified by Reza Moosaei
-		/*try {
-			Map<String, String> result = new SqlParser().getCondition(originalSQL);
-			if ("LTSOLID".equals(result.get("tableName"))
-					|| "ltsolid".equals(result.get("tableName")))
-				new SolidServiceCall().filterData(result.get("rightExpression"));
-		} catch (Exception ex) {
-			//throw new SQLException(ex);
-		}*/
-		// Detect if this query is potentially against the INNER table of a JOIN - by looking at the stack trace...
-
-		// USEFUL HACK: Use call stack information to determine if Derby is calling us in the context of a JOIN
-		// This will tell us whether we need to cache returned records...
 		String callStackInfo = Util.getStackTraceDigest(-1, -1); // (4, -1)
-//		System.out.println("Stack trace for " + originalSQL + ":\n" + Util.getStackTraceDigest(-1, -1) );
+
 
 		if ( -1 != callStackInfo.indexOf( " JoinResultSet.openRight:" ) || // .startsWith( "JoinResultSet.openRight:" )
 				-1 != callStackInfo.indexOf( " OnceResultSet.openCore:" ) ) { // a OnceResultSet is a single value for a SELECT column value - ok to cache
@@ -2001,7 +1989,8 @@ public class GaianTable extends AbstractVTI implements VTICosting, IQualifyable,
 			// No need for anything more complex than hashCode(). The only important thing is no ensure the query cannot be deduced from it
 			// i.e. this is overkill -> Util.byteArray2HexString(SecurityManager.getChecksumSHA1(originalSQL.getBytes()), false)
 			queryDetails.put( QRY_HASH, Integer.toHexString(originalSQL.hashCode()).toUpperCase() );
-		//Reza Moosaei
+		// Added by Reza Moosaei
+		// push the SQL query into concurrent map
 		queryDetails.put( ORIGINAL_QUERY, originalSQL);
 		}
 

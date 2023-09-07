@@ -585,7 +585,8 @@ public class QueryTab extends Tab {
 				
 				long startTime = lastStartTime = System.currentTimeMillis();
 
-				//Reza Moosa
+				// Added by Reza Moosaei
+				// set performance measurement
 				String solidConfigFileName = GaianNode.SOLID_CONFIG_FILE_NAME;
 				String responseFilePath = PropertiesManagement.getInstance(solidConfigFileName)
 						.getProperty("SOLID_RESPONSE_FILE_PATH");
@@ -745,7 +746,8 @@ public class QueryTab extends Tab {
 					
 					totalTime += System.currentTimeMillis();
 
-					//Reza Moosa
+					// Added by Reza Moosaei
+					// set performance measurement
 					Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 					String timeStamp = String.valueOf(timestamp);
 					String[] total2 = {timeStamp, "Total Execution Time: ", String.valueOf(totalTime)};

@@ -470,27 +470,7 @@ public abstract class VTIWrapper implements Runnable { //implements Cloneable {
 	 * @throws Exception
 	 */
 	protected abstract GaianChildVTI execute(ConcurrentMap<String, Object> arguments, Qualifier[][] qualifiers, int[] projectedColumns, String table) throws Exception ;
-    /*{
-        //Reza Moosaei
-        /*GaianChildVTI result = null;
-        String originalSQL = (String) arguments.get(GaianTable.ORIGINAL_QUERY);
-        try {
-            Map<String, String> sqlResult = new SqlParser().getCondition(originalSQL);
-            String tableName = sqlResult.get("tableName");
-            String nodeDefName = tableName + "_DS" + arguments.get(GaianTable.QRY_STEPS);
-            if ("LTSOLID".equals(tableName)
-                    || "ltsolid".equals(tableName)) {
-                new SolidServiceCall().filterData(sqlResult.get("rightExpression"));
-                logger.logInfo(String.format(
-                        "Refreshing data source for table %s and nodeDefName %s", tableName, nodeDefName));
-                DataSourcesManager.refreshDataSource(tableName, nodeDefName);
-            }
-        } catch (Exception ex) {
-            logger.logException("", "Solid service call has been failed", ex);
-            //throw new SQLException(ex);
-        }
-        return result;
-    }*/
+
 
 //	public ResultSet execute( Hashtable arguments, Qualifier[][] qualifiers, int[] projectedColumns, String table ) throws Exception {
 //
