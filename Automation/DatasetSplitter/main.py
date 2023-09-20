@@ -34,7 +34,7 @@ with open(merged_file_path, "r") as merged_file:
 
     # Loop over the output files and write the appropriate number of lines to each
     for i in range(num_output_files):
-        output_file_path = f"/Users/yurysavateev/dataset5/File{i+1}.dat"
+        output_file_path = f"File{i+1}.dat"
         with open(output_file_path, "w") as output_file:
             for j in range(lines_per_file):
                 output_file.write(merged_file.readline())
