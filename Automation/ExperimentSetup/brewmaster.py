@@ -343,9 +343,10 @@ class LdpIndex:
         appearances_dict = dict()
         # Dictionary with each term and the frequency it appears in the text.
         for term in terms:
-            termword=term+'.ndx'
-            term_frequency = appearances_dict[termword] if termword in appearances_dict else 0
-            appearances_dict[termword] =  term_frequency + 1
+            if len(term)<50:
+                termword=term+'.ndx'
+                term_frequency = appearances_dict[termword] if termword in appearances_dict else 0
+                appearances_dict[termword] =  term_frequency + 1
             
         fileword='f'+str(self.f)
         self.f=self.f+1
@@ -370,9 +371,10 @@ class LdpIndex:
         appearances_dict = dict()
             # Dictionary with each term and the frequency it appears in the text.
         for term in terms:
-            termword=term+'.ndx'
-            term_frequency = appearances_dict[termword] if termword in appearances_dict else 0
-            appearances_dict[termword] =  term_frequency + 1
+            if len(term)<50:
+                termword=term+'.ndx'
+                term_frequency = appearances_dict[termword] if termword in appearances_dict else 0
+                appearances_dict[termword] =  term_frequency + 1
             
         fileword='f'+str(self.f)
         self.f=self.f+1
@@ -393,9 +395,10 @@ class LdpIndex:
         appearances_dict = dict()
             # Dictionary with each term and the frequency it appears in the text.
         for term in terms:
-            termword=term+'.ndx'
-            term_frequency = appearances_dict[termword] if termword in appearances_dict else 0
-            appearances_dict[termword] =  term_frequency + 1
+            if len(term)<50:
+                termword=term+'.ndx'
+                term_frequency = appearances_dict[termword] if termword in appearances_dict else 0
+                appearances_dict[termword] =  term_frequency + 1
             
         fileword='f'+str(self.f)
         self.f=self.f+1
@@ -424,9 +427,10 @@ class LdpIndex:
         appearances_dict = dict()
             # Dictionary with each term and the frequency it appears in the text.
         for term in terms:
-            termword=term+'.ndx'
-            term_frequency = appearances_dict[termword] if termword in appearances_dict else 0
-            appearances_dict[termword] =  term_frequency + 1
+            if len(term)<50:
+                termword=term+'.ndx'
+                term_frequency = appearances_dict[termword] if termword in appearances_dict else 0
+                appearances_dict[termword] =  term_frequency + 1
             
         fileword='f'+str(self.f)
         self.f=self.f+1
