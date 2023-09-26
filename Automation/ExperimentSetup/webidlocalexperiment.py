@@ -808,7 +808,7 @@ acl:agentClass foaf:Agent.'''
 
 def serverditribute(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
     serverlist=[a.rsplit('/')[-2].rsplit(':')[0] for a in serverlistglobal]
-    username= input('Username:')
+    user= input('Username:')
     password = getpass.getpass()
 
     print(serverlist)
