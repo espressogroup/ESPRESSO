@@ -818,7 +818,7 @@ def serverditribute(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
         client = SSHClient()
         #client.load_system_host_keys()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        host = srv                    #hard-coded
+        host = server                    #hard-coded
         port = 22
     
                        #hard-coded
