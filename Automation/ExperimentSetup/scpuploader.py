@@ -119,7 +119,7 @@ def serverscpupload(scp,sourcedir,targetdir='/srv/espresso/storage/'):
     for subdir in os.listdir(sourcedir):
         dpath=sourcedir+subdir
         if os.path.isdir(dpath):
-            scp.put(dpath+'/',remotedir+subdir+'/', recursive=True)
+            scp.put(dpath+'/',targetdir+subdir+'/', recursive=True)
 
 
 
