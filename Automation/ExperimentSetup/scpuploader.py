@@ -2,6 +2,7 @@ import paramiko
 from paramiko import SSHClient
 from scp import SCPClient
 import subprocess
+import os
 
 import logging
 import paramiko
@@ -59,6 +60,23 @@ class SSH:
             return False, stderroutput
 
 
+def getscp(server,user):
+    client = SSHClient()
+    #client.load_system_host_keys()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    host = srv                    #hard-coded
+    port = 22
+    
+    password = getpass.getpass()               #hard-coded
+    username = user                #hard-coded
+    ssh = SSHClient()
+    client.load_system_host_keys()    
+    client.connect(host, port=22, username=user, password=password)
+    scp = SCPClient(client.get_transport())
+    return scp
+
+
+
 def scpfiles(filelist,remotesrv,remotetempdir,remotedir):
     ssh = SSHClient()
     ssh.load_system_host_keys()
@@ -68,7 +86,7 @@ def scpfiles(filelist,remotesrv,remotetempdir,remotedir):
             filename=f.rsplit('/')[-1]
             scp.put(f, remotetempdir+'/'+filename) # Copy my_file.txt to the server
 
-def scpfilessub(filelist,user,srv,remotetempdir,remotedir):
+def scpfilessub(f,user,srv,remotedir):
     client = SSHClient()
     #client.load_system_host_keys()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -83,10 +101,9 @@ def scpfilessub(filelist,user,srv,remotetempdir,remotedir):
     scp = SCPClient(client.get_transport())
 
 
-    for f in filelist:
-            filename=f.rsplit('/')[-1]
-            permadd=remotedir
-            scp.put(f, remotedir)
+    
+    scp.put(f,remotedir, recursive=True)
+    
             #stdin, stdout, stderr = client.exec_command('sudo mv '+tempadd+' '+permadd)
             #stdin.write(password + "\n")
             #stdin.flush()
@@ -98,7 +115,11 @@ def scpfilessub(filelist,user,srv,remotetempdir,remotedir):
     client.close()
 
 
-
+def serverscpupload(scp,sourcedir,targetdir='/srv/espresso/storage/'):
+    for subdir in os.listdir(sourcedir):
+        dpath=sourcedir+subdir
+        if os.path.isdir(dpath):
+            scp.put(dpath+'/',remotedir+subdir+'/', recursive=True)
 
 
 
@@ -108,9 +129,12 @@ def scpfilessub(filelist,user,srv,remotetempdir,remotedir):
 
 
 
-filelist=['/Users/yurysavateev/dataset5/File5.dat']
-srv='srv03812.soton.ac.uk'
-remotedir='/srv/espresso/storage/ESPRESSODIR/'
-remotetempdir='/home/ys1v22'
-user='ys1v22'
-scpfilessub(filelist,user,srv,remotetempdir,remotedir)
+#f='/Users/yurysavateev/testing/'
+#srv='srv03812.soton.ac.uk'
+#remotedir='/srv/espresso/storage/test/'
+
+#remotedir='/home/ys1v22/test/'
+#user='ys1v22'
+#scp=getscp(srv,user)
+#serverscpupload(scp,f,remotedir)
+#scpfilessub(f,user,srv,remotedir)

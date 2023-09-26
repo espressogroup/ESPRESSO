@@ -1,4 +1,4 @@
-import filesorter, dpop_utils, CSSaccess, brewmaster
+import filesorter, dpop_utils, CSSaccess, brewmaster, scpuploader
 import os,sys,csv,re, random, shutil, requests, json, base64, urllib.parse, cleantext
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 from math import floor
@@ -803,6 +803,34 @@ acl:agentClass foaf:Agent.'''
             print(res)
 
 
+def serverditribute(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
+    serverlist=[a.rsplit('/')[-2].rsplit(':')[0] for a in serverlistglobal]
+    username= input('Username:')
+    password = getpass.getpass()
+
+    print(serverlist)
+    i=0
+    for server in serverlist:
+        print('Uploading',server)
+        client = SSHClient()
+        #client.load_system_host_keys()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        host = srv                    #hard-coded
+        port = 22
+    
+                       #hard-coded
+                        #hard-coded
+        ssh = SSHClient()
+        client.load_system_host_keys()    
+        client.connect(host, port=22, username=user, password=password)
+        scp = SCPClient(client.get_transport())
+        serword='S'+str(i)
+        i=i+1
+        sdir=sourcedir+serword+'/'
+        scpuploader.serverscpupload(scp,sdir)
+
+
+
 def stresstest():
     serverlist=['http://localhost:3000/']
     espressopodname='ESPRESSO'
@@ -1150,9 +1178,9 @@ def exp50S50P1000F5MBbar():
     #same password for all the logins
     password='12345'
     #local directory from where to take the files
-    sourcedir='/srv/dataset/2500000F5MB'
+    sourcedir='/Users/yurysavateev/2500000F5MB'
     #directory where to save the experiment
-    expsavedir='/srv/dataset'
+    expsavedir='/Users/yurysavateev'
     #total number of pods
     numberofpods=2500
     #total number of files
@@ -1181,14 +1209,14 @@ def exp50S50P1000F5MBbar():
     #experiment.imagineaclspecial(percs)
     print('files acl imagined')
     #experiment.storeexplocal(expsavedir+'/'+podname)
-    #experiment.saveexp(expsavedir+'/'+podname+'.ttl')
+    experiment.saveexp(expsavedir+'/'+podname+'.ttl')
     print('experiment saved')
     #experiment.loadexp(expsavedir+'/'+podname+'.ttl')
-    experiment.storeexplocal(expsavedir+'/'+podname)
+    #experiment.storeexplocal(expsavedir+'/'+podname)
     print('experiment loaded')
-    #experiment.ESPRESSOcreate()
+    experiment.ESPRESSOcreate()
     print('ESPRESSO checked')
-    #experiment.podcreate()
+    experiment.podcreate()
     print('Pods created')
     #experiment.uploadwithbars()
     print('Pods populated')
@@ -1200,11 +1228,11 @@ def exp50S50P1000F5MBbar():
     print('pods indexed')
     #experiment.uploadindexlocal(podname)
     print('indices uploaded')
-    #experiment.aclmetaindex()
+    experiment.aclmetaindex()
     print('metaindices created')
     #experiment.indexpub()
     print('indices opened')
-    #experiment.metaindexpub()
+    experiment.metaindexpub()
     print('metaindices opened')
     #experiment.indexfixerwebidnew()
     print('indices checked')
@@ -1285,4 +1313,4 @@ def expmultithredtest():
     experiment.indexfixerwebidnew()
     print('indices checked')
 
-exp50S50P1000F5MBbar()
+serverditribute()
