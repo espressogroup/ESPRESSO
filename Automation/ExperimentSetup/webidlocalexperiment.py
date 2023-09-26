@@ -5,6 +5,9 @@ from math import floor
 import threading
 import time, tqdm, getpass
 import concurrent.futures
+import paramiko
+from paramiko import SSHClient
+from scp import SCPClient
 
 serverlistglobal=['https://srv03812.soton.ac.uk:3000/',
                     'https://srv03813.soton.ac.uk:3000/',
