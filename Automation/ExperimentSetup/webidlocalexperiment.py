@@ -9,6 +9,7 @@ import paramiko
 from paramiko import SSHClient
 from scp import SCPClient
 
+
 serverlistglobal=['https://srv03812.soton.ac.uk:3000/',
                     'https://srv03813.soton.ac.uk:3000/',
                     'https://srv03814.soton.ac.uk:3000/',
@@ -850,7 +851,37 @@ def serverzip(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
             dirtozip=sdir+pod
             dirtostore=sdir
             zipname=pod
-            zipdir(dirtozip,dirtostore, zipname)
+            scpuploader.zipdir(dirtozip,dirtostore, zipname)
+
+def zipdistribute(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
+    serverlist=[a.rsplit('/')[-2].rsplit(':')[0] for a in serverlistglobal]
+    targetdir='/srv/espresso/storage/'
+    user= input('Username:')
+    password = getpass.getpass()
+
+    print(serverlist)
+    i=0
+    for server in serverlist:
+        print('Uploading',server)
+        client = SSHClient()
+        #client.load_system_host_keys()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        host = server                    #hard-coded
+        port = 22
+    
+                       #hard-coded
+                        #hard-coded
+        ssh = SSHClient()
+        client.load_system_host_keys()    
+        client.connect(host, port=22, username=user, password=password)
+        scp = SCPClient(client.get_transport())
+        serword='S'+str(i)
+        i=i+1
+        sdir=sourcedir+serword+'/'
+        filelist=next(os.walk(sdir))[2]
+        for filename in filelist:
+            print('sending',filename)
+            scp.put(sdir+filename,targetdir)
 
 
 def stresstest():
