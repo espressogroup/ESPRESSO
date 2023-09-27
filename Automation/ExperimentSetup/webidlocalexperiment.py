@@ -850,7 +850,7 @@ def serverzip(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
             print('Zipping',pod)
             dirtozip=sdir+pod
             dirtostore=sdir
-            zipname=pod
+            zipname=pod+'.zip'
             scpuploader.zipdir(dirtozip,dirtostore, zipname)
 
 def zipdistribute(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
