@@ -126,7 +126,7 @@ def serverscpupload(scp,sourcedir,targetdir='/srv/espresso/storage/'):
 def zipdir(dirtozip,dirtostore, zipname):
     with ZipFile(dirtostore+zipname, 'w') as zip_object:
    # Traverse all files in directory
-        for folder_name, sub_folders, file_names in os.walk(dir):
+        for folder_name, sub_folders, file_names in os.walk(dirtozip):
             for filename in file_names:
          # Create filepath of files in directory
                 
