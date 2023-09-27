@@ -1,6 +1,7 @@
 import paramiko
 from paramiko import SSHClient
 from scp import SCPClient
+from zipfile import ZipFile
 import subprocess
 import os
 
@@ -118,9 +119,21 @@ def scpfilessub(f,user,srv,remotedir):
 def serverscpupload(scp,sourcedir,targetdir='/srv/espresso/storage/'):
     for subdir in os.listdir(sourcedir):
         dpath=sourcedir+subdir
+
         if os.path.isdir(dpath):
             scp.put(dpath+'/',targetdir+subdir, recursive=True)
 
+def zipdir(dirtozip,dirtostore, zipname):
+    with ZipFile(dirtostore+zipname, 'w') as zip_object:
+   # Traverse all files in directory
+        for folder_name, sub_folders, file_names in os.walk(dir):
+            for filename in file_names:
+         # Create filepath of files in directory
+                
+                file_path = os.path.join(folder_name, filename)
+                print(file_path)
+         # Add files to zip file
+                zip_object.write(file_path,file_path[len(dirtozip):])
 
 
 # SCPCLient takes a paramiko transport as its only argument

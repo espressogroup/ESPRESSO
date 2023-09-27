@@ -832,6 +832,25 @@ def serverditribute(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
         sdir=sourcedir+serword+'/'
         scpuploader.serverscpupload(scp,sdir)
 
+def serverzip(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
+    #serverlist=[a.rsplit('/')[-2].rsplit(':')[0] for a in serverlistglobal]
+    #user= input('Username:')
+    #password = getpass.getpass()
+
+    print(serverlist)
+    i=0
+    for server in serverlist:
+        print('Zipping',server)
+        serword='S'+str(i)
+        i=i+1
+        sdir=sourcedir+serword+'/'
+        pods=next(os.walk(sdir))[1]
+        for pod in pods:
+            print('Zipping',pod)
+            dirtozip=sdir+pod
+            dirtostore=sdir
+            zipname=pod
+            zipdir(dirtozip,dirtostore, zipname)
 
 
 def stresstest():
@@ -1316,4 +1335,4 @@ def expmultithredtest():
     experiment.indexfixerwebidnew()
     print('indices checked')
 
-serverditribute()
+serverzip()
