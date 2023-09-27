@@ -833,7 +833,7 @@ def serverditribute(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
         scpuploader.serverscpupload(scp,sdir)
 
 def serverzip(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
-    #serverlist=[a.rsplit('/')[-2].rsplit(':')[0] for a in serverlistglobal]
+    serverlist=[a.rsplit('/')[-2].rsplit(':')[0] for a in serverlistglobal]
     #user= input('Username:')
     #password = getpass.getpass()
 
