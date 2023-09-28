@@ -1,0 +1,12 @@
+---
+- name: Change directory mode to allow anyone to write
+  hosts: solid_servers
+  become: yes
+
+  tasks:
+    - name: Set directory permissions
+      ansible.builtin.file:
+        path: /srv/espresso/storage/
+        state: directory
+        mode: '0777'
+        recurse: true
