@@ -881,7 +881,7 @@ def zipdistribute(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
         print(sdir)
         filelist=next(os.walk(sdir))[2]
         for filename in filelist:
-            print('sending',sdir+filename,'to',targetdir)
+            print('sending',sdir+filename,'to',targetdir,'at',server)
             scp.put(sdir+filename,targetdir)
 
 
