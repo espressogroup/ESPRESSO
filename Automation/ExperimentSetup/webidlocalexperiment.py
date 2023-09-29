@@ -1366,4 +1366,4 @@ def expmultithredtest():
     experiment.indexfixerwebidnew()
     print('indices checked')
 
-serverzip()
+zipdistribute()

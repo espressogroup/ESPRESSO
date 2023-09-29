@@ -131,7 +131,7 @@ def zipdir(dirtozip,dirtostore, zipname):
          # Create filepath of files in directory
                 
                 file_path = os.path.join(folder_name, filename)
-                print(file_path)
+                #print(file_path)
          # Add files to zip file
                 zip_object.write(file_path,file_path[len(dirtozip):])
 
