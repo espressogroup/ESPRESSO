@@ -4,8 +4,9 @@
   become: yes
 
   tasks:
-    - name: Unzip files
+    - name: Unzip directories
       unarchive:
-        src: /srv/espresso/test.zip
-        dest: /srv/espresso/testdir
+        src: "/srv/espresso/exp50S50P1000F5MBbar{{ item }}.zip"
+        dest: "/srv/espresso/storage/exp50S50P1000F5MBbar{{ item }}"
         remote_src: yes
+      with_sequence: start=0 end=49
