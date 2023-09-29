@@ -855,7 +855,7 @@ def serverzip(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
 
 def zipdistribute(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
     serverlist=[a.rsplit('/')[-2].rsplit(':')[0] for a in serverlistglobal]
-    targetdir='/srv/espresso/storage/'
+    targetdir='/srv/espresso/storage'
     user= input('Username:')
     password = getpass.getpass()
 
@@ -878,6 +878,7 @@ def zipdistribute(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
         serword='S'+str(i)
         i=i+1
         sdir=sourcedir+serword+'/'
+        print(sdir)
         filelist=next(os.walk(sdir))[2]
         for filename in filelist:
             print('sending',filename)
