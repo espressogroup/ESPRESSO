@@ -6,7 +6,8 @@
   tasks:
     - name: Set directory permissions
       ansible.builtin.file:
-        path: /srv/espresso/storage/
+        path: "/srv/espresso/storage/new50s50p100f{{ item }}/espressoindex/"
         state: directory
         mode: '0777'
         recurse: true
+      with_sequence: start=0 end=49
