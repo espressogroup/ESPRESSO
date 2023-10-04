@@ -3,6 +3,7 @@ import os, tqdm
 import shutil
 
 def smartchunk(input_dir,output_dir,num_files,sizebytes):
+    os.makedirs(output_dir,exist_ok=True)
     chunk_size = sizebytes // num_files
     filelist=sorted(os.listdir(input_dir))
     pathlist=[]
