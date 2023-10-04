@@ -64,7 +64,7 @@ serverlistglobal=['https://srv03812.soton.ac.uk:3000/',
 
 def returndaclopen(fileaddress,webidlist):
     webidstring='<'+'>,<'.join(webidlist)+'>'
-    acltext='''@prefix : <http://localhost:3000/webidpod1/File82.dat.acl#>.
+    acltext='''@prefix : <'''+fileaddress+'''.acl#>.
 @prefix acl: <http://www.w3.org/ns/auth/acl#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix c: <http://localhost:3000/webidpod1/profile/card#>.
@@ -83,7 +83,7 @@ def returndaclopen(fileaddress,webidlist):
 
 def returnacldefault(fileaddress,webidlist):
     webidstring='<'+'>,<'.join(webidlist)+'>'
-    acltext='''@prefix : <http://localhost:3000/webidpod1/File82.dat.acl#>.
+    acltext='''@prefix : <'''+fileaddress+'''.acl#>.
 @prefix acl: <http://www.w3.org/ns/auth/acl#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix c: <http://localhost:3000/webidpod1/profile/card#>.
@@ -853,14 +853,14 @@ def serverzip(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
             zipname=pod+'.zip'
             scpuploader.zipdir(dirtozip,dirtostore, zipname)
 
-def zipdistribute(sourcedir='/srv/dataset/exp50S50P1000F5MBbar/'):
-    serverlist=[a.rsplit('/')[-2].rsplit(':')[0] for a in serverlistglobal]
+def zipdistribute(sourcedir='/Users/yurysavateev/new50s50p100f/'):
+    serverlist=[a.rsplit('/')[-2].rsplit(':')[0] for a in serverlistglobal[11:]]
     targetdir='/srv/espresso'
     user= input('Username:')
     password = getpass.getpass()
 
     print(serverlist)
-    i=0
+    i=11
     for server in serverlist:
         print('Uploading',server)
         client = SSHClient()
@@ -926,6 +926,48 @@ def stresstest():
     #experiment.indexfixerwebidnew()
     #print('indices checked')
 
+
+def indexpubmanual(podname):
+        for IDP in serverlistglobal:
+            print('opening indices for '+ IDP)
+        #CSSA=CSSaccess.CSSaccess(IDP, espressoemail, password)
+        #CSSA.put_file(espressopod, 'espressoindex.csv', ' ', 'text/csv')
+        #CSSA.makefileaccessible(espressopod, 'espressoindex.csv')
+            for i in range(50):
+                thispodname=podname+str(i)
+                podaddress=IDP+thispodname+'/'
+                podindexaddress=podaddress+'espressoindex/'
+                USERNAME=thispodname+'@example.org'
+                PASSWORD='12345'
+                print(USERNAME)
+                CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
+                CSSA.create_authstring()
+                CSSA.create_authtoken()
+                #print(CSSA.authtoken)
+                
+                acldef='''@prefix acl: <http://www.w3.org/ns/auth/acl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix c: <profile/card#>.
+
+<#owner> a acl:Authorization;
+acl:agent c:me;
+acl:mode acl:Control, acl:Read, acl:Write;
+acl:accessTo <./>;
+acl:default <./>.
+
+<#public> a acl:Authorization;
+acl:mode  acl:Control, acl:Read, acl:Write;
+acl:accessTo <./>;
+acl:default <./>;
+acl:agentClass foaf:Agent.'''
+                #print(acldef)
+                targetUrl=podindexaddress+'.acl'
+                print(targetUrl)
+                #print(targetUrl)
+                headers={ 'content-type': 'text/turtle', 'authorization':'DPoP '+CSSA.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", CSSA.dpopKey)}
+                res= requests.put(targetUrl,headers=headers,data=acldef)
+                #res=CSSAccess.get_file(indexaddress+'.acl')
+                print(targetUrl,res)
 
 def experimenttemplate():
     #list of servers in the experiment:
@@ -1263,14 +1305,14 @@ def exp50S50P1000F5MBbar():
     #experiment.imagineaclspecial(percs)
     print('files acl imagined')
     #experiment.storeexplocal(expsavedir+'/'+podname)
-    experiment.saveexp(expsavedir+'/'+podname+'.ttl')
+    #experiment.saveexp(expsavedir+'/'+podname+'.ttl')
     print('experiment saved')
     #experiment.loadexp(expsavedir+'/'+podname+'.ttl')
     #experiment.storeexplocal(expsavedir+'/'+podname)
     print('experiment loaded')
-    experiment.ESPRESSOcreate()
+    #experiment.ESPRESSOcreate()
     print('ESPRESSO checked')
-    experiment.podcreate()
+    #experiment.podcreate()
     print('Pods created')
     #experiment.uploadwithbars()
     print('Pods populated')
@@ -1282,11 +1324,11 @@ def exp50S50P1000F5MBbar():
     print('pods indexed')
     #experiment.uploadindexlocal(podname)
     print('indices uploaded')
-    experiment.aclmetaindex()
+    #experiment.aclmetaindex()
     print('metaindices created')
-    #experiment.indexpub()
+    experiment.indexpub()
     print('indices opened')
-    experiment.metaindexpub()
+    #experiment.metaindexpub()
     print('metaindices opened')
     #experiment.indexfixerwebidnew()
     print('indices checked')

@@ -78,12 +78,14 @@ def smartchunk(input_dir,output_dir,num_files,sizebytes):
 
 
 def main():
-    input_dir = '/Users/yurysavateev/englishdata'
+    input_dir = argv[1]
     output_file = 'combined.txt'
-    output_dir = '/Users/yurysavateev/2500000F5MB/'
-    num_files = 2500000
-    max_combined_size_mb = 12500
-
+    output_dir = argv[2]
+    #num_files = 2500000
+    num_files = argv[3]
+    #max_combined_size_mb = 12500
+    max_combined_size_mb=argv[4]
+    
     max_combined_size_bytes = max_combined_size_mb * 1024 * 1024
     #clean_output_directory(output_dir)
     #combine_text_files(input_dir, output_file, max_combined_size_bytes)
