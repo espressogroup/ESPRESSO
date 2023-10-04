@@ -1,3 +1,5 @@
+from sys import argv
+
 def smartchunk(input_dir,output_dir,num_files,sizebytes):
     chunk_size = sizebytes // num_files
     filelist=sorted(os.listdir(input_dir))
