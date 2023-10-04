@@ -1,4 +1,6 @@
 from sys import argv
+import os, tqdm
+import shutil
 
 def smartchunk(input_dir,output_dir,num_files,sizebytes):
     chunk_size = sizebytes // num_files
