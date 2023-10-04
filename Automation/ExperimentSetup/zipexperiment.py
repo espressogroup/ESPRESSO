@@ -1,4 +1,4 @@
-import filesorter, dpop_utils, CSSaccess, brewmaster, scpuploader
+import filesorter, dpop_utils, CSSaccess, brewmaster, scpuploader,zipdistribute
 import os,csv,re, random, shutil, requests, json, base64, urllib.parse, cleantext
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 from math import floor
@@ -544,29 +544,40 @@ def distributezips(self,targetdir='/srv/espresso/'):
 
             server=str(self.image.value(snode,self.namespace.Address)).rsplit('/')[-2].rsplit(':')[0]
             print('Uploading',server)
-            #client = SSHClient()
+            client = SSHClient()
         #client.load_system_host_keys()
-            #client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             #ssh = SSHClient()
-            #client.load_system_host_keys()    
-            #client.connect(server, port=22, username=self.SSHUser, password=self.SSHpassword)
-            #scp = SCPClient(client.get_transport())
-            #sdir=str(self.image.value(snode,self.namespace.LocalAddress))
+            client.load_system_host_keys()    
+            client.connect(server, port=22, username=self.SSHUser, password=self.SSHpassword)
+            scp = SCPClient(client.get_transport())
+            sdir=str(self.image.value(snode,self.namespace.LocalAddress))
             #scpuploader.serverscpupload(scp,sdir)
-            #ssh.close()
-            #scp.close()
-            with SSHClient() as client:
-                client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-                client.load_system_host_keys()
-                client.connect(server, port=22, username=self.SSHUser, password=self.SSHpassword)
-
-                with SCPClient(client.get_transport()) as scp:
-                    sdir=str(self.image.value(snode,self.namespace.LocalAddress))
-                    filelist=next(os.walk(sdir))[2]
-                    pbar=tqdm.tqdm(len(filelist))
-                    for filename in filelist:
+            filelist=next(os.walk(sdir))[2]
+            print(filelist)
+            pbar=tqdm.tqdm(len(filelist),server)
+            for filename in filelist:
                         #print('sending',sdir+filename,'to',targetdir,'at',server)
                         scp.put(sdir+filename,targetdir)
+                        pbar.update(1)
+            pbar.close()
+
+            client.close()
+            scp.close()
+            #with SSHClient() as client:
+            #    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            #    client.load_system_host_keys()
+            #    client.connect(server, port=22, username=self.SSHUser, password=self.SSHpassword)
+
+            #    with SCPClient(client.get_transport()) as scp:
+            #        sdir=str(self.image.value(snode,self.namespace.LocalAddress))
+            #        print(sdir)
+            #        filelist=next(os.walk(sdir))[2]
+            #        print(filelist)
+            #        pbar=tqdm.tqdm(len(filelist))
+            #        for filename in filelist:
+                        #print('sending',sdir+filename,'to',targetdir,'at',server)
+            #            scp.put(sdir+filename,targetdir)
                         #scpuploader.serverscpupload(scp,sdir,targetdir)
 
 
@@ -614,18 +625,6 @@ def stresstest():
     #experiment.metaindexpub()
     #experiment.indexfixerwebidnew()
     #print('indices checked')
-
-
-
-
-
-
-
-
-
-
-
-
 
 def experimenttemplate():
     #list of servers in the experiment:
@@ -695,9 +694,6 @@ def experimenttemplate():
     print('metaindices opened')
     experiment.indexfixerwebidnew()
     print('indices checked')
-
-
-
 
 def new50s50p100f():
     #list of servers in the experiment:
@@ -813,27 +809,27 @@ def zipexperiment(podname,firstserver,lastserver,sourcedir,expsavedir, numberofp
     experiment.imagineaclnormal(openperc,numofwebids,mean, disp)
     experiment.imagineaclspecial(percs)
     print('files acl imagined')
-    experiment.storelocalfileszip()
     experiment.storelocalindexzip()
-    #experiment.storeexplocal(expsavedir+'/'+podname)
-    #experiment.saveexp(experiment.localimage+podname+'.ttl')
+    experiment.storelocalfileszip()
+    
+    experiment.saveexp(experiment.localimage+podname+'.ttl')
     print('experiment saved')
     
-    #experiment.storeexplocal(expsavedir+'/'+podname)
+    
     #experiment.loadexp(experiment.localimage+podname+'.ttl')
     #print('experiment loaded')
-    #experiment.ESPRESSOcreate()
-    #print('ESPRESSO checked')
-    #experiment.podcreate()
-    #print('Pods created')
+    experiment.ESPRESSOcreate()
+    print('ESPRESSO checked')
+    experiment.podcreate()
+    print('Pods created')
     
-    #experiment.aclmetaindex()
-    #print('metaindices created')
-    #experiment.indexpub()
-    #print('indices opened')
-    #experiment.metaindexpub()
-    #print('metaindices opened')
-    experiment.distributezips()
+    experiment.aclmetaindex()
+    print('metaindices created')
+    experiment.indexpub()
+    print('indices opened')
+    experiment.metaindexpub()
+    print('metaindices opened')
+    zipdistribute.zipdistribute(serverlist,experiment.localimage,experiment.SSHUser,experiment.SSHpassword)
 
 
 podname=argv[1]
