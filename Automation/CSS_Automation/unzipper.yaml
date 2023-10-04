@@ -1,0 +1,22 @@
+---
+- name: Unzip files on remote VMs
+  hosts: solid_servers
+  become: yes
+
+  tasks:
+    - name: Unzip Data Files
+      unarchive:
+        src: "/srv/espresso/new50s50p100f{{ item }}.zip"
+        dest: "/srv/espresso/storage/new50s50p100f{{ item }}/"
+        remote_src: yes
+      with_sequence: start=0 end=49
+
+    - name: Unzip Indexing Files
+      unarchive:
+        src: "/srv/espresso/new50s50p100f{{ item }}.index.zip"
+        dest: "/srv/espresso/storage/new50s50p100f{{ item }}/espressoindex/"
+        remote_src: yes
+      with_sequence: start=0 end=49
+
+# cp /srv/espresso/storage/exp50S50P1000F5MBbar0/doc*  /srv/espresso/storage/new50s50p100f0/
+# cp /srv/espresso/storage/exp50S50P1000F5MBbar0/espressoindex/* /srv/espresso/storage/new50s50p100f0/espressoindex/
