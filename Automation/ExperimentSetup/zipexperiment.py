@@ -1,5 +1,5 @@
 import filesorter, dpop_utils, CSSaccess, brewmaster, scpuploader
-import os,sys,csv,re, random, shutil, requests, json, base64, urllib.parse, cleantext
+import os,csv,re, random, shutil, requests, json, base64, urllib.parse, cleantext
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 from math import floor
 import threading
@@ -9,6 +9,7 @@ import paramiko
 from paramiko import SSHClient
 from scp import SCPClient
 from zipfile import ZipFile
+from sys import argv
 
 serverlistglobal=['https://srv03812.soton.ac.uk:3000/',
                     'https://srv03813.soton.ac.uk:3000/',
