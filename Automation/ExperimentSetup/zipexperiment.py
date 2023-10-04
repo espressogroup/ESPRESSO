@@ -562,7 +562,12 @@ def distributezips(self,targetdir='/srv/espresso/'):
 
                 with SCPClient(client.get_transport()) as scp:
                     sdir=str(self.image.value(snode,self.namespace.LocalAddress))
-                    scpuploader.serverscpupload(scp,sdir,targetdir)
+                    filelist=next(os.walk(sdir))[2]
+                    pbar=tqdm.tqdm(len(filelist))
+                    for filename in filelist:
+                        #print('sending',sdir+filename,'to',targetdir,'at',server)
+                        scp.put(sdir+filename,targetdir)
+                        #scpuploader.serverscpupload(scp,sdir,targetdir)
 
 
 
