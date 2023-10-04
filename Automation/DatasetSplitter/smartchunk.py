@@ -43,10 +43,10 @@ num_files = argv[3]
     #max_combined_size_mb = 12500
 max_combined_size_mb=argv[4]
     
-max_combined_size_bytes = max_combined_size_mb * 1024 * 1024
+max_combined_size_bytes = int(max_combined_size_mb) * 1024 * 1024
     #clean_output_directory(output_dir)
     #combine_text_files(input_dir, output_file, max_combined_size_bytes)
 
     #split_text_file(output_file, output_dir, num_files)
     #os.remove(output_file)
-smartchunk(input_dir,output_dir,int(num_files),int(max_combined_size_bytes))
+smartchunk(input_dir,output_dir,int(num_files),max_combined_size_bytes)
