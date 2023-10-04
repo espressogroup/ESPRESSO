@@ -116,7 +116,7 @@ def scpfilessub(f,user,srv,remotedir):
     client.close()
 
 
-def serverscpupload(scp,sourcedir,targetdir='/srv/espresso/storage/'):
+def serverscpupload(scp,sourcedir,targetdir='/srv/espresso/'):
     for subdir in os.listdir(sourcedir):
         dpath=sourcedir+subdir
 

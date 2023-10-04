@@ -562,7 +562,7 @@ def distributezips(self,targetdir='/srv/espresso/'):
 
                 with SCPClient(client.get_transport()) as scp:
                     sdir=str(self.image.value(snode,self.namespace.LocalAddress))
-                    scpuploader.serverscpupload(scp,sdir)
+                    scpuploader.serverscpupload(scp,sdir,targetdir)
 
 
 
