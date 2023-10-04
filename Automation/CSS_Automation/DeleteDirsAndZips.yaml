@@ -1,0 +1,17 @@
+---
+- name: Delete files and directories using regex
+  hosts: solid_servers
+  become: yes
+
+  tasks:
+    - name: Delete files matching regex
+      command: find /srv/espresso -type f -name 'exp50S50P1000F5MBbar*.zip' -exec rm -f {} +
+      args:
+        chdir: /srv/espresso
+      ignore_errors: yes
+
+    - name: Delete directories matching regex
+      command: find /srv/espresso/storage -type d -name 'exp50S50P1000F5MBbar*' -exec rm -rf {} +
+      args:
+        chdir: /srv/espresso/storage
+      ignore_errors: yes
