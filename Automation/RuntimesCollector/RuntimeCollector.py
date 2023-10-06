@@ -1,35 +1,34 @@
 import csv
 import paramiko
 import os
+import argparse
 
+parser = argparse.ArgumentParser(description='Run experiments and collect runtimes.')
+parser.add_argument('--keyword', required=True, help='Keyword for the search')
+parser.add_argument('--webid', required=True, help='Web ID for the search')
+parser.add_argument('--servers', required=True, help='servers to run')
+args = parser.parse_args()
 
-
-with open('single.txt', 'r') as file:
+with open(args.servers+'.txt', 'r') as file:
     lines = [line.strip() for line in file.readlines()]
-# Experiments (Multi-Servers)
 servers = lines
 
-
-# Experiments (Single-Server)
-# servers = ['srv03768.soton.ac.uk']
+print(servers)
 
 
 username = 'mrmm1f23@soton.ac.uk'
 password = '01121809885_Soton'
 
-
 script_directory = '/usr/local/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build/'
-log_directory = script_directory+'csvtestfiles/'
+log_directory = script_directory + 'csvtestfiles/'
 
-
-keywords = ['job']
-webid='mailto:sagent0@example.org'
+keywords = [args.keyword]
+webid = args.webid
 
 num_runs = 1
 
 csv_file = 'runtimes.csv'
 first_server = servers[0]
-
 
 try:
     with open(csv_file, 'w', newline='') as file:
@@ -42,7 +41,7 @@ try:
                 ssh = paramiko.SSHClient()
                 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
                 ssh.connect(first_server, username=username, password=password)
-                print("Connected to "+ first_server)
+                print("Connected to " + first_server)
 
                 # Run the script on the first server
                 query = f'SELECT * FROM LTSOLID WHERE Search_Parameters = \'{keyword},{webid}\' ORDER BY RELEVANCE DESC'
@@ -108,7 +107,7 @@ try:
                         log_ssh.close()
 
                     except paramiko.AuthenticationException:
-                        search_time="Failed"
+                        search_time = "Failed"
                         writer.writerow([server, keyword, search_time, execution_time, total_time, rows_fetched])
                         print(f'Authentication failed for {server}')
                     except paramiko.SSHException as e:
@@ -127,4 +126,3 @@ except Exception as e:
     print(f'Error occurred for {first_server}: {str(e)}')
 
 print('Runtimes collected and written to the CSV file.')
-
