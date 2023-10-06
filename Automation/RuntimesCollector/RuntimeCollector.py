@@ -4,32 +4,76 @@ import os
 
 
 # Experiments (Multi-Servers)
-servers = ['srv03768.soton.ac.uk',
-           'srv03812.soton.ac.uk',
-           'srv03911.soton.ac.uk',
-           'srv03814.soton.ac.uk',
-           'srv03815.soton.ac.uk',
-           'srv03816.soton.ac.uk'
-           ]
+servers = [
+# "srv03812.soton.ac.uk",
+# "srv03813.soton.ac.uk",
+# "srv03814.soton.ac.uk",
+"srv03815.soton.ac.uk",
+# "srv03816.soton.ac.uk",
+# "srv03911.soton.ac.uk",
+# "srv03912.soton.ac.uk",
+# "srv03913.soton.ac.uk",
+# "srv03914.soton.ac.uk",
+# "srv03915.soton.ac.uk",
+# "srv03916.soton.ac.uk",
+# "srv03917.soton.ac.uk",
+# "srv03918.soton.ac.uk",
+# "srv03919.soton.ac.uk",
+# "srv03920.soton.ac.uk",
+# "srv03921.soton.ac.uk",
+# "srv03922.soton.ac.uk",
+# "srv03923.soton.ac.uk",
+# "srv03924.soton.ac.uk",
+# "srv03925.soton.ac.uk",
+# "srv03926.soton.ac.uk",
+# "srv03927.soton.ac.uk",
+# "srv03928.soton.ac.uk",
+# "srv03929.soton.ac.uk",
+# "srv03930.soton.ac.uk",
+# "srv03931.soton.ac.uk",
+# "srv03932.soton.ac.uk",
+# "srv03933.soton.ac.uk",
+# "srv03934.soton.ac.uk",
+# "srv03935.soton.ac.uk",
+# "srv03936.soton.ac.uk",
+# "srv03937.soton.ac.uk",
+# "srv03938.soton.ac.uk",
+# "srv03939.soton.ac.uk",
+# "srv03940.soton.ac.uk",
+# "srv03941.soton.ac.uk",
+# "srv03942.soton.ac.uk",
+# "srv03943.soton.ac.uk",
+# "srv03944.soton.ac.uk",
+# "srv03945.soton.ac.uk",
+# "srv03946.soton.ac.uk",
+# "srv03947.soton.ac.uk",
+# "srv03948.soton.ac.uk",
+# "srv03949.soton.ac.uk",
+# "srv03950.soton.ac.uk",
+# "srv03951.soton.ac.uk",
+# "srv03952.soton.ac.uk",
+# "srv03953.soton.ac.uk",
+# "srv03954.soton.ac.uk",
+# "srv03955.soton.ac.uk"
+]
 
 # # Experiments (Single-Server)
 # servers = ['srv03768.soton.ac.uk']
 
 
-# SSH connection parameters
 username = 'mrmm1f23@soton.ac.uk'
-password = 'XX'
+password = '01121809885_Soton'
 
 
-script_directory = '/usr/local/Reza-WorkSpace/BuildGaian/GaianDB_BuildMaven_Keyword_20230611/'
-log_directory = '/usr/local/Reza-WorkSpace/BuildGaian/GaianDB_BuildMaven_Keyword_20230611/csvtestfiles/'
+script_directory = '/usr/local/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build/'
+log_directory = script_directory+'csvtestfiles/'
 
 
-# keywords = ['disease', 'corona','hemoproteins']
-
-keywords = ['disease']
+keywords = ['job']
+webid='mailto:sagent0@example.org'
 
 num_runs = 1
+
 csv_file = 'runtimes.csv'
 first_server = servers[0]
 
@@ -48,7 +92,7 @@ try:
                 print("Connected to "+ first_server)
 
                 # Run the script on the first server
-                query = f'SELECT * FROM LTSOLID WHERE TERM = \'{keyword}\' ORDER BY RELEVANCE DESC'
+                query = f'SELECT * FROM LTSOLID WHERE Search_Parameters = \'{keyword},{webid}\' ORDER BY RELEVANCE DESC'
                 command = f'cd {script_directory} && ./queryDerby.sh "{query}"'
                 stdin, stdout, stderr = ssh.exec_command(command)
                 output = stdout.read().decode()

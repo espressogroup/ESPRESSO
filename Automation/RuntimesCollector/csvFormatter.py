@@ -44,7 +44,7 @@ with open(output_file, 'w', newline='') as file:
         keyword_runs[keyword].append(search_time)
 
         # Check if all servers have reported the search time for the current keyword
-        if len(keyword_runs[keyword]) == 6:
+        if len(keyword_runs[keyword]) == 50:
             # Write the keyword runs to the output CSV file
             writer.writerow([keyword_index[keyword], keyword] + keyword_runs[keyword] +
                             [execution_time, total_time, rows_fetched])
