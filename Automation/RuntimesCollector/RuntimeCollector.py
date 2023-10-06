@@ -31,9 +31,9 @@ csv_file = 'runtimes.csv'
 first_server = servers[0]
 
 try:
-    with open(csv_file, 'w', newline='') as file:
+    with open(csv_file, 'a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(['Server', 'Keyword', 'Search Time', 'Execution Time', 'Total Time', 'Rows Fetched'])
+        # writer.writerow(['Server', 'Keyword', 'Search Time', 'Execution Time', 'Total Time', 'Rows Fetched'])
 
         for keyword in keywords:
             for run in range(1, num_runs + 1):
