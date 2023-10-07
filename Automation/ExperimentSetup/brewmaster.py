@@ -571,27 +571,28 @@ def askindex(podindexaddress, keyword, webid):
     ans=dict()       
     if wordres.ok:
         openaccessaddress=podindexaddress+'openaccess.webid'
-        openaccessres=CSSaccess.get_file(openaccessaddress)
+        #openaccessres=CSSaccess.get_file(openaccessaddress)
+        opendic=dict()
         openaccesstime=time.time_ns()-begtime
-        openlist=openaccessres.text.rsplit('\r\n')[:-1]
+        #if openaccessres.ok:
+        #    openlist=openaccessres.text.rsplit('\r\n')[:-1]
+        #    opendic={fwordfadd.rsplit(',')[0]: podadress+fwordfadd.rsplit(',')[1] for fwordfadd in openlist}
+        podaddress=podindexaddress[:-14]
         webidaddress=podindexaddress+webid.translate(str.maketrans('', '', string.punctuation))+'.webid'
         webidfilelist=[]
         webidres=CSSaccess.get_file(webidaddress)
         webidtime=time.time_ns()-begtime
+        
         if webidres.ok:
             webidfilelist=webidres.text.rsplit('\r\n')[:-1]
+            opendic=opendic|{fwordfadd.rsplit(',')[0]: podaddress+fwordfadd.rsplit(',')[1] for fwordfadd in webidfilelist}
 
         wordfilelist=wordres.text.rsplit('\r\n')[:-1]
         worddic={filefreq.rsplit(',')[0]: filefreq.rsplit(',')[1] for filefreq in wordfilelist}
             #print(filelist)
-        accessibleset =set(worddic.keys())&(set(openlist)|set(webidfilelist))
+        accessibleset =set(worddic.keys())&(set(opendic.keys()))
         settime=round(time.time_ns()-begtime)
-        with concurrent.futures.ThreadPoolExecutor(max_workers=len(accessibleset)) as exe:
-            futurelist = {exe.submit(CSSaccess.get_file, podindexaddress+fword+'.file'): fword for fword in accessibleset}
-            for future in concurrent.futures.as_completed(futurelist):
-                url = futurelist[future]
-                data = future.result().text
-                ans[data]=worddic[url]
+        ans=dict((opendic[k], worddic[k]) for k in accessibleset if k in worddic)
         #for fword in accessibleset:
         #    filepath=podindexaddress+fword+'.file'
         #    filename=CSSaccess.get_file(filepath).text
@@ -606,7 +607,7 @@ def askindex(podindexaddress, keyword, webid):
                 #print(filename, freq)
         #        ans[filename]=int(freq)
         totaltime=(time.time_ns()-begtime)
-        print('for '+podindexaddress,'ndx',round(ndxtime/1000000,3),'oa',round((openaccesstime-ndxtime)/1000000,3),'webid',round((webidtime-openaccesstime)/1000000,3),'set',round((settime-webidtime)/1000000,3),'filetime',round((totaltime-webidtime)/1000000,3),'total',totaltime/1000000)
+        print('for '+podaddress,'ndx',round(ndxtime/1000000,3),'oa',round((openaccesstime-ndxtime)/1000000,3),'webid',round((webidtime-openaccesstime)/1000000,3),'set',round((settime-webidtime)/1000000,3),'filetime',round((totaltime-settime)/1000000,3),'total',totaltime/1000000,'fetched',len(ans))
     return ans
 
 
@@ -619,6 +620,7 @@ def coffeefilterthreaded(metaindexaddress,keyword,webid):
     ans=dict()
     #begtime=time.time_ns()
     #print(n)
+   
     with concurrent.futures.ThreadPoolExecutor(max_workers=len(podindexlist)) as executor:
         futurelist = {executor.submit(askindex, podindex, keyword, webid): podindex for podindex in podindexlist}
         for future in concurrent.futures.as_completed(futurelist):

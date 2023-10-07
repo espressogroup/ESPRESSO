@@ -812,7 +812,7 @@ def zipexperiment(podname,firstserver,lastserver,sourcedir,expsavedir, numberofp
     experiment.storelocalindexzip()
     experiment.storelocalfileszip()
     
-    #experiment.saveexp(experiment.localimage+podname+'.ttl')
+    experiment.saveexp(experiment.localimage+podname+'.ttl')
     print('experiment saved')
     
     

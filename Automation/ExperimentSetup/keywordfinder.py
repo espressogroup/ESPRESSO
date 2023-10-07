@@ -1,9 +1,6 @@
-import CSSaccess, cleantext, string
-from rdflib import URIRef, BNode, Literal, Graph, Namespace
-#from rdflib.namespace import ACL
+import cleantext, string
 import concurrent.futures
 import time, tqdm,os
-from multiprocessing import Pool
 from sys import argv
 
 
@@ -64,7 +61,7 @@ class WordIndex:
         #print(fileword,id)
         for key in terms:
             if key not in self.index.keys():
-                self.index[key]=1           
+                self.index[key]=0           
             self.index[key]=self.index[key]+1                      
 
     
@@ -76,6 +73,8 @@ class WordIndex:
 
 def keywordfinder(kdir,kfile):
     filelist=next(os.walk(kdir))[2]
+    #filelist=os.listdir(kdir)
+    #print(filelist)
     index=WordIndex()
     pbar=tqdm.tqdm(len(filelist))
     for filename in filelist:
