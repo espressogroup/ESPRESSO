@@ -143,6 +143,7 @@ com/ibm/gaiandb/apps/dashboard/TopologyGraph$4.class
 com/ibm/gaiandb/tools/SQLDerbyRunner.class
 com/ibm/gaiandb/plugins/wpml/schema/RMG_specific_access.class
 com/ibm/gaiandb/udpdriver/server/UDPDriverServer.class
+com/ibm/solid/SolidServiceCall_Reza.class
 com/ibm/gaiandb/udpdriver/server/UDPDriverServerException.class
 com/ibm/gaiandb/InMemoryRows.class
 com/ibm/db2j/SLike.class

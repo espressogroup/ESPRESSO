@@ -45,6 +45,7 @@
 /Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_SourceCode/src/main/java/com/ibm/gaiandb/searchapis/TestSIAPI.java
 /Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_SourceCode/src/main/java/Prototype/UDPDriver/com/ibm/gaiandb/udpdriver/common/protocol/CloseRequest.java
 /Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_SourceCode/src/main/java/com/ibm/gaiandb/utils/Pair.java
+/Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_SourceCode/src/main/java/com/ibm/solid/SolidServiceCall_Reza.java
 /Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_SourceCode/src/main/java/PolicyPlugins/com/ibm/gaiandb/plugins/wpml/schema/Row.java
 /Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_SourceCode/src/main/java/com/ibm/mqtt/MqttNotConnectedException.java
 /Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_SourceCode/src/main/java/com/ibm/db2j/ShrinkableResultSet.java
