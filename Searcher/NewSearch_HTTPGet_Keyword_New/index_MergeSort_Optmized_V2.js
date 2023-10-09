@@ -49,7 +49,8 @@ app.get('/query', async (req, res) => {
     const requests = sources.map(async source => {
         const baseAdress = source.replace(/\/espressoindex\//, "/");
         const [response, webIdAccess] = await Promise.all([
-            axios.get(`${source}${searchWord}.ndx`).catch(err => err.response),
+
+            axios.get(`${source}${searchWord.slice(0).split('').join('/')}.ndx`).catch(err => err.response),
             axios.get(`${source}${webIdQuery}.webid`).catch(err => err.response)
         ]);
 

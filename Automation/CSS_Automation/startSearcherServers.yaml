@@ -4,7 +4,7 @@
 
   vars:
     Search_Project_Path: "/usr/local/ESPRESSO/Searcher/NewSearch_HTTPGet_Keyword_New"
-    MetaIndex: "E1expmetaindex.csv"
+    MetaIndex: "new50s50p100fmetaindex.csv"
 
   tasks:
     - name: Run server.js script
