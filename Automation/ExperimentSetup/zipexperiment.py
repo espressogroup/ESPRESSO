@@ -454,9 +454,60 @@ class ESPRESSOexperiment:
                 pbar = tqdm.tqdm(total=n,desc=podzipindexfile)
                 with ZipFile(podzipindexfile, 'w') as podindexzip:
                     for (name,body) in index.items():
+                        
                         podindexzip.writestr(name,body)
+                        info = podindexzip.getinfo(name)
+                        info.external_attr = 0o777 << 16
                         pbar.update(1)
                 pbar.close()
+    
+    def storelocalindexzipdirs(self):
+        os.makedirs(self.localimage,exist_ok=True)
+        for snode in self.serverlist:
+            serdir=str(self.image.value(snode,self.namespace.LocalAddress))
+            os.makedirs(serdir,exist_ok=True)
+            for pnode in self.image.objects(snode,self.namespace.Contains):
+                podzipindexfile=str(self.image.value(pnode,self.namespace.LocalIndexAddress))
+                podaddress=str(self.image.value(pnode,self.namespace.Address))
+                filetuples=[]
+                for fnode in self.image.objects(pnode,self.namespace.Contains):
+                        targetUrl=str(self.image.value(fnode,self.namespace.Address))
+                        filetype=str(self.image.value(fnode,self.namespace.Filetype))
+                        filename=str(self.image.value(fnode,self.namespace.Filename))
+                        f=str(self.image.value(fnode,self.namespace.LocalAddress))
+                        file = open(f, "rb")
+                        filetext=file.read().decode('latin1')
+                        file.close()
+                        webidlist=[]
+                        for anode in self.image.objects(fnode,self.namespace.AccessibleBy):
+                            webid=str(self.image.value(anode,self.namespace.WebID))
+                            webidlist.append(webid)
+                        #webidstring='<'+'>,<'.join(webidlist)+'>'
+                        if fnode in self.openfilelist:
+                            acltext=returnaclopen(targetUrl,webidlist)
+                        else:
+                            acltext=returnacldefault(targetUrl,webidlist)
+                        ftrunc=targetUrl[len(podaddress):]
+                        filetuples.append((ftrunc,filetext,webidlist))
+                index=brewmaster.aclindextupleswebidnewdirs(filetuples)
+                n=len(index.keys())
+                pbar = tqdm.tqdm(total=n,desc=podzipindexfile)
+                podindexzip=ZipFile(podzipindexfile, 'w')
+                for (name,body) in index.items():
+                        
+                        podindexzip.writestr(name,body)
+                        info = podindexzip.getinfo(name)
+                        info.external_attr = 0o777 << 16
+                        pbar.update(1)
+                pbar.close()
+                podindexzip.close()
+                #with ZipFile(podzipindexfile, 'w') as podindexzip:
+                #    for (name,body) in index.items():
+                #        info = podindexzip.ZipInfo(name)
+                #        info.external_attr = 0o777 << 16
+                #        podindexzip.writestr(name,body)
+                #        pbar.update(1)
+                #pbar.close()
     
     
     
@@ -809,7 +860,7 @@ def zipexperiment(podname,firstserver,lastserver,sourcedir,expsavedir, numberofp
     experiment.imagineaclnormal(openperc,numofwebids,mean, disp)
     experiment.imagineaclspecial(percs)
     print('files acl imagined')
-    experiment.storelocalindexzip()
+    experiment.storelocalindexzipdirs()
     experiment.storelocalfileszip()
     
     experiment.saveexp(experiment.localimage+podname+'.ttl')

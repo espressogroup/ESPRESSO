@@ -1601,9 +1601,9 @@ acl:agentClass foaf:Agent.'''
     #print(targetUrl,res)
 
 def searchapptest():
-    metaindexaddress='https://srv03815.soton.ac.uk:3000/ESPRESSO/E4expmetaindex.csv'
-    word='malabsorption'
-    wordfile=word+'.ndx'
+    metaindexaddress='https://srv03918.soton.ac.uk:3000/ESPRESSO/Exp4dirsmetaindex.csv'
+    word='job'
+    keyword='/'.join(word)
     webid='mailto:sagent0@example.org'
     #webidfile= webid.translate(str.maketrans('', '', string.punctuation))+'.webid'
     #openfile='openaccess.webid'
@@ -1638,9 +1638,60 @@ def searchapptest():
     #print(time.time_ns()-begtime)
     #print(result)        
     begtime=time.time_ns()
-    ans=brewmaster.coffeefilterunthreaded(metaindexaddress,word,webid)
+    ans=brewmaster.coffeefilterunthreaded(metaindexaddress,keyword,webid)
     print(len(ans.keys()),time.time_ns()-begtime)
     i=0
     #print (ans)
 
-searchapptest()
+def ragabpodtest():
+    IDP='https://srv03918.soton.ac.uk:3000/'
+    register_endpoint=IDP+'idp/register/'
+    podname='ragabtest'
+
+    print('Creating '+podname+ 'at'+IDP)
+    email='ragab@example.com'
+    password='12345'
+    acldef='''@prefix acl: <http://www.w3.org/ns/auth/acl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix c: <profile/card#>.
+
+<#owner> a acl:Authorization;
+acl:agent c:me;
+acl:mode acl:Control, acl:Read, acl:Write;
+acl:accessTo <./>;
+acl:default <./>.
+
+<#public> a acl:Authorization;
+acl:mode  acl:Control, acl:Read, acl:Write;
+acl:accessTo <./>;
+acl:default <./>;
+acl:agentClass foaf:Agent.'''
+    #res1 = requests.post(
+    #                    register_endpoint,
+    #                    json={
+    #                        "createWebId": "on",
+    #                        "webId": "",
+    #                        "register": "on",
+    #                        "createPod": "on",
+    #                        "podName": podname,
+    #                        "email": email,
+    #                        "password": password,
+    #                        "confirmPassword": password,
+    #                    },
+    #                    timeout=5000,
+    #)
+    #print(res1)
+    CSSA=CSSaccess.CSSaccess(IDP, email, password)
+    CSSA.create_authstring()
+    CSSA.create_authtoken()
+                
+    podindexaddress=IDP+podname+'/espressoindex5/'
+                #print(acldef)
+    targetUrl=podindexaddress+'.acl'
+                #print(targetUrl)
+    headers={ 'content-type': 'text/turtle', 'authorization':'DPoP '+CSSA.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", CSSA.dpopKey)}
+    res= requests.put(targetUrl,headers=headers,data=acldef)
+                #res=CSSAccess.get_file(indexaddress+'.acl')
+    print(targetUrl,res)
+
+ragabpodtest()

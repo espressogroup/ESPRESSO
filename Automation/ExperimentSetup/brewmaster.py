@@ -453,6 +453,39 @@ class LdpIndex:
 
         return id
 
+    def indexwebidnewdirs(self, id, text, webidlist):
+        terms=myclean(text)
+            #print(terms)
+        appearances_dict = dict()
+            # Dictionary with each term and the frequency it appears in the text.
+        for term in terms:
+            if len(term)<50:
+                termword='/'.join(term)+'.ndx'
+                term_frequency = appearances_dict[termword] if termword in appearances_dict else 0
+                appearances_dict[termword] =  term_frequency + 1
+            
+        fileword='f'+str(self.f)
+        self.f=self.f+1
+        #filename=fileword+'.file'
+        #self.index[filename]=id
+        for webid in webidlist:
+            if webid=="*":
+                webidword='openaccess.webid'
+            else:
+                webidword=webid.translate(str.maketrans('', '', string.punctuation))+'.webid'
+            if webidword not in self.index.keys():
+                self.index[webidword]=''
+            self.index[webidword]=self.index[webidword]+fileword+','+id+'\r\n'
+        self.index['index.sum']=str(self.f)
+        #print(fileword,id)
+        for (key, freq) in appearances_dict.items():
+            if key not in self.index.keys():
+                self.index[key]=''           
+            self.index[key]=self.index[key]+fileword+','+str(freq)+'\r\n'                      
+
+        return id
+
+
 
 def ldpindexdict(filedict):
     ldpindex=LdpIndex()
@@ -468,6 +501,8 @@ def aclindextuples(filetuples):
         ldpindex.index_id_text_acl(id, text, webidlist)
     return ldpindex.index
 
+
+
 def aclindextupleswebid(filetuples):
     ldpindex=LdpIndex()
     for (id,text,webidlist) in filetuples:
@@ -481,6 +516,16 @@ def aclindextupleswebidnew(filetuples):
     for (id,text,webidlist) in filetuples:
         #print('indexing '+id)
         ldpindex.indexwebidnew(id, text, webidlist)
+        pbar.update(1)
+    pbar.close()
+    return ldpindex.index
+
+def aclindextupleswebidnewdirs(filetuples):
+    ldpindex=LdpIndex()
+    pbar=tqdm.tqdm(len(filetuples))
+    for (id,text,webidlist) in filetuples:
+        #print('indexing '+id)
+        ldpindex.indexwebidnewdirs(id, text, webidlist)
         pbar.update(1)
     pbar.close()
     return ldpindex.index
