@@ -53,3 +53,4 @@ max_combined_size_bytes = int(max_combined_size_mb) * 1024 * 1024
     #split_text_file(output_file, output_dir, num_files)
     #os.remove(output_file)
 smartchunk(input_dir,output_dir,int(num_files),max_combined_size_bytes)
+

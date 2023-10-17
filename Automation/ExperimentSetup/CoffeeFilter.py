@@ -10,6 +10,7 @@ from sys import argv
 def askindex(podindexaddress, keyword, webid):
     begtime=time.time_ns()
     wordaddress=podindexaddress+keyword+'.ndx'
+    #print(wordaddress)
     webidaddress=podindexaddress+webid.translate(str.maketrans('', '', string.punctuation))+'.webid'
     wordres=CSSaccess.get_file(wordaddress)
     ndxtime=time.time_ns()-begtime
@@ -85,12 +86,14 @@ def coffeefilterunthreaded(metaindexaddress,keyword,webid):
     res=CSSaccess.get_file(metaindexaddress)
     #print(res.text)
     podindexlist=res.text.rsplit('\r\n')[:-1]
+    print(podindexlist)
     #print(podindexlist)
     ans=dict()
     #begtime=time.time_ns()
     #print(n)
     for podindex in podindexlist:
         res=askindex(podindex, keyword, webid)
+        #print(res)
         ans|=res
     
     #print(time.time_ns()-begtime)
@@ -135,10 +138,10 @@ def searchapp(metaindexaddress,word,webid):
     #print(time.time_ns()-begtime)
     #print(result)        
     begtime=time.time_ns()
-    ans=coffeefilterunthreaded(metaindexaddress,keyword,webid)
+    ans=coffeefilterthreaded(metaindexaddress,keyword,webid)
     print(len(ans.keys()),time.time_ns()-begtime)
     i=0
-    #print (ans)
+    print (ans)
 
 metaindexaddress=argv[1]
 word=argv[2]

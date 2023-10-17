@@ -176,6 +176,28 @@ class ESPRESSOexperiment:
                 self.filelist.append(fnode)
                 pbar.update(1)
         pbar.close()
+    
+    def loaddirn(self,datasource,numberoffiles):
+        n=len(self.filelist)
+        pbar=tqdm.tqdm(total=numberoffiles,desc='files loaded:')
+        dirlist=os.listdir(datasource)
+        for i in range(numberoffiles):
+            filename=dirlist[i]
+            filepath = os.path.join(datasource, filename)
+            # checking if it is a file
+            if os.path.isfile(filepath) and not filename.startswith('.'):
+                fword='F'+str(n)
+                n=n+1
+                fnode=BNode(fword)
+                self.image.add((fnode,self.namespace.Type,self.namespace.File))
+                self.image.add((fnode,self.namespace.LocalAddress,Literal(filepath)))
+                self.image.add((fnode,self.namespace.Filename,Literal(filename)))
+                filetype='text/plain'
+                self.image.add((fnode,self.namespace.Filetype,Literal(filetype)))
+                self.image.add((fnode,self.namespace.Uploaded,Literal('N')))
+                self.filelist.append(fnode)
+                pbar.update(1)
+        pbar.close()
                 
                 
     def loadserverlist(self,serverlist):
@@ -383,7 +405,7 @@ class ESPRESSOexperiment:
                     print(res1)
                 else:
                     print('Pod '+podname+ ' at '+IDP +' exists.')
-                    self.cleanuppod(snode, pnode)
+                    #self.cleanuppod(snode, pnode)
 
     
     def storelocalfileszip(self):
@@ -529,7 +551,7 @@ class ESPRESSOexperiment:
             CSSAe=CSSaccess.CSSaccess(IDP, self.espressoemail, self.password)
             a=CSSAe.create_authstring()
             t=CSSAe.create_authtoken()
-            print(CSSAe.put_file(self.espressopodname, self.espressoindexfile, metaindexdata, 'text/csv'))
+            print(IDP,CSSAe.put_file(self.espressopodname, self.espressoindexfile, metaindexdata, 'text/csv'))
            
     
     def indexpub(self):
@@ -869,8 +891,8 @@ def zipexperiment(podname,firstserver,lastserver,sourcedir,expsavedir, numberofp
     
     #experiment.loadexp(experiment.localimage+podname+'.ttl')
     #print('experiment loaded')
-    experiment.ESPRESSOcreate()
-    print('ESPRESSO checked')
+    #experiment.ESPRESSOcreate()
+    #print('ESPRESSO checked')
     experiment.podcreate()
     print('Pods created')
     
