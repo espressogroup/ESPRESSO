@@ -139,9 +139,12 @@ def searchapp(metaindexaddress,word,webid):
     #print(result)        
     begtime=time.time_ns()
     ans=coffeefilterthreaded(metaindexaddress,keyword,webid)
-    print(len(ans.keys()),time.time_ns()-begtime)
-    i=0
-    print (ans)
+    t=time.time_ns()-begtime
+    
+    
+    for (key,value) in ans.items():
+        print (key,value)
+    print(len(ans.keys()),t,time.time_ns()-begtime)
 
 metaindexaddress=argv[1]
 word=argv[2]

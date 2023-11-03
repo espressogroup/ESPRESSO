@@ -1694,4 +1694,36 @@ acl:agentClass foaf:Agent.'''
                 #res=CSSAccess.get_file(indexaddress+'.acl')
     print(targetUrl,res)
 
-ragabpodtest()
+def trimtest():
+    IDP='https://srv04031.soton.ac.uk:3000/'
+    espressopodname='ESPRESSO/'
+    espressoemail='espresso@example.com'
+    password='12345'
+    podname='expmultithredtest'
+    newmetaindexname='expnewattempt.csv'
+    trimto=5
+    metaindexaddress=IDP+espressopodname+podname+'metaindex.csv'
+    print(metaindexaddress)
+    res=CSSaccess.get_file(metaindexaddress)
+    print(res.text)
+    podindexlist=res.text.rsplit('\r\n')[:-1]
+    samplemeta=random.sample(podindexlist, trimto)
+    metaindexdata='\r\n'.join(samplemeta)+'\r\n'
+    print(metaindexdata)
+        #for indexaddress in samplemeta:
+        #        addstring=indexaddress+'\r\n'
+        #        metaindexdata+=addstring    
+                
+    CSSAe=CSSaccess.CSSaccess(IDP, espressoemail, password)
+    a=CSSAe.create_authstring()
+    t=CSSAe.create_authtoken()
+        #print(t)
+    targeturl=IDP+espressopodname+newmetaindexname
+    print(metaindexaddress)
+
+    print(targeturl)
+    print(CSSAe.put_url(targeturl, metaindexdata, 'text/csv'))
+    CSSAe.makeurlaccessible(targeturl,newmetaindexname)
+    print(res)
+
+trimtest()

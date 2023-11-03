@@ -187,6 +187,29 @@ acl:mode acl:Control, acl:Read, acl:Write.'''
         #-d "INSERT DATA { <ex:s2> <ex:p2> <ex:o2> }" \
         #http://localhost:3000/myfile.ttl
 
+    def makeurlaccessible(self,url,filename):
+        targetUrl=url+'.acl'
+        
+        acldef='''@prefix : <#>.
+@prefix acl: <http://www.w3.org/ns/auth/acl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix c: <profile/card#>.
+
+:ControlReadWrite
+a acl:Authorization;
+acl:accessTo <'''+filename+'''>;
+acl:agent c:me;
+acl:agentClass foaf:Agent;
+acl:mode acl:Control, acl:Read, acl:Write.'''
+            #print('no acl')
+        print(acldef)
+        headers={ 'content-type': 'text/turtle', 'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", self.dpopKey)}
+        res= requests.put(targetUrl,
+               headers=headers,
+                data=acldef
+            )
+        
+        return res.text
 
 def get_file(targetUrl):
         #targetUrl='http://localhost:3000/test1/file1.txt'

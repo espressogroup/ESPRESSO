@@ -65,10 +65,12 @@ serverlistglobal=['https://srv03812.soton.ac.uk:3000/',
 
 def experimenttrimmer(podname,newmetaindexname,firstserver,lastserver,trimto,espressopodname='ESPRESSO/',espressoemail='espresso@example.com',password='12345'):
     serverlist=serverlistglobal[firstserver:lastserver+1]
+    #serverlist=["https://srv04031.soton.ac.uk:3000/"]
     for IDP in serverlist:
         metaindexaddress=IDP+espressopodname+podname+'metaindex.csv'
         print(metaindexaddress)
         res=CSSaccess.get_file(metaindexaddress)
+        print(res.text)
         podindexlist=res.text.rsplit('\r\n')[:-1]
         samplemeta=random.sample(podindexlist, trimto)
         metaindexdata='\r\n'.join(samplemeta)+'\r\n'
@@ -80,9 +82,13 @@ def experimenttrimmer(podname,newmetaindexname,firstserver,lastserver,trimto,esp
         CSSAe=CSSaccess.CSSaccess(IDP, espressoemail, password)
         a=CSSAe.create_authstring()
         t=CSSAe.create_authtoken()
-        
-        print(CSSAe.put_file(espressopodname, newmetaindexname, metaindexdata, 'text/csv'))
-        r.makefileaccessible(espressopodname, newmetaindexname)
+        #print(t)
+        targeturl=IDP+espressopodname+newmetaindexname
+        print(metaindexaddress)
+
+        print(targeturl)
+        print(CSSAe.put_url(targeturl, metaindexdata, 'text/csv'))
+        CSSAe.makeurlaccessible(targeturl,newmetaindexname)
         print(res)
 
 podname=argv[1]
