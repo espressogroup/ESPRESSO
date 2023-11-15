@@ -1,1 +1,0 @@
-{"version":3,"file":"index-browser.js","sourceRoot":"","sources":["index-browser.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;AAAA,0CAA0C;AAC1C,yCAAyC;AACzC,gDAA8B","sourcesContent":["/* eslint-disable unicorn/filename-case */\n/* eslint-enable unicorn/filename-case */\nexport * from './QueryEngine';\n"]}
