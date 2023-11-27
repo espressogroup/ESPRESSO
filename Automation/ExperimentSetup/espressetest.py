@@ -1726,4 +1726,39 @@ def trimtest():
     CSSAe.makeurlaccessible(targeturl,newmetaindexname)
     print(res)
 
-trimtest()
+def LTQPtest():
+    serverlist=['https://srv03911.soton.ac.uk:3000/','https://srv03912.soton.ac.uk:3000/']
+    pnodelist=['LTQP0','LTQP1','LTQP2','LTQP3','LTQP4']
+    for IDP in serverlist:
+            register_endpoint=IDP+'idp/register/'
+            for podname in pnodelist:
+                podaddress=IDP+podname+'/'
+                
+                
+                
+                res=CSSaccess.get_file(podaddress)
+                if not res.ok:
+                    print('Creating '+podname+ ' at '+IDP)
+                    email=podname+'@example.org'
+                    password='12345'
+                    res1 = requests.post(
+                        register_endpoint,
+                        json={
+                            "createWebId": "on",
+                            "webId": "",
+                            "register": "on",
+                            "createPod": "on",
+                            "podName": podname,
+                            "email": email,
+                            "password": password,
+                            "confirmPassword": password,
+                        },
+                        timeout=5000,
+                    )
+                    print(res1)
+                else:
+                    print('Pod '+podname+ ' at '+IDP +' exists.')
+                    #self.cleanuppod(snode, pnode)
+
+
+LTQPtest()
