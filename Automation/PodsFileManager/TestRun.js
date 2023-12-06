@@ -6,7 +6,7 @@ import { buildAuthenticatedFetch } from '@inrupt/solid-client-authn-core';
 
 class App {
     async run() {
-        const podclient = new PodClient("http://localhost:3000","mohamed.ragab@nub.edu.eg","123");
+        const podclient = new PodClient("https://srv03912.soton.ac.uk:3000","LTQP2@example.org","12345");
         const { dpopKey, accessToken } = await podclient.getAccessToken();
         const authFetch = await buildAuthenticatedFetch(fetch, accessToken, { dpopKey });
 
@@ -15,7 +15,7 @@ class App {
 
         // fileManager.writeFile("http://localhost:3000/poody","myfile2.txt","Besm Allah")
         // fileManager.writeDirectoryToPod("./files","http://localhost:3000/poody")
-        fileManager.listDirectoryFiles("http://localhost:3000/poody/files/")
+        fileManager.listDirectoryFiles("https://srv03912.soton.ac.uk:3000/LTQP2/")
 
     }
 }
