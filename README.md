@@ -18,9 +18,13 @@ The ESPRESSO project researches, develops and evaluates decentralised algorithms
 
 ## ESPRESSO System Architecture
 
-![](Documents/ESPRESSOArchitecture.png)
+![](./Documentation/imgs/ESPRESSOArchitecture.png)
 
 ## Limitations
+
+
+## Publications
+
 
 
 ## License
