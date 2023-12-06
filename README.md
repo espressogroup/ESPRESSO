@@ -28,8 +28,11 @@ At this staage, ESPRESSO has the following limiations:
 
 
 ## Publications
+* (1) [WISE 2023](https://doi.org/10.1007/978-981-99-7254-8_28)
+    Mohamed Ragab, Yury Savateev, Reza Moosaei, Thanassis Tiropanis, Alexandra Poulovassilis, Adriane Chapman, and George Roussos. 2023. ESPRESSO: A Framework for&nbsp;Empowering Search on&nbsp;Decentralized Web. In Web Information Systems Engineering – WISE 2023: 24th International Conference, Melbourne, VIC, Australia, October 25–27, 2023, Proceedings. Springer-Verlag, Berlin, Heidelberg, 360–375.
+* (2)[INWES 2021](https://eprints.soton.ac.uk/453937/1/inwes2021_tiropanis_et_al_submitted.pdf)
+    Tiropanis, Thanassis, Poulovassilis, Alexandra, Chapman, Age and Roussos, George (2021) Search in a Redecentralised Web. In Computer Science Conference Proceedings: 12th International Conference on Internet Engineering &amp; Web Services (InWeS 2021).
 
-    [Mohamed Ragab, Yury Savateev, Reza Moosaei, Thanassis Tiropanis, Alexandra Poulovassilis, Adriane Chapman, and George Roussos. 2023. ESPRESSO: A Framework for&nbsp;Empowering Search on&nbsp;Decentralized Web. In Web Information Systems Engineering – WISE 2023: 24th International Conference, Melbourne, VIC, Australia, October 25–27, 2023, Proceedings. Springer-Verlag, Berlin, Heidelberg, 360–375.](https://doi.org/10.1007/978-981-99-7254-8_28)
 
 ## License
 ESPRESSO is written and developed by the [ESPRESSO project](https://espressoproject.org/) 
