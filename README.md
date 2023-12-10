@@ -20,15 +20,14 @@ The ESPRESSO project researches, develops and evaluates decentralised algorithms
 
 he ESPRESSO system (Figure below) contains the following components that are installed alongside each Solid server in the network:
 
-* The indexing app (Brewmaster, indexes the pods and creates and maintains the pod indices, along with the meta-index for the server (see below). 
+* The indexing app (Brewmaster), indexes the pods and creates and maintains the pod indices, along with the meta-index for the server (see below). 
 
-* The search app, CoffeeFilter, performs the
-local search on the server. 
+* The search app (CoffeeFilter), performs the local search on the server. 
 
 * The overlay network (the prototype system uses a custom build of
 [GaianDB](https://github.com/gaiandb/gaiandb)) connects the servers, routes, and propagates the queries.
 
-* The user interface app, Barista, receives queries from the user and presents the search results.
+* The user interface app (Barista) receives queries from the user and presents the search results.
 
 
 ![](./Documentation/imgs/ESPRESSOArchitecture.png)
