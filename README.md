@@ -49,15 +49,14 @@ At this staage, ESPRESSO has the following limiations:
 
 
 ## Authors/Contacts
-
-* Mohamed Ragab, University of southampton.
-* Yury Savateeve, University of southampton.
-* Helen Olviver, University of southampton.
-* Reza Moosaei,Queen Mary University of London.
+* [Mohamed Ragab](https://mohamedragabanas.github.io/), University of southampton, ragab.mohamed@soton.ac.uk.
+* Yury Savateeve, University of southampton, y.savateev@soton.ac.uk.
+* Helen Olviver, University of southampton, h.oliver@bbk.ac.uk.
+* Reza Moosaei, Queen Mary University of London, r.moosaei@bbk.ac.uk.
 * Thanassis Tiropanis, University of southampton. 
-* Age Chapman, University of southampton.
-* Alex Poulovassilis, Birkbeck, University of London.
-* George Roussos, Birkbeck, University of London.
+* Age Chapman, University of southampton, adriane.chapman@soton.ac.uk.
+* Alex Poulovassilis, Birkbeck, University of London, a.poulovassilis@bbk.ac.uk.
+* George Roussos, Birkbeck, University of London, g.roussos@bbk.ac.uk.
 
 ## License
 ESPRESSO is written and developed by the [ESPRESSO project](https://espressoproject.org/) 
