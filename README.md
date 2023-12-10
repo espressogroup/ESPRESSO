@@ -48,6 +48,17 @@ At this staage, ESPRESSO has the following limiations:
     Tiropanis, Thanassis, Poulovassilis, Alexandra, Chapman, Age and Roussos, George (2021) Search in a Redecentralised Web. In Computer Science Conference Proceedings: 12th International Conference on Internet Engineering &amp; Web Services (InWeS 2021).
 
 
+## Authors/Contacts
+
+* Mohamed Ragab, University of southampton.
+* Yury Savateeve, University of southampton.
+* Helen Olviver, University of southampton.
+* Reza Moosaei,Queen Mary University of London.
+* Thanassis Tiropanis, University of southampton. 
+* Age Chapman, University of southampton.
+* Alex Poulovassilis, Birkbeck, University of London.
+* George Roussos, Birkbeck, University of London.
+
 ## License
 ESPRESSO is written and developed by the [ESPRESSO project](https://espressoproject.org/) 
 This code is released under the [AGPL-3.0 license](https://github.com/espressogroup/ESPRESSO/blob/main/LICENSE)
