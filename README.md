@@ -37,25 +37,30 @@ At this staage, ESPRESSO has the following limiations:
 
 * **Data Splitter**: Having a textual dataset composed of a single file (or more), the dataset splitter chunks the datset into a specified number of files of a rquired size.
 
-```python3 main.py```
+<pre>
+cd /Automation/DatasetSplitter
+python3 main.py
+</pre>
 
 * **Infrastructure and Deployment**: (Solid Servers and  Pods creation per each Solid server)
 
-- Solid Servers 
+- Solid Servers: 
+<pre>ansible-playbook -i inventory-50VM.ini  solidservers.yaml  --ask-become-pass</pre>
 
-<pre>TEST</pre>
+Note that, The ```inventory-50VM.ini``` includes a list of the VM IPs with ```ssh``` username and password credintials.
 
-- Pods creation:
+- Pods creation: 
+(To Be de-tangled from the experiments setup.)
 
 * **(Keyword-based) Indexing**:
 
-Housing Pods withe the generated files 
+- Housing Pods withe the generated files 
 
-Generating indexes at each Pod.
+- Generating indexes at each Pod.
 
-Acl Specifications for Files and Indexes.
+- Acl Specifications for Files and Indexes.
 
-Validating Access to Files and Indexes ```Penny or Postman``` or ```curl http:...```.
+- Validating Access to Files and Indexes ```Penny or Postman``` or ```curl http:...```.
 
 * GaianDb and Search App Installation:
 
