@@ -13,6 +13,22 @@ The ESPRESSO project researches, develops and evaluates decentralised algorithms
 
 ## Installation
 
+* **Data Splitter**: Having a textual dataset composed of a single file (or more), the dataset splitter chunks the datset into a specified number of files of a rquired size.
+```python3 ```
+
+* **Infrastructure and Deployment**: (Solid Servers and  Pods creation per each Solid server)
+
+* **(Keyword-based) Indexing**:
+1- Housing Pods withe the generated files 
+
+2- Generating indexes at each Pod.
+
+3- Acl Specifications for Files and Indexes.
+
+4- Validating Access to Files and Indexes 
+```Penny or Postman```
+
+```curl http:...```
 
 ## Quick start
 
