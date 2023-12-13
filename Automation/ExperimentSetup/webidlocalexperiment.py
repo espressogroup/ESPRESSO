@@ -1,4 +1,4 @@
-import Automation.ExperimentSetup.FileDistributor as FileDistributor, distributor, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer
+import Automation.ExperimentSetup.FileDistributor as FileDistributor, Automation.ExperimentSetup.FileUploader as FileUploader, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer
 import os,sys,csv,re, random, shutil, requests, json, base64, urllib.parse, cleantext, numpy
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 from math import floor
@@ -8,7 +8,8 @@ import concurrent.futures
 import paramiko
 from paramiko import SSHClient
 from scp import SCPClient
-
+from sys import argv
+import numpy
 
 serverlistglobal=['https://srv03812.soton.ac.uk:3000/',
                     'https://srv03813.soton.ac.uk:3000/',
@@ -483,7 +484,7 @@ class ESPRESSOexperiment:
                         filetype=str(self.image.value(fnode,self.namespace.Filetype))
                         f=str(self.image.value(fnode,self.namespace.LocalAddress))
                         filetuplelist.append((f,targetUrl,filetype))
-                    executor.submit(distributor.uploadllistwithbar, filetuplelist,podaddress,CSSA)
+                    executor.submit(FileUploader.uploadllistwithbar, filetuplelist,podaddress,CSSA)
     
     def uploadwithbars(self):
         #with concurrent.futures.ThreadPoolExecutor(max_workers=60) as executor:
@@ -543,7 +544,7 @@ class ESPRESSOexperiment:
                             webid=str(self.image.value(anode,self.namespace.WebID))
                             webidlist.append(webid)
                         filetuplelist.append((fileaddress,openfile,webidlist))
-                    executor.submit(distributor.uploadllistaclwithbar,filetuplelist,podaddress,CSSA)
+                    executor.submit(FileUploader.uploadllistaclwithbar,filetuplelist,podaddress,CSSA)
 
     def uploadacl(self):
         self.openfilelist=[]
@@ -926,15 +927,15 @@ acl:agentClass foaf:Agent.'''
                 #res=CSSAccess.get_file(indexaddress+'.acl')
                 print(targetUrl,res)
 
-def experimenttemplate():
+def experimenttemplate(podname,firstserver,lastserver,sourcedir,expsavedir,numberofpods,n):
     #list of servers in the experiment:
-    serverlist=serverlistglobal
+    serverlist=serverlistglobal[firstserver:lastserver]
     #name of the ESPRESSO pod. ESPRESSO is default.
     espressopodname='ESPRESSO'
     #email to register the ESPRESSO pod. espresso@example.com is default.
     espressoemail='espresso@example.com'
     #name for the pods in the experiment the pods will be called podname0, podmane1, etc.
-    podname='50s50p2500fpodnew'
+    #podname
     #name for the metaindex file.
     espressoindexfile=podname+'metaindex.csv'
     #email to register the pod. the emails will be podname0@example.org, podname1@example.org, etc.
@@ -944,11 +945,11 @@ def experimenttemplate():
     #same password for all the logins
     password='12345'
     #local directory from where to take the files
-    sourcedir='/Users/yurysavateev/dataset5'
+    #sourcedir
     #total number of pods
-    numberofpods=50
+    #numberofpods
     #total number of files
-    n=2500
+    #n
     #percs of sp.agents
     percs=[100,50,25,10]
     #percent of openfiles
@@ -996,448 +997,12 @@ def experimenttemplate():
     print('indices checked')
 
 
-def exp1S1P1000F800MB():
-    #list of servers in the experiment:
-    serverlist=serverlistglobal[:1]
-    #name of the ESPRESSO pod. ESPRESSO is default.
-    espressopodname='ESPRESSO'
-    #email to register the ESPRESSO pod. espresso@example.com is default.
-    espressoemail='espresso@example.com'
-    #name for the pods in the experiment the pods will be called podname0, podmane1, etc.
-    podname='exp1S1P1000F800MB'
-    #name for the metaindex file.
-    espressoindexfile=podname+'metaindex.csv'
-    #email to register the pod. the emails will be podname0@example.org, podname1@example.org, etc.
-    podemail='@example.org'
-    #folder where the pod indices will go
-    podindexdir='espressoindex/'
-    #same password for all the logins
-    password='12345'
-    #local directory from where to take the files
-    sourcedir='/Users/yurysavateev/1000F811MB'
-    #total number of pods
-    numberofpods=1
-    #total number of files
-    n=1000
-    #percs of sp.agents
-    percs=[100,50,25,10]
-    #percent of openfiles
-    openperc=0
-    #number of agents
-    numofwebids=50
-    #on average how many webids can read a given file
-    mean=10
-    #relative deviation of the previous, can be left 0
-    disp=0
-    #initializing the experiment
-    experiment=ESPRESSOexperiment(podname=podname)
-    #experiment.loadserverlist(serverlist)
-    print('serverlist loaded')
-    #experiment.loaddir(sourcedir)
-    print('files loaded')
-    #experiment.logicaldist(n,numberofpods,0,0)
-    print('files distributed')
-    #experiment.imaginefiles()
-    print('files imagined')
-    #experiment.imagineaclperc(percs,openperc,numofwebids,mean,disp)
-    print('files acl imagined')
-    #experiment.saveexp(podname+'exp.ttl')
-    print('experiment saved')
-    experiment.loadexp(podname+'exp.ttl')
-    #experiment.ESPRESSOcreate()
-    print('ESPRESSO checked')
-    #experiment.podcreate()
-    print('Pods created')
-    #experiment.upload()
-    print('Pods populated')
-    #experiment.aclindexwebidnewthreaded()
-    print('pods indexed')
-    #experiment.aclmetaindex()
-    print('metaindices created')
-    #experiment.indexpub()
-    print('indices opened')
-    #experiment.metaindexpub()
-    print('metaindices opened')
-    experiment.indexfixerwebidnew()
-    print('indices checked')
+podname=argv[1]
+firstserver=argv[2]
+lastserver=argv[3]
+sourcedir=argv[4]
+expsavedir=argv[5]
+numberofpods=argv[6]
+n=argv[7]
 
-def exp1S50P1000F1MBbar():
-    #list of servers in the experiment:
-    serverlist=serverlistglobal[:1]
-    #name of the ESPRESSO pod. ESPRESSO is default.
-    espressopodname='ESPRESSO'
-    #email to register the ESPRESSO pod. espresso@example.com is default.
-    espressoemail='espresso@example.com'
-    #name for the pods in the experiment the pods will be called podname0, podmane1, etc.
-    podname='exp1S50P1000F1MBbar'
-    #name for the metaindex file.
-    espressoindexfile=podname+'metaindex.csv'
-    #email to register the pod. the emails will be podname0@example.org, podname1@example.org, etc.
-    podemail='@example.org'
-    #folder where the pod indices will go
-    podindexdir='espressoindex/'
-    #same password for all the logins
-    password='12345'
-    #local directory from where to take the files
-    sourcedir='/Users/yurysavateev/50000F50MB'
-    #directory where to save the experiment
-    expsavedir='/Users/yurysavateev'
-    #total number of pods
-    numberofpods=50
-    #total number of files
-    n=50000
-    #percs of sp.agents
-    percs=[100,50,25,10]
-    #percent of openfiles
-    openperc=0
-    #number of agents
-    numofwebids=50
-    #on average how many webids can read a given file
-    mean=10
-    #relative deviation of the previous, can be left 0
-    disp=0
-    #initializing the experiment
-    experiment=ESPRESSOexperiment(podname=podname)
-    experiment.loadserverlist(serverlist)
-    print('serverlist loaded')
-    experiment.loaddir(sourcedir)
-    print('files loaded')
-    experiment.logicaldist(numberofpods,0,0)
-    print('files distributed')
-    #experiment.imaginefiles()
-    print('files imagined')
-    experiment.imagineaclnormal(openperc,numofwebids,mean,disp)
-    experiment.imagineaclspecial(percs)
-    print('files acl imagined')
-    experiment.storeexplocal(expsavedir+'/'+podname)
-    experiment.saveexp(expsavedir+'/'+podname+'/'+podname+'.ttl')
-    print('experiment saved')
-    #experiment.loadexp(podname+'exp.ttl')
-    print('experiment loaded')
-    #experiment.ESPRESSOcreate()
-    print('ESPRESSO checked')
-    #experiment.podcreate()
-    print('Pods created')
-    #experiment.uploadwithbars()
-    print('Pods populated')
-    #experiment.uploadacl()
-    print('Pods acls assigned')
-    #experiment.aclindexwebidnewthreaded()
-    #os.mkdir(podname)
-    #experiment.storeindexlocal(podname)
-    print('pods indexed')
-    #experiment.uploadindexlocal(podname)
-    print('indices uploaded')
-    #experiment.aclmetaindex()
-    print('metaindices created')
-    #experiment.indexpub()
-    print('indices opened')
-    #experiment.metaindexpub()
-    print('metaindices opened')
-    #experiment.indexfixerwebidnew()
-    print('indices checked')
-
-def exp1S50P1000F5MBbar():
-    #list of servers in the experiment:
-    serverlist=serverlistglobal[:1]
-    #name of the ESPRESSO pod. ESPRESSO is default.
-    espressopodname='ESPRESSO'
-    #email to register the ESPRESSO pod. espresso@example.com is default.
-    espressoemail='espresso@example.com'
-    #name for the pods in the experiment the pods will be called podname0, podmane1, etc.
-    podname='exp1S50P1000F5MBbar'
-    #name for the metaindex file.
-    espressoindexfile=podname+'metaindex.csv'
-    #email to register the pod. the emails will be podname0@example.org, podname1@example.org, etc.
-    podemail='@example.org'
-    #folder where the pod indices will go
-    podindexdir='espressoindex/'
-    #same password for all the logins
-    password='12345'
-    #local directory from where to take the files
-    sourcedir='/Users/yurysavateev/50000F250MB'
-    #directory where to save the experiment
-    expsavedir='/Users/yurysavateev'
-    #total number of pods
-    numberofpods=50
-    #total number of files
-    n=50000
-    #percs of sp.agents
-    percs=[100,50,25,10]
-    #percent of openfiles
-    openperc=0
-    #number of agents
-    numofwebids=50
-    #on average how many webids can read a given file
-    mean=10
-    #relative deviation of the previous, can be left 0
-    disp=0
-    #initializing the experiment
-    experiment=ESPRESSOexperiment(podname=podname)
-    experiment.loadserverlist(serverlist)
-    print('serverlist loaded')
-    experiment.loaddir(sourcedir)
-    print('files loaded')
-    experiment.logicaldist(numberofpods,0,0)
-    print('files distributed')
-    #experiment.imaginefiles()
-    print('files imagined')
-    experiment.imagineaclnormal(openperc,numofwebids,mean,disp)
-    experiment.imagineaclspecial(percs)
-    print('files acl imagined')
-    experiment.storeexplocal(expsavedir+'/'+podname)
-    experiment.saveexp(expsavedir+'/'+podname+'/'+podname+'.ttl')
-    print('experiment saved')
-    #experiment.loadexp(podname+'exp.ttl')
-    print('experiment loaded')
-    #experiment.ESPRESSOcreate()
-    print('ESPRESSO checked')
-    #experiment.podcreate()
-    print('Pods created')
-    #experiment.uploadwithbars()
-    print('Pods populated')
-    #experiment.uploadacl()
-    print('Pods acls assigned')
-    #experiment.aclindexwebidnewthreaded()
-    #os.mkdir(podname)
-    #experiment.storeindexlocal(podname)
-    print('pods indexed')
-    #experiment.uploadindexlocal(podname)
-    print('indices uploaded')
-    #experiment.aclmetaindex()
-    print('metaindices created')
-    #experiment.indexpub()
-    print('indices opened')
-    #experiment.metaindexpub()
-    print('metaindices opened')
-    #experiment.indexfixerwebidnew()
-    print('indices checked')
-
-def exp50S50P1000F5MBbar():
-    #list of servers in the experiment:
-    serverlist=serverlistglobal
-    #name of the ESPRESSO pod. ESPRESSO is default.
-    espressopodname='ESPRESSO'
-    #email to register the ESPRESSO pod. espresso@example.com is default.
-    espressoemail='espresso@example.com'
-    #name for the pods in the experiment the pods will be called podname0, podmane1, etc.
-    podname='exp50S50P1000F5MBbar'
-    #name for the metaindex file.
-    espressoindexfile=podname+'metaindex.csv'
-    #email to register the pod. the emails will be podname0@example.org, podname1@example.org, etc.
-    podemail='@example.org'
-    #folder where the pod indices will go
-    podindexdir='espressoindex/'
-    #same password for all the logins
-    password='12345'
-    #local directory from where to take the files
-    sourcedir='/Users/yurysavateev/2500000F5MB'
-    #directory where to save the experiment
-    expsavedir='/Users/yurysavateev'
-    #total number of pods
-    numberofpods=2500
-    #total number of files
-    n=2500000
-    #percs of sp.agents
-    percs=[100,50,25,10]
-    #percent of openfiles
-    openperc=0
-    #number of agents
-    numofwebids=5000
-    #on average how many webids can read a given file
-    mean=10
-    #relative deviation of the previous, can be left 0
-    disp=0
-    #initializing the experiment
-    experiment=ESPRESSOexperiment(podname=podname)
-    experiment.loadserverlist(serverlist)
-    print('serverlist loaded')
-    experiment.loaddir(sourcedir)
-    print('files loaded')
-    experiment.logicaldist(numberofpods,0,0)
-    print('files distributed')
-    #experiment.imaginefiles()
-    print('files imagined')
-    #experiment.imagineaclnormal(openperc,numofwebids,mean,disp)
-    #experiment.imagineaclspecial(percs)
-    print('files acl imagined')
-    #experiment.storeexplocal(expsavedir+'/'+podname)
-    #experiment.saveexp(expsavedir+'/'+podname+'.ttl')
-    print('experiment saved')
-    #experiment.loadexp(expsavedir+'/'+podname+'.ttl')
-    #experiment.storeexplocal(expsavedir+'/'+podname)
-    print('experiment loaded')
-    #experiment.ESPRESSOcreate()
-    print('ESPRESSO checked')
-    #experiment.podcreate()
-    print('Pods created')
-    #experiment.uploadwithbars()
-    print('Pods populated')
-    #experiment.uploadacl()
-    print('Pods acls assigned')
-    #experiment.aclindexwebidnewthreaded()
-    #os.mkdir(podname)
-    #experiment.storeindexlocal(podname)
-    print('pods indexed')
-    #experiment.uploadindexlocal(podname)
-    print('indices uploaded')
-    #experiment.aclmetaindex()
-    print('metaindices created')
-    experiment.indexpub()
-    print('indices opened')
-    #experiment.metaindexpub()
-    print('metaindices opened')
-    #experiment.indexfixerwebidnew()
-    print('indices checked')
-
-def expmultithredtest():
-    #list of servers in the experiment:
-    serverlist=['https://srv04031.soton.ac.uk:3000/']
-    #name of the ESPRESSO pod. ESPRESSO is default.
-    espressopodname='ESPRESSO'
-    #email to register the ESPRESSO pod. espresso@example.com is default.
-    espressoemail='espresso@example.com'
-    #name for the pods in the experiment the pods will be called podname0, podmane1, etc.
-    podname='expmultithredtest'
-    #name for the metaindex file.
-    espressoindexfile=podname+'metaindex.csv'
-    #email to register the pod. the emails will be podname0@example.org, podname1@example.org, etc.
-    podemail='@example.org'
-    #folder where the pod indices will go
-    podindexdir='espressoindex/'
-    #same password for all the logins
-    password='12345'
-    #local directory from where to take the files
-    sourcedir='/Users/yurysavateev/dataset2/'
-    #directory where to save the experiment
-    expsavedir='/Users/yurysavateev'
-    #total number of pods
-    numberofpods=10
-    #total number of files
-    n=100
-    #percs of sp.agents
-    percs=[100,50,25,10]
-    #percent of openfiles
-    openperc=0
-    #number of agents
-    numofwebids=20
-    #on average how many webids can read a given file
-    mean=5
-    #relative deviation of the previous, can be left 0
-    disp=0
-    #initializing the experiment
-    experiment=ESPRESSOexperiment(podname=podname)
-    experiment.loadserverlist(serverlist)
-    print('serverlist loaded')
-    #experiment.loaddir(sourcedir)
-    print('files loaded')
-    #experiment.logicaldist(numberofpods,0,0)
-    print('files distributed')
-    #experiment.imaginefiles()
-    print('files imagined')
-    #experiment.imagineaclspecial(percs)
-    #experiment.imagineaclnormal(openperc,numofwebids,mean,disp)
-    print('files acl imagined')
-    #experiment.storeexplocal(expsavedir+'/'+podname)
-    #experiment.saveexp(expsavedir+'/'+podname+'.ttl')
-    print('experiment saved')
-    experiment.loadexp(expsavedir+'/'+podname+'.ttl')
-    print('experiment loaded')
-    #experiment.ESPRESSOcreate()
-    print('ESPRESSO checked')
-    #experiment.podcreate()
-    print('Pods created')
-    #experiment.uploadwithbars()
-    print('Pods populated')
-    #experiment.uploadacl()
-    print('Pods acls assigned')
-    #experiment.aclindexwebidnewthreaded()
-    #os.mkdir(podname)
-    #experiment.storeindexlocal(podname)
-    print('pods indexed')
-    #experiment.uploadindexlocal(podname)
-    print('indices uploaded')
-    experiment.aclmetaindex()
-    print('metaindices created')
-    #experiment.indexpub()
-    print('indices opened')
-    experiment.metaindexpub()
-    print('metaindices opened')
-    #experiment.indexfixerwebidnew()
-    print('indices checked')
-
-def expmultithredtestnew():
-    #list of servers in the experiment:
-    serverlist=['https://srv04031.soton.ac.uk:3000/']
-    #name of the ESPRESSO pod. ESPRESSO is default.
-    espressopodname='ESPRESSO'
-    #email to register the ESPRESSO pod. espresso@example.com is default.
-    espressoemail='espresso@example.com'
-    #name for the pods in the experiment the pods will be called podname0, podmane1, etc.
-    podname='expmultithredtestnew'
-    #name for the metaindex file.
-    espressoindexfile=podname+'metaindex.csv'
-    #email to register the pod. the emails will be podname0@example.org, podname1@example.org, etc.
-    podemail='@example.org'
-    #folder where the pod indices will go
-    podindexdir='espressoindex/'
-    #same password for all the logins
-    password='12345'
-    #local directory from where to take the files
-    sourcedir='/Users/yurysavateev/dataset2/'
-    #directory where to save the experiment
-    expsavedir='/Users/yurysavateev'
-    #total number of pods
-    numberofpods=5
-    #total number of files
-    n=100
-    #percs of sp.agents
-    percs=[100,50,25,10]
-    #percent of openfiles
-    openperc=0
-    #number of agents
-    numofwebids=20
-    #on average how many webids can read a given file
-    mean=5
-    #relative deviation of the previous, can be left 0
-    disp=0
-    #initializing the experiment
-    experiment=ESPRESSOexperiment(podname=podname)
-    experiment.loadserverlist(serverlist)
-    print('serverlist loaded')
-    experiment.loaddir(sourcedir)
-    print('files loaded')
-    experiment.logicaldist(numberofpods,0,0)
-    print('files distributed')
-    experiment.imagineaclspecial(percs)
-    experiment.imagineaclnormal(openperc,numofwebids,mean,disp)
-    print('files acl imagined')
-    #experiment.storeexplocal(expsavedir+'/'+podname)
-    experiment.saveexp(expsavedir+'/'+podname+'.ttl')
-    print('experiment saved')
-    #experiment.loadexp(expsavedir+'/'+podname+'.ttl')
-    print('experiment loaded')
-    experiment.ESPRESSOcreate()
-    print('ESPRESSO checked')
-    experiment.podcreate()
-    print('Pods created')
-    experiment.uploadwithbars()
-    print('Pods populated')
-    experiment.uploadacl()
-    print('Pods acls assigned')
-    experiment.aclindexwebidnewthreaded()
-    #os.mkdir(podname)
-    #experiment.storeindexlocal(podname)
-    print('pods indexed')
-    #experiment.uploadindexlocal(podname)
-    print('indices uploaded')
-    experiment.aclmetaindex()
-    print('metaindices created')
-    experiment.indexpub()
-    print('indices opened')
-    experiment.metaindexpub()
-    print('metaindices opened')
-    experiment.indexfixerwebidnew()
-    print('indices checked')
-
-expmultithredtestnew()
+experimenttemplate(podname,int(firstserver),int(lastserver),sourcedir,expsavedir, int(numberofpods), int(n))

@@ -1,4 +1,4 @@
-import Automation.ExperimentSetup.FileDistributor as FileDistributor, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer, distributor
+import Automation.ExperimentSetup.FileDistributor as FileDistributor, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer, Automation.ExperimentSetup.FileUploader as FileUploader
 import os,sys,csv,re, random, shutil, requests, json, base64, urllib.parse, cleantext
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 from math import floor
@@ -6,6 +6,7 @@ import threading
 import time, tqdm
 import concurrent.futures
 import numpy
+from sys import argv
 
 serverlistglobal=['https://srv03812.soton.ac.uk:3000/',
                     'https://srv03813.soton.ac.uk:3000/',
@@ -484,7 +485,7 @@ class ESPRESSOexperiment:
                         filetype=str(self.image.value(fnode,self.namespace.Filetype))
                         f=str(self.image.value(fnode,self.namespace.LocalAddress))
                         filetuplelist.apend((f,targetUrl,filetype))
-                    executor.submit(distributor.uploadllistwithbar, filetuplelist,podaddress,CSSA)
+                    executor.submit(FileUploader.uploadllistwithbar, filetuplelist,podaddress,CSSA)
     
     def uploadwithbars(self):
         #with concurrent.futures.ThreadPoolExecutor(max_workers=60) as executor:
@@ -778,15 +779,15 @@ def stresstest():
     print('indices checked')
 
 
-def experimenttemplate():
+def experimenttemplate(podname,firstserver,lastserver,sourcedir,expsavedir,numberofpods,n):
     #list of servers in the experiment:
-    serverlist=serverlistglobal
+    serverlist=serverlistglobal[firstserver:lastserver]
     #name of the ESPRESSO pod. ESPRESSO is default.
     espressopodname='ESPRESSO'
     #email to register the ESPRESSO pod. espresso@example.com is default.
     espressoemail='espresso@example.com'
     #name for the pods in the experiment the pods will be called podname0, podmane1, etc.
-    podname='50s50p2500fpodnew'
+    #podname
     #name for the metaindex file.
     espressoindexfile=podname+'metaindex.csv'
     #email to register the pod. the emails will be podname0@example.org, podname1@example.org, etc.
@@ -796,11 +797,11 @@ def experimenttemplate():
     #same password for all the logins
     password='12345'
     #local directory from where to take the files
-    sourcedir='/Users/yurysavateev/dataset5'
+    #sourcedir
     #total number of pods
-    numberofpods=50
+    #numberofpods
     #total number of files
-    n=2500
+    #n
     #percs of sp.agents
     percs=[100,50,25,10]
     #percent of openfiles
@@ -816,28 +817,36 @@ def experimenttemplate():
     #how many files a low access webid can read
     lowsizeacl=100
     #initializing the experiment
-    experiment=ESPRESSOexperiment(espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexdir=podindexdir, password=password)
+    experiment=ESPRESSOexperiment(podname=podname)
     experiment.loadserverlist(serverlist)
     print('serverlist loaded')
     experiment.loaddir(sourcedir)
     print('files loaded')
-    experiment.logicaldist(n,numberofpods,0,0)
+    experiment.logicaldist(n,numberofpods,0.2,0)
     print('files distributed')
     experiment.imaginefiles()
     print('files imagined')
-    experiment.imagineaclperc(percs,openperc,numofwebids,mean,disp)
+    experiment.imagineaclnormal(openperc,numofwebids,mean,disp)
+    experiment.imagineaclspecial(percs)
     print('files acl imagined')
     experiment.saveexp(podname+'exp.ttl')
     print('experiment saved')
     #experiment.loadexp(podname+'exp.ttl')
+    print('experiment loaded')
     experiment.ESPRESSOcreate()
     print('ESPRESSO checked')
     experiment.podcreate()
     print('Pods created')
-    experiment.upload()
+    experiment.uploadwithbars()
     print('Pods populated')
+    experiment.uploadacl()
+    print('Pods acls assigned')
     experiment.aclindexwebidnewthreaded()
+    #os.mkdir(podname)
+    experiment.storeindexlocal(podname)
     print('pods indexed')
+    experiment.uploadindexlocal(podname)
+    print('indices uploaded')
     experiment.aclmetaindex()
     print('metaindices created')
     experiment.indexpub()
@@ -1060,4 +1069,12 @@ def expDemoSingapore():
     print('indices checked')
 
 
-exp1S50P1000F1MBbar()
+podname=argv[1]
+firstserver=argv[2]
+lastserver=argv[3]
+sourcedir=argv[4]
+expsavedir=argv[5]
+numberofpods=argv[6]
+n=argv[7]
+
+experimenttemplate(podname,int(firstserver),int(lastserver),sourcedir,expsavedir, int(numberofpods), int(n))

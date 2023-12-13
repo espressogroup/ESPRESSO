@@ -1,4 +1,4 @@
-import Automation.ExperimentSetup.FileDistributor as FileDistributor, Automation.ExperimentSetup.distributor as distributor, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer, rdfindex
+import Automation.ExperimentSetup.FileDistributor as FileDistributor, Automation.ExperimentSetup.FileUploader as FileUploader, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer, rdfindex
 #import rdfindex
 import os,sys,csv,re, math, random, shutil, requests, json, base64, urllib.parse, cleantext
 #from solid_client_credentials import SolidClientCredentialsAuth, DpopTokenProvider
@@ -147,7 +147,7 @@ class LDPexperiment:
                 podfilelist=self.filedist[s][p]
                 IDP=self.serverlist[s]
                 #print(podfilelist, pod, IDP, email, self.password)
-                distributor.putlistCSS(podfilelist, pod, IDP, email, self.password)
+                FileUploader.putlistCSS(podfilelist, pod, IDP, email, self.password)
 
     def index(self):
         for s in range(len(self.serverlist)):
@@ -185,18 +185,6 @@ class LDPexperiment:
             #    metaindexdatastr=f.read()
             #    f.close()
             print(CSSAe.put_file(self.espressopodname, self.espressoindexfile, metaindexdata, 'text/csv'))
-            
-    def sshindex(self):
-        for s in range(len(self.serverlist)):
-            podnum=len(self.filedist[s])
-            ssh = paramiko.SSHClient()
-            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            ssh.connect(server, username='ys1v22', password='')
-
-                # Run the script on the server
-            scriptaddress='/usr/local/ESPRESSO/Automation/ExperimentSetup/localindexer.py'
-            command = f'python "{scriptaddress}" "{IDP}" "{self.espressoindexfile}" "{self.podname}" "{podnum}" "{self.podindexdir}"'
-            stdin, stdout, stderr = ssh.exec_command(command)
             
     
     def indexpub(self):

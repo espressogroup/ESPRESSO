@@ -74,7 +74,36 @@ Note that, The ```inventory-50VM.ini``` includes a list of the VM IPs with ```ss
 
 ## Experiments (Quick Satrt):
 
+There are three experiment setups currently ```webidexperiment```, ```webidlocalexperiment```, and ```zipexperiment```. The difference between them is how the files get to the Solid servers.
 
+```webidexperiment``` creates pods, populates them with files, crawls the pods, indexes them, and uploads the indices through Solid interface.
+
+```webidlocalexperiment``` creates pods, populates them with files, crawls the pods, creates and stores all the pod indices locally and then uploads them.
+
+```zipexperiment``` creates pods, for each pod cretes a zip file that contains all the files in the pod and another zip file with the index, uploads the zip files to the servers via ssh, where they need to be unzipped to pods.
+
+To create an experiment
+
+<pre>
+cd /Automation/ExperimentSetup
+[webid,webidlocal,zip]experiment podname firstserver lastserver sourcedir expsavedir numberofpods numberoffiles
+</pre>
+
+Where
+
+```podname``` is the common part name of the pod names to be created. On each server there will be pods ```podname0, podname1,``` etc.
+
+```firstserver``` number of the first server used.
+
+```lastserver``` number of the last server used plus 1. The servers are from a hardcoded list of servers currently.
+
+```sourcedir``` local path to the loal directory containing all the files for the experiment.
+
+```expsavedir``` path to the local directory where the experiment will be stored.
+
+```numberofpods``` total number of pods in the experiment.
+
+```numberoffiles``` total number of files in the experiment
 
 ## Publications
 [WISE 2023](https://doi.org/10.1007/978-981-99-7254-8_28)
