@@ -1,4 +1,4 @@
-import filesorter, dpop_utils, CSSaccess, brewmaster, scpuploader
+import Automation.ExperimentSetup.FileDistributor as FileDistributor, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer, Automation.ExperimentSetup.scpuploader as scpuploader
 import os,sys,csv,re, random, shutil, requests, json, base64, urllib.parse, cleantext
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 from math import floor

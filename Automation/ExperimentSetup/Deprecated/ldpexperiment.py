@@ -1,4 +1,4 @@
-import filesorter, distributor, dpop_utils, CSSaccess, brewmaster, rdfindex
+import Automation.ExperimentSetup.FileDistributor as FileDistributor, Automation.ExperimentSetup.distributor as distributor, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer, rdfindex
 #import rdfindex
 import os,sys,csv,re, math, random, shutil, requests, json, base64, urllib.parse, cleantext
 #from solid_client_credentials import SolidClientCredentialsAuth, DpopTokenProvider
@@ -112,9 +112,9 @@ class LDPexperiment:
             expfilelist=self.filelist[:n]
         else:
             expfilelist=self.filelist
-        exppodlist=filesorter.distribute(expfilelist,numberofpods, podzipf)
+        exppodlist=FileDistributor.distribute(expfilelist,numberofpods, podzipf)
         #random.shuffle(exppodlist)
-        self.filedist=filesorter.distribute(exppodlist, len(self.serverlist), serverzipf)
+        self.filedist=FileDistributor.distribute(exppodlist, len(self.serverlist), serverzipf)
         print(self.filedist)
 
     def cleanuppod(self,IDP,pod):
@@ -128,7 +128,7 @@ class LDPexperiment:
         #indexaddress=IDP+pod+'/'+self.podindexdir
         #print(CSSA.delete_file(indexadress))
         podaddress=IDP+pod+'/'
-        d=brewmaster.crawl(podaddress, CSSA)
+        d=PodIndexer.crawl(podaddress, CSSA)
         files=d.keys()
         print(files)
         for targetUrl in files:
@@ -165,12 +165,12 @@ class LDPexperiment:
                 #print(t)
                 podaddress=IDP+pod+'/'
                 indexaddress=podaddress+self.podindexdir
-                d=brewmaster.crawl(podaddress, CSSA)
+                d=PodIndexer.crawl(podaddress, CSSA)
                 print(d.keys())
 
                 #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
-                index=brewmaster.ldpindexdict(d)
-                brewmaster.uploadldpindex(index, pod, self.podindexdir, CSSA)
+                index=PodIndexer.ldpindexdict(d)
+                PodIndexer.uploadldpindex(index, pod, self.podindexdir, CSSA)
                 addstring=indexaddress+'\r\n'
                 metaindexdata+=addstring
                 
@@ -272,7 +272,7 @@ def stresstest():
 
 
 def coffeefiltertest():
-    searchres=brewmaster.coffeefilter('http://localhost:3000/ESPRESSO/ldpespressoindex.csv', 'corona')
+    searchres=PodIndexer.coffeefilter('http://localhost:3000/ESPRESSO/ldpespressoindex.csv', 'corona')
     for (filepath,freq) in searchres.items():
         print(filepath,freq)
 
@@ -310,13 +310,13 @@ def indexsizetest():
                 #print(t)
                 podaddress=IDP+pod+'/'
                 indexaddress=podaddress+experiment.podindexdir
-                d=brewmaster.crawl(podaddress, CSSA)
+                d=PodIndexer.crawl(podaddress, CSSA)
                 insize=0
                 for (fi,te) in d.items():
                     insize=insize+len(fi)+len(te)
                 sizes.append(insize)
                 #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
-                index=brewmaster.ldpindexdict(d)
+                index=PodIndexer.ldpindexdict(d)
                 indexfiles.append(len(index.keys()))
                 indexsizes.append(sys.getsizeof(index))
     print(sizes)
@@ -338,13 +338,13 @@ def indexsizetest():
                 #print(t)
                 podaddress=IDP+pod+'/'
                 indexaddress=podaddress+experiment.podindexdir
-                d=brewmaster.crawl(podaddress, CSSA)
+                d=PodIndexer.crawl(podaddress, CSSA)
                 insize=0
                 for (fi,te) in d.items():
                     insize=insize+len(fi)+len(te)
                 sizes.append(insize)
                 #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
-                index=brewmaster.ldpindexdict(d)
+                index=PodIndexer.ldpindexdict(d)
                 indexfiles.append(len(index.keys()))
                 indexsizes.append(sys.getsizeof(index))
     print(sizes)

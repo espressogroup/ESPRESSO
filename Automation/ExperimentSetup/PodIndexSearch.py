@@ -4,7 +4,7 @@ from rdflib import URIRef, BNode, Literal, Graph, Namespace
 import concurrent.futures
 import time, tqdm
 from multiprocessing import Pool
-import brewmaster
+import Automation.ExperimentSetup.PodIndexer as PodIndexer
 from sys import argv
 
 def askindex(podindexaddress, keyword, webid):

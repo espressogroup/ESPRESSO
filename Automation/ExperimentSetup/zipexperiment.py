@@ -1,4 +1,4 @@
-import filesorter, dpop_utils, CSSaccess, brewmaster, scpuploader,zipdistribute
+import Automation.ExperimentSetup.FileDistributor as FileDistributor, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer, scpuploader, zipdistribute
 import os,csv,re, random, shutil, requests, json, base64, urllib.parse, cleantext
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 from math import floor
@@ -10,6 +10,7 @@ from paramiko import SSHClient
 from scp import SCPClient
 from zipfile import ZipFile
 from sys import argv
+import numpy
 
 serverlistglobal=['https://srv03812.soton.ac.uk:3000/',
                     'https://srv03813.soton.ac.uk:3000/',
@@ -229,10 +230,10 @@ class ESPRESSOexperiment:
     def logicaldist(self, numberofpods,poddisp,serverdisp):
         self.podnum=numberofpods
         #print(expfilelist)
-        exppodlist=filesorter.normaldistribute(self.filelist,numberofpods, poddisp)
+        exppodlist=FileDistributor.normaldistribute(self.filelist,numberofpods, poddisp)
         #print(exppodlist)
         #random.shuffle(exppodlist)
-        filedist=filesorter.distribute(exppodlist, len(self.serverlist), serverdisp)
+        filedist=FileDistributor.distribute(exppodlist, len(self.serverlist), serverdisp)
         #print(self.filedist)
         pbar=tqdm.tqdm(total=len(self.filelist),desc='files distributed:')
         for s in range(len(self.serverlist)):
@@ -471,7 +472,7 @@ class ESPRESSOexperiment:
                             acltext=returnacldefault(targetUrl,webidlist)
                         ftrunc=targetUrl[len(podaddress):]
                         filetuples.append((ftrunc,filetext,webidlist))
-                index=brewmaster.aclindextupleswebidnew(filetuples)
+                index=PodIndexer.aclindextupleswebidnew(filetuples)
                 n=len(index.keys())
                 pbar = tqdm.tqdm(total=n,desc=podzipindexfile)
                 with ZipFile(podzipindexfile, 'w') as podindexzip:
@@ -511,7 +512,7 @@ class ESPRESSOexperiment:
                             acltext=returnacldefault(targetUrl,webidlist)
                         ftrunc=targetUrl[len(podaddress):]
                         filetuples.append((ftrunc,filetext,webidlist))
-                index=brewmaster.aclindextupleswebidnewdirs(filetuples)
+                index=PodIndexer.aclindextupleswebidnewdirs(filetuples)
                 n=len(index.keys())
                 pbar = tqdm.tqdm(total=n,desc=podzipindexfile)
                 podindexzip=ZipFile(podzipindexfile, 'w')

@@ -1,4 +1,4 @@
-import filesorter, distributor, dpop_utils, CSSaccess, brewmaster, rdfindex
+import Automation.ExperimentSetup.FileDistributor as FileDistributor, Automation.ExperimentSetup.distributor as distributor, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer, rdfindex
 #import rdfindex
 import os, csv,re, math, random, shutil, requests, json, base64, urllib.parse, cleantext
 #from solid_client_credentials import SolidClientCredentialsAuth, DpopTokenProvider
@@ -68,7 +68,7 @@ def podcreate():
             print(res)
 
 def experimentdistribute():
-    files=filesorter.sortimage()
+    files=FileDistributor.sortimage()
     files.loaddir(sourcedir)
     podlist=[]
     for s in range(len(serverlist)):
@@ -153,7 +153,7 @@ def indexexp():
             podaddress=IDP+pod+'/'
             indexname='espressoindex.ttl'
             indexaddress=podaddress+indexname
-            d=brewmaster.crawl(podaddress, CSSA, indexaddress)
+            d=PodIndexer.crawl(podaddress, CSSA, indexaddress)
             print(d.keys())
 
             index=rdfindex.listindexer(d,namespace,reprformat)
@@ -289,9 +289,9 @@ class CSSexperiment:
             expfilelist=self.filelist[:n]
         else:
             expfilelist=self.filelist
-        exppodlist=filesorter.distribute(expfilelist,numberofpods, podzipf)
+        exppodlist=FileDistributor.distribute(expfilelist,numberofpods, podzipf)
         #random.shuffle(exppodlist)
-        self.filedist=filesorter.distribute(exppodlist, len(self.serverlist), serverzipf)
+        self.filedist=FileDistributor.distribute(exppodlist, len(self.serverlist), serverzipf)
         print(self.filedist)
 
     def cleanuppod(self,IDP,pod):
@@ -303,7 +303,7 @@ class CSSexperiment:
         t=CSSA.create_authtoken()
                 #print(t)
         podaddress=IDP+pod+'/'
-        d=brewmaster.crawl(podaddress, CSSA)
+        d=PodIndexer.crawl(podaddress, CSSA)
         files=d.keys()
         print(files)
         for targetUrl in files:
@@ -343,7 +343,7 @@ class CSSexperiment:
                 #print(t)
                 podaddress=IDP+pod+'/'
                 indexaddress=podaddress+self.podindexname
-                d=brewmaster.crawl(podaddress, CSSA)
+                d=PodIndexer.crawl(podaddress, CSSA)
                 print(d.keys())
 
                 #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)

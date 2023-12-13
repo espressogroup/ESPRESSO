@@ -85,9 +85,9 @@ def uploadllistwithbar (filetuplelist,podaddress,CSSA):
 
 def uploadllistaclwithbar (filetuplelist,podaddress,CSSA):
     pbar=tqdm.tqdm(len(filetuplelist),desc=podaddress)
-    for fileaddress,openfile,webidlist in filetuplelist:
+    for targetUrl,openfile,webidlist in filetuplelist:
         if openfile:
-            CSSA.makefileaccessible(podname,filename)
+            CSSA.makeurlaccessible(targetUrl,targetUrl[len(podaddress):])
         else:
             res=CSSA.adddefaultacl(targetUrl)            
         CSSA.addreadrights(targetUrl,webidlist)

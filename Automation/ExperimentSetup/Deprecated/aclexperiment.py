@@ -1,9 +1,10 @@
-import filesorter, dpop_utils, CSSaccess, brewmaster
+import Automation.ExperimentSetup.FileDistributor as FileDistributor, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer
 import os,sys,csv,re, math, random, shutil, requests, json, base64, urllib.parse, cleantext
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 import threading
 import time
 import concurrent.futures
+import numpy
 
 class ACLexperiment:
     def __init__(self, 
@@ -72,10 +73,10 @@ class ACLexperiment:
         else:
             expfilelist=self.filelist
         #print(expfilelist)
-        exppodlist=filesorter.normaldistribute(expfilelist,numberofpods, poddisp)
+        exppodlist=FileDistributor.normaldistribute(expfilelist,numberofpods, poddisp)
         #print(exppodlist)
         #random.shuffle(exppodlist)
-        self.filedist=filesorter.distribute(exppodlist, len(self.serverlist), serverdisp)
+        self.filedist=FileDistributor.distribute(exppodlist, len(self.serverlist), serverdisp)
         #print(self.filedist)
 
     def imaginefiles(self):
@@ -275,7 +276,7 @@ class ACLexperiment:
         #indexaddress=IDP+pod+'/'+self.podindexdir
         #print(CSSA.delete_file(indexadress))
         podaddress=str(self.image.value(pnode,self.namespace.Address))
-        d=brewmaster.crawl(podaddress, CSSA)
+        d=PodIndexer.crawl(podaddress, CSSA)
         files=d.keys()
         print(files)
         for targetUrl in files:
@@ -332,14 +333,14 @@ class ACLexperiment:
                 #print(t)
                 podaddress=IDP+pod+'/'
                 indexaddress=podaddress+self.podindexdir
-                d=brewmaster.crawl(podaddress, CSSA)
+                d=PodIndexer.crawl(podaddress, CSSA)
                 print(d.keys())
                 tuples=[]
                 for (id,text) in d.items():
-                    webidlist=brewmaster.getwebidlist(id)
+                    webidlist=PodIndexer.getwebidlist(id)
                 #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
-                index=brewmaster.ldpindexdict(d)
-                brewmaster.uploadldpindex(index, pod, self.podindexdir, CSSA)
+                index=PodIndexer.ldpindexdict(d)
+                PodIndexer.uploadldpindex(index, pod, self.podindexdir, CSSA)
                 addstring=indexaddress+'\r\n'
                 metaindexdata+=addstring
                 
@@ -370,11 +371,11 @@ class ACLexperiment:
                 CSSA.create_authstring()
                 CSSA.create_authtoken()
                 indexaddress=str(self.image.value(pnode,self.namespace.IndexAddress))
-                d=brewmaster.aclcrawl(podaddress, CSSA)
+                d=PodIndexer.aclcrawl(podaddress, CSSA)
                 
                 #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
-                index=brewmaster.aclindextuples(d)
-                brewmaster.uploadaclindex(index, indexaddress, CSSA)
+                index=PodIndexer.aclindextuples(d)
+                PodIndexer.uploadaclindex(index, indexaddress, CSSA)
                 
                 
                 
@@ -403,10 +404,10 @@ class ACLexperiment:
                 CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
                 CSSA.create_authstring()
                 CSSA.create_authtoken()
-                d=brewmaster.aclcrawl(podaddress, CSSA)
+                d=PodIndexer.aclcrawl(podaddress, CSSA)
                 
-                index=brewmaster.aclindextuples(d)
-                executor.submit(brewmaster.uploadaclindex, index, indexaddress, CSSA)
+                index=PodIndexer.aclindextuples(d)
+                executor.submit(PodIndexer.uploadaclindex, index, indexaddress, CSSA)
                     #brewmaster.uploadaclindex(index, indexaddress, CSSA)
                 
         for pnode in self.image.objects(snode,self.namespace.Contains):
@@ -434,10 +435,10 @@ class ACLexperiment:
                     CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
                     CSSA.create_authstring()
                     CSSA.create_authtoken()
-                    d=brewmaster.aclcrawl(podaddress, CSSA)
+                    d=PodIndexer.aclcrawl(podaddress, CSSA)
                     indexaddress=str(self.image.value(pnode,self.namespace.IndexAddress))
-                    index=brewmaster.aclindextuples(d)
-                    executor.submit(brewmaster.uploadaclindex, index, indexaddress, CSSA)
+                    index=PodIndexer.aclindextuples(d)
+                    executor.submit(PodIndexer.uploadaclindex, index, indexaddress, CSSA)
                     #brewmaster.uploadaclindex(index, indexaddress, CSSA)
 
     def aclindexwebidthreaded(self):
@@ -455,10 +456,10 @@ class ACLexperiment:
                     CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
                     CSSA.create_authstring()
                     CSSA.create_authtoken()
-                    d=brewmaster.aclcrawlwebid(podaddress, CSSA)
+                    d=PodIndexer.aclcrawlwebid(podaddress, CSSA)
                     indexaddress=str(self.image.value(pnode,self.namespace.IndexAddress))
-                    index=brewmaster.aclindextupleswebid(d)
-                    executor.submit(brewmaster.uploadaclindex, index, indexaddress, CSSA)
+                    index=PodIndexer.aclindextupleswebid(d)
+                    executor.submit(PodIndexer.uploadaclindex, index, indexaddress, CSSA)
                     #brewmaster.uploadaclindex(index, indexaddress, CSSA)
 
     def aclindexwebidnewthreaded(self):
@@ -476,10 +477,10 @@ class ACLexperiment:
                     CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
                     CSSA.create_authstring()
                     CSSA.create_authtoken()
-                    d=brewmaster.aclcrawlwebidnew(podaddress,podaddress, CSSA)
+                    d=PodIndexer.aclcrawlwebidnew(podaddress,podaddress, CSSA)
                     indexaddress=str(self.image.value(pnode,self.namespace.IndexAddress))
-                    index=brewmaster.aclindextupleswebidnew(d)
-                    executor.submit(brewmaster.uploadaclindex, index, indexaddress, CSSA)
+                    index=PodIndexer.aclindextupleswebidnew(d)
+                    executor.submit(PodIndexer.uploadaclindex, index, indexaddress, CSSA)
                     #brewmaster.uploadaclindex(index, indexaddress, CSSA)
 
 
@@ -513,19 +514,19 @@ class ACLexperiment:
                 CSSA.create_authstring()
                 CSSA.create_authtoken()
                 indexaddress=str(self.image.value(pnode,self.namespace.IndexAddress))
-                n=brewmaster.indexchecker(indexaddress, CSSA)
+                n=PodIndexer.indexchecker(indexaddress, CSSA)
                 print('currently in index of' +podname +':' +str(len(n)))
-                d=brewmaster.aclcrawl(podaddress, CSSA)
+                d=PodIndexer.aclcrawl(podaddress, CSSA)
                 
                 #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
-                index=brewmaster.aclindextuples(d)
+                index=PodIndexer.aclindextuples(d)
                 print('should be in index of' +podname +':' +str(len(index.keys())))
                 for f in n:
                     index.pop(f)
                 #for f in self.forbidden:
                     #index.pop(f+'.ndx','no key')
                 print("Difference?"+str(len(index.keys())))
-                brewmaster.uploadaclindex(index, indexaddress, CSSA)
+                PodIndexer.uploadaclindex(index, indexaddress, CSSA)
 
     def indexfixerwebid(self):
         for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):
@@ -542,19 +543,19 @@ class ACLexperiment:
                 CSSA.create_authstring()
                 CSSA.create_authtoken()
                 indexaddress=str(self.image.value(pnode,self.namespace.IndexAddress))
-                n=brewmaster.indexchecker(indexaddress, CSSA)
+                n=PodIndexer.indexchecker(indexaddress, CSSA)
                 print('currently in index of' +podname +':' +str(len(n)))
-                d=brewmaster.aclcrawlwebid(podaddress, CSSA)
+                d=PodIndexer.aclcrawlwebid(podaddress, CSSA)
                 
                 #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
-                index=brewmaster.aclindextupleswebid(d)
+                index=PodIndexer.aclindextupleswebid(d)
                 print('should be in index of' +podname +':' +str(len(index.keys())))
                 for f in n:
                     index.pop(f)
                 #for f in self.forbidden:
                     #index.pop(f+'.ndx','no key')
                 print("Difference?"+str(len(index.keys())))
-                brewmaster.uploadaclindex(index, indexaddress, CSSA)
+                PodIndexer.uploadaclindex(index, indexaddress, CSSA)
     
     def indexfixerwebidnew(self):
         for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):
@@ -571,19 +572,19 @@ class ACLexperiment:
                 CSSA.create_authstring()
                 CSSA.create_authtoken()
                 indexaddress=str(self.image.value(pnode,self.namespace.IndexAddress))
-                n=brewmaster.indexchecker(indexaddress, CSSA)
+                n=PodIndexer.indexchecker(indexaddress, CSSA)
                 print('currently in index of' +podname +':' +str(len(n)))
-                d=brewmaster.aclcrawlwebidnew(podaddress, podaddress,CSSA)
+                d=PodIndexer.aclcrawlwebidnew(podaddress, podaddress,CSSA)
                 
                 #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
-                index=brewmaster.aclindextupleswebidnew(d)
+                index=PodIndexer.aclindextupleswebidnew(d)
                 print('should be in index of' +podname +':' +str(len(index.keys())))
                 for f in n:
                     index.pop(f)
                 #for f in self.forbidden:
                     #index.pop(f+'.ndx','no key')
                 print("Difference?"+str(len(index.keys())))
-                brewmaster.uploadaclindex(index, indexaddress, CSSA)
+                PodIndexer.uploadaclindex(index, indexaddress, CSSA)
 
     def indexfixerthreaded(self):
         with concurrent.futures.ThreadPoolExecutor(max_workers=60) as executor:
@@ -601,12 +602,12 @@ class ACLexperiment:
                     CSSA.create_authstring()
                     CSSA.create_authtoken()
                     indexaddress=str(self.image.value(pnode,self.namespace.IndexAddress))
-                    n=brewmaster.indexchecker(indexaddress, CSSA)
+                    n=PodIndexer.indexchecker(indexaddress, CSSA)
                     print('currently in index of' +podname +':' +str(len(n)))
-                    d=brewmaster.aclcrawl(podaddress, CSSA)
+                    d=PodIndexer.aclcrawl(podaddress, CSSA)
                     
                     #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
-                    index=brewmaster.aclindextuples(d)
+                    index=PodIndexer.aclindextuples(d)
                     print('should be in index of' +podname +':' +str(len(index.keys())))
                     for f in n:
                         index.pop(f)
@@ -614,7 +615,7 @@ class ACLexperiment:
                         #index.pop(f+'.ndx','no key')
                     print("Difference?"+str(len(index.keys())))
                     #brewmaster.uploadaclindex(index, indexaddress, CSSA)
-                    executor.submit(brewmaster.uploadaclindex, index, indexaddress, CSSA)
+                    executor.submit(PodIndexer.uploadaclindex, index, indexaddress, CSSA)
 
     def indexpub(self):
         for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):

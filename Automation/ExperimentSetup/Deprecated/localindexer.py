@@ -1,4 +1,4 @@
-import brewmaster, CSSaccess, dpop_utils, requests
+import Automation.ExperimentSetup.PodIndexer as PodIndexer, CSSaccess, dpop_utils, requests
 from sys import argv
 import threading
 import time, tqdm
@@ -18,12 +18,12 @@ def index(IDP,espressoindexfile,podname,podnum,podindexdir,espressopodname='ESPR
                 #print(t)
                 podaddress=IDP+pod+'/'
                 indexaddress=podaddress+podindexdir
-                d=brewmaster.crawl(podaddress, CSSA)
+                d=PodIndexer.crawl(podaddress, CSSA)
                 #print(d.keys())
 
                 #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
-                index=brewmaster.ldpindexdict(d)
-                brewmaster.uploadldpindex(index, pod, podindexdir, CSSA)
+                index=PodIndexer.ldpindexdict(d)
+                PodIndexer.uploadldpindex(index, pod, podindexdir, CSSA)
                 addstring=indexaddress+'\r\n'
                 metaindexdata+=addstring
                 
@@ -44,12 +44,12 @@ def indexpod(IDP,espressoindexfile,podname,podindexdir,espressopodname='ESPRESSO
                 #print(t)
             podaddress=IDP+podname+'/'
             indexaddress=podaddress+podindexdir
-            d=brewmaster.crawl(podaddress, CSSA)
+            d=PodIndexer.crawl(podaddress, CSSA)
                 #print(d.keys())
 
                 #index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
-            index=brewmaster.ldpindexdict(d)
-            brewmaster.uploadldpindex(index, podname, podindexdir, CSSA)
+            index=PodIndexer.ldpindexdict(d)
+            PodIndexer.uploadldpindex(index, podname, podindexdir, CSSA)
             addstring=indexaddress+'\r\n'
             acldef='''@prefix acl: <http://www.w3.org/ns/auth/acl#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
@@ -90,10 +90,10 @@ def indexexperiment(IDP,podname,numberofpods,podindexdir,podemail='@example.org'
             CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
             CSSA.create_authstring()
             CSSA.create_authtoken()
-            d=brewmaster.aclcrawlwebidnew(podaddress,podaddress, CSSA)
+            d=PodIndexer.aclcrawlwebidnew(podaddress,podaddress, CSSA)
             indexaddress=podaddress+podindexdir
-            index=brewmaster.aclindextupleswebidnew(d)
-            executor.submit(brewmaster.uploadaclindexwithbar, index, indexaddress, CSSA)
+            index=PodIndexer.aclindextupleswebidnew(d)
+            executor.submit(PodIndexer.uploadaclindexwithbar, index, indexaddress, CSSA)
             #brewmaster.uploadaclindexwithbar(index,indexaddress,CSSA)
 
 def uploadlocalindexexperiment(IDP,podname,serno,lowpod,highpod,podindexdir,locdir,podemail='@example.org',password='12345'):
@@ -115,7 +115,7 @@ def uploadlocalindexexperiment(IDP,podname,serno,lowpod,highpod,podindexdir,locd
                     f.close()
                     index=eval(indexstr)
                     print('starting uploading',filename)
-                    executor.submit(brewmaster.uploadaclindexwithbar, index, indexaddress, CSSA)
+                    executor.submit(PodIndexer.uploadaclindexwithbar, index, indexaddress, CSSA)
 
 
 IDP=argv[1]

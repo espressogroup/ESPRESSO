@@ -29,7 +29,7 @@ def distributenum(n,places,zipf):
     #a=1
     total=0
     if zipf==0:
-        numbers=[math.floor(len(files)/places)]*places
+        numbers=[math.floor(n/places)]*places
     else:
         for i in range(places):
             total +=1/((i+1)*zipf)
@@ -37,9 +37,9 @@ def distributenum(n,places,zipf):
         print (total)
         numbers=[]
         for i in range(places):
-            numbers.append(math.floor(len(files)/(total*(i+1)*zipf)))
+            numbers.append(math.floor(n/(total*(i+1)*zipf)))
     print(sum(numbers))
-    for i in range(len(files)-sum(numbers)):
+    for i in range(n-sum(numbers)):
         j=math.floor(random.random()*places)
         numbers[j]=numbers[j]+1
     return (numbers)

@@ -104,7 +104,7 @@ def crawllist(address, CSSa):
         #print(r["f"])
         f=str(r["f"])
         if f[-1]=='/':
-            d=crawl(f,CSSa,indexaddress)
+            d=crawllist(f,CSSa)
             filelist+=d
         else:
             filelist.append(f)
@@ -507,7 +507,7 @@ def getacl(podpath, targetUrl, CSSA):
     line=targetUrl[len(podpath):]
     res=CSSA.get_file(podpath+line+'.acl')  
     while not res.ok:
-        line= '/'.join(filepath.rsplit('/')[:-1])
+        line= '/'.join(line.rsplit('/')[:-1])
         res=CSSA.get_file(podpath+line+'.acl') 
         if len(line)==0:
             break
