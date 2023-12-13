@@ -5,20 +5,9 @@
 The ESPRESSO project researches, develops and evaluates decentralised algorithms, meta-information data structures, and indexing techniques to enable large-scale data search across personal online datastores, taking into account varying access rights and caching requirements.
 
 
-## Requirements
-
-* [Node.js](https://nodejs.org/en/) _(16 or higher)_
-* [Python](https://www.python.org/downloads/release/python-3110/)_(3.11 or higher)_
-* [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
-
-## Installation
-
-
-## Quick start
-
 ## ESPRESSO System Architecture
 
-he ESPRESSO system (Figure below) contains the following components that are installed alongside each Solid server in the network:
+The ESPRESSO system (Figure below) contains the following components that are installed alongside each Solid server in the network:
 
 * The indexing app (Brewmaster), indexes the pods and creates and maintains the pod indices, along with the meta-index for the server (see below). 
 
@@ -29,7 +18,6 @@ he ESPRESSO system (Figure below) contains the following components that are ins
 
 * The user interface app (Barista) receives queries from the user and presents the search results.
 
-
 ![](./Documentation/imgs/ESPRESSOArchitecture.png)
 
 ## Limitations & Challenges Ahead
@@ -37,6 +25,55 @@ At this staage, ESPRESSO has the following limiations:
 
 * It covers only keyword-based searches. Enabling structured queries is on the plan.
 * To enable top-k search in ESPRESSO, decentralized ranking algorithms must be developed.
+
+
+## Requirements
+
+* [Node.js](https://nodejs.org/en/) _(16 or higher)_
+* [Python](https://www.python.org/downloads/release/python-3110/)_(3.11 or higher)_
+* [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+
+## Installation
+
+* **Data Splitter**: Having a textual dataset composed of a single file (or more), the dataset splitter chunks the datset into a specified number of files of a rquired size.
+
+<pre>
+cd /Automation/DatasetSplitter
+python3 main.py
+</pre>
+
+* **Infrastructure and Deployment**: (Solid Servers and  Pods creation per each Solid server)
+
+- Solid Servers: 
+<pre>ansible-playbook -i inventory-50VM.ini  solidservers.yaml  --ask-become-pass</pre>
+
+Note that, The ```inventory-50VM.ini``` includes a list of the VM IPs with ```ssh``` username and password credintials.
+
+- Pods creation: 
+(To Be de-tangled from the experiments setup.)
+
+* **(Keyword-based) Indexing**:
+
+- Housing Pods withe the generated files 
+
+- Generating indexes at each Pod.
+
+- Acl Specifications for Files and Indexes.
+
+- Validating Access to Files and Indexes ```Penny or Postman``` or ```curl http:...```.
+
+* GaianDb and Search App Installation:
+
+- Hints about Source Code and Build of GaianDB
+
+- Automating Cloning GaianDB and Search App on Servers.
+
+- Running Search App with Parameters on Specified number of Solid servers.
+
+
+
+## Experiments (Quick Satrt):
+
 
 
 ## Publications
