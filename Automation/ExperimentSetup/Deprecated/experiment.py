@@ -1,4 +1,4 @@
-import Automation.ExperimentSetup.FileDistributor as FileDistributor, Automation.ExperimentSetup.distributor as distributor, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer, rdfindex
+import Automation.ExperimentSetup.FileDistributor as FileDistributor, Automation.ExperimentSetup.FileUploader as FileUploader, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer, rdfindex
 #import rdfindex
 import os, csv,re, math, random, shutil, requests, json, base64, urllib.parse, cleantext
 #from solid_client_credentials import SolidClientCredentialsAuth, DpopTokenProvider
@@ -90,7 +90,7 @@ def experimentdistribute():
             USERNAME='pod'+str(p)+'e@example.org'
             PASSWORD=password
             print(filelist, pod, IDP, USERNAME, PASSWORD)
-            distributor.putlistCSS(filelist, pod, IDP, USERNAME, PASSWORD)
+            FileUploader.putlistCSS(filelist, pod, IDP, USERNAME, PASSWORD)
 
 
 
@@ -320,7 +320,7 @@ class CSSexperiment:
                 podfilelist=self.filedist[s][p]
                 IDP=self.serverlist[s]
                 #print(podfilelist, pod, IDP, email, self.password)
-                distributor.putlistCSS(podfilelist, pod, IDP, email, self.password)
+                FileUploader.putlistCSS(podfilelist, pod, IDP, email, self.password)
 
     def index(self):
         namespace="http://example.org/SOLID/"
