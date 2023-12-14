@@ -84,6 +84,8 @@ There are three experiment setups currently ```webidexperiment```, ```webidlocal
 
 ```zipexperiment``` creates pods, then for each pod creates a zip file that contains all the files in the pod and another zip file with the index, and uploads the zip files to the servers via ssh, where they need to be unzipped to pods.
 
+![](./Documentation/imgs/ExperimentSetup2.png)
+
 To create an experiment
 
 <pre>
