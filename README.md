@@ -78,6 +78,7 @@ There are three experiment setups currently ```webidexperiment```, ```webidlocal
 
 ```webidexperiment``` creates pods, populates them with files, crawls the pods, indexes them, and uploads the indices through the Solid interface.
 
+![](./Documentation/imgs/ExperimentSetup1.png)
 
 ```webidlocalexperiment``` creates pods, populates them with files, crawls the pods, creates and stores all the pod indices locally, and then uploads them.
 
