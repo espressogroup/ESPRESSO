@@ -118,7 +118,7 @@ Where
 * Yury Savateev, University of Southampton, y.savateev@soton.ac.uk.
 * Helen Olviver, University of Southampton, h.oliver@bbk.ac.uk.
 * Reza Moosaei, Queen Mary University of London, r.moosaei@bbk.ac.uk.
-* Thanassis Tiropanis, University of Southampton. 
+* Thanassis Tiropanis, University of Southampton, t.tiropanis@soton.ac.uk. 
 * Age Chapman, University of Southampton, adriane.chapman@soton.ac.uk.
 * Alex Poulovassilis, Birkbeck, University of London, a.poulovassilis@bbk.ac.uk.
 * George Roussos, Birkbeck, University of London, g.roussos@bbk.ac.uk.
