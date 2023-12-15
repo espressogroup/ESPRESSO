@@ -119,13 +119,13 @@ Where
 
 ## Authors/Contacts
 * [Mohamed Ragab](https://mohamedragabanas.github.io/), University of southampton, ragab.mohamed@soton.ac.uk.
-* Yury Savateev, University of Southampton, y.savateev@soton.ac.uk.
-* Helen Olviver, University of Southampton, h.oliver@bbk.ac.uk.
-* Reza Moosaei, Queen Mary University of London, r.moosaei@bbk.ac.uk.
-* Thanassis Tiropanis, University of Southampton, t.tiropanis@soton.ac.uk. 
-* Age Chapman, University of Southampton, adriane.chapman@soton.ac.uk.
-* Alex Poulovassilis, Birkbeck, University of London, a.poulovassilis@bbk.ac.uk.
-* George Roussos, Birkbeck, University of London, g.roussos@bbk.ac.uk.
+* [Yury Savateev](https://www.southampton.ac.uk/people/629xpd/doctor-yury-savateev), University of Southampton, y.savateev@soton.ac.uk.
+* [Helen Olviver](https://www.bbk.ac.uk/our-staff/profile/9437297/helen-oliver), University of Southampton, h.oliver@bbk.ac.uk.
+* [Reza Moosaei](https://www.linkedin.com/in/reza-moosa-b6209a77/), Queen Mary University of London, r.moosaei@bbk.ac.uk.
+* [Thanassis Tiropanis](https://www.southampton.ac.uk/people/5x5rrv/professor-thanassis-tiropanis), University of Southampton, t.tiropanis@soton.ac.uk. 
+* [Adriane Chapman](https://www.southampton.ac.uk/people/5xhdw9/professor-age-chapman), University of Southampton, adriane.chapman@soton.ac.uk.
+* [Alex Poulovassilis](https://www.dcs.bbk.ac.uk/~ap/), Birkbeck, University of London, a.poulovassilis@bbk.ac.uk.
+* [George Roussos](https://www.bbk.ac.uk/our-staff/profile/8009155/george-roussos), Birkbeck, University of London, g.roussos@bbk.ac.uk.
 
 ## License
 ESPRESSO is written and developed by the [ESPRESSO project](https://espressoproject.org/) 
