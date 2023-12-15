@@ -44,8 +44,12 @@ python3 main.py
 
 * **Infrastructure and Deployment**: (Solid Servers and  Pods creation per each Solid server)
 
-- Solid Servers: 
-<pre>ansible-playbook -i inventory-50VM.ini  solidservers.yaml  --ask-become-pass</pre>
+- Solid Servers:
+
+<pre>
+cd /Automation/CSS_Automation/
+ansible-playbook -i inventory-50VM.ini  solidservers.yaml  --ask-become-pass
+</pre>
 
 Note that, The ```inventory-50VM.ini``` includes a list of the VM IPs with ```ssh``` username and password credentials.
 
@@ -62,17 +66,55 @@ Note that, The ```inventory-50VM.ini``` includes a list of the VM IPs with ```ss
 
 - Validating Access to Files and Indexes ```Penny or Postman``` or ```curl http:...```.
 
-* GaianDb and Search App Installation:
+- Automating Cloning GaianDB and Search App on Servers.
+
+You could do that by clonning and updating (pulling) the ESPRESSO repo on the machines automatically using the following ansible playbook.
+<pre>
+cd /Automation/CSS_Automation/
+ansible-playbook -i inventory-50VM.ini  espressorepos.yaml  --ask-become-pass
+</pre>
 
 - Hints about Source Code and Build of GaianDB
 
-- Automating Cloning GaianDB and Search App on Servers.
+In the ```GaianDB``` directory, you can find two sub-directorories:
+
+(1) ```GaianDB_Keyword_Search_SourceCode``` for the source code of our GaianDB inclusing the ```solid-gaian``` connector. 
+
+(2) ```GaianDB_Keyword_Search_Build``` is the build version of the source code, including all necessary ```jar``` files for running the service.
+
+You could clone this source code (in ```GaianDB_Keyword_Search_SourceCode```) for further developments. Make sure to build your developements using any build tool such as (```maven``` or ```ant```). Please make sure that you add the generated build jars to the ```lib``` directory of the ```GaianDB_Keyword_Search_Build``` directory.
+
+
+- Starting GaianDb Service on Servers:
+
+<pre>
+cd /Automation/CSS_Automation/
+ansible-playbook -i inventory-50VM.ini  startGaianServers.yaml  --ask-become-pass
+</pre>
 
 - Running Search App with Parameters on a Specified number of Solid servers.
 
+<pre>
+cd /Automation/CSS_Automation/
+ansible-playbook -i inventory-50VM.ini  startSearcherServers.yaml  --ask-become-pass
+</pre>
+
+- Stpooing GaianDB service and Search App on Serevrs:
+
+Stop GaianDB service:
+<pre>
+cd /Automation/CSS_Automation/
+ansible-playbook -i inventory-50VM.ini  stopGaianServers.yaml  --ask-become-pass
+</pre>
+
+Stop Search App:
+<pre>
+cd /Automation/CSS_Automation/
+ansible-playbook -i inventory-50VM.ini  stopSearcherServers.yaml  --ask-become-pass
+</pre>
 
 
-## Experiments (Quick Satrt):
+## Experiments (Quick Start):
 
 There are three experiment setups currently ```webidexperiment```, ```webidlocalexperiment```, and ```zipexperiment```. The difference between them is how the files get to the Solid servers.
 
