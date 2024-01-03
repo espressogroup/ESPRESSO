@@ -218,3 +218,21 @@ def get_file(targetUrl):
            #headers=headers
     )
     return res
+
+def podcreate(IDP,podname,email,password):
+    register_endpoint=IDP+'idp/register/'
+    res1 = requests.post(
+                        register_endpoint,
+                        json={
+                            "createWebId": "on",
+                            "webId": "",
+                            "register": "on",
+                            "createPod": "on",
+                            "podName": podname,
+                            "email": email,
+                            "password": password,
+                            "confirmPassword": password
+                        },
+                        timeout=5000,
+                    )
+    print(res1)
