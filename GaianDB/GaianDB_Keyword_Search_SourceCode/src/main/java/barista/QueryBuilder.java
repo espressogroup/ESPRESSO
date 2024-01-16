@@ -7,11 +7,69 @@ import java.util.stream.Collectors;
 public class QueryBuilder {
     private static final String[] DEFAULT_COLUMNS = {"Search_Parameters"};
 
-    public static String buildSqlQuery(String keyword) {
-        return buildSqlQuery(keyword, DEFAULT_COLUMNS, "=", false, 0, -1);
+    public static String buildSQLQuery(String keyword) {
+        return buildQuery(keyword, DEFAULT_COLUMNS, "=", false, 0, -1);
     }
 
-    public static String buildSqlQuery(String keyword, String[] columns, String operator, boolean caseInsensitive, int offset, int limit) {
+    public static String buildSPARQLQuery(String sparqlquery) {
+        return buildQuery(sparqlquery, DEFAULT_COLUMNS, "=", false, 0, -1);
+    }
+
+
+    public static boolean isSparqlQuery(String query) {
+        if (query == null || query.isEmpty()) {
+            return false;
+        }
+
+        String queryLower = query.trim().toLowerCase();
+        return queryLower.startsWith("select") || queryLower.startsWith("prefix") || queryLower.startsWith("ask") ||
+                queryLower.startsWith("construct") || queryLower.startsWith("describe") ||
+                queryLower.startsWith("insert") || queryLower.startsWith("delete");
+    }
+
+    public static String buildQuery (String q, String[] columns, String operator, boolean caseInsensitive, int offset, int limit)
+    {
+        String searchOperator = getSearchOperator(operator);
+        String searchColumns = getSearchColumns(columns);
+        String searchKeyword = caseInsensitive ? q.toLowerCase() : q;
+        String escapedKeyword = escapeKeyword(searchKeyword);
+
+        StringBuilder query = new StringBuilder();
+
+        if (isSparqlQuery(q)) {
+            query.append("SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: \n-- ")
+             .append(q.replace("\n", "\n-- "));
+        }
+
+        else{
+
+        query.append("SELECT * FROM LTSOLID WHERE ")
+           .append(DEFAULT_COLUMNS[0])
+           .append(searchOperator);
+
+           if (searchOperator.trim().equals("LIKE")) {
+               query.append(" '%").append(escapedKeyword).append("%'");
+           }
+           else{
+               query.append(" '").append(escapedKeyword).append("'");
+           }
+
+        if (offset > 0 && limit > 0) {
+            query.append(" LIMIT ").append(offset).append(", ").append(limit);
+        }
+
+        query.append(" ORDER BY RELEVANCE DESC");
+
+        }
+
+        System.out.println(">>>>> "+query);
+        return query.toString();
+
+    }
+
+
+
+    public static String buildSqlQuery_OLD(String keyword, String[] columns, String operator, boolean caseInsensitive, int offset, int limit) {
         String searchOperator = getSearchOperator(operator);
         String searchColumns = getSearchColumns(columns);
         String searchKeyword = caseInsensitive ? keyword.toLowerCase() : keyword;
@@ -20,7 +78,7 @@ public class QueryBuilder {
         StringBuilder sql = new StringBuilder();
 
         // To test this with mysql use solidtbl instead of LTSOLID
-        sql.append("SELECT * FROM LTSOLID WHERE ")
+        sql.append("SELECT * FROM LTSOLID_SPARQL WHERE ")
            .append(DEFAULT_COLUMNS[0])
            .append(searchOperator);
 
@@ -35,8 +93,9 @@ public class QueryBuilder {
             sql.append(" LIMIT ").append(offset).append(", ").append(limit);
         }
 
-        sql.append(" ORDER BY RELEVANCE DESC");
+//        sql.append(" ORDER BY RELEVANCE DESC");
 
+        System.out.println(">>>>> "+sql);
         return sql.toString();
     }
 
@@ -55,8 +114,6 @@ public class QueryBuilder {
         }
     }
 
-
-
     private static String getSearchColumns(String[] columns) {
         if (columns == null || columns.length == 0) {
             columns = DEFAULT_COLUMNS;
@@ -70,4 +127,6 @@ public class QueryBuilder {
         // Replace single quotes with two single quotes to escape them
         return StringUtils.replace(keyword, "'", "''");
     }
+
+
 }

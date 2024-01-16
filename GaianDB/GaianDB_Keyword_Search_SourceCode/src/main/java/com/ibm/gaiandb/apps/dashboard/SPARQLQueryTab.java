@@ -7,40 +7,6 @@
 
 package com.ibm.gaiandb.apps.dashboard;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
-import java.io.BufferedWriter;
-import java.io.File;
-import com.ibm.gaiandb.GaianNode;
-import com.ibm.gaiandb.GaianNode;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.management.ManagementFactory;
-import java.net.URI;
-import java.sql.*;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
-import java.util.Vector;
-import java.util.regex.Pattern;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellEditor;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
-
 import barista.QueryBuilder;
 import com.ibm.db2j.GaianTable;
 import com.ibm.gaiandb.GaianNode;
@@ -49,7 +15,23 @@ import com.ibm.gaiandb.apps.SecurityClientAgent;
 import com.ibm.gaiandb.diags.GDBMessages;
 import com.ibm.solid.PropertiesManagement;
 
-public class QueryTab extends Tab {
+import javax.swing.*;
+import javax.swing.table.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.management.ManagementFactory;
+import java.net.URI;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.*;
+import java.util.regex.Pattern;
+
+public class SPARQLQueryTab extends Tab {
 
 //	Use PROPRIETARY notice if class contains a main() method, otherwise use COPYRIGHT notice.
 	public static final String COPYRIGHT_NOTICE = "(c) Copyright IBM Corp. 2009";
@@ -69,7 +51,7 @@ public class QueryTab extends Tab {
 	final Vector<String> sqlHistory = new Vector<String>();
 	private int sqlHistoryIndex = 0;
 
-	private final JTextField input;
+	private final JTextArea input;
 
 	private final JTextField reIterateBox;
 	private final JButton back;
@@ -80,20 +62,20 @@ public class QueryTab extends Tab {
 	private final JTable results;
 	private final JLabel queryInfo;
 	private final JList errors;
-	
+
 	private final JComboBox apiCallsDropDown; //, historyDropDown;
 
 	private static final String SHORTCUTS_LABEL = "Shortcuts and History...";
-	private static final String EXPAND_AS_DIRECTED_SUBQ = 
+	private static final String EXPAND_AS_DIRECTED_SUBQ =
 		"<EXPAND CURRENT QUERY AS DIRECTED SUB-QUERY ON SELECTED NODES IN NETWORK TOPOLOGY>";
-	private static final String EXPAND_AS_ADDQUERY_CALL = 
+	private static final String EXPAND_AS_ADDQUERY_CALL =
 		"<EXPAND CURRENT QUERY AS CALL TO ADDQUERY STORED PROCEDURE>";
 
 	private static final String[] APIS_LIST = new String[] {
 			"select * from LT0                      -- Query sample logical table LT0",
 			"select * from LT0_P                  -- Query sample logical table LT0 with provenance",
 			"select * from LT0_0                  -- Query LT0 at depth 0, i.e. federating local data sources only",
-			"call listnodes()                           -- List GaianDB nodes in network",	
+			"call listnodes()                           -- List GaianDB nodes in network",
 			"call listrdbc()                             -- List JDBC Connections", //. Specify '*' for all nodes or null for local config only",
 			"call listlts()                                 -- List Logical Tables", //. Specify '*' for all nodes or null for local config only",
 			"call listltmatches()                     -- List logical table definition matches",
@@ -129,11 +111,11 @@ public class QueryTab extends Tab {
 //			"select gkill() ok from sysibm.sysdummy1     -- Kill the local node",
 			"VALUES CURRENT_USER                       -- Display current user",
 	};
-	
+
 	private final DefaultTableModel resultsModel;
 	private final DefaultListModel errorsModel;
-	
-	public QueryTab(final Dashboard container) throws IOException {
+
+	public SPARQLQueryTab(final Dashboard container) throws IOException {
 		super(container, new GridBagLayout());
 
 		GridBagConstraints labelConstraints = new GridBagConstraints();
@@ -160,14 +142,14 @@ public class QueryTab extends Tab {
 			Dashboard.BORDER_SIZE);
 		componentConstraints.weightx = 1;
 
-		input = new JTextField();
+		input = new JTextArea();
 		input.setFont(new Font("Monospaced", Font.PLAIN, input.getFont().getSize()));
 		//Ragab (We need to Control the Size in a different Way)
 		//input.setT(INPUT_TAB_SIZE);
 		input.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent e) {
 				if (e.isControlDown() && e.getKeyChar() == '\n') {
-					submitQuery(input.getText());
+					submitQuery(input.getText().replace("\n", " "));
 				}
 			}
 
@@ -183,9 +165,9 @@ public class QueryTab extends Tab {
 			forward.setDisabledIcon(FORWARD_DISABLED_ICON);
 		} else {
 			back = new JButton("<=");
-			forward = new JButton("=>");		
+			forward = new JButton("=>");
 		}
-		
+
 		back.setEnabled(false);
 		back.setMargin(new Insets(1, 1, 1, 1));
 		back.addActionListener(new ActionListener() {
@@ -212,39 +194,54 @@ public class QueryTab extends Tab {
 			if ( null != executingSQL ) { // Cancelling/Stopping query
 					lastCancelTime = System.currentTimeMillis();
 					//Ragab
-					submit.setText("Keyword Search");
+					submit.setText("SPARQL Query");
 					queryInfo.setText("Cancelled at " + new SimpleDateFormat("HH:mm:ss").format(new Date()) + ". ");
 					executingSQL = null;
 					if ( null != stmt ) try { stmt.close();	stmt = null; } catch ( Exception ex ) { setErrorsWithCode(GDBMessages.CLIENT_STMT_CLOSE_ERROR, ex); }
 					return;
 				}
 
-				String sqlquery = QueryBuilder.buildSqlQuery(input.getText());
+				String sqlquery = QueryBuilder.buildSPARQLQuery(input.getText().replace("\n", " "));
 
+				System.out.println(sqlquery);
 
-				//Ragab (If Empty Search...)
-				if (null==input.getText() || input.getText().equals(""))
+				//Ragab (If Empty Search Field...)
+				if (null==input.getText().replace("\n", " ") || input.getText().replace("\n", " ").equals(""))
 				{
-					JOptionPane.showMessageDialog(
-					QueryTab.this,
-					"Please Enter Keyword First!",
+					JOptionPane.showMessageDialog(SPARQLQueryTab.this,
+					"Please Enter SPARQL Query First!",
 					"Empty Search",
 					JOptionPane.ERROR_MESSAGE);
 
 					return;
 				}
 
+				else if (!isValidSPARQL(input.getText().replace("\n", " "))) {
+					JOptionPane.showMessageDialog(SPARQLQueryTab.this,
+					"Please Enter VALID SPARQL Query!",
+					"Invalid Query",
+					JOptionPane.ERROR_MESSAGE);
+
+					return;
+				}
+
+
 				//Ragab
 				submitQuery(sqlquery);
-				// submitQuery(input.getText());
 			}
 		};
 
 
 		//Ragab
-		submit = new JButton("Keyword Search");
+		submit = new JButton("SPARQL Query");
 		submit.addActionListener(enter_submitAction);
-		input.addActionListener(enter_submitAction);
+		input.addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					// Add your action here
+				}
+			}
+		});
 
 		resultsModel = new DefaultTableModel();
 		results = new JTable(resultsModel);
@@ -253,12 +250,12 @@ public class QueryTab extends Tab {
 //		results.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); // single cell selection
 //		results.getTableHeader().setReorderingAllowed(true); // column 'drag accross' re-ordering
 //		results.getTableHeader().addMouseListener(  ) ); // attempt to allow sorting on columns
-		
+
 		queryInfo = new JLabel("");
 
 		errorsModel = new DefaultListModel();
 		errors = new JList(errorsModel);
-		
+
 		lookupError = new JButton("Lookup");
 		lookupError.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -266,18 +263,18 @@ public class QueryTab extends Tab {
 				openErrorDoc(code);
 			}
 		});
-		
+
 		reconnectButton = new JButton("Reconnect");
 		reconnectButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				container.reconnect();
 			}
 		});
-		
+
 		reconnectButton.setEnabled(false);
-		
+
 		setErrors();
-		
+
 		Vector<String> v = new Vector<String>( Arrays.asList( SHORTCUTS_LABEL, "" ) );
 		v.addAll( Arrays.asList(APIS_LIST) );
 		v.add( "" );
@@ -285,22 +282,22 @@ public class QueryTab extends Tab {
 		v.add(EXPAND_AS_ADDQUERY_CALL);
 		v.add("_____________________________________________________________________________________");
 		v.add("");
-		
+
 		apiCallsDropDown = new JComboBox( v );
 		apiCallsDropDown.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JComboBox cb = (JComboBox)e.getSource();
 			    String sql = ((String)cb.getSelectedItem()).trim();
 			    if ( 0<sql.length() && !sql.equals(SHORTCUTS_LABEL) && !sql.startsWith("_") ) {
-			    				    	
+
 			    	if ( cb.getSelectedIndex() < APIS_LIST.length+2 ) {
 			    		int idx = sql.indexOf("--");
 			    		if ( -1 < idx ) sql = sql.substring(0, idx);
 			    		sql = sql.trim();
-			    		
-			    	} else if ( sql.equals(EXPAND_AS_DIRECTED_SUBQ) ) {			    					    		
-			    		sql = "\t" + input.getText().replaceAll("'", "''").replaceAll("\n", "\n\t");
-			    		sql = "SELECT * FROM NEW com.ibm.db2j.GaianQuery('\n" + sql + 
+
+			    	} else if ( sql.equals(EXPAND_AS_DIRECTED_SUBQ) ) {
+			    		sql = "\t" + input.getText().replace("\n", " ").replaceAll("'", "''").replaceAll("\n", "\n\t");
+			    		sql = "SELECT * FROM NEW com.ibm.db2j.GaianQuery('\n" + sql +
 			    			"\n', 'with_provenance') GQ";
 			    		Set<String> selectedNodes = TopologyGraph.getSingleton().getSelectedNodes();
 			    		if ( null != selectedNodes && !selectedNodes.isEmpty() ) {
@@ -313,7 +310,7 @@ public class QueryTab extends Tab {
 				    		sql += whereNodes;
 			    		}
 			    	} else if ( sql.equals(EXPAND_AS_ADDQUERY_CALL) ) {
-			    		sql = input.getText().replace("'", "''");
+			    		sql = input.getText().replace("\n", " ").replace("'", "''");
 			    		sql = "call addquery('<id>', '<description>', '<issuer>', '" + sql + "', '<fields>')";
 			    	}
 			    	input.setText(sql);
@@ -323,7 +320,7 @@ public class QueryTab extends Tab {
 			}
 		});
 		apiCallsDropDown.setMaximumRowCount(v.size()+10);
-		
+
 //		historyDropDown = new JComboBox();
 //		historyDropDown.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
@@ -332,7 +329,7 @@ public class QueryTab extends Tab {
 //			    if ( !sql.equals(CLICK_FOR_API_AND_HISTORY) && 0<sql.length()) {
 //		    	input.setText(sql);
 //		    	cb.setSelectedIndex(0);
-//		    	
+//
 //			}
 //		});
 
@@ -343,7 +340,7 @@ public class QueryTab extends Tab {
 
 
 		labelConstraints.gridy = 0;
-		// Ragab (Remove this label for nwo)
+		// Ragab (Remove this label for now)
 		//p1.add(new JLabel("Search Keyword:"), labelConstraints);
 
 		//Ragab
@@ -362,7 +359,7 @@ public class QueryTab extends Tab {
 		c.gridy = 1;
 		c.weighty = 0.15;
 		p1.add(createScroller(input, -1, baseSize * 6), c);
-		
+
 		c = (GridBagConstraints)componentConstraints.clone();
 		c.gridwidth = 1;
 		c.fill = GridBagConstraints.BOTH;
@@ -371,7 +368,7 @@ public class QueryTab extends Tab {
 		c.gridy = 5;
 		//Ragab
 		//p1.add(apiCallsDropDown, c);
-		
+
 //		c = (GridBagConstraints)componentConstraints.clone();
 //		c.gridwidth = 2;
 //		c.fill = GridBagConstraints.NONE;
@@ -379,7 +376,7 @@ public class QueryTab extends Tab {
 //		c.gridx = 2;
 //		c.gridy = 3;
 //		p1.add(historyDropDown, c); //new JLabel("BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH BLAH:"), c);
-		
+
 		c = (GridBagConstraints)componentConstraints.clone();
 		c.anchor = GridBagConstraints.PAGE_START;
 		c.fill = GridBagConstraints.NONE;
@@ -392,12 +389,12 @@ public class QueryTab extends Tab {
 		c.weighty = 0;
 		//Ragab
 		//p1.add(back, c);
-		
+
 		c.gridx = 4;
 		c.anchor = GridBagConstraints.EAST;
 		//Ragab
 		//p1.add(forward, c);
-		
+
 		c.weighty = 1;
 		c.anchor = GridBagConstraints.PAGE_END;
 		c.fill = GridBagConstraints.BOTH;
@@ -405,7 +402,7 @@ public class QueryTab extends Tab {
 		c.gridx = 3;
 		c.gridy = 2;
 		p1.add(submit, c);
-		
+
 //		c = (GridBagConstraints)componentConstraints.clone();
 		GridBagConstraints c2 = new GridBagConstraints();
 		c2.gridx = GridBagConstraints.RELATIVE;
@@ -413,7 +410,7 @@ public class QueryTab extends Tab {
 		c2.anchor = GridBagConstraints.NORTH;
 
 		c2.fill = GridBagConstraints.HORIZONTAL; //c2.weightx = 1;
-		
+
 		JPanel reIteratePanel = new JPanel(new GridBagLayout());
 		reIterateBox = new JTextField();
 		reIterateBox.setDocument(Field.getValidatedDocument("[1-9][0-9]*"));
@@ -424,7 +421,7 @@ public class QueryTab extends Tab {
 		c2.weightx = 1;
 		//Ragab
 		//reIteratePanel.add(reIterateBox, c2);
-		
+
 		reIterateBox.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent e) {}
 			public void focusLost(FocusEvent e) {
@@ -432,14 +429,14 @@ public class QueryTab extends Tab {
 				if ( 0 == tBox.getText().length() ) tBox.setText("1");
 			}
 		});
-		
+
 		c.fill = GridBagConstraints.HORIZONTAL; c.weighty = 0;
 		c.gridx = 3; c.gridy = 3; c.gridwidth = 2;
 		c.anchor = GridBagConstraints.NORTH;
 		//Ragab
 		//p1.add(reIteratePanel, c);
-		
-		
+
+
 		labelConstraints.gridy = 3;
 		p2.add(new JLabel("Results:"), labelConstraints);
 
@@ -448,19 +445,19 @@ public class QueryTab extends Tab {
 		c.insets = new Insets(0, Dashboard.BORDER_SIZE, 0, Dashboard.BORDER_SIZE);
 		c.weighty = 0.75;
 		p2.add(createScroller(results, -1, baseSize * 10), c);
-		
+
 //		resultsModel.setColumnCount(0);
 //		resultsModel.setRowCount(0);
-		
+
 
 		labelConstraints.gridy = 5;
 		Insets holding = labelConstraints.insets;
 		labelConstraints.insets = new Insets(0, Dashboard.BORDER_SIZE, Dashboard.BORDER_SIZE, Dashboard.BORDER_SIZE);
 		p2.add(queryInfo, labelConstraints);
 		labelConstraints.insets = holding;
-	
 
-	
+
+
 		// Final Panel
 		labelConstraints.gridy = 0;
 
@@ -474,7 +471,7 @@ public class QueryTab extends Tab {
 		c.gridx = 0;
 		c.weightx = 0.9;
 		p3.add(createScroller(errors, -1, baseSize * 6), c);
-		
+
 
 		c.weightx = 0;
 		c.anchor = GridBagConstraints.EAST;
@@ -483,9 +480,9 @@ public class QueryTab extends Tab {
 		c.gridy = 3;
 		c.gridx = 3;
 		p3.add(lookupError, c);
-		
+
 		c.gridy = 4;
-		p3.add(reconnectButton, c);		
+		p3.add(reconnectButton, c);
 
 		// Add them to the tab
 		c = (GridBagConstraints)componentConstraints.clone();
@@ -501,35 +498,59 @@ public class QueryTab extends Tab {
 		c.weighty = 0.2;
 		//Ragab
 		//	this.add(p3, c);
-		
+
 		initialiseResultsTable();
-		
+
 //		new Thread( new Runnable() {
-//			public void run() { 
+//			public void run() {
 //				while ( true ) { try { Thread.sleep(1000); } catch (InterruptedException e) {} System.gc(); } }
 //		}, "DashGC" ).start();
 	}
-	
+
+
+// Method to validate if the query is a SPARQL query
+private boolean isValidSPARQL(String query) {
+    // Normalize the query by converting it to lower case and trimming whitespace
+    String normalizedQuery = query.trim().toLowerCase();
+
+    // Remove PREFIX statements if any
+    while (normalizedQuery.startsWith("prefix")) {
+        int endOfPrefix = normalizedQuery.indexOf(">", normalizedQuery.indexOf("prefix")) + 1;
+        if (endOfPrefix <= 0) {
+            // Break if there is an incorrectly formatted PREFIX statement
+            break;
+        }
+        normalizedQuery = normalizedQuery.substring(endOfPrefix).trim();
+    }
+
+    // Check if the remaining part of the query starts with a valid SPARQL query component
+    return normalizedQuery.startsWith("select") ||
+           normalizedQuery.startsWith("ask") ||
+           normalizedQuery.startsWith("construct") ||
+           normalizedQuery.startsWith("describe");
+}
+
+
 	private void initialiseResultsTable() {
-		
+
 		// Need to initialise the results table before running queries in a separate thread as the initialisation
-		// involves synchronized awt code under the covers (e.g. java/awt/Component.setFont(Component.java:1646)) 
+		// involves synchronized awt code under the covers (e.g. java/awt/Component.setFont(Component.java:1646))
 		// which sometimes causes a deadlock when accessed concurrently by separate threads.
-		
+
 		// Initialise the cell renderer - includes colours and fonts
 		resultsModel.setColumnIdentifiers(new String[] {""});
-		resultsModel.addRow(new String[] {""});	
+		resultsModel.addRow(new String[] {""});
 		results.getCellRenderer(0, 0);
-		
+
 		// Clear table again immediately
 		resultsModel.setColumnCount(0);
 		resultsModel.setRowCount(0);
 	}
-	
+
 	private void addToSQLHistory( String sql ) {
-		
+
 		String last = sqlHistory.isEmpty() ? null : sqlHistory.lastElement();
-		
+
 		// If this sql is different to the last issued query (incl if there wasnt one), add the query to the history.
 		if ( !sql.equals(last) ) {
 			sqlHistory.add(sql);
@@ -540,18 +561,18 @@ public class QueryTab extends Tab {
 				if ( ((String)apiCallsDropDown.getItemAt(i)).startsWith(sql) ) {
 					isInDropDownHistory = true; break;
 				}
-			
+
 			if ( !isInDropDownHistory ) apiCallsDropDown.addItem(sql);
 		}
 
 		sqlHistoryIndex = sqlHistory.size()-1;
-		
+
 		if ( 0 < sqlHistoryIndex )
 			back.setEnabled(true);
-		
+
 		forward.setEnabled(false);
 	}
-	
+
 	private String executingSQL = null;
 	private long lastCancelTime = 0, lastStartTime = 0;
 	private long previousCellCount = 0;
@@ -560,13 +581,13 @@ public class QueryTab extends Tab {
 	//Ragab_Comment
 	//This is the main function in the Dashborad QueryTab
 	protected synchronized void submitQuery(String sql) {
-		
+
 		if (null==sql || 0 == sql.trim().length() && null != executingSQL ) return;
-		
+
 		if (null == conn) {
 			JOptionPane.showMessageDialog(
 				this,
-				"You must be connected to a GaianDB node in order to execute queries.",
+				"You must be connected to a GaianDB network in order to execute queries.",
 				"Not Connected",
 				JOptionPane.ERROR_MESSAGE);
 			return;
@@ -579,10 +600,10 @@ public class QueryTab extends Tab {
 		executingSQL = sql;
 		new Thread( new Runnable() {
 			public void run() {
-				
+
 				resultsModel.setColumnCount(0);
 				resultsModel.setRowCount(0);
-				
+
 				long startTime = lastStartTime = System.currentTimeMillis();
 
 				// Added by Reza Moosaei
@@ -622,11 +643,11 @@ public class QueryTab extends Tab {
 //					stmt.setQueryTimeout(Dashboard.QUERY_TIMEOUT); // causes issues if the SQL is an INSERT
 					ResultSet resultSet = null;
 					long execTime = 0;
-					
+
 					// Clear previous security credentials hint
 					int credIndex = executingSQL.indexOf("\n-- " + SecurityClientAgent.GDB_CREDENTIALS);
 					if ( -1 != credIndex ) executingSQL = executingSQL.substring(0, credIndex);
-					
+
 					// Insert new credentials value as hint if one or more were specified
 					if ( container.securityAgent.isSecurityCredentialsSpecified() ) {
 
@@ -635,13 +656,13 @@ public class QueryTab extends Tab {
 							container.securityAgent.getEncryptedCredentialsValueInBase64(executingSQL) + "\n";
 						input.setText( executingSQL );
 					}
-					
+
 					String repeatTxt = reIterateBox.getText();
 					if ( null == repeatTxt || 1 > repeatTxt.length() )
 						reIterateBox.setText(repeatTxt = "1");
-					
+
 					int repeatCount = Integer.parseInt( repeatTxt );
-					
+
 					setErrors("");
 					lookupError.setEnabled(false);
 					queryInfo.setText("Executing Query, please wait...");
@@ -649,31 +670,31 @@ public class QueryTab extends Tab {
 
 					long aggregateRowCount = 0;
 					long totalTime = -System.currentTimeMillis();
-					
+
 					int nextLogTimeDurationUnits = 0; // 10ths of a second
 					int countdown = repeatCount;
-					
+
 					while ( 0 < countdown-- ) {
-						
+
 						int rowsFetched = 0;
-						
+
 						int queryIndex = repeatCount - countdown;
 						boolean showProgress = nextLogTimeDurationUnits < (System.currentTimeMillis() + totalTime)/100;
 						if ( showProgress ) {
 							nextLogTimeDurationUnits++;
 							queryInfo.setText("Repetition " + queryIndex + ", please wait...");
 						}
-					
+
 						execTime -= System.currentTimeMillis();
 						stmt.execute(executingSQL);
 						execTime += System.currentTimeMillis();
-						
+
 						if ( startTime < lastCancelTime ) return;
-						
+
 						resultSet = stmt.getResultSet();
-						
+
 						if (null != resultSet) {
-							
+
 							if ( 0 < countdown ) {
 								while (resultSet.next()) {
 									if ( startTime < lastCancelTime ) return;
@@ -681,7 +702,7 @@ public class QueryTab extends Tab {
 									if ( showProgress ) { //0 == rowsFetched % 1000 )
 										nextLogTimeDurationUnits++;
 										queryInfo.setText(
-												( 1 == repeatCount ? "" : "Repetition " + queryIndex + ". " ) + 
+												( 1 == repeatCount ? "" : "Repetition " + queryIndex + ". " ) +
 												"Fetching rows... " + (0==rowsFetched?"":rowsFetched));
 									}
 									rowsFetched++;
@@ -689,61 +710,61 @@ public class QueryTab extends Tab {
 							}
 							else {
 								ResultSetMetaData metadata = resultSet.getMetaData();
-		
+
 								int cols = metadata.getColumnCount();
 								String[] columnNames = new String[cols];
 								for (int i = 0; i < cols; i++) {
 									columnNames[i] = metadata.getColumnName(i + 1);
 								}
 								resultsModel.setColumnIdentifiers(columnNames);
-								
+
 								// Now add the cell "Editors" to the table
 								// We're not actually editing, but the cell editor
 								// is fired when the user double clicks. We will
 								// capture that event do useful stuff
 								for (int i = 0; i < cols; i++) {
 									results.getColumnModel().getColumn(i)
-											.setCellEditor(new QueryTabResultsEditorEvent(executingSQL));
+											.setCellEditor(new QueryTabResultsEditorEvent_(executingSQL));
 								}
-								
+
 								// Adjust/Reset the cell renderer
 								if (Pattern.compile(WARNINGS_SQL).matcher(executingSQL.toLowerCase()).find()) {
-									results.setDefaultRenderer(Object.class, new ListWarningsTableCellRenderer());
+									results.setDefaultRenderer(Object.class, new ListWarningsTableCellRenderer_());
 								} else {
-									results.setDefaultRenderer(Object.class, new ResetTableCellRenderer());
+									results.setDefaultRenderer(Object.class, new ResetTableCellRenderer_());
 								}
-								
+
 
 								while (resultSet.next()) {
 									Object[] data = new Object[cols];
 									for (int i = 0; i < cols; i++)
 										data[i] = resultSet.getObject(i + 1); // getString(i + 1);
-									
+
 									// Check now if the query was cancelled as data may be corrupted at this point
 									if ( startTime < lastCancelTime ) {
 										resultsModel.setColumnCount(0);
 										resultsModel.setRowCount(0);
 										return;
 									}
-									
+
 									resultsModel.addRow(data);
 									showProgress = nextLogTimeDurationUnits < (System.currentTimeMillis() + totalTime)/200;
 									if ( showProgress ) { //0 == rowsFetched % 1000 )
 										nextLogTimeDurationUnits++;
 										queryInfo.setText(
-												( 1 == repeatCount ? "" : "Repetition " + queryIndex + ". " ) + 
+												( 1 == repeatCount ? "" : "Repetition " + queryIndex + ". " ) +
 												"Fetching rows... " + (0==rowsFetched?"":rowsFetched));
 									}
 									rowsFetched++;
 								}
-							}	
+							}
 							resultSet.close();
-							
+
 						}
 						aggregateRowCount += rowsFetched;
 					}
-					
-					
+
+
 					totalTime += System.currentTimeMillis();
 
 					// Added by Reza Moosaei
@@ -778,7 +799,7 @@ public class QueryTab extends Tab {
 								results.getCellRenderer(x, y)
 									.getTableCellRendererComponent(results, results.getValueAt(x, y), false, false, x, y)
 									.getPreferredSize().width);
-							
+
 //							System.out.println(executingSQL);
 //							// Set the text blue, if we know it is a URL
 //							if ((executingSQL.equals(WARNINGS_SQL)) && (y == WARNINGS_COLUMN)) {
@@ -792,8 +813,8 @@ public class QueryTab extends Tab {
 						column.setPreferredWidth(maxWidth + COLUMN_PADDING);
 
 					}
-					
-					
+
+
 //					input.setText("");
 //					currentSql = "";
 
@@ -805,16 +826,16 @@ public class QueryTab extends Tab {
 						) +
 						" Total Time: " + totalTime + "ms" +
 						" (Execution Time: " + execTime + "ms)" +
-						" "+(aggregateRowCount*1000/(0==totalTime ? 1:totalTime))+" rows/s"						
+						" "+(aggregateRowCount*1000/(0==totalTime ? 1:totalTime))+" rows/s"
 					);
 
 					setErrors();
-					
+
 				} catch (Exception e) {
-					
+
 					queryInfo.setText("Error/Warning at " + new SimpleDateFormat("HH:mm:ss").format(new Date()) + ". ");
-					
-					// Search for root cause in case of IEX 				
+
+					// Search for root cause in case of IEX
 					Throwable cause = e;
 					String msg = "";
 					while (true) {
@@ -825,12 +846,12 @@ public class QueryTab extends Tab {
 							break;
 						}
 					}
-					
+
 					String extractedCode = "";
 					if (msg.matches("^.*" + GaianTable.IEX_PREFIX.replaceAll("\\*","\\\\*") + ".*$")) {
 						extractedCode = msg.toString().split("'")[1].split(":")[0];
 					}
-					
+
 					try {
 						if (null != GDBMessages.class.getDeclaredField(extractedCode) ) {
 							setErrorsWithCode(extractedCode, e);
@@ -840,21 +861,21 @@ public class QueryTab extends Tab {
 					} catch (Exception e1) {
 						setErrorsWithCode(GDBMessages.CLIENT_STMT_EXEC_RETURNED_ERROR, e);
 					}
-					
+
 				} finally {
-					
+
 					// Ensure statement and result-set are definitely released/cleared
 					if ( null != stmt ) { try { stmt.close(); } catch (SQLException e) {} stmt = null; }
-					
+
 					if ( startTime > lastCancelTime ) {
 						executingSQL = null;
-						submit.setText("Keyword Search");
+						submit.setText("SPARQL Query");
 					}
 
 					// Try to free up some memory if a large number of cells has been cleared.
-					long mem = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage().getCommitted();					
+					long mem = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage().getCommitted();
 					long cellCount = (long) resultsModel.getRowCount() * resultsModel.getColumnCount();
-					
+
 					if ( previousCellCount/10 > cellCount/9 || (previousCellCount/9 > cellCount/10 && memDecreasedSubstantially) ) {
 						int i=0;
 						while ( ++i < 100 && lastStartTime == startTime ) // only let one completing thread run this loop
@@ -862,7 +883,7 @@ public class QueryTab extends Tab {
 
 //						System.out.println("Called GC " + i + " times");
 					}
-					
+
 					if ( lastStartTime == startTime ) {
 						previousCellCount = cellCount;
 						memDecreasedSubstantially = mem - ManagementFactory.getMemoryMXBean().getHeapMemoryUsage().getCommitted() > mem/100;
@@ -874,7 +895,7 @@ public class QueryTab extends Tab {
 
 	private void back() {
 
-		sqlHistory.set(sqlHistoryIndex--, input.getText());
+		sqlHistory.set(sqlHistoryIndex--, input.getText().replace("\n", " "));
 		input.setText( sqlHistory.get(sqlHistoryIndex) );
 
 		if ( 0 == sqlHistoryIndex ) back.setEnabled(false);
@@ -883,7 +904,7 @@ public class QueryTab extends Tab {
 
 	private void forward() {
 
-		sqlHistory.set(sqlHistoryIndex++, input.getText());
+		sqlHistory.set(sqlHistoryIndex++, input.getText().replace("\n", " "));
 		input.setText( sqlHistory.get(sqlHistoryIndex) );
 
 		if ( sqlHistory.size()-1 == sqlHistoryIndex ) forward.setEnabled(false);
@@ -991,7 +1012,7 @@ public class QueryTab extends Tab {
 }
 
 // This is called when a user double clicks on a table cell
-class QueryTabResultsEditorEvent extends AbstractCellEditor implements TableCellEditor {
+class QueryTabResultsEditorEvent_ extends AbstractCellEditor implements TableCellEditor {
 	private static final long serialVersionUID = 2943781958170741556L;
 
 //	int rowIndex = -1;
@@ -1000,7 +1021,7 @@ class QueryTabResultsEditorEvent extends AbstractCellEditor implements TableCell
 
 	String lastCall = null;
 
-	public QueryTabResultsEditorEvent(String sqlStatment) {
+	public QueryTabResultsEditorEvent_(String sqlStatment) {
 		lastCall = sqlStatment;
 	}
 
@@ -1013,11 +1034,11 @@ class QueryTabResultsEditorEvent extends AbstractCellEditor implements TableCell
 		final String cellText = null==value ? "" : value.toString();
 		
 		// Do what we do based on the last call
-		if (lastCall.toLowerCase().matches(QueryTab.WARNINGS_SQL)
-				&& (column == QueryTab.WARNINGS_COLUMN)) {
+		if (lastCall.toLowerCase().matches(SPARQLQueryTab.WARNINGS_SQL)
+				&& (column == SPARQLQueryTab.WARNINGS_COLUMN)) {
 			// Extract error code
 			String code = cellText.split(":")[0];
-			QueryTab.openErrorDoc(code);
+			SPARQLQueryTab.openErrorDoc(code);
 		}
 
 		return null;
@@ -1030,7 +1051,7 @@ class QueryTabResultsEditorEvent extends AbstractCellEditor implements TableCell
 	}
 }
 
-class ListWarningsTableCellRenderer extends DefaultTableCellRenderer {
+class ListWarningsTableCellRenderer_ extends DefaultTableCellRenderer {
     private static final long serialVersionUID = 1L;
 
     public Component getTableCellRendererComponent(JTable table, Object value,
@@ -1039,7 +1060,7 @@ class ListWarningsTableCellRenderer extends DefaultTableCellRenderer {
 				isSelected, hasFocus, row, column);
 
 		// Only for specific column
-		if (column == QueryTab.WARNINGS_COLUMN) {
+		if (column == SPARQLQueryTab.WARNINGS_COLUMN) {
 			c.setForeground(Color.BLUE);
 		} else {
 			c.setForeground(Color.BLACK);
@@ -1048,7 +1069,7 @@ class ListWarningsTableCellRenderer extends DefaultTableCellRenderer {
 	}
 }
 
-class ResetTableCellRenderer extends DefaultTableCellRenderer {
+class ResetTableCellRenderer_ extends DefaultTableCellRenderer {
     private static final long serialVersionUID = 1L;
 
 	public Component getTableCellRendererComponent(JTable table, Object value,

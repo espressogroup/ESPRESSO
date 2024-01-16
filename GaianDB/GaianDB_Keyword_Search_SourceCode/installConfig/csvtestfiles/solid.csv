@@ -1,2 +1,2 @@
 "Search Parameters","Document URL","RELEVANCE"
-"corona,https://srv03812.soton.ac.uk:3000/webidpod0/profile/card#me","API request failed with status code: ","org.apache.http.conn.HttpHostConnectException: Connect to localhost:8080 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused)  csvtestfiles/solid.csv"
+"appenf","API request failed with status code: ","Connection refused (Connection refused)  csvtestfiles/solid.csv"

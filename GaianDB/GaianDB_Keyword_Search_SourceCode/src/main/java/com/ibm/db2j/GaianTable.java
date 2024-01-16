@@ -1459,7 +1459,6 @@ public class GaianTable extends AbstractVTI implements VTICosting, IQualifyable,
 	 * If there isn't one, or if the current number of steps is lower than that number then update that number to the current
 	 * number of steps, which is the new lowest number used for reaching this node.
 	 *
-	 * @param isMetaDataLookupOnly
 	 */
 	private void establishQueryIdAndFindMinPropagation() { // boolean isMetaDataLookupOnly ) {
 

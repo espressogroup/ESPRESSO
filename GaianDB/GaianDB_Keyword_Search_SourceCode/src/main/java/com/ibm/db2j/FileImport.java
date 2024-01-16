@@ -12,6 +12,7 @@ import com.ibm.gaiandb.*;
 import com.ibm.gaiandb.diags.GDBMessages;
 import com.ibm.gaiandb.lite.LiteParameterMetaData;
 import com.ibm.solid.SolidServiceCall;
+import com.ibm.solid.Solid_SPARQL_ServiceCall;
 import com.ibm.solid.SqlParser;
 import org.apache.derby.iapi.error.StandardException;
 import org.apache.derby.iapi.store.access.Qualifier;
@@ -98,7 +99,7 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 	 *
 	 * If no control file is resolved using this process, the default CSV format is assumed.
 	 *
-	 * @param s The path to the data file.
+	 * @param datafilePath The path to the data file.
 	 * @return The path to the control file for the given data file.
 	 */
 	public static String getControlFile( String datafilePath ) {
@@ -212,19 +213,32 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 		this(s);
 		// new code added by Reza Moosaei
 		// Reformat User SQL query, call SqlParser and GaianDB-Solid connector (SolidServiceCall)
-		// receive CSV file from GaianDB-SOlid connector (SolidServiceCall)
+		// receive CSV file from GaianDB-Solid connector (SolidServiceCall)
 		try {
 			String originalSqlQuery = sqlQuery;
 			if (hasGaianTable(sqlQuery)) {
 				Map<String, String> sqlData = parseGaianTableQuery(sqlQuery);
 				String tableName = sqlData.get("tableName");
 				String whereClause = sqlData.get("whereClause");
-				originalSqlQuery = String.format("select * from %s where %s",tableName,whereClause);
+				originalSqlQuery = String.format("select * from %s",tableName,whereClause);
 			}
-			Map<String, String> sqlResult = new SqlParser().getCondition(originalSqlQuery);
-			if ("LTSOLID".equals(sqlResult.get("tableName"))
-					|| "ltsolid".equals(sqlResult.get("tableName")))
-				new SolidServiceCall().filterData(sqlResult.get("rightExpression"));
+
+			Map<String, String> origQuery = new SqlParser().getCondition(originalSqlQuery);
+			String sparqlQuery= new SqlParser().extractSparqlQuery(originalSqlQuery);
+
+			System.out.println(origQuery.get("tableName"));
+			System.out.println(origQuery.get("rightExpression"));
+
+			System.out.println(sparqlQuery);
+
+			if ("LTSOLID".equals(origQuery.get("tableName")) || "ltsolid".equals(origQuery.get("tableName"))) {
+				new SolidServiceCall().filterData(origQuery.get("rightExpression"));
+			}
+
+			else if ("LTSOLID_SPARQL".equals(origQuery.get("tableName")) || "ltsolid_sparql".equals(origQuery.get("tableName"))) {
+				new Solid_SPARQL_ServiceCall().filterDataScenario5(sparqlQuery);
+			}
+
 		} catch (Exception ex) {
 			logger.logException("", "Solid service call has been failed", ex);
 		}
@@ -235,10 +249,12 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 		// Extract LTSOLID from the query string
 		Pattern pattern = Pattern.compile("'(\\w+)'\\s*,\\s*'queryPath");
 		Matcher matcher = pattern.matcher(queryString);
+
 		if (matcher.find()) {
 			String tableName = matcher.group(1);
 			result.put("tableName",tableName);
 			System.out.println("LTSOLID: " + tableName);
+			System.out.println(">>>>>>RESULTTTTT" + result);
 		}
 
 		// Extract WHERE clause from the query string
@@ -248,8 +264,9 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 			String whereClause = matcher.group(1);
 			result.put("whereClause",whereClause);
 			System.out.println("WHERE: " + whereClause);
-
+			System.out.println(">>>>>>RESULTTTTT" + result);
 		}
+
 		return result;
 	}
 
@@ -264,6 +281,7 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 			Map<String, String> sqlData = parseGaianTableQuery(queryString);
 			String tableName = sqlData.get("tableName");
 			String whereClause = sqlData.get("whereClause");
+
 			System.out.println( String.format("select * from %s where %s",tableName,whereClause));
 		}
 	}

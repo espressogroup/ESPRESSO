@@ -47,4 +47,32 @@ public class SqlParser {
         }
         return result;
     }
+
+
+/**
+     * Extracts a SPARQL query from a SQL query comment.
+     *
+     * @param sql The SQL query containing the SPARQL query as a comment.
+     * @return The extracted SPARQL query or an empty string if not found.
+     */
+    public String extractSparqlQuery(String sql) {
+        StringBuilder sparqlQuery = new StringBuilder();
+        String[] lines = sql.split("\n");
+        boolean inSparqlComment = false;
+
+        for (String line : lines) {
+            if (line.trim().startsWith("--")) {
+                inSparqlComment = true;
+                // Remove the SQL comment syntax ('--') and add the line to the SPARQL query
+                sparqlQuery.append(line.trim().substring(2).trim()).append("\n");
+            } else if (inSparqlComment) {
+                // If a non-comment line is encountered after starting the SPARQL comment, stop adding lines
+                break;
+            }
+        }
+
+        return sparqlQuery.toString().trim();
+    }
+
+
 }

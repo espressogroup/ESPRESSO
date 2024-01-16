@@ -20,7 +20,7 @@ public class Barista {
             int limit = promptLimit();
 
 
-            String sqlQuery = QueryBuilder.buildSqlQuery(keyword, columns, operator, caseInsensitive, offset, limit);
+            String sqlQuery = QueryBuilder.buildSqlQuery_OLD(keyword, columns, operator, caseInsensitive, offset, limit);
             System.out.println("Executing SQL query: " + sqlQuery);
 
             ResultSet resultSet = statement.executeQuery(sqlQuery);

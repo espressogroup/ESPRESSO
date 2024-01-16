@@ -37,7 +37,7 @@ public class VTIFile extends VTIWrapper {
 	long timeOfLastPluralizedInstancesResolution = 0L;
 
 	/**
-	 * @param s
+	 * @param fileID
 	 * @throws Exception
 	 */
 	public VTIFile(String fileID, String nodeDefName, GaianResultSetMetaData logicalTableRSMD) throws Exception {
@@ -165,6 +165,8 @@ public class VTIFile extends VTIWrapper {
 								// call FileImport constructor and pass query and address
 								String originalSQL = (String) arguments.get(GaianTable.ORIGINAL_QUERY);
 								logger.logAlways("VTIFile original-sql: " + originalSQL);
+								System.out.println("VTIFile original-sql: " + originalSQL);
+
 								result = new FileImport(filePath, originalSQL);
 							} catch (ImportExportSQLException e) {
 //								System.out.println("Check File: " + filePath);

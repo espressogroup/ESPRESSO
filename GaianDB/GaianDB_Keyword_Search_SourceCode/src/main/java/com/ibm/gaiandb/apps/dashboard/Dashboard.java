@@ -213,7 +213,8 @@ public class Dashboard extends JFrame {
 				//	new LtAndDsTab(this),
 				//	new MonitorTab(this),
 				//	new StatsTab(this),
-					new QueryTab(this),
+					new KeyQueryTab(this),
+					new SPARQLQueryTab(this),
 					new AboutTab(this)
 
 				} :
@@ -223,7 +224,8 @@ public class Dashboard extends JFrame {
 				//	new LtAndDsTab(this),
 				//	new MonitorTab(this),
 				//	new StatsTab(this),
-					new QueryTab(this),
+					new KeyQueryTab(this),
+					new SPARQLQueryTab(this),
 					new AboutTab(this)
 				};
 
@@ -233,8 +235,8 @@ public class Dashboard extends JFrame {
 			//		"Network Topology",
 				//	"Logical Tables",
 				//	"Current Metrics",
-				//	"Historical Metrics",
 					"Barista KeyWord-Search",
+					"Barista Struct. Search (SPARQL)",
 					"About Barista"
 				} :
 				new String[] {
@@ -242,8 +244,9 @@ public class Dashboard extends JFrame {
 //					"Network Topology",
 				//	"Logical Tables",
 				//	"Current Metrics",
-				//	"Historical Metrics",
+					"Historical Metrics",
 					"Barista KeyWord-Search",
+					"Barista Struct. Search (SPARQL)",
 					"About Barista"
 				};
 
