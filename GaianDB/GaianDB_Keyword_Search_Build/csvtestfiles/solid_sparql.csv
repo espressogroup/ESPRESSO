@@ -1,1 +1,2 @@
 PATIENT,SURGERY,STATUS,SURGERYDATE,ACTIVITYDATE,STEPS
+https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me,Appendectomy,completed,20220115T120000,2023-12-22T13:09:26.377Z^^http://www.w3.org/2001/XMLSchema#dateTime,4000^^http://www.w3.org/2001/XMLSchema#int
