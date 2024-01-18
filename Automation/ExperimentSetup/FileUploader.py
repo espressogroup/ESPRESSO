@@ -73,8 +73,8 @@ def postdirtopod (directory,pod,api):
 def uploadllistwithbar (filetuplelist,podaddress,CSSA):
     pbar=tqdm.tqdm(len(filetuplelist),desc=podaddress)
     for f,targetUrl,filetype in filetuplelist:
-            file = open(f, "rb")
-            filetext=file.read().decode('latin1')
+            file = open(f, "r")
+            filetext=file.read()
             file.close()
             res=CSSA.put_url(targetUrl, filetext, filetype)
             if not res.ok:

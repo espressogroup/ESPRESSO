@@ -905,13 +905,13 @@ def zipexperiment(podname,firstserver,lastserver,sourcedir,expsavedir, numberofp
     print('metaindices opened')
     zipdistribute.zipdistribute(serverlist,experiment.localimage,experiment.SSHUser,experiment.SSHpassword)
 
+if __name__ == '__main__' :
+    podname=argv[1]
+    firstserver=argv[2]
+    lastserver=argv[3]
+    sourcedir=argv[4]
+    expsavedir=argv[5]
+    numberofpods=argv[6]
+    n=argv[7]
 
-podname=argv[1]
-firstserver=argv[2]
-lastserver=argv[3]
-sourcedir=argv[4]
-expsavedir=argv[5]
-numberofpods=argv[6]
-n=argv[7]
-
-zipexperiment(podname,int(firstserver),int(lastserver),sourcedir,expsavedir, int(numberofpods), int(n))
+    zipexperiment(podname,int(firstserver),int(lastserver),sourcedir,expsavedir, int(numberofpods), int(n))

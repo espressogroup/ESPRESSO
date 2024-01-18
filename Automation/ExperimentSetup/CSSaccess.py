@@ -129,6 +129,7 @@ acl:accessTo <'''+fileaddress+'''>;
 acl:mode acl:Read.
 '''
         #print(acldef)
+        
         headers={ 'content-type': 'text/turtle', 'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", self.dpopKey)}
         res= requests.put(targetUrl,
                headers=headers,
@@ -211,6 +212,19 @@ acl:mode acl:Control, acl:Read, acl:Write.'''
         
         return res.text
 
+    def makeurlaccessiblelist(self, url, webid, webidlist,openbool=False):
+        targetUrl=url+'.acl'
+        
+        acldef=returnacllist(url, webid, webidlist,openbool)
+            #print('no acl')
+        #print(acldef)
+        headers={ 'content-type': 'text/turtle', 'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", self.dpopKey)}
+        res= requests.put(targetUrl,
+               headers=headers,
+                data=acldef
+            )
+        print(res.text)
+
 def get_file(targetUrl):
         #targetUrl='http://localhost:3000/test1/file1.txt'
     #headers={  'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "GET", self.dpopKey)}
@@ -236,3 +250,26 @@ def podcreate(IDP,podname,email,password):
                         timeout=5000,
                     )
     print(res1)
+
+def returnacllist(url, webid, webidlist,openbool=False):
+    webidstring='<'+'>,<'.join(webidlist)+'>'
+    openstring='\n'
+    if openbool: 
+            openstring='\nacl:agentClass foaf:Agent;'
+    acldef='''@prefix : <#>.
+@prefix acl: <http://www.w3.org/ns/auth/acl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+
+:ControlReadWrite
+a acl:Authorization;
+acl:accessTo <'''+url+'''>;
+acl:agent <'''+webid+'''>;'''+openstring+'''
+acl:mode acl:Control, acl:Read, acl:Write.
+
+:Read
+a acl:Authorization;
+acl:accessTo <'''+url+'''>;
+acl:mode acl:Read;
+acl:agent '''+webidstring+'''.'''
+    
+    return acldef

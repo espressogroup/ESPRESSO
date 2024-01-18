@@ -1,9 +1,10 @@
-import Automation.ExperimentSetup.FileDistributor as FileDistributor, Automation.ExperimentSetup.FileUploader as FileUploader, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer
+import FileDistributor, FileUploader, dpop_utils, CSSaccess, PodIndexer
 import os,sys,csv,re, random, shutil, requests, json, base64, urllib.parse, cleantext, numpy
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 from math import floor
 import threading
 import time, tqdm, getpass
+from zipfile import ZipFile
 import concurrent.futures
 import paramiko
 from paramiko import SSHClient
@@ -63,18 +64,20 @@ serverlistglobal=['https://srv03812.soton.ac.uk:3000/',
                     'https://srv03955.soton.ac.uk:3000/'
                     ]
 
-def returndaclopen(fileaddress,webidlist):
+
+
+def returnaclopen(fileaddress,webidlist):
     webidstring='<'+'>,<'.join(webidlist)+'>'
     acltext='''@prefix : <'''+fileaddress+'''.acl#>.
 @prefix acl: <http://www.w3.org/ns/auth/acl#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix c: <http://localhost:3000/webidpod1/profile/card#>.
+@prefix c: <profile/card#>.
 
-<#ControlReadWrite> a acl:Authorization;
+:ControlReadWrite a acl:Authorization;
     acl:accessTo <'''+fileaddress+'''>;
     acl:agent c:me;
     acl:mode acl:Control, acl:Read, acl:Write.
-<#Read> a acl:Authorization;
+:Read a acl:Authorization;
     acl:accessTo <'''+fileaddress+'''>;
     acl:mode acl:Read;
     acl:agentClass foaf:Agent;
@@ -87,7 +90,7 @@ def returnacldefault(fileaddress,webidlist):
     acltext='''@prefix : <'''+fileaddress+'''.acl#>.
 @prefix acl: <http://www.w3.org/ns/auth/acl#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix c: <http://localhost:3000/webidpod1/profile/card#>.
+@prefix c: <profile/card#>.
 
 <#ControlReadWrite> a acl:Authorization;
     acl:accessTo <'''+fileaddress+'''>;
@@ -99,6 +102,23 @@ def returnacldefault(fileaddress,webidlist):
     acl:agent '''+webidstring+'''.
 '''
     return acltext
+
+acldefopen='''@prefix acl: <http://www.w3.org/ns/auth/acl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix c: <profile/card#>.
+
+<#owner> a acl:Authorization;
+acl:agent c:me;
+acl:mode acl:Control, acl:Read, acl:Write;
+acl:accessTo <./>;
+acl:default <./>.
+
+<#public> a acl:Authorization;
+acl:mode  acl:Control, acl:Read, acl:Write;
+acl:accessTo <./>;
+acl:default <./>;
+acl:agentClass foaf:Agent.'''
+
 
 class ESPRESSOexperiment:
     def __init__(self, 
@@ -131,7 +151,7 @@ class ESPRESSOexperiment:
     
     
 
-    def loaddir(self,datasource):
+    def loaddir(self,datasource,label='file',filetype='text/plain'):
         n=len(self.filelist)
         pbar=tqdm.tqdm(total=len(os.listdir(datasource)),desc='files loaded:')
         for filename in os.listdir(datasource):
@@ -143,16 +163,16 @@ class ESPRESSOexperiment:
                 fnode=BNode(fword)
                 self.image.add((fnode,self.namespace.Type,self.namespace.File))
                 self.image.add((fnode,self.namespace.LocalAddress,Literal(filepath)))
-                self.image.add((fnode,self.namespace.Filename,Literal(filename)))
-                filetype='text/plain'
+                self.image.add((fnode,self.namespace.Filename,Literal(filename)))  
                 self.image.add((fnode,self.namespace.Filetype,Literal(filetype)))
+                self.image.add((fnode,self.namespace.Label,Literal(label)))
                 self.image.add((fnode,self.namespace.Uploaded,Literal('N')))
                 self.filelist.append(fnode)
                 pbar.update(1)
         pbar.close()
                 
                 
-    def loadserverlist(self,serverlist):
+    def loadserverlist(self,serverlist,label='server'):
         n=len(self.serverlist)
         for s in serverlist:
             sword='S'+str(n)
@@ -163,6 +183,7 @@ class ESPRESSOexperiment:
             self.image.add((snode,self.namespace.Type,self.namespace.Server))
             IDP=s
             self.image.add((snode,self.namespace.Address,Literal(IDP)))
+            self.image.add((snode,self.namespace.Label,Literal(label)))
             register_endpoint=IDP+'idp/register/'
             self.image.add((snode,self.namespace.RegisterEndpoint,Literal(register_endpoint)))
             self.image.add((snode,self.namespace.ContainsEspressoPod,enode))
@@ -175,17 +196,26 @@ class ESPRESSOexperiment:
             self.serverlist.append(snode)
         
 
-    def logicaldist(self, numberofpods,poddisp,serverdisp):
+    def logicaldist(self, numberofpods,poddisp,serverdisp, filelabel='file',podlabel='pod',serverlabel='server'):
         self.podnum=numberofpods
         #print(expfilelist)
-        exppodlist=FileDistributor.normaldistribute(self.filelist,numberofpods, poddisp)
+        thisfilelist=[fnode for fnode in self.filelist if str(self.image.value(fnode,self.namespace.Label))==filelabel]
+        flist=[self.image.value(fnode,self.namespace.Filename) for fnode in thisfilelist]
+        print(flist)
+        exppodlist=FileDistributor.normaldistribute(thisfilelist,numberofpods, poddisp)
         #print(exppodlist)
         #random.shuffle(exppodlist)
-        filedist=FileDistributor.distribute(exppodlist, len(self.serverlist), serverdisp)
+        slist=[self.image.value(snode,self.namespace.Filename) for snode in self.serverlist]
+        print(slist)
+        thisserverlist=[snode for snode in self.serverlist if str(self.image.value(snode,self.namespace.Label))==serverlabel]
+        slist=[self.image.value(snode,self.namespace.Filename) for snode in thisserverlist]
+        print(slist)
+        filedist=FileDistributor.distribute(exppodlist, len(thisserverlist), serverdisp)
+        
         #print(self.filedist)
         pbar=tqdm.tqdm(total=len(self.filelist),desc='files distributed:')
-        for s in range(len(self.serverlist)):
-            snode=self.serverlist[s]
+        for s in range(len(thisserverlist)):
+            snode=thisserverlist[s]
             sword=str(snode)
             IDP=str(self.image.value(snode,self.namespace.Address))
             for p in range(len(filedist[s])):
@@ -199,6 +229,7 @@ class ESPRESSOexperiment:
                 self.image.add((pnode,self.namespace.Address,Literal(podaddress)))
                 podindexaddress=podaddress+self.podindexdir
                 self.image.add((pnode,self.namespace.IndexAddress,Literal(podindexaddress)))
+                self.image.add((pnode,self.namespace.Label,Literal(podlabel)))
                 podemail=podname+self.podemail
                 self.image.add((pnode,self.namespace.Email,Literal(podemail)))
                 webid=podaddress+'profile/card#me'
@@ -206,13 +237,13 @@ class ESPRESSOexperiment:
                 for fnode in filedist[s][p]:
                     self.image.add((pnode,self.namespace.Contains,fnode))
                     filename=str(self.image.value(fnode,self.namespace.Filename))
-                    fileaddress=podaddress+filename
+                    fileaddress=podaddress+filelabel+'/'+filename
                     self.image.add((fnode,self.namespace.Address,Literal(fileaddress)))
                     pbar.update(1)
         pbar.close()
                     
     
-    def imagineaclnormal(self,openperc,numofwebids,mean, disp):
+    def imagineaclnormal(self,openperc,numofwebids,mean, disp,filelabel='file'):
         anodelist=[]
 
         for i in range(numofwebids):
@@ -222,15 +253,16 @@ class ESPRESSOexperiment:
             self.image.add((anode,self.namespace.WebID,Literal(webid)))
             anodelist.append(anode)
 
-        
+        thisfilelist=[fnode for fnode in self.filelist if str(self.image.value(fnode,self.namespace.Label))==filelabel]
 
-        openn=floor(len(self.filelist)*(openperc/100))
-        self.openfilelist=random.sample(self.filelist, openn)
-        for fnode in self.openfilelist:
+        openn=floor(len(thisfilelist)*(openperc/100))
+        thisopenfilelist=random.sample(thisfilelist, openn)
+        for fnode in thisopenfilelist:
+            self.openfilelist.append(fnode)
             self.image.add((fnode,self.namespace.Type,self.namespace.OpenFile))
 
-        pbar=tqdm.tqdm(total=len(self.filelist),desc='acls:')
-        for fnode in self.filelist:
+        pbar=tqdm.tqdm(total=len(thisfilelist),desc='acls:')
+        for fnode in thisfilelist:
             if disp==0:
                 n=mean
             else:
@@ -246,7 +278,7 @@ class ESPRESSOexperiment:
             pbar.update(1)
         pbar.close()
     
-    def imagineaclspecial(self,percs):
+    def imagineaclspecial(self,percs,filelabel='file'):
         sanodelist=[]
         for i in range(len(percs)):
             saword='SA'+str(i)
@@ -256,11 +288,11 @@ class ESPRESSOexperiment:
             self.image.add((sanode,self.namespace.Power,Literal(str(percs[i]))))
             sanodelist.append(sanode)
 
-        
+        thisfilelist=[fnode for fnode in self.filelist if str(self.image.value(fnode,self.namespace.Label))==filelabel]
 
         for sanode in sanodelist:
-            n=floor(len(self.filelist)*(int(self.image.value(sanode,self.namespace.Power))/100))
-            chfilelist=random.sample(self.filelist, n)
+            n=floor(len(thisfilelist)*(int(self.image.value(sanode,self.namespace.Power))/100))
+            chfilelist=random.sample(thisfilelist, n)
             print('sanode',n)
             pbar=tqdm.tqdm(total=n,desc='special acl:')
             for fnode in chfilelist:
@@ -323,29 +355,36 @@ class ESPRESSOexperiment:
             for pnode in self.image.objects(snode,self.namespace.Contains):
                 podaddress=str(self.image.value(pnode,self.namespace.Address))
                 podname=str(self.image.value(pnode,self.namespace.Name))
-                
+                email=str(self.image.value(pnode,self.namespace.Email))
                 res=CSSaccess.get_file(podaddress)
-                if not res.ok:
-                    print('Creating '+podname+ 'at'+IDP)
-                    email=str(self.image.value(pnode,self.namespace.Email))
-                    res1 = requests.post(
-                        register_endpoint,
-                        json={
-                            "createWebId": "on",
-                            "webId": "",
-                            "register": "on",
-                            "createPod": "on",
-                            "podName": podname,
-                            "email": email,
-                            "password": self.password,
-                            "confirmPassword": self.password,
-                        },
-                        timeout=5000,
-                    )
-                    print(res1)
-                else:
-                    print('Pod '+podname+ ' at '+IDP +' exists.')
+                
+                if res.ok:
+                    print('Pod '+podname+ ' at '+IDP +' exists. Deleting.')
+                    #CSSA=CSSaccess.CSSaccess(IDP, email, self.password)
+                    #CSSA.create_authstring()
+                    #CSSA.create_authtoken()
+                    #res=CSSA.delete_file(podaddress)
+                    #print(res.text)
                     self.cleanuppod(snode, pnode)
+                else:
+                    print('Creating '+podname+ 'at'+IDP)
+
+                    CSSaccess.podcreate(IDP,podname,email,self.password)   
+                #res1 = requests.post(
+                #        register_endpoint,
+                #        json={
+                #            "createWebId": "on",
+                #            "webId": "",
+                #            "register": "on",
+                #            "createPod": "on",
+                #            "podName": podname,
+                #            "email": email,
+                #            "password": self.password,
+                #            "confirmPassword": self.password,
+                #        },
+                #        timeout=5000,
+                #    )
+                #print(res1)
 
     def cleanuppod(self,snode,pnode):
         IDP=str(self.image.value(snode,self.namespace.Address))
@@ -365,42 +404,12 @@ class ESPRESSOexperiment:
         pbar=tqdm.tqdm(len(files))
         for targetUrl in files:
             res=CSSA.delete_file(targetUrl)
+            print(res.text)
             if not res.ok:
                 CSSA.create_authtoken()
             pbar.update(1)
         pbar.close()
             
-#    def uploadpnode(self,pnode):
-#        podaddress=str(self.image.value(pnode,self.namespace.Address))
-#        podname=str(self.image.value(pnode,self.namespace.Name))
-#        USERNAME=str(self.image.value(pnode,self.namespace.Email))
-#        PASSWORD=self.password
-#        CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
-#        CSSA.create_authstring()
-#        CSSA.create_authtoken()
-#        pnodefilelist=[]
-#        print('populating',podaddress)
-#        for fnode in self.image.objects(pnode,self.namespace.Contains):
-#            targetUrl=str(self.image.value(fnode,self.namespace.Address))
-#            filetype=str(self.image.value(fnode,self.namespace.Filetype))
-#            filename=str(self.image.value(fnode,self.namespace.Filename))
-#            f=str(self.image.value(fnode,self.namespace.LocalAddress))
-#            file = open(f, "rb")
-#            filetext=file.read().decode('latin1')
-#            file.close()
-#            res=CSSA.put_url(targetUrl, filetext, filetype)
-#            if not res.ok:
-#                print(res)
-#                continue
-#            if fnode in self.openfilelist:
-#                CSSA.makefileaccessible(podname,filename)
-#            else:
-#               res=CSSA.adddefaultacl(targetUrl)
-#           webidlist=[]
-#            for anode in self.image.objects(fnode,self.namespace.AccessibleBy):
-#                webid=str(self.image.value(anode,self.namespace.WebID))
-#                webidlist.append(webid)
-#            CSSA.addreadrights(targetUrl,webidlist)
 
     def upload(self):
         for snode in self.serverlist:
@@ -420,27 +429,30 @@ class ESPRESSOexperiment:
                     filetype=str(self.image.value(fnode,self.namespace.Filetype))
                     filename=str(self.image.value(fnode,self.namespace.Filename))
                     f=str(self.image.value(fnode,self.namespace.LocalAddress))
-                    file = open(f, "rb")
-                    filetext=file.read().decode('latin1')
+                    file = open(f, "r")
+                    filetext=file.read()
                     file.close()
                     res=CSSA.put_url(targetUrl, filetext, filetype)
                     if not res.ok:
                         print(res)
                         continue
-                    if fnode in self.openfilelist:
-                        CSSA.makefileaccessible(podname,filename)
-                    else:
-                        res=CSSA.adddefaultacl(targetUrl)
                     webidlist=[]
                     for anode in self.image.objects(fnode,self.namespace.AccessibleBy):
                         webid=str(self.image.value(anode,self.namespace.WebID))
                         webidlist.append(webid)
-                    CSSA.addreadrights(targetUrl,webidlist)
+                    
+                    openbool= fnode in self.openfilelist
 
+                        #CSSA.makefileaccessible(podname,filename)
+                        #CSSA.addreadrights(targetUrl,webidlist)
+                    
+                    webid=str(self.image.value(pnode,self.namespace.WebID))
+                    res=CSSA.makeurlaccessiblelist(targetUrl,webid,webidlist,openbool)
+                    
 
     def uploadpnodewithbar(self,pnode,IDP):
         podaddress=str(self.image.value(pnode,self.namespace.Address))
-        podname=str(self.image.value(pnode,self.namespace.Name))
+        
         USERNAME=str(self.image.value(pnode,self.namespace.Email))
         PASSWORD=self.password
         CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
@@ -455,10 +467,10 @@ class ESPRESSOexperiment:
         for fnode in pnodefilelist:
             targetUrl=str(self.image.value(fnode,self.namespace.Address))
             filetype=str(self.image.value(fnode,self.namespace.Filetype))
-            filename=str(self.image.value(fnode,self.namespace.Filename))
+            
             f=str(self.image.value(fnode,self.namespace.LocalAddress))
-            file = open(f, "rb")
-            filetext=file.read().decode('latin1')
+            file = open(f, "r")
+            filetext=file.read()
             file.close()
             res=CSSA.put_url(targetUrl, filetext, filetype)
             if not res.ok:
@@ -487,7 +499,6 @@ class ESPRESSOexperiment:
                     executor.submit(FileUploader.uploadllistwithbar, filetuplelist,podaddress,CSSA)
     
     def uploadwithbars(self):
-        #with concurrent.futures.ThreadPoolExecutor(max_workers=60) as executor:
             for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):
                 IDP=str(self.image.value(snode,self.namespace.Address))
                 for pnode in self.image.objects(snode,self.namespace.Contains):
@@ -530,11 +541,6 @@ class ESPRESSOexperiment:
                 IDP=str(self.image.value(snode,self.namespace.Address))
                 for pnode in self.image.objects(snode,self.namespace.Contains):
                     podaddress=str(self.image.value(pnode,self.namespace.Address))
-                    USERNAME=str(self.image.value(pnode,self.namespace.Email))
-                    PASSWORD=self.password
-                    CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
-                    CSSA.create_authstring()
-                    CSSA.create_authtoken()
                     filetuplelist=[]
                     for fnode in self.image.objects(pnode,self.namespace.Contains):
                         fileaddress=str(self.image.value(fnode,self.namespace.Address))
@@ -544,13 +550,18 @@ class ESPRESSOexperiment:
                             webid=str(self.image.value(anode,self.namespace.WebID))
                             webidlist.append(webid)
                         filetuplelist.append((fileaddress,openfile,webidlist))
+                    USERNAME=str(self.image.value(pnode,self.namespace.Email))
+                    PASSWORD=self.password
+                    CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
+                    CSSA.create_authstring()
+                    CSSA.create_authtoken()
+                    
                     executor.submit(FileUploader.uploadllistaclwithbar,filetuplelist,podaddress,CSSA)
 
     def uploadacl(self):
         self.openfilelist=[]
         for fnode in self.image.subjects(self.namespace.Type,self.namespace.OpenFile):
             self.openfilelist.append(fnode)
-        #with concurrent.futures.ThreadPoolExecutor(max_workers=60) as executor:
         for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):
                 IDP=str(self.image.value(snode,self.namespace.Address))
                 for pnode in self.image.objects(snode,self.namespace.Contains):
@@ -578,8 +589,8 @@ class ESPRESSOexperiment:
                     filetype=str(self.image.value(fnode,self.namespace.Filetype))
                     filename=str(self.image.value(fnode,self.namespace.Filename))
                     f=str(self.image.value(fnode,self.namespace.LocalAddress))
-                    file = open(f, "rb")
-                    filetext=file.read().decode('latin1')
+                    file = open(f, "r")
+                    filetext=file.read()
                     file.close()
                     floc=poddir+'/'+filename
                     file = open (floc,'w')
@@ -591,7 +602,7 @@ class ESPRESSOexperiment:
                         webidlist.append(webid)
                     webidstring='<'+'>,<'.join(webidlist)+'>'
                     if fnode in self.openfilelist:
-                        acltext=returndaclopen(targetUrl,webidlist)
+                        acltext=returnaclopen(targetUrl,webidlist)
                     else:
                         acltext=returnacldefault(targetUrl,webidlist)
                     flocacl=poddir+'/'+filename+'.acl'
@@ -600,7 +611,7 @@ class ESPRESSOexperiment:
                     file.close
                     ftrunc=targetUrl[len(podaddress):]
                     filetuples.append((ftrunc,filetext,webidlist))
-                index=PodIndexer.aclindextupleswebidnew(filetuples)
+                index=PodIndexer.aclindextupleswebidnewdirs(filetuples)
                 indexdir=poddir+'/'+self.podindexdir
                 os.makedirs(indexdir,exist_ok=True)
                 n=len(index.keys())
@@ -630,7 +641,7 @@ class ESPRESSOexperiment:
                     CSSA.create_authtoken()
                     d=PodIndexer.aclcrawlwebidnew(podaddress,podaddress, CSSA)
                     indexaddress=str(self.image.value(pnode,self.namespace.IndexAddress))
-                    index=PodIndexer.aclindextupleswebidnew(d) 
+                    index=PodIndexer.aclindextupleswebidnewdirs(d) 
                     filename=dir+'/'+serword+podname+'.locind'
                     with open(filename, 'w') as f:
                         f.write(str(index))
@@ -678,7 +689,7 @@ class ESPRESSOexperiment:
                     CSSA.create_authtoken()
                     d=PodIndexer.aclcrawlwebidnew(podaddress,podaddress, CSSA)
                     indexaddress=str(self.image.value(pnode,self.namespace.IndexAddress))
-                    index=PodIndexer.aclindextupleswebidnew(d)
+                    index=PodIndexer.aclindextupleswebidnewdirs(d)
                     executor.submit(PodIndexer.uploadaclindexwithbar, index, indexaddress, CSSA)
                     #brewmaster.uploadaclindex(index, indexaddress, CSSA)
 
@@ -694,8 +705,8 @@ class ESPRESSOexperiment:
                 metaindexdata+=addstring    
                 
             CSSAe=CSSaccess.CSSaccess(IDP, self.espressoemail, self.password)
-            a=CSSAe.create_authstring()
-            t=CSSAe.create_authtoken()
+            CSSAe.create_authstring()
+            CSSAe.create_authtoken()
             print(CSSAe.put_file(self.espressopodname, self.espressoindexfile, metaindexdata, 'text/csv'))
            
     def indexfixerwebidnew(self):
@@ -761,39 +772,22 @@ class ESPRESSOexperiment:
         for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):
             IDP=str(self.image.value(snode,self.namespace.Address))
             print('opening indices for '+ IDP)
-        #CSSA=CSSaccess.CSSaccess(IDP, espressoemail, password)
-        #CSSA.put_file(espressopod, 'espressoindex.csv', ' ', 'text/csv')
-        #CSSA.makefileaccessible(espressopod, 'espressoindex.csv')
             for pnode in self.image.objects(snode,self.namespace.Contains):
-                podaddress=str(self.image.value(pnode,self.namespace.Address))
+                
                 podindexaddress=str(self.image.value(pnode,self.namespace.IndexAddress))
-                podname=str(self.image.value(pnode,self.namespace.Name))
+                
                 USERNAME=str(self.image.value(pnode,self.namespace.Email))
                 PASSWORD=self.password
                 CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
                 CSSA.create_authstring()
                 CSSA.create_authtoken()
                 
-                acldef='''@prefix acl: <http://www.w3.org/ns/auth/acl#>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix c: <profile/card#>.
-
-<#owner> a acl:Authorization;
-acl:agent c:me;
-acl:mode acl:Control, acl:Read, acl:Write;
-acl:accessTo <./>;
-acl:default <./>.
-
-<#public> a acl:Authorization;
-acl:mode  acl:Control, acl:Read, acl:Write;
-acl:accessTo <./>;
-acl:default <./>;
-acl:agentClass foaf:Agent.'''
+                
                 #print(acldef)
                 targetUrl=podindexaddress+'.acl'
                 #print(targetUrl)
                 headers={ 'content-type': 'text/turtle', 'authorization':'DPoP '+CSSA.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", CSSA.dpopKey)}
-                res= requests.put(targetUrl,headers=headers,data=acldef)
+                res= requests.put(targetUrl,headers=headers,data=acldefopen)
                 #res=CSSAccess.get_file(indexaddress+'.acl')
                 print(targetUrl,res)
     
@@ -807,8 +801,115 @@ acl:agentClass foaf:Agent.'''
             res=CSSA.makefileaccessible(self.espressopodname, self.espressoindexfile)
             print(res)
 
+    def storelocalfileszip(self):
+        os.makedirs(self.localimage,exist_ok=True)
+        pbar=tqdm.tqdm(len(self.filelist))
+        for snode in self.serverlist:
+            serdir=str(self.image.value(snode,self.namespace.LocalAddress))
+            os.makedirs(serdir,exist_ok=True)
+            for pnode in self.image.objects(snode,self.namespace.Contains):
+                podaddress=str(self.image.value(pnode,self.namespace.Address))
+                podzipfile=str(self.image.value(pnode,self.namespace.LocalAddress))
+                podwebid=str(self.image.value(pnode,self.namespace.WebID))
+                with ZipFile(podzipfile, 'w') as podzip:
+                    for fnode in self.image.objects(pnode,self.namespace.Contains):
+                        targetUrl=str(self.image.value(fnode,self.namespace.Address))
+                        filetype=str(self.image.value(fnode,self.namespace.Filetype))
+                        filename=str(self.image.value(fnode,self.namespace.Filename))
+                        f=str(self.image.value(fnode,self.namespace.LocalAddress))
+                        file = open(f, "rb")
+                        filetext=file.read().decode('latin1')
+                        file.close()
+                        podzip.writestr(filename,filetext)
+                        webidlist=[]
+                        for anode in self.image.objects(fnode,self.namespace.AccessibleBy):
+                            webid=str(self.image.value(anode,self.namespace.WebID))
+                            webidlist.append(webid)
+                        webidstring='<'+'>,<'.join(webidlist)+'>'
+                        openbool = fnode in self.openfilelist
+                        
+                        acltext=CSSaccess.returnacllist(targetUrl,podwebid,webidlist,openbool)
+                        flocacl=filename+'.acl'
+                        podzip.writestr(flocacl,acltext)
+                        pbar.update(1)
+                        #ftrunc=targetUrl[len(podaddress):]
+                        #filetuples.append((ftrunc,filetext,webidlist))
+        pbar.close()
 
-
+    def storelocalindexzip(self):
+        os.makedirs(self.localimage,exist_ok=True)
+        for snode in self.serverlist:
+            serdir=str(self.image.value(snode,self.namespace.LocalAddress))
+            os.makedirs(serdir,exist_ok=True)
+            for pnode in self.image.objects(snode,self.namespace.Contains):
+                podzipindexfile=str(self.image.value(pnode,self.namespace.LocalIndexAddress))
+                podaddress=str(self.image.value(pnode,self.namespace.Address))
+                podwebid=str(self.image.value(pnode,self.namespace.WebID))
+                filetuples=[]
+                for fnode in self.image.objects(pnode,self.namespace.Contains):
+                        targetUrl=str(self.image.value(fnode,self.namespace.Address))
+                        filetype=str(self.image.value(fnode,self.namespace.Filetype))
+                        filename=str(self.image.value(fnode,self.namespace.Filename))
+                        f=str(self.image.value(fnode,self.namespace.LocalAddress))
+                        file = open(f, "r")
+                        filetext=file.read()
+                        file.close()
+                        webidlist=[]
+                        for anode in self.image.objects(fnode,self.namespace.AccessibleBy):
+                            webid=str(self.image.value(anode,self.namespace.WebID))
+                            webidlist.append(webid)
+                        #webidstring='<'+'>,<'.join(webidlist)+'>'
+                        openbool = fnode in self.openfilelist
+                        ftrunc=targetUrl[len(podaddress):]
+                        filetuples.append((ftrunc,filetext,webidlist))
+                index=PodIndexer.aclindextupleswebidnew(filetuples)
+                n=len(index.keys())
+                pbar = tqdm.tqdm(total=n,desc=podzipindexfile)
+                with ZipFile(podzipindexfile, 'w') as podindexzip:
+                    for (name,body) in index.items():
+                        
+                        podindexzip.writestr(name,body)
+                        info = podindexzip.getinfo(name)
+                        info.external_attr = 0o777 << 16
+                        pbar.update(1)
+                pbar.close()
+    
+    def storelocalindexzipdirs(self):
+        os.makedirs(self.localimage,exist_ok=True)
+        for snode in self.serverlist:
+            serdir=str(self.image.value(snode,self.namespace.LocalAddress))
+            os.makedirs(serdir,exist_ok=True)
+            for pnode in self.image.objects(snode,self.namespace.Contains):
+                podzipindexfile=str(self.image.value(pnode,self.namespace.LocalIndexAddress))
+                podaddress=str(self.image.value(pnode,self.namespace.Address))
+                filetuples=[]
+                for fnode in self.image.objects(pnode,self.namespace.Contains):
+                        targetUrl=str(self.image.value(fnode,self.namespace.Address))
+                        filetype=str(self.image.value(fnode,self.namespace.Filetype))
+                        filename=str(self.image.value(fnode,self.namespace.Filename))
+                        f=str(self.image.value(fnode,self.namespace.LocalAddress))
+                        file = open(f, "r")
+                        filetext=file.read()
+                        file.close()
+                        webidlist=[]
+                        for anode in self.image.objects(fnode,self.namespace.AccessibleBy):
+                            webid=str(self.image.value(anode,self.namespace.WebID))
+                            webidlist.append(webid)
+                        
+                        ftrunc=targetUrl[len(podaddress):]
+                        filetuples.append((ftrunc,filetext,webidlist))
+                index=PodIndexer.aclindextupleswebidnewdirs(filetuples)
+                n=len(index.keys())
+                pbar = tqdm.tqdm(total=n,desc=podzipindexfile)
+                podindexzip=ZipFile(podzipindexfile, 'w')
+                for (name,body) in index.items():
+                        
+                        podindexzip.writestr(name,body)
+                        info = podindexzip.getinfo(name)
+                        info.external_attr = 0o777 << 16
+                        pbar.update(1)
+                pbar.close()
+                podindexzip.close()
 
 
 def zipdistribute(sourcedir='/Users/yurysavateev/new50s50p100f/'):
@@ -845,13 +946,9 @@ def zipdistribute(sourcedir='/Users/yurysavateev/new50s50p100f/'):
 
 def stresstest():
     serverlist=['http://localhost:3000/']
-    espressopodname='ESPRESSO'
-    espressoemail='espresso@example.com'
-    espressoindexfile='aclespressoindex.csv'
+    
     podname='webidpod'
-    podemail='@example.org'
-    podindexdir='espressoindex/'
-    password='12345'
+    
     sourcedir='/Users/yurysavateev/dataset2'
     expsavedir='/Users/yurysavateev'
     numberofpods=5
@@ -875,61 +972,21 @@ def stresstest():
     experiment.saveexp(expsavedir+'/'+podname+'/'+podname+'.ttl')
     print('experiment saved')
     #experiment.loadexp('webidtest.ttl')
-    #experiment.ESPRESSOcreate()
-    #experiment.podcreate()
-    #experiment.upload()
-    #experiment.aclindexwebidnewthreaded()
-    #experiment.indexpub()
-    #experiment.metaindexpub()
-    #experiment.indexfixerwebidnew()
+    experiment.ESPRESSOcreate()
+    experiment.podcreate()
+    experiment.upload()
+    experiment.aclindexwebidnewthreaded()
+    experiment.indexpub()
+    experiment.metaindexpub()
+    experiment.indexfixerwebidnew()
     #print('indices checked')
 
 
-def indexpubmanual(podname):
-        for IDP in serverlistglobal:
-            print('opening indices for '+ IDP)
-        #CSSA=CSSaccess.CSSaccess(IDP, espressoemail, password)
-        #CSSA.put_file(espressopod, 'espressoindex.csv', ' ', 'text/csv')
-        #CSSA.makefileaccessible(espressopod, 'espressoindex.csv')
-            for i in range(50):
-                thispodname=podname+str(i)
-                podaddress=IDP+thispodname+'/'
-                podindexaddress=podaddress+'espressoindex/'
-                USERNAME=thispodname+'@example.org'
-                PASSWORD='12345'
-                print(USERNAME)
-                CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
-                CSSA.create_authstring()
-                CSSA.create_authtoken()
-                #print(CSSA.authtoken)
-                
-                acldef='''@prefix acl: <http://www.w3.org/ns/auth/acl#>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix c: <profile/card#>.
-
-<#owner> a acl:Authorization;
-acl:agent c:me;
-acl:mode acl:Control, acl:Read, acl:Write;
-acl:accessTo <./>;
-acl:default <./>.
-
-<#public> a acl:Authorization;
-acl:mode  acl:Control, acl:Read, acl:Write;
-acl:accessTo <./>;
-acl:default <./>;
-acl:agentClass foaf:Agent.'''
-                #print(acldef)
-                targetUrl=podindexaddress+'.acl'
-                print(targetUrl)
-                #print(targetUrl)
-                headers={ 'content-type': 'text/turtle', 'authorization':'DPoP '+CSSA.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", CSSA.dpopKey)}
-                res= requests.put(targetUrl,headers=headers,data=acldef)
-                #res=CSSAccess.get_file(indexaddress+'.acl')
-                print(targetUrl,res)
 
 def experimenttemplate(podname,firstserver,lastserver,sourcedir,expsavedir,numberofpods,n):
     #list of servers in the experiment:
     serverlist=serverlistglobal[firstserver:lastserver]
+    print(serverlist)
     #name of the ESPRESSO pod. ESPRESSO is default.
     espressopodname='ESPRESSO'
     #email to register the ESPRESSO pod. espresso@example.com is default.
@@ -961,20 +1018,18 @@ def experimenttemplate(podname,firstserver,lastserver,sourcedir,expsavedir,numbe
     #relative deviation of the previous, can be left 0
     disp=0
     #how many files on average a webid can read
-    medsizeacl=500
-    #how many files a low access webid can read
-    lowsizeacl=100
+    percs=[100,50,10]
+    openpec=10
     #initializing the experiment
-    experiment=ESPRESSOexperiment(espressopodname=espressopodname, espressoemail=espressoemail, espressoindexfile=espressoindexfile, podname=podname,podemail=podemail, podindexdir=podindexdir, password=password)
+    experiment=ESPRESSOexperiment(espressopodname=espressopodname, espressoemail=espressoemail, podname=podname,podemail=podemail, podindexdir=podindexdir, password=password)
     experiment.loadserverlist(serverlist)
     print('serverlist loaded')
     experiment.loaddir(sourcedir)
     print('files loaded')
-    experiment.logicaldist(n,numberofpods,0,0)
+    experiment.logicaldist(numberofpods,0,0)
     print('files distributed')
-    experiment.imaginefiles()
-    print('files imagined')
-    experiment.imagineaclperc(percs,openperc,numofwebids,mean,disp)
+    experiment.imagineaclnormal(openperc,numofwebids,mean,disp)
+    experiment.imagineaclspecial(percs)
     print('files acl imagined')
     experiment.saveexp(podname+'exp.ttl')
     print('experiment saved')
@@ -996,13 +1051,13 @@ def experimenttemplate(podname,firstserver,lastserver,sourcedir,expsavedir,numbe
     experiment.indexfixerwebidnew()
     print('indices checked')
 
+if __name__ == '__main__' :
+    podname=argv[1]
+    firstserver=argv[2]
+    lastserver=argv[3]
+    sourcedir=argv[4]
+    expsavedir=argv[5]
+    numberofpods=argv[6]
+    n=argv[7]
 
-podname=argv[1]
-firstserver=argv[2]
-lastserver=argv[3]
-sourcedir=argv[4]
-expsavedir=argv[5]
-numberofpods=argv[6]
-n=argv[7]
-
-experimenttemplate(podname,int(firstserver),int(lastserver),sourcedir,expsavedir, int(numberofpods), int(n))
+    experimenttemplate(podname,int(firstserver),int(lastserver),sourcedir,expsavedir, int(numberofpods), int(n))
