@@ -131,6 +131,8 @@ public class Solid_SPARQL_ServiceCall {
     public void filterDataScenario5 (String data) throws Exception {
     String sparqlquery = data;
 
+    System.out.println(":::::::"+ sparqlquery);
+
     if (data != null)
         sparqlquery = data.replace("'", "");
     else {
@@ -146,7 +148,7 @@ public class Solid_SPARQL_ServiceCall {
             .getProperty("SOLID_SPARQL_CSV_FILE_PATH");
 
     try {
-        sparqlquery = sparqlquery.replace("#", "%23"); // Ensure '#' is encoded as '%23'
+        sparqlquery = sparqlquery.replace("#", "%23");
 
         System.out.println(">>>>SPARQL QUERY>>>>" + sparqlquery);
 
@@ -219,7 +221,7 @@ public class Solid_SPARQL_ServiceCall {
     } catch (Exception e) {
         try {
             CSVWriter csvWriter = new CSVWriter(new FileWriter(csvFilePath));
-            String[] header = {"PERSON", "NAME", "EMAIL"};
+            String[] header = {"API request failed with status code!"};
             csvWriter.writeNext(header);
             String[] fields = new String[3];
             fields[0] = sparqlquery;

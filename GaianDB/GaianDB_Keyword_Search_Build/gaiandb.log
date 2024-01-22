@@ -1,10 +1,10 @@
-2023-12-27 13:32:43.884~190737249 GaianNode -------------> isInitDataUpToDate = true = GAIANDB_JAR_MD5 Unknown = gdbJarMD5_previous Unknown && gdbDbTimestampAtStartup 1703683901731 > gdbJarFile.lastModified() 1702998829003
+2024-01-18 11:43:40.880~670969250 GaianNode -------------> isInitDataUpToDate = true = GAIANDB_JAR_MD5 10BB7534A8D273B917A92DD520199504 = gdbJarMD5_previous 10BB7534A8D273B917A92DD520199504 && gdbDbTimestampAtStartup 1705578196973 > gdbJarFile.lastModified() 1705578161168
 GaianDB Custom Version: Reza Moosaei 2023_03_29_34
-java version "1.8.0_312"
-OpenJDK Runtime Environment (build 1.8.0_312-b07)
-OpenJDK 64-Bit Server VM (build 25.312-b07, mixed mode)
+java version "11.0.9"
+OpenJDK Runtime Environment (build 11.0.9+2-202011221400)
+Dynamic Code Evolution 64-Bit Server VM (build 11.0.9+2-202011221400, mixed mode)
 
-GaianDB V2.1.8 - JAR sizes: [160, 160], timestamps: [2023/12/19-15:13:49, 2023/12/19-15:13:49]
+GaianDB V2.1.8 - JAR sizes: [20999948, 20999948], timestamps: [2024/01/18-11:42:41, 2024/01/18-11:42:41]
 
 Features Summary: Federated access to JDBC RDBMS tables and CSV Flat files using a logical table abstraction layer;
 A stored procedures management API, e.g. to set and view all logical tables and data sources in the network;
@@ -27,507 +27,467 @@ Detection and cancellation of hanging queries (not mistaken for long-running que
 Pass-through sub-queries using 'GaianQuery': define exposed data sources on each node which the query will be executed against;
 Performance metrics; Provenance columns: GAIAN_NODE, GAIAN_LEAF (queryable using option: 'with_provenance')
 
-PROCESS ID:		69550
+PROCESS ID:		38805
 
 NODE ID:		JFX4X76WVY
 
-WORKING DIRECTORY:	/Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig
-BYTECODE PATH:		/Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/target/classes
-WORKSPACE:		/Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig
+WORKING DIRECTORY:	/Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build
+BYTECODE PATH:		/Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build/lib/GaianDB_Maven-1.0-SNAPSHOT-jar-with-dependencies.jar
+WORKSPACE:		/Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build
 
-PHYSICAL DATABASE:	/Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/gaiandb
-LOG FILE:		/Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/gaiandb.log
-CONFIG FILE:		/Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/gaiandb_config.properties
+PHYSICAL DATABASE:	/Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build/gaiandb
+LOG FILE:		/Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build/gaiandb.log
+CONFIG FILE:		/Users/ragab/ESPRESSOProj/GithubRepo/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build/gaiandb_config.properties
 
 DERBY SERVER PORT:	6414
 PROVENANCE HOST(S):	0.0.0.0
 
 Network Interfaces: 
-utun6: utun6 /fe80:0:0:0:5438:798e:ce17:89af%utun6, Address: /fe80:0:0:0:5438:798e:ce17:89af%utun6 -> Broadcast: null
-utun5: utun5 /fe80:0:0:0:619f:c25:a595:15a9%utun5, Address: /fe80:0:0:0:619f:c25:a595:15a9%utun5 -> Broadcast: null
-utun3: utun3 /fe80:0:0:0:ce81:b1c:bd2c:69e%utun3, Address: /fe80:0:0:0:ce81:b1c:bd2c:69e%utun3 -> Broadcast: null
-utun2: utun2 /fe80:0:0:0:a68a:9b68:cf0f:6ea%utun2, Address: /fe80:0:0:0:a68a:9b68:cf0f:6ea%utun2 -> Broadcast: null
-utun1: utun1 /fe80:0:0:0:2569:856d:27ac:c356%utun1, Address: /fe80:0:0:0:2569:856d:27ac:c356%utun1 -> Broadcast: null
-utun0: utun0 /fe80:0:0:0:3871:e677:11d4:69a1%utun0, Address: /fe80:0:0:0:3871:e677:11d4:69a1%utun0 -> Broadcast: null
-llw0: llw0 /fe80:0:0:0:5021:d6ff:fee3:b03%llw0, Address: /fe80:0:0:0:5021:d6ff:fee3:b03%llw0 -> Broadcast: null
-awdl0: awdl0 /fe80:0:0:0:5021:d6ff:fee3:b03%awdl0, Address: /fe80:0:0:0:5021:d6ff:fee3:b03%awdl0 -> Broadcast: null
-ap1: ap1 /fe80:0:0:0:7ce9:1eff:fe7b:3305%ap1, Address: /fe80:0:0:0:7ce9:1eff:fe7b:3305%ap1 -> Broadcast: null
-utun4: utun4 /192.168.44.135, Address: /192.168.44.135 -> Broadcast: null
-en0: en0 /2001:630:d0:8e06:48f3:ddc5:113e:3a4a%en0, /2001:630:d0:8e06:146c:fe4:7ec8:a23a%en0, /fe80:0:0:0:87d:70ff:70a0:2c7f%en0, /10.9.153.224, Address: /2001:630:d0:8e06:48f3:ddc5:113e:3a4a%en0 -> Broadcast: null, Address: /2001:630:d0:8e06:146c:fe4:7ec8:a23a%en0 -> Broadcast: null, Address: /fe80:0:0:0:87d:70ff:70a0:2c7f%en0 -> Broadcast: null, Address: /10.9.153.224 -> Broadcast: /10.9.155.255
+utun6: utun6 /fe80:0:0:0:ef17:206c:99b6:5393%utun6, Address: /fe80:0:0:0:ef17:206c:99b6:5393%utun6 -> Broadcast: null
+utun5: utun5 /fe80:0:0:0:e2a2:153c:8364:599e%utun5, Address: /fe80:0:0:0:e2a2:153c:8364:599e%utun5 -> Broadcast: null
+utun3: utun3 /fe80:0:0:0:d3bb:bf8f:dab7:bf74%utun3, Address: /fe80:0:0:0:d3bb:bf8f:dab7:bf74%utun3 -> Broadcast: null
+utun2: utun2 /fe80:0:0:0:ce81:b1c:bd2c:69e%utun2, Address: /fe80:0:0:0:ce81:b1c:bd2c:69e%utun2 -> Broadcast: null
+utun1: utun1 /fe80:0:0:0:c8dd:d0c7:7ada:c43e%utun1, Address: /fe80:0:0:0:c8dd:d0c7:7ada:c43e%utun1 -> Broadcast: null
+utun0: utun0 /fe80:0:0:0:8b44:8390:19d3:933c%utun0, Address: /fe80:0:0:0:8b44:8390:19d3:933c%utun0 -> Broadcast: null
+llw0: llw0 /fe80:0:0:0:281f:98ff:fe0a:950d%llw0, Address: /fe80:0:0:0:281f:98ff:fe0a:950d%llw0 -> Broadcast: null
+awdl0: awdl0 /fe80:0:0:0:281f:98ff:fe0a:950d%awdl0, Address: /fe80:0:0:0:281f:98ff:fe0a:950d%awdl0 -> Broadcast: null
+utun4: utun4 /10.64.25.241, Address: /10.64.25.241 -> Broadcast: null
+en0: en0 /fe80:0:0:0:1c62:4608:e2d7:19ac%en0, /192.168.0.12, Address: /fe80:0:0:0:1c62:4608:e2d7:19ac%en0 -> Broadcast: null, Address: /192.168.0.12 -> Broadcast: /192.168.0.255
 lo0: lo0 /fe80:0:0:0:0:0:0:1%lo0, /0:0:0:0:0:0:0:1%lo0, /127.0.0.1, Address: /fe80:0:0:0:0:0:0:1%lo0 -> Broadcast: null, Address: /0:0:0:0:0:0:0:1%lo0 -> Broadcast: null, Address: /127.0.0.1 -> Broadcast: null
 
 Hostname: JFX4X76WVY
-Java localhost ip: 10.9.153.224
-Local address designating initial default interface for multicast: 192.168.44.135
+Java localhost ip: 192.168.0.12
+Local address designating initial default interface for multicast: 192.168.0.12
 
 
-2023-12-27 13:32:43.904~210082041 GaianNode -------------> Initialising GaianNode...
-2023-12-27 13:32:43.904~210242249 GaianNode -------------> GAIANDB.jar library has not been changed (and db folder is more recent), so initialisation data (e.g. stored procs/funcs) is expected to be already loaded
-2023-12-27 13:32:43.904~210286082 GaianNode -------------> Node details: JFX4X76WVY gaiandb <password>
-2023-12-27 13:32:43.904~210413041 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
-2023-12-27 13:32:43.904~210513749 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = <Default=230.255.255.255>
-2023-12-27 13:32:43.904~210556541 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
-2023-12-27 13:32:43.904~210606957 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
-2023-12-27 13:32:43.904~210639207 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
-2023-12-27 13:32:43.904~210673582 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
-2023-12-27 13:32:43.904~210705957 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
-2023-12-27 13:32:43.904~210752874 GaianNode -------------> Log level set to: MORE
-2023-12-27 13:32:43.909~215813666 GaianDBConfig ------------------------> Reloading config after auto-update...
-2023-12-27 13:32:43.929~235875832 DataSourcesManager ---------> Checking Logical Tables: [LTSOLID, GDB_LTNULL, LT0, GDB_LTLOG, DERBY_TABLES, LTSOLID_SPARQL]
-2023-12-27 13:32:43.933~239582541 DataSourcesManager ---------> Signatures differ for LT: LTSOLID, *** OLD: null; *** NEW: {LTSOLID_DS0_ARGS=<GAIAN_WORKSPACE>/csvtestfiles/solid.csv, LTSOLID_DS0_VTI=com.ibm.db2j.FileImport, NODE_CONSTANTS=null, LTSOLID_CONSTANTS=, LTSOLID_DEF=Search_Parameters VARCHAR(255), Document_URL VARCHAR(255), RELEVANCE VARCHAR(3), LTSOLID_DS0_OPTIONS=MAP_COLUMNS_BY_POSITION}
-2023-12-27 13:32:43.933~239817082 DataSourcesManager ---------> ******* Re-loading Logical Table: LTSOLID
-2023-12-27 13:32:43.934~240835332 DataSourcesManager ---------> Logical Table definition changed for: LTSOLID, ltNewDef = SEARCH_PARAMETERS VARCHAR(255), DOCUMENT_URL VARCHAR(255), RELEVANCE VARCHAR(3); Constant Cols: null
-2023-12-27 13:32:43.941~247226832 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [SEARCH_PARAMETERS VARCHAR(255), DOCUMENT_URL VARCHAR(255), RELEVANCE VARCHAR(3)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-12-27 13:32:43.943~249439707 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-12-27 13:32:43.943~249511124 GaianResultSetMetaData ----------> ltColCount = 10, specialColCount (constant + hidden cols) = 7
-2023-12-27 13:32:43.971~277184416 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, JFX4X76WVY, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-12-27 13:32:43.973~279084124 DataSourcesManager ---------> LTSOLID logical table ResultSetMetaData: [SEARCH_PARAMETERS, DOCUMENT_URL, RELEVANCE, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
-2023-12-27 13:32:43.973~279276332 DataSourcesManager ---------> LTSOLID loading global gaian connections: [], length 0
-2023-12-27 13:32:43.973~279345791 DataSourcesManager ---------> LTSOLID physical nodes to be loaded: [LTSOLID_DS0]
-2023-12-27 13:32:43.980~286440624 DataSourcesManager ---------> LTSOLID_DS0 is a VTIWrapper File Node, file name def = /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/csvtestfiles/solid.csv
-2023-12-27 13:32:43.981~287235791 VTIFile --------------------> LTSOLID_DS0 Building new VTIWrapper File based on: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/csvtestfiles/solid.csv
-2023-12-27 13:32:43.982~288460416 VTIWrapper ----------------------> LTSOLID_DS0 Set physical column names to: [SEARCH_PARAMETERS, DOCUMENT_URL, RELEVANCE]
-2023-12-27 13:32:43.994~300851582 FileImport -----------------> Searching under config folder /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/FileImportControls/, all sub-locations of relativeDir: Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/csvtestfiles/
-2023-12-27 13:32:43.995~301192207 FileImport -----------------> Resolved controlfilePath: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/FileImportControls/FileImportDefaults.properties
-2023-12-27 13:32:44.019~325291749 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 3, special cols: 0
-2023-12-27 13:32:44.021~327171207 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-12-27 13:32:44.021~327252832 GaianResultSetMetaData ----------> ltColCount = 3, specialColCount (constant + hidden cols) = 0
-2023-12-27 13:32:44.021~327294416 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL]
-2023-12-27 13:32:44.022~328091082 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3]
-2023-12-27 13:32:44.022~328210124 VTIFile --------------------> LTSOLID_DS0 Created initial File handle for Stack Pool
-2023-12-27 13:32:44.022~328310166 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 3, special cols: 0
-2023-12-27 13:32:44.022~328462207 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-12-27 13:32:44.022~328513207 GaianResultSetMetaData ----------> ltColCount = 3, specialColCount (constant + hidden cols) = 0
-2023-12-27 13:32:44.022~328554541 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL]
-2023-12-27 13:32:44.022~328755582 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3]
-2023-12-27 13:32:44.023~329030957 VTIWrapper ----------------------> INIT: LTSOLID_DS0 Mapping logical to physical col ids. Resolving 3 logical col names for 3 cols of the physical source. isMapByPosition ? true
-2023-12-27 13:32:44.024~330576957 DataSourcesManager ---------> Signatures differ for LT: GDB_LTNULL, *** OLD: null; *** NEW: {NODE_CONSTANTS=null, GDB_LTNULL_DEF=CNULL CHAR(1)}
-2023-12-27 13:32:44.024~330637749 DataSourcesManager ---------> ******* Re-loading Logical Table: GDB_LTNULL
-2023-12-27 13:32:44.024~330847082 DataSourcesManager ---------> Logical Table definition changed for: GDB_LTNULL, ltNewDef = CNULL CHAR(1); Constant Cols: 
-2023-12-27 13:32:44.025~331224957 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [CNULL CHAR(1)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-12-27 13:32:44.025~331502874 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-12-27 13:32:44.025~331554541 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 7
-2023-12-27 13:32:44.025~331888499 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, JFX4X76WVY, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-12-27 13:32:44.026~332100999 DataSourcesManager ---------> GDB_LTNULL logical table ResultSetMetaData: [CNULL, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
-2023-12-27 13:32:44.026~332191957 DataSourcesManager ---------> GDB_LTNULL loading global gaian connections: [], length 0
-2023-12-27 13:32:44.026~332220166 DataSourcesManager ---------> GDB_LTNULL physical nodes to be loaded: None
-2023-12-27 13:32:44.026~332333124 DataSourcesManager ---------> Signatures differ for LT: LT0, *** OLD: null; *** NEW: {LT0_DS0_OPTIONS=INMEMORY, NODE_CONSTANTS=null, LT0_DS0_C2=COLUMN3, LT0_DS0_C3=COLUMN1, LT0_DS0_VTI=com.ibm.db2j.FileImport, LT0_DS0_ARGS=<GAIAN_WORKSPACE>/csvtestfiles/datafile.dat, LT0_DS0_C1=COLUMN2, LT0_DEF=LOCATION VARCHAR(30), MISC VARCHAR(30), NUMBER INTEGER}
-2023-12-27 13:32:44.026~332367957 DataSourcesManager ---------> ******* Re-loading Logical Table: LT0
-2023-12-27 13:32:44.027~333582791 DataSourcesManager ---------> Logical Table definition changed for: LT0, ltNewDef = LOCATION VARCHAR(30), MISC VARCHAR(30), NUMBER INTEGER; Constant Cols: 
-2023-12-27 13:32:44.031~337769457 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [LOCATION VARCHAR(30), MISC VARCHAR(30), NUMBER INTEGER], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-12-27 13:32:44.033~339206332 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-12-27 13:32:44.033~339376832 GaianResultSetMetaData ----------> ltColCount = 10, specialColCount (constant + hidden cols) = 7
-2023-12-27 13:32:44.033~339508249 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, JFX4X76WVY, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-12-27 13:32:44.033~339789416 DataSourcesManager ---------> LT0 logical table ResultSetMetaData: [LOCATION, MISC, NUMBER, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
-2023-12-27 13:32:44.035~341124874 DataSourcesManager ---------> LT0 loading global gaian connections: [], length 0
-2023-12-27 13:32:44.035~341267791 DataSourcesManager ---------> LT0 physical nodes to be loaded: [LT0_DS0]
-2023-12-27 13:32:44.035~341372207 DataSourcesManager ---------> LT0_DS0 is a VTIWrapper File Node, file name def = /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/csvtestfiles/datafile.dat
-2023-12-27 13:32:44.035~341424332 VTIFile --------------------> LT0_DS0 Building new VTIWrapper File based on: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/csvtestfiles/datafile.dat
-2023-12-27 13:32:44.036~342263124 VTIWrapper ----------------------> LT0_DS0 Set physical column names to: [COLUMN2, COLUMN3, COLUMN1]
-2023-12-27 13:32:44.036~342407916 VTIWrapper ----------------------> LT0_DS0 Loading rows in memory asynchronously (using physical source for queries meanwhile)
-2023-12-27 13:32:44.036~342644041 VTIWrapper ----------------------> LT0_DS0 InMemLoader: Synchronizing on Re-init lock
-2023-12-27 13:32:44.036~342671374 FileImport -----------------> Resolved controlfilePath: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/csvtestfiles/datafile.dat.properties
-2023-12-27 13:32:44.045~351470916 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 8, special cols: 0
-2023-12-27 13:32:44.046~352313249 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-12-27 13:32:44.046~352663999 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 0
-2023-12-27 13:32:44.046~352716832 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-12-27 13:32:44.048~354698457 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6, COLUMN7, COLUMN8]
-2023-12-27 13:32:44.048~354789957 VTIFile --------------------> LT0_DS0 Created initial File handle for Stack Pool
-2023-12-27 13:32:44.049~355009082 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 8, special cols: 0
-2023-12-27 13:32:44.049~355150791 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-12-27 13:32:44.049~355216499 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 0
-2023-12-27 13:32:44.049~355266499 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-12-27 13:32:44.050~356924999 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6, COLUMN7, COLUMN8]
-2023-12-27 13:32:44.052~358249916 VTIWrapper ----------------------> INIT: LT0_DS0 Mapping logical to physical col ids. Resolving 3 logical col names for 8 cols of the physical source. isMapByPosition ? false
-2023-12-27 13:32:44.052~358363457 VTIWrapper ----------------------> INIT: LT0_DS0 Found that mapped column LOCATION->COLUMN2 is physical colindex 2
-2023-12-27 13:32:44.052~358434666 VTIWrapper ----------------------> INIT: LT0_DS0 Found that mapped column MISC->COLUMN3 is physical colindex 3
-2023-12-27 13:32:44.052~358459207 VTIWrapper ----------------------> INIT: LT0_DS0 Found that mapped column NUMBER->COLUMN1 is physical colindex 1
-2023-12-27 13:32:44.052~358488791 VTIWrapper ----------------------> LT0_DS0 InMemLoader: Starting to load in-memory rows
-2023-12-27 13:32:44.052~358537874 VTIFile --------------------> LT0_DS0 InMemLoader: LT0_DS0 Getting all rows from file: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/csvtestfiles/datafile.dat
-2023-12-27 13:32:44.053~358999082 DataSourcesManager ---------> Signatures differ for LT: GDB_LTLOG, *** OLD: null; *** NEW: {GDB_LTLOG_DS0_ARGS=/Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/gaiandb.log, NODE_CONSTANTS=null, GDB_LTLOG_DEF=COLUMN1 VARCHAR(255), GDB_LTLOG_DS0_VTI=com.ibm.db2j.FileImport}
-2023-12-27 13:32:44.054~360250666 DataSourcesManager ---------> ******* Re-loading Logical Table: GDB_LTLOG
-2023-12-27 13:32:44.055~361120832 DataSourcesManager ---------> Logical Table definition changed for: GDB_LTLOG, ltNewDef = COLUMN1 VARCHAR(255); Constant Cols: 
-2023-12-27 13:32:44.057~363421749 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 8, special cols: 0
-2023-12-27 13:32:44.057~363845457 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [COLUMN1 VARCHAR(255)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-12-27 13:32:44.057~363955874 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-12-27 13:32:44.058~364343207 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-12-27 13:32:44.058~364405082 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 7
-2023-12-27 13:32:44.058~364513541 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, JFX4X76WVY, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-12-27 13:32:44.058~364730249 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 0
-2023-12-27 13:32:44.058~364940374 DataSourcesManager ---------> GDB_LTLOG logical table ResultSetMetaData: [COLUMN1, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
-2023-12-27 13:32:44.059~364990874 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-12-27 13:32:44.059~365194999 DataSourcesManager ---------> GDB_LTLOG loading global gaian connections: [], length 0
-2023-12-27 13:32:44.059~365224374 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6, COLUMN7, COLUMN8]
-2023-12-27 13:32:44.059~365368374 DataSourcesManager ---------> GDB_LTLOG physical nodes to be loaded: [GDB_LTLOG_DS0]
-2023-12-27 13:32:44.059~365389082 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Got rows and meta-data from data source. Refreshing physical mappings against logical defs
-2023-12-27 13:32:44.059~365674374 DataSourcesManager ---------> GDB_LTLOG_DS0 is a VTIWrapper File Node, file name def = /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/gaiandb.log
-2023-12-27 13:32:44.059~365788707 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Mapping logical to physical col ids. Resolving 3 logical col names for 8 cols of the physical source. isMapByPosition ? false
-2023-12-27 13:32:44.060~366013999 VTIFile --------------------> GDB_LTLOG_DS0 Building new VTIWrapper File based on: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/gaiandb.log
-2023-12-27 13:32:44.060~366068416 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Found that mapped column LOCATION->COLUMN2 is physical colindex 2
-2023-12-27 13:32:44.060~366255124 VTIWrapper ----------------------> GDB_LTLOG_DS0 Set physical column names to: [COLUMN1]
-2023-12-27 13:32:44.060~366587332 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Found that mapped column MISC->COLUMN3 is physical colindex 3
-2023-12-27 13:32:44.060~366705582 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Found that mapped column NUMBER->COLUMN1 is physical colindex 1
-2023-12-27 13:32:44.060~366722082 FileImport -----------------> Searching under config folder /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/FileImportControls/, all sub-locations of relativeDir: Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/
-2023-12-27 13:32:44.060~366798457 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Clearing and re-loading in-memory rows
-2023-12-27 13:32:44.060~366871249 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Clearing indexes, count 0
-2023-12-27 13:32:44.060~366929416 FileImport -----------------> Resolved controlfilePath: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/FileImportControls/FileImportDefaults.properties
-2023-12-27 13:32:44.063~369926707 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 8, special cols: 0
-2023-12-27 13:32:44.064~370411582 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-12-27 13:32:44.064~370561624 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 0
-2023-12-27 13:32:44.064~370657207 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-12-27 13:32:44.066~372315707 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6, COLUMN7, COLUMN8]
-2023-12-27 13:32:44.070~376593249 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 recycleResult(): Stored FileImport object for /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/csvtestfiles/datafile.dat in Pool for re-use. Pool current size/max = 1/10
-2023-12-27 13:32:44.070~376750916 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Loaded all 8 rows in memory for Resource: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/csvtestfiles/datafile.dat
-2023-12-27 13:32:44.070~376784707 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 Rows loaded in memory. Reloading indexes, count 0
-2023-12-27 13:32:44.072~378775916 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 INMEMORY setting: ON
-2023-12-27 13:32:44.073~378999791 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 1, special cols: 0
-2023-12-27 13:32:44.073~379116082 VTIWrapper ----------------------> LT0_DS0 InMemLoader: LT0_DS0 wasRowsInMemory: true, isRowsInMemory: true, existing in-mem coltypes: false
-2023-12-27 13:32:44.073~379338999 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-12-27 13:32:44.073~379557041 GaianResultSetMetaData ----------> ltColCount = 1, specialColCount (constant + hidden cols) = 0
-2023-12-27 13:32:44.073~379669624 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL]
-2023-12-27 13:32:44.077~383609041 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1]
-2023-12-27 13:32:44.079~385301541 VTIFile --------------------> GDB_LTLOG_DS0 Created initial File handle for Stack Pool
-2023-12-27 13:32:44.079~385635957 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 1, special cols: 0
-2023-12-27 13:32:44.080~386147541 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-12-27 13:32:44.081~387164707 GaianResultSetMetaData ----------> ltColCount = 1, specialColCount (constant + hidden cols) = 0
-2023-12-27 13:32:44.081~387313166 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL]
-2023-12-27 13:32:44.083~389951374 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1]
-2023-12-27 13:32:44.084~390553749 VTIWrapper ----------------------> INIT: GDB_LTLOG_DS0 Mapping logical to physical col ids. Resolving 1 logical col names for 1 cols of the physical source. isMapByPosition ? false
-2023-12-27 13:32:44.084~390645082 VTIWrapper ----------------------> INIT: GDB_LTLOG_DS0 Found that mapped column COLUMN1->COLUMN1 is physical colindex 1
-2023-12-27 13:32:44.084~390820291 DataSourcesManager ---------> Signatures differ for LT: DERBY_TABLES, *** OLD: null; *** NEW: {DERBY_TABLES_DS0_C2=TABLETYPE, DERBY_TABLES_DEF=TABNAME VARCHAR(30), TABTYPE CHAR, COLNAME VARCHAR(30), COLTYPE VARCHAR(80), DERBY_TABLES_DS0_C3=COLUMNNAME, DERBY_TABLES_DS0_CONNECTION=localderby sys.systables,sys.syscolumns where tableid=referenceid, DERBY_TABLES_DS0_C4=COLUMNDATATYPE, localderby_USR=null, NODE_CONSTANTS=null, localderby_PWD=null, localderby_DRIVER=null, localderby_URL=null, DERBY_TABLES_DS0_C1=TABLENAME}
-2023-12-27 13:32:44.084~390853041 DataSourcesManager ---------> ******* Re-loading Logical Table: DERBY_TABLES
-2023-12-27 13:32:44.084~390896666 DataSourcesManager ---------> Logical Table definition changed for: DERBY_TABLES, ltNewDef = TABNAME VARCHAR(30), TABTYPE CHAR, COLNAME VARCHAR(30), COLTYPE VARCHAR(80); Constant Cols: 
-2023-12-27 13:32:44.085~391130124 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [TABNAME VARCHAR(30), TABTYPE CHAR, COLNAME VARCHAR(30), COLTYPE VARCHAR(80)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-12-27 13:32:44.085~391504749 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-12-27 13:32:44.085~391620332 GaianResultSetMetaData ----------> ltColCount = 11, specialColCount (constant + hidden cols) = 7
-2023-12-27 13:32:44.087~393044874 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, JFX4X76WVY, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-12-27 13:32:44.089~395759707 DataSourcesManager ---------> DERBY_TABLES logical table ResultSetMetaData: [TABNAME, TABTYPE, COLNAME, COLTYPE, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
-2023-12-27 13:32:44.090~396042999 DataSourcesManager ---------> DERBY_TABLES loading global gaian connections: [], length 0
-2023-12-27 13:32:44.090~396109457 DataSourcesManager ---------> DERBY_TABLES physical nodes to be loaded: [DERBY_TABLES_DS0]
-2023-12-27 13:32:44.092~398002666 DataSourcesManager ---------> DERBY_TABLES_DS0 is a VTIWrapper RDB Node, isGaian = false
-2023-12-27 13:32:44.097~403623207 VTIRDBResult ---------------> DERBY_TABLES_DS0 Building new VTIRDBResult based on: org.apache.derby.jdbc.EmbeddedDriver'jdbc:derby:gaiandb;create=true'gaiandb, RDBMS provider is Derby
-2023-12-27 13:32:44.099~405617957 VTIWrapper ----------------------> DERBY_TABLES_DS0 Set physical column names to: [TABLENAME, TABLETYPE, COLUMNNAME, COLUMNDATATYPE]
-2023-12-27 13:32:44.099~405769291 VTIRDBResult ---------------> DERBY_TABLES_DS0 table def = sys.systables,sys.syscolumns where (tableid=referenceid)
-2023-12-27 13:32:44.099~405818541 VTIRDBResult ---------------> INIT: DERBY_TABLES_DS0 inMemoryRows is null: true, isNodeInMemoryOptionSet: false
-2023-12-27 13:32:44.099~405924749 DataSourcesManager ---------> Signatures differ for LT: LTSOLID_SPARQL, *** OLD: null; *** NEW: {LTSOLID_SPARQL_DS0_ARGS=<GAIAN_WORKSPACE>/csvtestfiles/solid.csv, NODE_CONSTANTS=null, LTSOLID_SPARQL_DEF=PERSON_URL VARCHAR(255), NAME VARCHAR(255), EMAIL VARCHAR(3)}
-2023-12-27 13:32:44.099~405952541 DataSourcesManager ---------> ******* Re-loading Logical Table: LTSOLID_SPARQL
-2023-12-27 13:32:44.100~405994207 DataSourcesManager ---------> Logical Table definition changed for: LTSOLID_SPARQL, ltNewDef = PERSON_URL VARCHAR(255), NAME VARCHAR(255), EMAIL VARCHAR(3); Constant Cols: 
-2023-12-27 13:32:44.101~407257916 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [PERSON_URL VARCHAR(255), NAME VARCHAR(255), EMAIL VARCHAR(3)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-12-27 13:32:44.102~408763791 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-12-27 13:32:44.103~409042791 GaianResultSetMetaData ----------> ltColCount = 10, specialColCount (constant + hidden cols) = 7
-2023-12-27 13:32:44.103~409543166 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, JFX4X76WVY, NULL, NULL, NULL, NULL, NULL, NULL]
-2023-12-27 13:32:44.106~412240666 DataSourcesManager ---------> LTSOLID_SPARQL logical table ResultSetMetaData: [PERSON_URL, NAME, EMAIL, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
-2023-12-27 13:32:44.107~413604791 DataSourcesManager ---------> LTSOLID_SPARQL loading global gaian connections: [], length 0
-2023-12-27 13:32:44.107~413959457 DataSourcesManager ---------> LTSOLID_SPARQL physical nodes to be loaded: None
-2023-12-27 13:32:44.108~414019832 DataSourcesManager ---------> Number of updated/reloaded Logical Tables (incl dependencies): 6/6, skipped: 0
-2023-12-27 13:32:44.108~414593624 DataSourcesManager ---------> INIT: refreshLogicalTables.. cleanup requested for oldDataSources: []
-2023-12-27 13:32:44.111~417895832 DataSourcesManager ---------> INIT: Clearing data sources pool for ID that is no longer referenced: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/gaiandb.log
-2023-12-27 13:32:44.258~564643707 GaianDBConfig ------------------------> Loaded JDBC driver: org.apache.derby.jdbc.EmbeddedDriver
-2023-12-27 13:32:44.260~566941999 DatabaseConnector ---------------> INIT: Getting DB Connection for: jdbc:derby:gaiandb;create=true (1 concurrent, synchronous timeout 0ms)
-2023-12-27 13:32:44.261~567845541 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6414
+2024-01-18 11:43:40.899~690805416 GaianNode -------------> Initialising GaianNode...
+2024-01-18 11:43:40.900~690902750 GaianNode -------------> GAIANDB.jar library has not been changed (and db folder is more recent), so initialisation data (e.g. stored procs/funcs) is expected to be already loaded
+2024-01-18 11:43:40.900~690958583 GaianNode -------------> Node details: JFX4X76WVY gaiandb <password>
+2024-01-18 11:43:40.900~691024500 GaianNode -------------> Autonomic Discovery: Maintained connections sought through discovery: MIN_DISCOVERED_CONNECTIONS = 2
+2024-01-18 11:43:40.900~691065375 GaianNode -------------> Autonomic Discovery: DISCOVERY_IP = <Default=230.255.255.255>
+2024-01-18 11:43:40.900~691100833 GaianNode -------------> Autonomic Discovery: DISCOVERY_GATEWAYS = <Default=No gateways to other networks>
+2024-01-18 11:43:40.900~691133333 GaianNode -------------> Autonomic Discovery: MULTICAST_INTERFACES = ALL
+2024-01-18 11:43:40.900~691168458 GaianNode -------------> Connectivity: ACCESS_CLUSTERS = <Default=Connect to nodes which are not cluster members>
+2024-01-18 11:43:40.900~691203000 GaianNode -------------> Connectivity: ACCESS_HOSTS_PERMITTED = <Default=Accept further connections from any host outside the defined clusters>
+2024-01-18 11:43:40.900~691241083 GaianNode -------------> Connectivity: ACCESS_HOSTS_DENIED = <Default=Do not deny connections from any host in or outside the defined clusters>
+2024-01-18 11:43:40.900~691395250 GaianNode -------------> Log level set to: MORE
+2024-01-18 11:43:40.906~696853625 GaianDBConfig ------------------------> Reloading config after auto-update...
+2024-01-18 11:43:40.917~708748625 DataSourcesManager ---------> Checking Logical Tables: [LTSOLID, GDB_LTNULL, GDB_LTLOG, DERBY_TABLES, LTSOLID_SPARQL]
+2024-01-18 11:43:40.918~709445541 DataSourcesManager ---------> Signatures differ for LT: LTSOLID, *** OLD: null; *** NEW: {LTSOLID_DS0_ARGS=<GAIAN_WORKSPACE>/csvtestfiles/solid.csv, LTSOLID_DS0_VTI=com.ibm.db2j.FileImport, NODE_CONSTANTS=null, LTSOLID_DEF=Search_Parameters VARCHAR(255), Document_URL VARCHAR(255), RELEVANCE VARCHAR(3), LTSOLID_CONSTANTS=, LTSOLID_DS0_OPTIONS=MAP_COLUMNS_BY_POSITION}
+2024-01-18 11:43:40.918~709591708 DataSourcesManager ---------> ******* Re-loading Logical Table: LTSOLID
+2024-01-18 11:43:40.919~710644625 DataSourcesManager ---------> Logical Table definition changed for: LTSOLID, ltNewDef = SEARCH_PARAMETERS VARCHAR(255), DOCUMENT_URL VARCHAR(255), RELEVANCE VARCHAR(3); Constant Cols: null
+2024-01-18 11:43:40.927~717978000 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [SEARCH_PARAMETERS VARCHAR(255), DOCUMENT_URL VARCHAR(255), RELEVANCE VARCHAR(3)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2024-01-18 11:43:40.928~719369500 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2024-01-18 11:43:40.928~719572458 GaianResultSetMetaData ----------> ltColCount = 10, specialColCount (constant + hidden cols) = 7
+2024-01-18 11:43:40.979~770289208 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, JFX4X76WVY, NULL, NULL, NULL, NULL, NULL, NULL]
+2024-01-18 11:43:40.979~770766250 DataSourcesManager ---------> LTSOLID logical table ResultSetMetaData: [SEARCH_PARAMETERS, DOCUMENT_URL, RELEVANCE, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
+2024-01-18 11:43:40.980~770876500 DataSourcesManager ---------> LTSOLID loading global gaian connections: [], length 0
+2024-01-18 11:43:40.980~770924166 DataSourcesManager ---------> LTSOLID physical nodes to be loaded: [LTSOLID_DS0]
+2024-01-18 11:43:40.991~781863041 DataSourcesManager ---------> LTSOLID_DS0 is a VTIWrapper File Node, file name def = ./csvtestfiles/solid.csv
+2024-01-18 11:43:40.993~783901875 VTIFile --------------------> LTSOLID_DS0 Building new VTIWrapper File based on: ./csvtestfiles/solid.csv
+2024-01-18 11:43:40.993~784388333 VTIWrapper ----------------------> LTSOLID_DS0 Set physical column names to: [SEARCH_PARAMETERS, DOCUMENT_URL, RELEVANCE]
+2024-01-18 11:43:41.004~795123916 FileImport -----------------> Searching under config folder ./FileImportControls/, all sub-locations of relativeDir: ./csvtestfiles/
+2024-01-18 11:43:41.004~795315958 FileImport -----------------> Resolved controlfilePath: ./FileImportControls/FileImportDefaults.properties
+2024-01-18 11:43:41.072~863459458 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 3, special cols: 0
+2024-01-18 11:43:41.078~869706666 GaianResultSetMetaData ----------> Building row template from special columns: []
+2024-01-18 11:43:41.079~869987583 GaianResultSetMetaData ----------> ltColCount = 3, specialColCount (constant + hidden cols) = 0
+2024-01-18 11:43:41.079~870050625 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL]
+2024-01-18 11:43:41.079~870783833 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3]
+2024-01-18 11:43:41.080~871550875 VTIFile --------------------> LTSOLID_DS0 Created initial File handle for Stack Pool
+2024-01-18 11:43:41.081~872184000 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 3, special cols: 0
+2024-01-18 11:43:41.081~872300250 GaianResultSetMetaData ----------> Building row template from special columns: []
+2024-01-18 11:43:41.081~872328750 GaianResultSetMetaData ----------> ltColCount = 3, specialColCount (constant + hidden cols) = 0
+2024-01-18 11:43:41.081~872356916 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL]
+2024-01-18 11:43:41.081~872554458 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3]
+2024-01-18 11:43:41.082~872830541 VTIWrapper ----------------------> INIT: LTSOLID_DS0 Mapping logical to physical col ids. Resolving 3 logical col names for 3 cols of the physical source. isMapByPosition ? true
+2024-01-18 11:43:41.082~873642625 DataSourcesManager ---------> Signatures differ for LT: GDB_LTNULL, *** OLD: null; *** NEW: {NODE_CONSTANTS=null, GDB_LTNULL_DEF=CNULL CHAR(1)}
+2024-01-18 11:43:41.082~873699458 DataSourcesManager ---------> ******* Re-loading Logical Table: GDB_LTNULL
+2024-01-18 11:43:41.083~874164875 DataSourcesManager ---------> Logical Table definition changed for: GDB_LTNULL, ltNewDef = CNULL CHAR(1); Constant Cols: 
+2024-01-18 11:43:41.084~875416250 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [CNULL CHAR(1)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2024-01-18 11:43:41.085~875825916 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2024-01-18 11:43:41.085~875895291 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 7
+2024-01-18 11:43:41.085~876021208 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, JFX4X76WVY, NULL, NULL, NULL, NULL, NULL, NULL]
+2024-01-18 11:43:41.085~876202291 DataSourcesManager ---------> GDB_LTNULL logical table ResultSetMetaData: [CNULL, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
+2024-01-18 11:43:41.085~876511666 DataSourcesManager ---------> GDB_LTNULL loading global gaian connections: [], length 0
+2024-01-18 11:43:41.085~876569583 DataSourcesManager ---------> GDB_LTNULL physical nodes to be loaded: None
+2024-01-18 11:43:41.085~876678083 DataSourcesManager ---------> Signatures differ for LT: GDB_LTLOG, *** OLD: null; *** NEW: {GDB_LTLOG_DS0_ARGS=./gaiandb.log, NODE_CONSTANTS=null, GDB_LTLOG_DEF=COLUMN1 VARCHAR(255), GDB_LTLOG_DS0_VTI=com.ibm.db2j.FileImport}
+2024-01-18 11:43:41.085~876781625 DataSourcesManager ---------> ******* Re-loading Logical Table: GDB_LTLOG
+2024-01-18 11:43:41.086~876817250 DataSourcesManager ---------> Logical Table definition changed for: GDB_LTLOG, ltNewDef = COLUMN1 VARCHAR(255); Constant Cols: 
+2024-01-18 11:43:41.089~880494208 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [COLUMN1 VARCHAR(255)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2024-01-18 11:43:41.094~885422916 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2024-01-18 11:43:41.097~887988458 GaianResultSetMetaData ----------> ltColCount = 8, specialColCount (constant + hidden cols) = 7
+2024-01-18 11:43:41.098~888940791 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, JFX4X76WVY, NULL, NULL, NULL, NULL, NULL, NULL]
+2024-01-18 11:43:41.098~889552333 DataSourcesManager ---------> GDB_LTLOG logical table ResultSetMetaData: [COLUMN1, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
+2024-01-18 11:43:41.098~889739458 DataSourcesManager ---------> GDB_LTLOG loading global gaian connections: [], length 0
+2024-01-18 11:43:41.098~889778041 DataSourcesManager ---------> GDB_LTLOG physical nodes to be loaded: [GDB_LTLOG_DS0]
+2024-01-18 11:43:41.099~889822583 DataSourcesManager ---------> GDB_LTLOG_DS0 is a VTIWrapper File Node, file name def = ./gaiandb.log
+2024-01-18 11:43:41.099~889876916 VTIFile --------------------> GDB_LTLOG_DS0 Building new VTIWrapper File based on: ./gaiandb.log
+2024-01-18 11:43:41.099~889957541 VTIWrapper ----------------------> GDB_LTLOG_DS0 Set physical column names to: [COLUMN1]
+2024-01-18 11:43:41.099~890025208 FileImport -----------------> Searching under config folder ./FileImportControls/, all sub-locations of relativeDir: ./
+2024-01-18 11:43:41.099~890260041 FileImport -----------------> Resolved controlfilePath: ./FileImportControls/./FileImportDefaults.properties
+2024-01-18 11:43:41.115~906728666 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 1, special cols: 0
+2024-01-18 11:43:41.116~907119166 GaianResultSetMetaData ----------> Building row template from special columns: []
+2024-01-18 11:43:41.116~907164958 GaianResultSetMetaData ----------> ltColCount = 1, specialColCount (constant + hidden cols) = 0
+2024-01-18 11:43:41.116~907196500 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL]
+2024-01-18 11:43:41.117~907840541 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1]
+2024-01-18 11:43:41.117~908749166 VTIFile --------------------> GDB_LTLOG_DS0 Created initial File handle for Stack Pool
+2024-01-18 11:43:41.118~908996625 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 1, special cols: 0
+2024-01-18 11:43:41.118~909085250 GaianResultSetMetaData ----------> Building row template from special columns: []
+2024-01-18 11:43:41.118~909115541 GaianResultSetMetaData ----------> ltColCount = 1, specialColCount (constant + hidden cols) = 0
+2024-01-18 11:43:41.118~909141208 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL]
+2024-01-18 11:43:41.118~909321666 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1]
+2024-01-18 11:43:41.118~909369250 VTIWrapper ----------------------> INIT: GDB_LTLOG_DS0 Mapping logical to physical col ids. Resolving 1 logical col names for 1 cols of the physical source. isMapByPosition ? false
+2024-01-18 11:43:41.118~909411041 VTIWrapper ----------------------> INIT: GDB_LTLOG_DS0 Found that mapped column COLUMN1->COLUMN1 is physical colindex 1
+2024-01-18 11:43:41.118~909640125 DataSourcesManager ---------> Signatures differ for LT: DERBY_TABLES, *** OLD: null; *** NEW: {DERBY_TABLES_DS0_C2=TABLETYPE, DERBY_TABLES_DEF=TABNAME VARCHAR(30), TABTYPE CHAR, COLNAME VARCHAR(30), COLTYPE VARCHAR(80), DERBY_TABLES_DS0_C3=COLUMNNAME, DERBY_TABLES_DS0_CONNECTION=localderby sys.systables,sys.syscolumns where tableid=referenceid, DERBY_TABLES_DS0_C4=COLUMNDATATYPE, localderby_USR=null, NODE_CONSTANTS=null, localderby_PWD=null, localderby_DRIVER=null, localderby_URL=null, DERBY_TABLES_DS0_C1=TABLENAME}
+2024-01-18 11:43:41.120~910871625 DataSourcesManager ---------> ******* Re-loading Logical Table: DERBY_TABLES
+2024-01-18 11:43:41.120~911399333 DataSourcesManager ---------> Logical Table definition changed for: DERBY_TABLES, ltNewDef = TABNAME VARCHAR(30), TABTYPE CHAR, COLNAME VARCHAR(30), COLTYPE VARCHAR(80); Constant Cols: 
+2024-01-18 11:43:41.121~912488083 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [TABNAME VARCHAR(30), TABTYPE CHAR, COLNAME VARCHAR(30), COLTYPE VARCHAR(80)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2024-01-18 11:43:41.122~913796750 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2024-01-18 11:43:41.123~913877708 GaianResultSetMetaData ----------> ltColCount = 11, specialColCount (constant + hidden cols) = 7
+2024-01-18 11:43:41.123~914470291 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, JFX4X76WVY, NULL, NULL, NULL, NULL, NULL, NULL]
+2024-01-18 11:43:41.125~916092250 DataSourcesManager ---------> DERBY_TABLES logical table ResultSetMetaData: [TABNAME, TABTYPE, COLNAME, COLTYPE, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
+2024-01-18 11:43:41.125~916204291 DataSourcesManager ---------> DERBY_TABLES loading global gaian connections: [], length 0
+2024-01-18 11:43:41.125~916235375 DataSourcesManager ---------> DERBY_TABLES physical nodes to be loaded: [DERBY_TABLES_DS0]
+2024-01-18 11:43:41.125~916273916 DataSourcesManager ---------> DERBY_TABLES_DS0 is a VTIWrapper RDB Node, isGaian = false
+2024-01-18 11:43:41.128~918851708 VTIRDBResult ---------------> DERBY_TABLES_DS0 Building new VTIRDBResult based on: org.apache.derby.jdbc.EmbeddedDriver'jdbc:derby:gaiandb;create=true'gaiandb, RDBMS provider is Derby
+2024-01-18 11:43:41.128~919180000 VTIWrapper ----------------------> DERBY_TABLES_DS0 Set physical column names to: [TABLENAME, TABLETYPE, COLUMNNAME, COLUMNDATATYPE]
+2024-01-18 11:43:41.128~919246750 VTIRDBResult ---------------> DERBY_TABLES_DS0 table def = sys.systables,sys.syscolumns where (tableid=referenceid)
+2024-01-18 11:43:41.128~919297375 VTIRDBResult ---------------> INIT: DERBY_TABLES_DS0 inMemoryRows is null: true, isNodeInMemoryOptionSet: false
+2024-01-18 11:43:41.128~919383916 DataSourcesManager ---------> Signatures differ for LT: LTSOLID_SPARQL, *** OLD: null; *** NEW: {LTSOLID_SPARQL_DS0_ARGS=<GAIAN_WORKSPACE>/csvtestfiles/solid_sparql.csv, NODE_CONSTANTS=null, LTSOLID_SPARQL_DS0_OPTIONS=MAP_COLUMNS_BY_POSITION, LTSOLID_SPARQL_DS0_VTI=com.ibm.db2j.FileImport, LTSOLID_SPARQL_DEF=PATIENT VARCHAR(255), SURGERY VARCHAR(255), STATUS VARCHAR(255), SURGERYDATE VARCHAR(255), ACTIVITYDATE VARCHAR(255), STEPS VARCHAR(255)}
+2024-01-18 11:43:41.128~919410583 DataSourcesManager ---------> ******* Re-loading Logical Table: LTSOLID_SPARQL
+2024-01-18 11:43:41.128~919442458 DataSourcesManager ---------> Logical Table definition changed for: LTSOLID_SPARQL, ltNewDef = PATIENT VARCHAR(255), SURGERY VARCHAR(255), STATUS VARCHAR(255), SURGERYDATE VARCHAR(255), ACTIVITYDATE VARCHAR(255), STEPS VARCHAR(255); Constant Cols: 
+2024-01-18 11:43:41.129~919913500 GaianResultSetMetaData ----------> Creating columns meta data using physical cols: [PATIENT VARCHAR(255), SURGERY VARCHAR(255), STATUS VARCHAR(255), SURGERYDATE VARCHAR(255), ACTIVITYDATE VARCHAR(255), STEPS VARCHAR(255)], special cols: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2024-01-18 11:43:41.129~920632291 GaianResultSetMetaData ----------> Building row template from special columns: [GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2024-01-18 11:43:41.129~920680458 GaianResultSetMetaData ----------> ltColCount = 13, specialColCount (constant + hidden cols) = 7
+2024-01-18 11:43:41.130~920814416 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL, JFX4X76WVY, NULL, NULL, NULL, NULL, NULL, NULL]
+2024-01-18 11:43:41.130~921382625 DataSourcesManager ---------> LTSOLID_SPARQL logical table ResultSetMetaData: [PATIENT, SURGERY, STATUS, SURGERYDATE, ACTIVITYDATE, STEPS, GDB_NODE, GDB_LEAF, GDBX_FROM_NODE, GDBX_TO_NODE, GDBX_DEPTH, GDBX_PRECEDENCE, GDBX_COUNT, GDB_QRYID, GDB_QRYSTEPS, GDB_CREDENTIALS]
+2024-01-18 11:43:41.130~921460375 DataSourcesManager ---------> LTSOLID_SPARQL loading global gaian connections: [], length 0
+2024-01-18 11:43:41.130~921506416 DataSourcesManager ---------> LTSOLID_SPARQL physical nodes to be loaded: [LTSOLID_SPARQL_DS0]
+2024-01-18 11:43:41.130~921543375 DataSourcesManager ---------> LTSOLID_SPARQL_DS0 is a VTIWrapper File Node, file name def = ./csvtestfiles/solid_sparql.csv
+2024-01-18 11:43:41.130~921567291 VTIFile --------------------> LTSOLID_SPARQL_DS0 Building new VTIWrapper File based on: ./csvtestfiles/solid_sparql.csv
+2024-01-18 11:43:41.131~922025375 VTIWrapper ----------------------> LTSOLID_SPARQL_DS0 Set physical column names to: [PATIENT, SURGERY, STATUS, SURGERYDATE, ACTIVITYDATE, STEPS]
+2024-01-18 11:43:41.131~922142583 FileImport -----------------> Searching under config folder ./FileImportControls/, all sub-locations of relativeDir: ./csvtestfiles/
+2024-01-18 11:43:41.131~922204458 FileImport -----------------> Resolved controlfilePath: ./FileImportControls/FileImportDefaults.properties
+2024-01-18 11:43:41.134~925558250 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 6, special cols: 0
+2024-01-18 11:43:41.134~925768500 GaianResultSetMetaData ----------> Building row template from special columns: []
+2024-01-18 11:43:41.134~925796625 GaianResultSetMetaData ----------> ltColCount = 6, specialColCount (constant + hidden cols) = 0
+2024-01-18 11:43:41.135~925828041 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL]
+2024-01-18 11:43:41.139~929832250 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6]
+2024-01-18 11:43:41.139~930268416 VTIFile --------------------> LTSOLID_SPARQL_DS0 Created initial File handle for Stack Pool
+2024-01-18 11:43:41.139~930521208 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 6, special cols: 0
+2024-01-18 11:43:41.139~930623500 GaianResultSetMetaData ----------> Building row template from special columns: []
+2024-01-18 11:43:41.139~930651833 GaianResultSetMetaData ----------> ltColCount = 6, specialColCount (constant + hidden cols) = 0
+2024-01-18 11:43:41.139~930688375 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL]
+2024-01-18 11:43:41.140~930840791 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6]
+2024-01-18 11:43:41.140~930911583 VTIWrapper ----------------------> INIT: LTSOLID_SPARQL_DS0 Mapping logical to physical col ids. Resolving 6 logical col names for 6 cols of the physical source. isMapByPosition ? true
+2024-01-18 11:43:41.140~930949083 DataSourcesManager ---------> Number of updated/reloaded Logical Tables (incl dependencies): 5/5, skipped: 0
+2024-01-18 11:43:41.140~931093708 DataSourcesManager ---------> INIT: refreshLogicalTables.. cleanup requested for oldDataSources: []
+2024-01-18 11:43:41.140~931202666 DataSourcesManager ---------> INIT: Clearing data sources pool for ID that is no longer referenced: ./gaiandb.log
+2024-01-18 11:43:41.352~143681791 GaianDBConfig ------------------------> Loaded JDBC driver: org.apache.derby.jdbc.EmbeddedDriver
+2024-01-18 11:43:41.355~146774041 DatabaseConnector ---------------> INIT: Getting DB Connection for: jdbc:derby:gaiandb;create=true (1 concurrent, synchronous timeout 0ms)
+2024-01-18 11:43:41.357~147937666 GaianNode -------------> Starting Derby Network Server, host mask 0.0.0.0, port 6414
 
-2023-12-27 13:32:44.888~194408082 DatabaseConnector ---------------> ******* Connector 1 from INIT: Obtained JDBC Connection org.apache.derby.impl.jdbc.EmbedConnection40@912412535 (XID = 45778), (SESSIONID = 2), (DATABASE = gaiandb), (DRDAID = null)  in 627 ms for: jdbc:derby:gaiandb;create=true, Pool size: 1
-Wed Dec 27 13:32:44 GMT 2023 : Apache Derby Network Server - 10.10.1.1 - (1458268) started and ready to accept connections on port 6414
-2023-12-27 13:32:45.085~391538999 GaianNode -------------> 
-Derby Version: CSS10100/10.10.1.1 - (1458268)  - Java Version: 1.8.0_312 (OpenJDK 64-Bit Server VM)
+2024-01-18 11:43:42.169~960692500 DatabaseConnector ---------------> ******* Connector 1 from INIT: Obtained JDBC Connection org.apache.derby.impl.jdbc.EmbedConnection40@1333142640 (XID = 73036), (SESSIONID = 2), (DATABASE = gaiandb), (DRDAID = null)  in 813 ms for: jdbc:derby:gaiandb;create=true, Pool size: 1
+Thu Jan 18 11:43:42 GMT 2024 : Apache Derby Network Server - 10.10.1.1 - (1458268) started and ready to accept connections on port 6414
+2024-01-18 11:43:42.408~199811250 GaianNode -------------> 
+Derby Version: CSS10100/10.10.1.1 - (1458268)  - Java Version: 11.0.9 (Dynamic Code Evolution 64-Bit Server VM)
 
-GaianNode started for Derby network server with sslMode=off on port: 6414 at Wed Dec 27 13:32:45 GMT 2023, startup time: 1418ms.
+GaianNode started for Derby network server with sslMode=off on port: 6414 at Thu Jan 18 11:43:42 GMT 2024, startup time: 1784ms.
 
-2023-12-27 13:32:45.087~393869624 GaianNode -------------> Derby Network Server maxThreads: 0, timeSliceBeforeYieldPerThread: 0
-2023-12-27 13:32:45.171~477175624 DataSourcesManager ---------> Checking views status with: select tablename,columnname,columndatatype from sys.syscolumns, sys.systables st, sys.sysschemas ss where referenceid = tableid and tabletype='V' and schemaname='GAIANDB' and st.schemaid=ss.schemaid and tablename in ('LTSOLID','GDB_LTNULL','LT0','GDB_LTLOG','DERBY_TABLES','LTSOLID_SPARQL') order by tablename, columnnumber
-2023-12-27 13:32:45.278~583999082 DataSourcesManager ---------> UP-TO-DATE VIEWS (6/6): [LTSOLID, GDB_LTNULL, LT0, GDB_LTLOG, DERBY_TABLES, LTSOLID_SPARQL]
-2023-12-27 13:32:45.343~649154166 GaianNodeSeeker -------> Entering discovery loop, my details are: JFX4X76WVY gaiandb <pwd>
-2023-12-27 13:32:45.359~665703249 GaianNodeSeeker -------> Resolving MULTICAST_INTERFACES: ALL
-2023-12-27 13:32:45.363~669646916 GaianNode -------------> Used Heap Memory changed by >10MB. jMemory (MB): 20.57728 (= 0%, jMemoryMax (MB): 7635.730432). jMemoryNonHeap (MB): 30.869824 - (suspected hanging queries being checked: 0)
-2023-12-27 13:32:45.365~671752666 GaianNodeSeeker -------> Joining multicast group: /230.255.255.255 on interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:32:45.368~674806999 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:32:45.370~676884624 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:32:45.371~676975832 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:32:45.376~682385832 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:32:45.380~686920499 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:32:45.385~691001374 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:32:50.314~620373957 DatabaseConnectionsChecker ------> New number of potentially hanging queries being checked (involving a GaianNode data source): 0
-2023-12-27 13:32:50.370~676746374 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:32:50.371~677303124 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:32:50.375~681412541 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:32:50.379~685595791 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:32:50.384~689971457 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:32:50.405~711418791 GaianNode -------------> New node thread count: 10
-Wed Dec 27 13:32:50 GMT 2023 : Log Connections turned on.
-Wed Dec 27 13:32:50 GMT 2023 : Connection number: 7.
-Wed Dec 27 13:32:50 GMT 2023 : Max threads changed to 1000.
-Wed Dec 27 13:32:50 GMT 2023 : Max threads changed to 1000.
-Wed Dec 27 13:32:50 GMT 2023 : Connection number: 8.
-2023-12-27 13:32:50.420~726072457 GaianNode -------------> Derby Network Server maxThreads set to: 1000
-2023-12-27 13:32:55.374~680647332 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:32:55.374~680924457 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:32:55.379~685128374 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:32:55.383~689156666 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:32:55.387~693104707 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-Wed Dec 27 13:32:57 GMT 2023 : Connection number: 9.
-2023-12-27 13:32:57.534~840527624 GaianTable -------> GDB_LTNULL queryID=null steps=-1 GaianTable() Constructor:
+2024-01-18 11:43:42.413~204384541 GaianNode -------------> Derby Network Server maxThreads: 0, timeSliceBeforeYieldPerThread: 0
+2024-01-18 11:43:42.480~271161458 DataSourcesManager ---------> Checking views status with: select tablename,columnname,columndatatype from sys.syscolumns, sys.systables st, sys.sysschemas ss where referenceid = tableid and tabletype='V' and schemaname='GAIANDB' and st.schemaid=ss.schemaid and tablename in ('LTSOLID','GDB_LTNULL','GDB_LTLOG','DERBY_TABLES','LTSOLID_SPARQL') order by tablename, columnnumber
+2024-01-18 11:43:42.610~400941333 DataSourcesManager ---------> UP-TO-DATE VIEWS (5/5): [LTSOLID, GDB_LTNULL, GDB_LTLOG, DERBY_TABLES, LTSOLID_SPARQL]
+2024-01-18 11:43:42.638~429391291 GaianNodeSeeker -------> Entering discovery loop, my details are: JFX4X76WVY gaiandb <pwd>
+2024-01-18 11:43:42.641~431849500 GaianNodeSeeker -------> Resolving MULTICAST_INTERFACES: ALL
+2024-01-18 11:43:42.650~441016625 GaianNodeSeeker -------> Joining multicast group: /230.255.255.255 on interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:43:42.650~441686500 GaianNode -------------> Used Heap Memory changed by >10MB. jMemory (MB): 30.934528 (= 10%, jMemoryMax (MB): 268.435456). jMemoryNonHeap (MB): 36.797656 - (suspected hanging queries being checked: 0)
+2024-01-18 11:43:42.655~445797666 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:43:42.656~447528541 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:43:42.656~447573666 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:43:42.661~451956291 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:43:42.665~455846375 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:43:42.669~460262666 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:43:47.639~430148000 DatabaseConnectionsChecker ------> New number of potentially hanging queries being checked (involving a GaianNode data source): 0
+2024-01-18 11:43:47.710~501215041 GaianNode -------------> New node thread count: 8
+Thu Jan 18 11:43:47 GMT 2024 : Log Connections turned on.
+Thu Jan 18 11:43:47 GMT 2024 : Connection number: 7.
+Thu Jan 18 11:43:47 GMT 2024 : Max threads changed to 1000.
+Thu Jan 18 11:43:47 GMT 2024 : Max threads changed to 1000.
+Thu Jan 18 11:43:47 GMT 2024 : Connection number: 8.
+2024-01-18 11:43:47.741~532612916 GaianNode -------------> Derby Network Server maxThreads set to: 1000
+2024-01-18 11:43:47.751~542676833 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:43:47.752~543241166 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:43:47.760~551078125 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:43:47.765~555983791 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:43:47.769~560052916 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:43:52.776~567635625 GaianNode -------------> New node thread count: 9
+2024-01-18 11:43:52.843~634180333 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:43:52.844~634843000 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:43:52.848~639591458 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:43:52.853~644098000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:43:52.857~648158500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:43:57.915~706398500 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:43:57.916~706922583 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:43:57.920~711429583 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:43:57.927~717803583 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:43:57.931~722258125 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+Thu Jan 18 11:43:58 GMT 2024 : Connection number: 9.
+2024-01-18 11:43:58.992~783286916 GaianTable -------> GDB_LTNULL queryID=null steps=-1 GaianTable() Constructor:
 ========================================================================================================================================================================
 New GaianTable VTI Call, table = GDB_LTNULL, explain = true, withProvenance = true
-2023-12-27 13:32:57.536~842379291 GaianTable -------> GDB_LTNULL queryID=null steps=-1 Resolving logical table
-2023-12-27 13:32:57.536~842459374 GaianTable -------> GDB_LTNULL queryID=null steps=-1 Establishing logical table definition and set of data sources
-2023-12-27 13:32:57.536~842723832 GaianTable -------> GDB_LTNULL queryID=null steps=-1 Got new meta data for LT def, numCols: 8, numExposedCols: 8
-2023-12-27 13:32:57.536~842754957 GaianTable -------> GDB_LTNULL queryID=null steps=-1 MetaData to be returned to Derby: [CNULL CHAR(1), GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
-2023-12-27 13:32:57.542~848712082 GaianTable -------> ******* INITIALISING SYSTEM QUERY - THIS WILL SUBSEQUENTLY ONLY BE LOGGED WHEN LOGLEVEL=ALL
+2024-01-18 11:43:58.993~783631208 GaianTable -------> GDB_LTNULL queryID=null steps=-1 Resolving logical table
+2024-01-18 11:43:58.993~783726541 GaianTable -------> GDB_LTNULL queryID=null steps=-1 Establishing logical table definition and set of data sources
+2024-01-18 11:43:58.993~783849625 GaianTable -------> GDB_LTNULL queryID=null steps=-1 Got new meta data for LT def, numCols: 8, numExposedCols: 8
+2024-01-18 11:43:58.993~783884125 GaianTable -------> GDB_LTNULL queryID=null steps=-1 MetaData to be returned to Derby: [CNULL CHAR(1), GDB_NODE VARCHAR(20), GDB_LEAF VARCHAR(50), GDBX_FROM_NODE VARCHAR(20), GDBX_TO_NODE VARCHAR(20), GDBX_DEPTH INT, GDBX_PRECEDENCE CHAR, GDBX_COUNT BIGINT]
+2024-01-18 11:43:58.997~788050583 GaianTable -------> ******* INITIALISING SYSTEM QUERY - THIS WILL SUBSEQUENTLY ONLY BE LOGGED WHEN LOGLEVEL=ALL
 SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0
-2023-12-27 13:32:57.566~872615874 GaianTable -------> GDB_LTNULL queryID=null steps=-1 GaianTable() Constructor:
+2024-01-18 11:43:59.010~801561041 GaianTable -------> GDB_LTNULL queryID=null steps=-1 GaianTable() Constructor:
 ========================================================================================================================================================================
 New GaianTable VTI Call, table = GDB_LTNULL, explain = true, withProvenance = true
-2023-12-27 13:33:00.390~696224666 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:00.391~697689457 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:00.396~702386791 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:00.400~706497041 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:00.404~710587291 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:01.803~109581916 GaianTable -------> LTSOLID queryID=null steps=-1 GaianTable() Constructor:
+2024-01-18 11:44:03.012~802608791 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:03.012~803561583 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:03.017~808365875 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:03.022~812671583 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:03.027~817740125 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:08.092~882788958 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:08.092~883368333 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:08.097~888401791 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:08.102~892977208 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:08.107~897609625 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:13.147~937959666 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:13.149~939916625 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:13.153~944286291 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:13.158~948616416 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:13.162~952953500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:15.023~813716916 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 GaianTable() Constructor:
 ========================================================================================================================================================================
-New GaianTable VTI Call, table = LTSOLID, explain = false, withProvenance = false
-2023-12-27 13:33:01.803~109699624 GaianTable -------> LTSOLID queryID=null steps=-1 Resolving logical table
-2023-12-27 13:33:01.803~109748582 GaianTable -------> LTSOLID queryID=null steps=-1 Establishing logical table definition and set of data sources
-2023-12-27 13:33:01.803~109791707 GaianTable -------> LTSOLID queryID=null steps=-1 Got new meta data for LT def, numCols: 3, numExposedCols: 3
-2023-12-27 13:33:01.803~109809707 GaianTable -------> LTSOLID queryID=null steps=-1 MetaData to be returned to Derby: [SEARCH_PARAMETERS VARCHAR(255), DOCUMENT_URL VARCHAR(255), RELEVANCE VARCHAR(3)]
-2023-12-27 13:33:01.806~112259999 GaianTable -------> LTSOLID queryID=null steps=-1 Entered getEstimatedCostPerInstantiation(), returning 100.0
-2023-12-27 13:33:01.806~112359416 GaianTable -------> LTSOLID queryID=null steps=-1 Entered getEstimatedRowCount(), returning 1.0
-2023-12-27 13:33:01.806~112500291 GaianTable -------> LTSOLID queryID=null steps=-1 Entered supportsMultipleInstantiations(), returning true
-2023-12-27 13:33:01.806~112535749 GaianTable -------> LTSOLID queryID=null steps=-1 Entering GaianTable.close()
-2023-12-27 13:33:01.806~112557041 GaianTable -------> LTSOLID queryID=null steps=-1 Entered clearResultAndInMemoryCache(), gaianResult isNull? true
-2023-12-27 13:33:01.810~116483499 GaianTable -------> LTSOLID queryID=null steps=-1 GaianTable() Constructor:
+New GaianTable VTI Call, table = LTSOLID_SPARQL, explain = false, withProvenance = false
+2024-01-18 11:44:15.023~814316416 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Resolving logical table
+2024-01-18 11:44:15.024~814631833 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Establishing logical table definition and set of data sources
+2024-01-18 11:44:15.024~814694208 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Got new meta data for LT def, numCols: 6, numExposedCols: 6
+2024-01-18 11:44:15.024~814717708 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 MetaData to be returned to Derby: [PATIENT VARCHAR(255), SURGERY VARCHAR(255), STATUS VARCHAR(255), SURGERYDATE VARCHAR(255), ACTIVITYDATE VARCHAR(255), STEPS VARCHAR(255)]
+2024-01-18 11:44:15.027~817464083 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Entered getEstimatedCostPerInstantiation(), returning 100.0
+2024-01-18 11:44:15.027~817703958 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Entered getEstimatedRowCount(), returning 1.0
+2024-01-18 11:44:15.027~817746833 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Entered supportsMultipleInstantiations(), returning true
+2024-01-18 11:44:15.027~817778416 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Entering GaianTable.close()
+2024-01-18 11:44:15.027~817807583 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Entered clearResultAndInMemoryCache(), gaianResult isNull? true
+2024-01-18 11:44:15.034~824820000 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 GaianTable() Constructor:
 ========================================================================================================================================================================
-New GaianTable VTI Call, table = LTSOLID, explain = false, withProvenance = false
-2023-12-27 13:33:01.815~121907124 GaianTable -------> LTSOLID queryID=null steps=-1 Qualifiers: C1='SELECT * FROM LTSOLID WHERE Search_Parameters='pressure,mailto:mriwebid@example.org' '
-2023-12-27 13:33:01.816~122130457 GaianTable -------> LTSOLID queryID=null steps=-1 Original SQL detected not to have a single FROM and WHERE token - no shallow parsed predicates will be pushed to other nodes
-2023-12-27 13:33:01.816~122159666 GaianTable -------> LTSOLID queryID=null steps=-1 Entered clearResultAndInMemoryCache(), gaianResult isNull? true
-2023-12-27 13:33:01.816~122174874 GaianTable -------> LTSOLID queryID=null steps=-1 Initialising query: Getting table def and data sources
-2023-12-27 13:33:01.816~122191291 GaianTable -------> LTSOLID queryID=null steps=-1 Resolving logical table
-2023-12-27 13:33:01.816~122221499 GaianTable -------> LTSOLID queryID=null steps=-1 Establishing logical table definition and set of data sources
-2023-12-27 13:33:01.816~122252791 GaianTable -------> LTSOLID queryID=null steps=-1 Retrieved node definitions: [LTSOLID_DS0]
-2023-12-27 13:33:01.816~122267749 GaianTable -------> LTSOLID queryID=null steps=-1 MetaData for rows passed to Derby: [SEARCH_PARAMETERS VARCHAR(255), DOCUMENT_URL VARCHAR(255), RELEVANCE VARCHAR(3)]
-2023-12-27 13:33:01.816~122281457 GaianTable -------> LTSOLID queryID=null steps=-1 Creating a new queryID, and associated propagationCount=0 for this Query
-2023-12-27 13:33:01.816~122312707 GaianTable -------> ******* LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 executeFastPathQuery():
+New GaianTable VTI Call, table = LTSOLID_SPARQL, explain = false, withProvenance = false
+2024-01-18 11:44:15.035~826022666 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Qualifiers: 
+2024-01-18 11:44:15.036~826777791 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Original SQL detected not to have a single FROM and WHERE token - no shallow parsed predicates will be pushed to other nodes
+2024-01-18 11:44:15.067~858417833 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Entered clearResultAndInMemoryCache(), gaianResult isNull? true
+2024-01-18 11:44:15.068~858503583 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Initialising query: Getting table def and data sources
+2024-01-18 11:44:15.068~858534750 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Resolving logical table
+2024-01-18 11:44:15.068~858585583 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Establishing logical table definition and set of data sources
+2024-01-18 11:44:15.068~858661458 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Retrieved node definitions: [LTSOLID_SPARQL_DS0]
+2024-01-18 11:44:15.068~858680791 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 MetaData for rows passed to Derby: [PATIENT VARCHAR(255), SURGERY VARCHAR(255), STATUS VARCHAR(255), SURGERYDATE VARCHAR(255), ACTIVITYDATE VARCHAR(255), STEPS VARCHAR(255)]
+2024-01-18 11:44:15.068~858755708 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Creating a new queryID, and associated propagationCount=0 for this Query
+2024-01-18 11:44:15.068~858798166 GaianTable -------> ******* LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 executeFastPathQuery():
 ========================================================================================================================================================================
 
-2023-12-27 13:33:01.816 -------> NEW INCOMING SQL QUERY: SELECT * FROM LTSOLID WHERE Search_Parameters =  'SELECT * FROM LTSOLID WHERE Search_Parameters=''pressure,mailto:mriwebid@example.org'' ' ORDER BY RELEVANCE DESC
+2024-01-18 11:44:15.068 -------> NEW INCOMING SQL QUERY: SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }
 
 
-2023-12-27 13:33:01.816~122342666 GaianTable -------> LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 Logical projectedColumns = [1, 2, 3]
-2023-12-27 13:33:01.816~122363707 GaianTable -------> LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 Physical projectedColumns = [1, 2, 3]
-2023-12-27 13:33:01.816~122600374 GaianTable -------> LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 Physical Qualifiers after branch prune: SEARCH_PARAMETERS='SELECT * FROM LTSOLID WHERE Search_Parameters='pressure,mailto:mriwebid@example.org' '
-2023-12-27 13:33:01.816~122872082 GaianTable -------> LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 Physical Qualifiers after leaf prune: SEARCH_PARAMETERS='SELECT * FROM LTSOLID WHERE Search_Parameters='pressure,mailto:mriwebid@example.org' '
-2023-12-27 13:33:01.817~123438207 GaianTable -------> LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 Remaining nodes after pruning: [LTSOLID_DS0]
-2023-12-27 13:33:01.820~126912457 GaianResult -----------> LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 Using fetch buffer size 100
-2023-12-27 13:33:01.825~130930916 GaianResult -----------> LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 Added thread count for dsWrapper: LTSOLID_DS0: 1, runningTotal: 1
-2023-12-27 13:33:01.827~133524082 GaianResult -----------> LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 Kicked off all 1 exec threads, exec complete
-2023-12-27 13:33:01.828~134130332 GaianResult -----------> GaianDataSourceExecutor-1: run(): Starting to process child data source wrapper for: LTSOLID_DS0, dsInstanceID: null
-2023-12-27 13:33:01.828~134265166 GaianResult -----------> GaianDataSourceExecutor-1: Start exec time:1703683981828
-2023-12-27 13:33:01.828~134308249 VTIFile --------------------> executing VTIFile.. isRowsInMemory? false
-2023-12-27 13:33:01.828~134377916 GaianResult -----------> LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 nextRow(): Fetching new batch of 100000 rows from : 0. Row Buffer sizes: Results 0/100, Recycled 0/100
-2023-12-27 13:33:01.828~134413874 VTIFile --------------------> Getting handle for file data.. isRowsInMemory? false
-2023-12-27 13:33:01.828~134445249 VTIFile --------------------> VTIFile original-sql: SELECT * FROM LTSOLID WHERE Search_Parameters =  'SELECT * FROM LTSOLID WHERE Search_Parameters=''pressure,mailto:mriwebid@example.org'' ' ORDER BY RELEVANCE DESC
-2023-12-27 13:33:01.828~134503249 FileImport -----------------> Searching under config folder /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/FileImportControls/, all sub-locations of relativeDir: Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/csvtestfiles/
-2023-12-27 13:33:01.828~134571249 FileImport -----------------> Resolved controlfilePath: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/FileImportControls/FileImportDefaults.properties
-2023-12-27 13:33:01.837~143351624 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 3, special cols: 0
-2023-12-27 13:33:01.838~144113499 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-12-27 13:33:01.838~144409707 GaianResultSetMetaData ----------> ltColCount = 3, specialColCount (constant + hidden cols) = 0
-2023-12-27 13:33:01.838~144435416 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL]
-2023-12-27 13:33:01.840~146097957 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3]
-2023-12-27 13:33:01.949~255320082 Gaian-SOLID Connector ------> Send Keyword Search Request to Search APP: SELECT * FROM LTSOLID WHERE Search_Parameters=pressure,mailto:mriwebid@example.org 
+2024-01-18 11:44:15.068~858838125 GaianTable -------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 Logical projectedColumns = [1, 2, 3, 4, 5, 6]
+2024-01-18 11:44:15.068~858863708 GaianTable -------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 Physical projectedColumns = [1, 2, 3, 4, 5, 6]
+2024-01-18 11:44:15.068~859405875 GaianTable -------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 Physical Qualifiers after branch prune: 
+2024-01-18 11:44:15.069~859659041 GaianTable -------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 Physical Qualifiers after leaf prune: 
+2024-01-18 11:44:15.069~859682416 GaianTable -------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 Remaining nodes after pruning: [LTSOLID_SPARQL_DS0]
+2024-01-18 11:44:15.071~861871250 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 Using fetch buffer size 100
+2024-01-18 11:44:15.088~879176625 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 Added thread count for dsWrapper: LTSOLID_SPARQL_DS0: 1, runningTotal: 1
+2024-01-18 11:44:15.089~879953000 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 Kicked off all 1 exec threads, exec complete
+2024-01-18 11:44:15.090~880536666 GaianResult -----------> GaianDataSourceExecutor-1: run(): Starting to process child data source wrapper for: LTSOLID_SPARQL_DS0, dsInstanceID: null
+2024-01-18 11:44:15.090~880690666 GaianResult -----------> GaianDataSourceExecutor-1: Start exec time:1705578255090
+2024-01-18 11:44:15.090~880879458 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 nextRow(): Fetching new batch of 100000 rows from : 0. Row Buffer sizes: Results 0/100, Recycled 0/100
+2024-01-18 11:44:15.091~881637125 VTIFile --------------------> executing VTIFile.. isRowsInMemory? false
+2024-01-18 11:44:15.091~882160416 VTIFile --------------------> Getting handle for file data.. isRowsInMemory? false
+2024-01-18 11:44:15.092~882927708 VTIFile --------------------> VTIFile original-sql: SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }
+2024-01-18 11:44:15.093~883931458 FileImport -----------------> Searching under config folder ./FileImportControls/, all sub-locations of relativeDir: ./csvtestfiles/
+2024-01-18 11:44:15.093~884104916 FileImport -----------------> Resolved controlfilePath: ./FileImportControls/FileImportDefaults.properties
+2024-01-18 11:44:15.105~896274916 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 6, special cols: 0
+2024-01-18 11:44:15.106~897062291 GaianResultSetMetaData ----------> Building row template from special columns: []
+2024-01-18 11:44:15.107~897699458 GaianResultSetMetaData ----------> ltColCount = 6, specialColCount (constant + hidden cols) = 0
+2024-01-18 11:44:15.107~897854958 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL]
+2024-01-18 11:44:15.107~898079291 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6]
+2024-01-18 11:44:15.143~933857708 Gaian-SOLID Connector ------> Send SPARQL Query Request to Search APP: 
 
-2023-12-27 13:33:01.964~270709957 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-12-27 13:33:01.964~270914916 Util -------------> WARNING:
+2024-01-18 11:44:15.304~95391750 Gaian-SOLID Connector ------> Receive Response from Search APP  Total Execution Time: [2024-01-18 11:44:15.304, Search APP Start Time: 11:44:15.133664,  End time: 11:44:15.304792,  Total Time: 184]
 
-2023-12-27 13:33:01.964 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH (10th repetition): GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/target/classes/
+2024-01-18 11:44:15.366~156943458 VTIFile --------------------> GaianDataSourceExecutor-1: Created a new FileImport() instance as the Pool was empty
+2024-01-18 11:44:15.367~157586083 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 6, special cols: 0
+2024-01-18 11:44:15.367~157903333 GaianResultSetMetaData ----------> Building row template from special columns: []
+2024-01-18 11:44:15.367~157974375 GaianResultSetMetaData ----------> ltColCount = 6, specialColCount (constant + hidden cols) = 0
+2024-01-18 11:44:15.367~157996125 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL]
+2024-01-18 11:44:15.368~158594166 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6]
+2024-01-18 11:44:15.369~159875541 AbstractVTI ------> GaianDataSourceExecutor-1: setExtractConditions(): all query's logical col ids: [0, 1, 2, 3, 4, 5], columnsMappingToPhysicalOnes: [0, 1, 2, 3, 4, 5]
+2024-01-18 11:44:15.369~159960541 AbstractVTI ------> Mapped and reduced projection for VTI to: [1, 2, 3, 4, 5, 6]
+2024-01-18 11:44:15.369~159980166 AbstractVTI ------> Mapped and reduced qualifiers for VTI to: 
+2024-01-18 11:44:15.369~160029166 VTIFile --------------------> ******* GaianDataSourceExecutor-1: LTSOLID_SPARQL_DS0 OBTAINED ROWS USING:
 
-2023-12-27 13:33:01.964 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+2024-01-18 11:44:15.369 ---------------> OBTAINED rows from: FileImport('./csvtestfiles/solid_sparql.csv')
+
+2024-01-18 11:44:15.369~160078875 GaianResult -----------> GaianDataSourceExecutor-1: LTSOLID_SPARQL_DS0 End exec time:1705578255369
+2024-01-18 11:44:15.378~168905000 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 LTSOLID_SPARQL_DS0 Put poison pill on resultRowsBuffer as there are no more executing threads
+2024-01-18 11:44:15.378~168952291 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 LTSOLID_SPARQL_DS0: NO MORE ROWS IN THIS RESULT SET - recyling dataSource
+2024-01-18 11:44:15.378~168980083 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 LTSOLID_SPARQL_DS0 nextRow(): Processed New Data Source, (0/1 remaining), NumRows fetched so far: 2
+	>>Performance metrics: Exec time: 279ms, Fetch time: 9ms
+2024-01-18 11:44:15.378~168983833 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 Entering GaianResult.close()
+2024-01-18 11:44:15.378~169164916 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578255068:1 steps=0 Fetch complete, rowCount = 2
+	>>OVERALL QUERY TIME: 307ms (ALL EXECS: 298ms, ALL FETCHES: 288ms)
+
+2024-01-18 11:44:15.379~169640666 VTIWrapper ----------------------> GaianDataSourceExecutor-1: LTSOLID_SPARQL_DS0 recycleResult(): Stored FileImport object for ./csvtestfiles/solid_sparql.csv in Pool for re-use. Pool current size/max = 1/10
+2024-01-18 11:44:17.922~713027083 GaianNode -------------> New node thread count: 10
+2024-01-18 11:44:18.235~25952666 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:18.236~26842208 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:18.240~31274250 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:18.245~35584458 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:18.249~39841208 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:23.304~94604750 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:23.304~95278875 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:23.309~99608250 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:23.313~103990416 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:23.318~108510375 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:28.378~168584666 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:28.379~169463333 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:28.383~173903500 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:28.388~178342208 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:28.392~182760416 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:33.456~247170625 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:33.457~248022750 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:33.462~252734166 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:33.467~257929458 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:33.482~272966166 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:38.528~318328250 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:38.529~319364875 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:38.535~326096375 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:38.541~331497958 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:38.547~337319541 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:43.635~425591041 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:43.636~426436583 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:43.640~430610000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:43.644~434594208 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:43.648~438528916 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:48.724~514655875 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:48.725~515537125 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:48.729~519657166 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:48.733~523873083 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:48.738~528409250 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+Thu Jan 18 11:44:52 GMT 2024 : Connection number: 10.
+2024-01-18 11:44:53.825~615934125 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:53.827~617148833 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:53.831~621696000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:53.836~626174125 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:53.840~630141250 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:58.909~699302625 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:58.911~701330666 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:44:58.921~711230375 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:58.926~716957750 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:58.930~720906583 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:44:59.871~661721375 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 GaianTable() Constructor:
+========================================================================================================================================================================
+New GaianTable VTI Call, table = LTSOLID_SPARQL, explain = false, withProvenance = false
+2024-01-18 11:44:59.871~661981583 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Resolving logical table
+2024-01-18 11:44:59.872~662035208 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Establishing logical table definition and set of data sources
+2024-01-18 11:44:59.872~662075416 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Got new meta data for LT def, numCols: 6, numExposedCols: 6
+2024-01-18 11:44:59.872~662095083 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 MetaData to be returned to Derby: [PATIENT VARCHAR(255), SURGERY VARCHAR(255), STATUS VARCHAR(255), SURGERYDATE VARCHAR(255), ACTIVITYDATE VARCHAR(255), STEPS VARCHAR(255)]
+2024-01-18 11:44:59.873~663001333 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Entered getEstimatedCostPerInstantiation(), returning 100.0
+2024-01-18 11:44:59.873~663195750 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Entered getEstimatedRowCount(), returning 1.0
+2024-01-18 11:44:59.873~663228291 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Entered supportsMultipleInstantiations(), returning true
+2024-01-18 11:44:59.873~663247791 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Entering GaianTable.close()
+2024-01-18 11:44:59.873~663259958 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Entered clearResultAndInMemoryCache(), gaianResult isNull? true
+2024-01-18 11:44:59.878~668518083 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 GaianTable() Constructor:
+========================================================================================================================================================================
+New GaianTable VTI Call, table = LTSOLID_SPARQL, explain = false, withProvenance = false
+2024-01-18 11:44:59.879~669045500 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Qualifiers: 
+2024-01-18 11:44:59.881~671298416 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Original SQL detected not to have a single FROM and WHERE token - no shallow parsed predicates will be pushed to other nodes
+2024-01-18 11:44:59.885~675884291 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Entered clearResultAndInMemoryCache(), gaianResult isNull? true
+2024-01-18 11:44:59.885~675902791 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Initialising query: Getting table def and data sources
+2024-01-18 11:44:59.885~675923208 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Resolving logical table
+2024-01-18 11:44:59.885~675946833 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Establishing logical table definition and set of data sources
+2024-01-18 11:44:59.886~676030291 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Retrieved node definitions: [LTSOLID_SPARQL_DS0]
+2024-01-18 11:44:59.886~676045291 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 MetaData for rows passed to Derby: [PATIENT VARCHAR(255), SURGERY VARCHAR(255), STATUS VARCHAR(255), SURGERYDATE VARCHAR(255), ACTIVITYDATE VARCHAR(255), STEPS VARCHAR(255)]
+2024-01-18 11:44:59.886~676205666 GaianTable -------> LTSOLID_SPARQL queryID=null steps=-1 Creating a new queryID, and associated propagationCount=0 for this Query
+2024-01-18 11:44:59.886~676414083 GaianTable -------> ******* LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 executeFastPathQuery():
+========================================================================================================================================================================
+
+2024-01-18 11:44:59.886 -------> NEW INCOMING SQL QUERY: SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: -- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }
 
 
-2023-12-27 13:33:01.965~270933332 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-12-27 13:33:01.965~270966791 Util -------------> WARNING:
+2024-01-18 11:44:59.886~676439166 GaianTable -------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 Logical projectedColumns = [1, 2, 3, 4, 5, 6]
+2024-01-18 11:44:59.886~676452958 GaianTable -------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 Physical projectedColumns = [1, 2, 3, 4, 5, 6]
+2024-01-18 11:44:59.886~676463416 GaianTable -------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 Physical Qualifiers after branch prune: 
+2024-01-18 11:44:59.887~677030041 GaianTable -------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 Physical Qualifiers after leaf prune: 
+2024-01-18 11:44:59.887~677051708 GaianTable -------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 Remaining nodes after pruning: [LTSOLID_SPARQL_DS0]
+2024-01-18 11:44:59.887~677081083 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 Using fetch buffer size 100
+2024-01-18 11:44:59.894~684279333 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 Added thread count for dsWrapper: LTSOLID_SPARQL_DS0: 1, runningTotal: 1
+2024-01-18 11:44:59.894~684506916 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 Kicked off all 1 exec threads, exec complete
+2024-01-18 11:44:59.894~684867750 GaianResult -----------> GaianDataSourceExecutor-1: run(): Starting to process child data source wrapper for: LTSOLID_SPARQL_DS0, dsInstanceID: null
+2024-01-18 11:44:59.894~684938166 GaianResult -----------> GaianDataSourceExecutor-1: Start exec time:1705578299894
+2024-01-18 11:44:59.894~684962416 VTIFile --------------------> executing VTIFile.. isRowsInMemory? false
+2024-01-18 11:44:59.894~684991791 VTIFile --------------------> GaianDataSourceExecutor-1: VTIFile Synchronising on Re-init lock (reload triggered by file modification)
+2024-01-18 11:44:59.895~685011250 VTIFile --------------------> GaianDataSourceExecutor-1: VTIFile WAITING on Re-init lock for execs to complete, numExecThread 0
+2024-01-18 11:44:59.895~685038041 VTIFile --------------------> VTIFile original-sql: SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: -- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }
+2024-01-18 11:44:59.895~685187791 FileImport -----------------> Searching under config folder ./FileImportControls/, all sub-locations of relativeDir: ./csvtestfiles/
+2024-01-18 11:44:59.895~685277750 FileImport -----------------> Resolved controlfilePath: ./FileImportControls/FileImportDefaults.properties
+2024-01-18 11:44:59.895~685425500 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 nextRow(): Fetching new batch of 100000 rows from : 0. Row Buffer sizes: Results 0/100, Recycled 0/100
+2024-01-18 11:44:59.901~691178125 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 6, special cols: 0
+2024-01-18 11:44:59.901~691622833 GaianResultSetMetaData ----------> Building row template from special columns: []
+2024-01-18 11:44:59.902~692371291 GaianResultSetMetaData ----------> ltColCount = 6, specialColCount (constant + hidden cols) = 0
+2024-01-18 11:44:59.902~692583375 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL]
+2024-01-18 11:44:59.903~693286833 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6]
+2024-01-18 11:44:59.906~696451041 Gaian-SOLID Connector ------> Send SPARQL Query Request to Search APP: PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns%23> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card%23me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card%23me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }
 
-2023-12-27 13:33:01.965 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/target/classes/
+2024-01-18 11:45:00.571~361684791 Gaian-SOLID Connector ------> Receive Response from Search APP  Total Execution Time: [2024-01-18 11:45:00.571, Search APP Start Time: 11:44:59.906414,  End time: 11:45:00.571541,  Total Time: 665]
 
-2023-12-27 13:33:01.965 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
+2024-01-18 11:45:00.578~368866291 VTIFile --------------------> GaianDataSourceExecutor-1: Created new FileImport() instance as Pool was empty
+2024-01-18 11:45:00.579~369438250 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 6, special cols: 0
+2024-01-18 11:45:00.579~369609708 GaianResultSetMetaData ----------> Building row template from special columns: []
+2024-01-18 11:45:00.579~369636291 GaianResultSetMetaData ----------> ltColCount = 6, specialColCount (constant + hidden cols) = 0
+2024-01-18 11:45:00.579~369674458 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL]
+2024-01-18 11:45:00.579~369941583 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6]
+2024-01-18 11:45:00.580~370014583 VTIWrapper ----------------------> GaianDataSourceExecutor-1: LTSOLID_SPARQL_DS0 Mapping logical to physical col ids. Resolving 6 logical col names for 6 cols of the physical source. isMapByPosition ? true
+2024-01-18 11:45:00.580~370083708 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 6, special cols: 0
+2024-01-18 11:45:00.580~370173250 GaianResultSetMetaData ----------> Building row template from special columns: []
+2024-01-18 11:45:00.580~370199666 GaianResultSetMetaData ----------> ltColCount = 6, specialColCount (constant + hidden cols) = 0
+2024-01-18 11:45:00.580~370258666 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL, NULL, NULL, NULL]
+2024-01-18 11:45:00.580~370424875 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3, COLUMN4, COLUMN5, COLUMN6]
+2024-01-18 11:45:00.580~370900083 AbstractVTI ------> GaianDataSourceExecutor-1: setExtractConditions(): all query's logical col ids: [0, 1, 2, 3, 4, 5], columnsMappingToPhysicalOnes: [0, 1, 2, 3, 4, 5]
+2024-01-18 11:45:00.580~370951416 AbstractVTI ------> Mapped and reduced projection for VTI to: [1, 2, 3, 4, 5, 6]
+2024-01-18 11:45:00.580~370974333 AbstractVTI ------> Mapped and reduced qualifiers for VTI to: 
+2024-01-18 11:45:00.581~371025416 VTIFile --------------------> ******* GaianDataSourceExecutor-1: LTSOLID_SPARQL_DS0 OBTAINED ROWS USING:
 
+2024-01-18 11:45:00.581 ---------------> OBTAINED rows from: FileImport('./csvtestfiles/solid_sparql.csv')
 
-2023-12-27 13:33:01.965~270980082 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-12-27 13:33:01.965~271002374 Util -------------> WARNING:
+2024-01-18 11:45:00.581~371054875 GaianResult -----------> GaianDataSourceExecutor-1: LTSOLID_SPARQL_DS0 End exec time:1705578300581
+2024-01-18 11:45:00.590~380701833 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 LTSOLID_SPARQL_DS0 Put poison pill on resultRowsBuffer as there are no more executing threads
+2024-01-18 11:45:00.590~380722708 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 Entering GaianResult.close()
+2024-01-18 11:45:00.590~380972541 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 LTSOLID_SPARQL_DS0: NO MORE ROWS IN THIS RESULT SET - recyling dataSource
+2024-01-18 11:45:00.591~381072958 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 LTSOLID_SPARQL_DS0 nextRow(): Processed New Data Source, (0/1 remaining), NumRows fetched so far: 2
+	>>Performance metrics: Exec time: 687ms, Fetch time: 10ms
+2024-01-18 11:45:00.591~381124208 GaianResult -----------> LTSOLID_SPARQL queryID=JFX4X76WVY:1705578299886:2 steps=0 Fetch complete, rowCount = 2
+	>>OVERALL QUERY TIME: 704ms (ALL EXECS: 694ms, ALL FETCHES: 696ms)
 
-2023-12-27 13:33:01.965 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/target/classes/
-
-2023-12-27 13:33:01.965 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-12-27 13:33:01.965~271013499 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-12-27 13:33:01.965~271045082 Util -------------> WARNING:
-
-2023-12-27 13:33:01.965 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/target/classes/
-
-2023-12-27 13:33:01.965 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-12-27 13:33:01.965~271058666 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-12-27 13:33:01.965~271091332 Util -------------> WARNING:
-
-2023-12-27 13:33:01.965 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/target/classes/
-
-2023-12-27 13:33:01.965 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-12-27 13:33:01.965~271102124 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-12-27 13:33:01.965~271681249 Util -------------> WARNING:
-
-2023-12-27 13:33:01.965 ********** GDB_WARNING: NODE_UNRESOLVED_INSTALL_PATH: GaianDB was unable to resolve install path: java.lang.Exception: Cannot find '/lib/' or '/build/' or '/bin' in bytecode path: /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/target/classes/
-
-2023-12-27 13:33:01.965 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#NODE_UNRESOLVED_INSTALL_PATH
-
-
-2023-12-27 13:33:01.965~271705082 Logger -----------> findDocumentation() unable to locate javadoc due to unresolved install path - path prefix will be masked
-2023-12-27 13:33:01.966~272120624 FileImport -----------------> WARNING:
-
-2023-12-27 13:33:01.965 ********** GDB_ERROR: : Solid service call has been failed
-	java.net.ConnectException: Connection refused (Connection refused)
-	at java.net.PlainSocketImpl.socketConnect(Native Method)
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.net.Socket.connect(Socket.java:607)
-	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
-	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
-	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
-	at sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
-	at sun.net.www.http.HttpClient.New(HttpClient.java:339)
-	at sun.net.www.http.HttpClient.New(HttpClient.java:357)
-	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1223)
-	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1162)
-	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1056)
-	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:990)
-	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1567)
-	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1495)
-	at java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:480)
-	at com.ibm.solid.SolidServiceCall.filterData(SolidServiceCall.java:72)
-	at com.ibm.db2j.FileImport.<init>(FileImport.java:230)
-	at com.ibm.gaiandb.VTIFile.execute(VTIFile.java:220)
-	at com.ibm.gaiandb.GaianResult.executeQueryAgainstDataSource(GaianResult.java:479)
-	at com.ibm.gaiandb.GaianResult.run(GaianResult.java:560)
-	at com.ibm.gaiandb.GaianSubResult.run(GaianSubResult.java:37)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-
-2023-12-27 13:33:01.965 Documentation: <GaianDBDocumentationDirectory>/javadoc-errors/com/ibm/gaiandb/diags/GDBMessages.html#
-
-
-2023-12-27 13:33:01.966~272181166 VTIFile --------------------> GaianDataSourceExecutor-1: Created a new FileImport() instance as the Pool was empty
-2023-12-27 13:33:01.966~272388916 GaianResultSetMetaData ----------> Meta data column counts: physical cols: 3, special cols: 0
-2023-12-27 13:33:01.966~272445166 GaianResultSetMetaData ----------> Building row template from special columns: []
-2023-12-27 13:33:01.966~272459874 GaianResultSetMetaData ----------> ltColCount = 3, specialColCount (constant + hidden cols) = 0
-2023-12-27 13:33:01.966~272526166 GaianResultSetMetaData ----------> Built Logical Table DVD template: [NULL, NULL, NULL]
-2023-12-27 13:33:01.967~273469249 GaianResultSetMetaData ----------> Retrieved meta data for columns: [COLUMN1, COLUMN2, COLUMN3]
-2023-12-27 13:33:01.968~273939166 AbstractVTI ------> GaianDataSourceExecutor-1: setExtractConditions(): all query's logical col ids: [0, 1, 2], columnsMappingToPhysicalOnes: [0, 1, 2]
-2023-12-27 13:33:01.969~275653916 AbstractVTI ------> Mapped and reduced projection for VTI to: [1, 2, 3]
-2023-12-27 13:33:01.970~276225041 AbstractVTI ------> Mapped qualifiers for VTI to: C1='SELECT * FROM LTSOLID WHERE Search_Parameters='pressure,mailto:mriwebid@example.org' '
-2023-12-27 13:33:01.970~276255874 AbstractVTI ------> Mapped and reduced qualifiers for VTI to: C1='SELECT * FROM LTSOLID WHERE Search_Parameters='pressure,mailto:mriwebid@example.org' '
-2023-12-27 13:33:01.970~276320707 VTIFile --------------------> ******* GaianDataSourceExecutor-1: LTSOLID_DS0 OBTAINED ROWS USING:
-
-2023-12-27 13:33:01.970 ---------------> OBTAINED rows from: FileImport('/Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/csvtestfiles/solid.csv')
-
-2023-12-27 13:33:01.970~276353541 GaianResult -----------> GaianDataSourceExecutor-1: LTSOLID_DS0 End exec time:1703683981970
-2023-12-27 13:33:01.974~280259666 GaianResult -----------> LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 LTSOLID_DS0 Put poison pill on resultRowsBuffer as there are no more executing threads
-2023-12-27 13:33:01.974~280390291 GaianResult -----------> LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 LTSOLID_DS0: NO MORE ROWS IN THIS RESULT SET - recyling dataSource
-2023-12-27 13:33:01.974~280420457 GaianResult -----------> LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 LTSOLID_DS0 nextRow(): Processed New Data Source, (0/1 remaining), NumRows fetched so far: 0
-	>>Performance metrics: Exec time: 142ms, Fetch time: 4ms
-2023-12-27 13:33:01.974~280430582 GaianResult -----------> LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 Entering GaianResult.close()
-2023-12-27 13:33:01.974~280522124 VTIWrapper ----------------------> GaianDataSourceExecutor-1: LTSOLID_DS0 recycleResult(): Stored FileImport object for /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/csvtestfiles/solid.csv in Pool for re-use. Pool current size/max = 1/10
-2023-12-27 13:33:01.975~281104666 GaianResult -----------> LTSOLID queryID=JFX4X76WVY:1703683981816:1 steps=0 Fetch complete, rowCount = 0
-	>>OVERALL QUERY TIME: 154ms (ALL EXECS: 150ms, ALL FETCHES: 146ms)
-
-2023-12-27 13:33:05.386~692388666 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:05.386~692659207 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:05.390~696634332 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:05.394~700525666 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:05.398~704444707 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:05.497~803102916 GaianNode -------------> New node thread count: 11
-2023-12-27 13:33:10.484~790043374 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:10.484~790497332 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:10.489~795244332 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:10.493~799323166 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:10.497~803386957 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:15.502~807915541 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:15.502~808446374 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:15.506~812788124 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:15.510~816881332 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:15.515~820949499 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:20.601~907784749 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:20.603~909383499 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:20.608~914058707 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:20.614~920604499 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:20.618~924701707 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:25.604~909992624 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:25.604~910526416 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:25.609~914941291 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:25.613~918895957 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:25.617~922858707 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:30.708~14495874 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:30.709~14862791 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:30.713~19388666 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:30.717~23482207 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:30.721~27443999 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:35.799~105303749 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:35.800~105917874 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:35.807~113301416 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:35.813~119162332 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:35.819~125101332 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:40.902~208415541 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:40.902~208644374 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:40.907~212844541 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:40.910~216744416 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:40.914~220628332 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:45.903~209244999 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:45.903~209732124 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:45.908~214463082 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:45.912~218476999 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:45.916~222458541 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:51.006~312173624 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:51.007~313104999 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:51.012~317942582 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:51.016~322118832 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:51.020~326054874 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:56.102~408363624 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:56.103~408938957 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:33:56.108~413828416 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:56.112~418330291 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:33:56.117~423563416 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:01.100~406474957 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:34:01.104~410176999 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:34:01.109~415568582 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:01.114~419806249 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:01.118~424209374 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:05.803~109073541 GaianNode -------------> New node thread count: 10
-2023-12-27 13:34:06.200~506454457 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:34:06.200~506627166 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:34:06.204~510602666 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:06.208~514531124 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:06.212~518427624 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:11.201~507733332 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:34:11.203~508748457 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:34:11.207~512812666 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:11.211~517467874 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:11.216~521832666 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:16.211~517104291 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:34:16.211~517289416 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:34:16.215~521283332 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:16.219~525201874 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:16.223~529088166 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:21.280~585804916 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:34:21.280~585962874 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:34:21.284~590050957 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:21.288~594070207 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:21.292~598212124 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:26.375~681557874 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:34:26.376~682434082 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.9.153.224, /192.168.44.135]
-2023-12-27 13:34:26.381~687079457 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:26.386~692206416 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
-2023-12-27 13:34:26.390~696504582 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:45:00.591~381388083 VTIWrapper ----------------------> GaianDataSourceExecutor-1: LTSOLID_SPARQL_DS0 recycleResult(): Stored FileImport object for ./csvtestfiles/solid_sparql.csv in Pool for re-use. Pool current size/max = 1/10
+2024-01-18 11:45:04.007~797824541 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:45:04.008~798611708 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:45:04.014~804523875 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:45:04.018~808654666 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:45:04.022~812727000 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:45:09.086~876106416 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:45:09.087~877872166 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:45:09.092~882317833 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:45:09.096~886426583 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:45:09.100~890466833 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:45:14.165~955803708 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:45:14.167~956957875 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:45:14.172~961897916 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:45:14.176~966204541 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:45:14.180~970656916 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:45:19.250~39950333 GaianNodeSeeker -------> Sending msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:45:19.250~40779958 GaianNodeSeeker -------> Sent msg: REQ JFX4X76WVY 230.255.255.255, multicast group: /230.255.255.255, interfaces: [localhost/127.0.0.1, /10.64.25.241, /192.168.0.12]
+2024-01-18 11:45:19.255~45275791 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:45:19.259~49630541 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...
+2024-01-18 11:45:19.264~53909958 GaianNodeSeeker -------> Awaiting msg from network [connections sought: 2]...

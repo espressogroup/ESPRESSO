@@ -216,20 +216,24 @@ public class FileImport extends AbstractVTI implements GaianChildVTI { // Note d
 		// receive CSV file from GaianDB-Solid connector (SolidServiceCall)
 		try {
 			String originalSqlQuery = sqlQuery;
+			System.out.println(":::::"+originalSqlQuery);
+
 			if (hasGaianTable(sqlQuery)) {
 				Map<String, String> sqlData = parseGaianTableQuery(sqlQuery);
 				String tableName = sqlData.get("tableName");
 				String whereClause = sqlData.get("whereClause");
 				originalSqlQuery = String.format("select * from %s",tableName,whereClause);
+				System.out.println("????"+originalSqlQuery);
 			}
 
 			Map<String, String> origQuery = new SqlParser().getCondition(originalSqlQuery);
+
 			String sparqlQuery= new SqlParser().extractSparqlQuery(originalSqlQuery);
 
 			System.out.println(origQuery.get("tableName"));
 			System.out.println(origQuery.get("rightExpression"));
 
-			System.out.println(sparqlQuery);
+			System.out.println("+++++++"+sparqlQuery);
 
 			if ("LTSOLID".equals(origQuery.get("tableName")) || "ltsolid".equals(origQuery.get("tableName"))) {
 				new SolidServiceCall().filterData(origQuery.get("rightExpression"));

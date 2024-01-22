@@ -55,24 +55,96 @@ public class SqlParser {
      * @param sql The SQL query containing the SPARQL query as a comment.
      * @return The extracted SPARQL query or an empty string if not found.
      */
-    public String extractSparqlQuery(String sql) {
-        StringBuilder sparqlQuery = new StringBuilder();
-        String[] lines = sql.split("\n");
-        boolean inSparqlComment = false;
+//    public String extractSparqlQuery(String sql) {
+//        StringBuilder sparqlQuery = new StringBuilder();
+//        System.out.println("::::: in parser::::"+sql);
+//        String[] lines = sql.split("\n");
+//        boolean inSparqlComment = false;
+//
+//        for (String line : lines) {
+//            if (line.trim().startsWith("--")) {
+//                inSparqlComment = true;
+//                // Remove the SQL comment syntax ('--') and add the line to the SPARQL query
+//                sparqlQuery.append(line.trim().substring(2).trim()).append("\n");
+//            } else if (inSparqlComment) {
+//                // If a non-comment line is encountered after starting the SPARQL comment, stop adding lines
+//
+//                break;
+//            }
+//        }
+//
+//         System.out.println("::::: in parser 2::::"+sparqlQuery.toString().trim());
+//
+//        return sparqlQuery.toString().trim();
+//    }
+
+
+//this works fine in barista...
+//public String extractSparqlQuery(String sql) {
+//    StringBuilder sparqlQuery = new StringBuilder();
+//    System.out.println("::::: in parser::::" + sql);
+//
+//    String[] lines = sql.split("\n");
+//    boolean inSparqlComment = false;
+//
+//    for (String line : lines) {
+//        line = line.trim();
+//        // Check if the line is part of the SPARQL query
+//        if (line.startsWith("--") || inSparqlComment) {
+//            inSparqlComment = true;
+//            // Check for the start of the actual SPARQL query (excluding "SPARQL Query: --")
+//            if (line.toLowerCase().startsWith("-- sparql query:")) {
+//                continue;
+//            }
+//            // Remove the SQL comment syntax ('--') and add the line to the SPARQL query
+//            String sparqlPart = line.substring(2).trim();
+//            if (!sparqlPart.isEmpty()) {
+//                sparqlQuery.append(sparqlPart).append("\n");
+//            }
+//        } else if (inSparqlComment) {
+//            // If a non-comment line is encountered after starting the SPARQL comment, stop adding lines
+//            break;
+//        }
+//    }
+//
+//    System.out.println("::::: in parser 2::::" + sparqlQuery.toString().trim());
+//    return sparqlQuery.toString().trim();
+//}
+
+
+//works for queryderby.sh ///
+
+public String extractSparqlQuery(String sql) {
+    StringBuilder sparqlQuery = new StringBuilder();
+    System.out.println("::::: in parser::::" + sql);
+
+    // Check for the index of the SPARQL query marker
+    int sparqlStartIndex = sql.indexOf("-- SPARQL Query: --");
+    if (sparqlStartIndex != -1) {
+        // Extract the substring that contains the SPARQL query
+        String sparqlSection = sql.substring(sparqlStartIndex + "-- SPARQL Query: --".length()).trim();
+
+        // Splitting the SPARQL section into lines
+        String[] lines = sparqlSection.contains("\n") ? sparqlSection.split("\n") : new String[]{sparqlSection};
 
         for (String line : lines) {
-            if (line.trim().startsWith("--")) {
-                inSparqlComment = true;
-                // Remove the SQL comment syntax ('--') and add the line to the SPARQL query
-                sparqlQuery.append(line.trim().substring(2).trim()).append("\n");
-            } else if (inSparqlComment) {
-                // If a non-comment line is encountered after starting the SPARQL comment, stop adding lines
-                break;
+            line = line.trim();
+            if (line.startsWith("--")) {
+                line = line.substring(2).trim();
+            }
+            if (!line.isEmpty()) {
+                sparqlQuery.append(line).append("\n");
             }
         }
-
-        return sparqlQuery.toString().trim();
     }
+
+    System.out.println("::::: in parser 2:?::" + sparqlQuery.toString().trim());
+    return sparqlQuery.toString().trim();
+}
+
+
+
+
 
 
 }

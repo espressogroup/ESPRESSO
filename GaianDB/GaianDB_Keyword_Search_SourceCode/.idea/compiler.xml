@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Gaian_Maven" />
+        <module name="GaianDB_Keyword_Search_SourceCode" />
         <module name="GaianDB_Maven" />
       </profile>
     </annotationProcessing>

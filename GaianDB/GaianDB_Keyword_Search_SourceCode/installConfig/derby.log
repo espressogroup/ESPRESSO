@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Tue Jan 16 14:13:12 GMT 2024:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-018d-129e-78a8-00001c6f1750 
+Thu Jan 18 13:47:23 GMT 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-018d-1cd3-8fe2-00001c45fa18 
 on database directory /Users/ragab/EspressoProjRagabTests/GaianDB_Keyword_Search_SourceCode/installConfig/gaiandb with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/Users/ragab/.m2/repository/org/apache/derby/derby/10.10.1.1/derby-10.10.1.1.jar
 java.vendor=Amazon.com Inc.
@@ -11,10 +11,10 @@ os.arch=x86_64
 os.version=14.2.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
-Tue Jan 16 14:13:12 GMT 2024 : Apache Derby Network Server - 10.10.1.1 - (1458268) started and ready to accept connections on port 6414
-Tue Jan 16 14:13:18 GMT 2024 : Log Connections turned on.
-Tue Jan 16 14:13:18 GMT 2024 : Connection number: 7.
-Tue Jan 16 14:13:18 GMT 2024 : Max threads changed to 1000.
-Tue Jan 16 14:13:18 GMT 2024 : Connection number: 8.
-Tue Jan 16 14:13:24 GMT 2024 : Connection number: 9.
-Tue Jan 16 14:13:24 GMT 2024 Thread[DRDAConnThread_3,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {9}), Apache Derby Network Server connected to database gaiandb;mode=null
+Thu Jan 18 13:47:24 GMT 2024 : Apache Derby Network Server - 10.10.1.1 - (1458268) started and ready to accept connections on port 6414
+Thu Jan 18 13:47:29 GMT 2024 : Log Connections turned on.
+Thu Jan 18 13:47:29 GMT 2024 : Connection number: 7.
+Thu Jan 18 13:47:29 GMT 2024 : Max threads changed to 1000.
+Thu Jan 18 13:47:29 GMT 2024 : Connection number: 8.
+Thu Jan 18 13:47:38 GMT 2024 : Connection number: 9.
+Thu Jan 18 13:47:38 GMT 2024 Thread[DRDAConnThread_3,5,derby.daemons] (DATABASE = gaiandb), (DRDAID = {9}), Apache Derby Network Server connected to database gaiandb;mode=null

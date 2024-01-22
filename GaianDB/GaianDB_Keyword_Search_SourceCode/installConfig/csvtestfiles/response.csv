@@ -2322,3 +2322,173 @@
 [Query ID: JFX4X76WVY:1705415071455:7]
 [2024-01-16 14:24:33.477, Total Execution Time: , 2058]
 ------------------------------------------------------------------------
+[2024-01-16 16:18:15.393, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2024-01-16 16:18:26.785,  Start of Submit Query ]
+[2024-01-16 16:18:26.86, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/>  SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate  ?steps  WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity.   ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status.  ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps.          FILTER (STR(?surgery) = "Appendectomy")   FILTER (STR(?status) = "completed")   FILTER (STR(?surgerydate) = "20220115T120000")   FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705421906890:1]
+[2024-01-16 16:18:27.1, Total Execution Time: , 302]
+------------------------------------------------------------------------
+[2024-01-16 16:18:34.864,  Start of Submit Query ]
+[2024-01-16 16:18:34.873, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/>  SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate  ?steps  WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity.   ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status.  ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps.          FILTER (STR(?surgery) = "Appendectomy")   FILTER (STR(?status) = "completed")   FILTER (STR(?surgerydate) = "20220115T120000")   FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705421914902:2]
+[2024-01-16 16:18:37.962, Total Execution Time: , 3093]
+------------------------------------------------------------------------
+[2024-01-16 21:26:28.064,  Start of Submit Query ]
+[2024-01-16 21:26:28.878, Total Execution Time: , 802]
+------------------------------------------------------------------------
+[2024-01-18 09:29:30.44, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2024-01-18 09:30:09.097,  Start of Submit Query ]
+[2024-01-18 09:30:09.146, Incoming Query:  SELECT * FROM LTSOLID WHERE Search_Parameters =  'dsdsd' ORDER BY RELEVANCE DESC]
+[Query ID: JFX4X76WVY:1705570209148:1]
+[2024-01-18 09:30:09.392, Total Execution Time: , 285]
+------------------------------------------------------------------------
+[2024-01-18 09:30:20.716,  Start of Submit Query ]
+[2024-01-18 09:30:20.754, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/>  SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate  ?steps  WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity.   ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status.  ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps.          FILTER (STR(?surgery) = "Appendectomy")   FILTER (STR(?status) = "completed")   FILTER (STR(?surgerydate) = "20220115T120000")   FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705570220785:2]
+[2024-01-18 09:30:20.826, Total Execution Time: , 106]
+------------------------------------------------------------------------
+[2024-01-18 09:30:36.138,  Start of Submit Query ]
+[2024-01-18 09:30:36.145, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/>  SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate  ?steps  WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity.   ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status.  ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps.          FILTER (STR(?surgery) = "Appendectomy")   FILTER (STR(?status) = "completed")   FILTER (STR(?surgerydate) = "20220115T120000")   FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705570236204:3]
+[2024-01-18 09:30:36.245, Total Execution Time: , 103]
+------------------------------------------------------------------------
+[2024-01-18 09:31:53.862,  Start of Submit Query ]
+[2024-01-18 09:31:53.875, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/>  SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate  ?steps  WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity.   ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status.  ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps.          FILTER (STR(?surgery) = "Appendectomy")   FILTER (STR(?status) = "completed")   FILTER (STR(?surgerydate) = "20220115T120000")   FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705570313907:4]
+[2024-01-18 09:31:56.844, Total Execution Time: , 2974]
+------------------------------------------------------------------------
+[2024-01-18 09:33:29.857,  Start of Submit Query ]
+[2024-01-18 09:33:29.868, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/>  SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate  ?steps  WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity.   ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status.  ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps.          FILTER (STR(?surgery) = "Appendectomy")   FILTER (STR(?status) = "completed")   FILTER (STR(?surgerydate) = "20220115T120000")   FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705570409919:5]
+[2024-01-18 09:33:30.709, Total Execution Time: , 847]
+------------------------------------------------------------------------
+[2024-01-18 09:41:30.095, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: -- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705570890138:6]
+[2024-01-18 09:43:19.023, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: -- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705570999090:7]
+[2024-01-18 09:49:29.533,  Start of Submit Query ]
+[2024-01-18 09:49:30.504, Total Execution Time: , 950]
+------------------------------------------------------------------------
+[2024-01-18 11:00:39.254,  Start of Submit Query ]
+[2024-01-18 11:00:39.604, Total Execution Time: , 329]
+------------------------------------------------------------------------
+[2024-01-18 11:00:50.814,  Start of Submit Query ]
+[2024-01-18 11:00:51.052, Total Execution Time: , 233]
+------------------------------------------------------------------------
+[2024-01-18 11:02:01.392, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2024-01-18 11:02:04.861,  Start of Submit Query ]
+[2024-01-18 11:02:04.907, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705575724936:1]
+[2024-01-18 11:02:05.235, Total Execution Time: , 371]
+------------------------------------------------------------------------
+[2024-01-18 11:07:01.883, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2024-01-18 11:07:13.607,  Start of Submit Query ]
+[2024-01-18 11:07:13.678, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/>  SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate  ?steps  WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity.   ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status.  ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps.          FILTER (STR(?surgery) = "Appendectomy")   FILTER (STR(?status) = "completed")   FILTER (STR(?surgerydate) = "20220115T120000")   FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705576033705:1]
+[2024-01-18 11:07:14.073, Total Execution Time: , 450]
+------------------------------------------------------------------------
+[2024-01-18 11:09:42.407, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2024-01-18 11:09:52.504,  Start of Submit Query ]
+[2024-01-18 11:09:52.564, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705576192601:1]
+[2024-01-18 11:09:53.512, Total Execution Time: , 995]
+------------------------------------------------------------------------
+[2024-01-18 11:10:03.315,  Start of Submit Query ]
+[2024-01-18 11:10:03.365, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/>  SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate  ?steps  WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity.   ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status.  ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps.          FILTER (STR(?surgery) = "Appendectomy")   FILTER (STR(?status) = "completed")   FILTER (STR(?surgerydate) = "20220115T120000")   FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705576203406:2]
+[2024-01-18 11:10:04.403, Total Execution Time: , 1083]
+------------------------------------------------------------------------
+[2024-01-18 11:15:38.085,  Start of Submit Query ]
+[2024-01-18 11:16:09.669, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2024-01-18 11:16:34.945,  Start of Submit Query ]
+[2024-01-18 11:16:35.01, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/>  SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate  ?steps  WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity.   ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status.  ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps.          FILTER (STR(?surgery) = "Appendectomy")   FILTER (STR(?status) = "completed")   FILTER (STR(?surgerydate) = "20220115T120000")   FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705576595063:1]
+[2024-01-18 11:16:35.438, Total Execution Time: , 485]
+------------------------------------------------------------------------
+[2024-01-18 11:18:10.65,  Start of Submit Query ]
+[2024-01-18 11:18:10.7, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705576690737:2]
+[2024-01-18 11:18:10.924, Total Execution Time: , 269]
+------------------------------------------------------------------------
+[2024-01-18 11:19:33.641, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2024-01-18 11:19:41.933,  Start of Submit Query ]
+[2024-01-18 11:19:42.011, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/>  SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate  ?steps  WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity.   ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status.  ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps.          FILTER (STR(?surgery) = "Appendectomy")   FILTER (STR(?status) = "completed")   FILTER (STR(?surgerydate) = "20220115T120000")   FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705576782049:1]
+[2024-01-18 11:19:42.434, Total Execution Time: , 486]
+------------------------------------------------------------------------
+[2024-01-18 11:21:20.858, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2024-01-18 11:21:45.58,  Start of Submit Query ]
+[2024-01-18 11:21:45.632, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705576905666:1]
+[2024-01-18 11:21:46.02, Total Execution Time: , 434]
+------------------------------------------------------------------------
+[2024-01-18 11:24:12.997, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2024-01-18 11:24:24.785,  Start of Submit Query ]
+[2024-01-18 11:24:24.854, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705577064887:1]
+[2024-01-18 11:24:25.295, Total Execution Time: , 493]
+------------------------------------------------------------------------
+[2024-01-18 11:27:29.089, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2024-01-18 11:27:38.478,  Start of Submit Query ]
+[2024-01-18 11:27:38.549, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705577258590:1]
+[2024-01-18 11:27:38.985, Total Execution Time: , 492]
+------------------------------------------------------------------------
+[2024-01-18 11:27:54.868,  Start of Submit Query ]
+[2024-01-18 11:27:54.912, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/>  SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate  ?steps  WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity.   ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status.  ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps.          FILTER (STR(?surgery) = "Appendectomy")   FILTER (STR(?status) = "completed")   FILTER (STR(?surgerydate) = "20220115T120000")   FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705577274951:2]
+[2024-01-18 11:27:55.118, Total Execution Time: , 244]
+------------------------------------------------------------------------
+[2024-01-18 11:28:30.623, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2024-01-18 11:28:41.165,  Start of Submit Query ]
+[2024-01-18 11:28:41.223, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705577321259:1]
+[2024-01-18 11:28:42.414, Total Execution Time: , 1243]
+------------------------------------------------------------------------
+[2024-01-18 11:29:15.05,  Start of Submit Query ]
+[2024-01-18 11:29:15.096, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/>  SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate  ?steps  WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity.   ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status.  ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps.          FILTER (STR(?surgery) = "Appendectomy")   FILTER (STR(?status) = "completed")   FILTER (STR(?surgerydate) = "20220115T120000")   FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705577355134:2]
+[2024-01-18 11:29:15.818, Total Execution Time: , 764]
+------------------------------------------------------------------------
+[2024-01-18 11:44:14.969,  Start of Submit Query ]
+[2024-01-18 11:44:15.401, Total Execution Time: , 414]
+------------------------------------------------------------------------
+[2024-01-18 11:45:57.453, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2024-01-18 11:46:10.814,  Start of Submit Query ]
+[2024-01-18 11:46:10.86, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705578370904:1]
+[2024-01-18 11:46:11.283, Total Execution Time: , 456]
+------------------------------------------------------------------------
+[2024-01-18 13:47:38.342, Incoming Query:  SELECT gdbx_to_node local_node FROM new com.ibm.db2j.GaianTable('gdb_ltnull', 'explain') T WHERE gdbx_depth = 0]
+[2024-01-18 13:47:55.359,  Start of Submit Query ]
+[2024-01-18 13:47:55.405, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity. ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status. ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps. FILTER (STR(?surgery) = "Appendectomy") FILTER (STR(?status) = "completed") FILTER (STR(?surgerydate) = "20220115T120000") FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705585675459:1]
+[2024-01-18 13:47:56.448, Total Execution Time: , 1083]
+------------------------------------------------------------------------
+[2024-01-18 13:48:20.226,  Start of Submit Query ]
+[2024-01-18 13:48:20.278, Incoming Query:  SELECT * FROM LTSOLID_SPARQL WHERE 1=1 -- SPARQL Query: 
+-- PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX voc: <https://srv03916.soton.ac.uk:3000/combtest2/vocabulary/> PREFIX fhir: <http://hl7.org/fhir/> PREFIX ex: <https://example.org/>  SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate  ?steps  WHERE { <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasHospitalRecord ?record. <https://srv03916.soton.ac.uk:3000/combtest2/profile/card#me> voc:hasFitActivity ?activity.   ?record rdf:type voc:HospitalRecord. ?record fhir:text ?surgery. ?record fhir:subject ?patient. ?record fhir:performedDateTime ?surgerydate. ?record fhir:status ?s. ?s fhir:v ?status.  ?activity ex:creationDate ?activitydate. ?activity ex:steps ?steps.          FILTER (STR(?surgery) = "Appendectomy")   FILTER (STR(?status) = "completed")   FILTER (STR(?surgerydate) = "20220115T120000")   FILTER (STR(?activitydate) > "20220115T120000") }]
+[Query ID: JFX4X76WVY:1705585700316:2]
+[2024-01-18 13:48:21.117, Total Execution Time: , 886]
+------------------------------------------------------------------------
