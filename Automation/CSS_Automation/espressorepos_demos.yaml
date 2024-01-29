@@ -31,7 +31,7 @@
       git:
         repo: "{{ github_url }}"
         dest: "{{ project_path }}"
-        version: main
+        version: espressordf
         update: yes
         force: yes
       when: ansible_local.git_installed|default(false)
