@@ -9,18 +9,18 @@ app.listen(port, () => {
     console.log(`app listening on port ${port}`)
 })
 
-const certificate = fs.readFileSync('ca.pem');
+//const certificate = fs.readFileSync('ca.pem');
 
-const httpsAgent = new https.Agent({
-    ca: certificate,
-    rejectUnauthorized: false});
+//const httpsAgent = new https.Agent({
+//    ca: certificate,
+//    rejectUnauthorized: false});
 
-const axiosInstance = axios.create({httpsAgent});
+//const axiosInstance = axios.create({httpsAgent});
 
 async function readSources() {
     const urlArgument = process.argv[2];
     const metaIndexname=process.argv[3];
-    const response = await axiosInstance.get(`https://${urlArgument}:3000/ESPRESSO/${metaIndexname}`, { responseType: 'blob' });
+    const response = await axios.get(`https://${urlArgument}:3000/ESPRESSO/${metaIndexname}`, { responseType: 'blob' });
     const csvStr = response.data.toString();
     const result = csvStr.split("\r\n").filter(i => i.length > 0);
 
