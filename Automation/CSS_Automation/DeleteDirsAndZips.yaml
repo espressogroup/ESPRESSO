@@ -4,14 +4,41 @@
   become: yes
 
   tasks:
-    - name: Delete files matching regex
-      command: find /srv/espresso -type f -name 'exp50S50P1000F5MBbar*.zip' -exec rm -f {} +
-      args:
-        chdir: /srv/espresso
-      ignore_errors: yes
+#    - name: Delete files matching regex
+#      command: find /srv/espresso -type f -name 'exp50S50P1000F5MBbar*.zip' -exec rm -f {} +
+#      args:
+#        chdir: /srv/espresso
+#      ignore_errors: yes
 
-    - name: Delete directories matching regex
-      command: find /srv/espresso/storage -type d -name 'exp50S50P1000F5MBbar*' -exec rm -rf {} +
-      args:
-        chdir: /srv/espresso/storage
+#    - name: Delete directories matching regex 'newzipBigExppod*'
+#      command: find /srv/espresso/storage -type d -name 'newzipBigExppod*' -exec rm -rf {} +
+#      args:
+#        chdir: /srv/espresso/storage
+#      ignore_errors: yes
+#
+#    - name: Delete directories matching regex 'new50s50p100f*'
+#      command: find /srv/espresso/storage -type d -name 'new50s50p100f*' -exec rm -rf {} +
+#      args:
+#        chdir: /srv/espresso/storage
+#      ignore_errors: yes
+
+#    - name: Delete .jsp and .unknown files
+#      command: find /srv/espresso/storage -type f \( -name '*.jsp' -o -name '*.unknown' \) -exec rm -rf {} +
+#      args:
+#        chdir: /srv/espresso/storage
+#      ignore_errors: yes
+
+    - name: Find .jsp and .unknown files/directories
+      find:
+        paths: "/srv/espresso/storage"
+        patterns: "*.jsp,*.unknown"
+        use_regex: no
+        file_type: any
+      register: items_to_delete
+
+    - name: Delete found items
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      with_items: "{{ items_to_delete.files }}"
       ignore_errors: yes

@@ -9,11 +9,11 @@
         src: "/srv/espresso/E1exp{{ item }}.zip"
         dest: "/srv/espresso/storage/E1exp{{ item }}/"
         remote_src: yes
-      with_sequence: start=0 end=49
+      with_sequence: start=0 end=24
 
     - name: Unzip Indexing Files
       unarchive:
         src: "/srv/espresso/E1exp{{ item }}.index.zip"
         dest: "/srv/espresso/storage/E1exp{{ item }}/espressoindex/"
         remote_src: yes
-      with_sequence: start=0 end=49
+      with_sequence: start=0 end=24
