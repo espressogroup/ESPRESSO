@@ -3,13 +3,13 @@
   become: yes
 
   vars:
-    Search_Project_Path: "/usr/local/demos/ESPRESSO/Searcher"
-    MetaIndex: "health2metaindex.csv"
+    Search_Project_Path: "/usr/local/ESPRESSO/Searcher/NewSearch_HTTPGet_Keyword_New"
+    MetaIndex: "icwe32expmetaindex.csv"
 
   tasks:
     - name: Run server.js script
       become: true
-      shell: "node  {{ Search_Project_Path }}/espresso_keyword_searcher.js {{ ansible_host }} {{MetaIndex}}"
+      shell: "node  {{ Search_Project_Path }}/index_MergeSort_Optmized_V2.js {{ ansible_host }} {{MetaIndex}}"
       async: 3600
       poll: 0
       register: script_task
