@@ -5,3 +5,4 @@ ca.pem
 **/*.ttl
 **/*.locind
 espressetest.py
+*test.py
