@@ -1,6 +1,6 @@
-import dpop_utils
+from Automation.CSSAccess import dpop_utils
 import json, requests, urllib.parse, base64
-from rdflib import URIRef, BNode, Literal, Graph, Namespace
+from rdflib import  Graph
 
 class CSSaccess:
     """
