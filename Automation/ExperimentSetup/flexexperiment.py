@@ -218,7 +218,35 @@ class ESPRESSOexperiment:
             self.image.add((enode,self.namespace.MetaindexAddress,Literal(metaindexaddress)))
             #self.serverlist.append(snode)
         
+    def initpnode(self,pword,podname,podlabel='pod'):
+        pnode=BNode(pword)
+        self.image.add((pnode,self.namespace.Name,Literal(podname)))
+        self.image.add((pnode,self.namespace.Type,self.namespace.Pod))
+        self.image.add((pnode,self.namespace.Label,Literal(podlabel)))
+        podemail=podname+self.podemail
+        self.image.add((pnode,self.namespace.Email,Literal(podemail)))
+        return pnode
+    
+    def initfnode(self,fword,filename,filepath,filetype,filelabel='pod'):
+        fnode=BNode(fword)
+        self.image.add((fnode,self.namespace.Type,self.namespace.File))
+        self.image.add((fnode,self.namespace.LocalAddress,Literal(filepath)))
+        self.image.add((fnode,self.namespace.Filename,Literal(filename)))  
+        self.image.add((fnode,self.namespace.Filetype,Literal(filetype)))
+        self.image.add((fnode,self.namespace.Label,Literal(filelabel)))
+        return fnode
 
+    def assignpod(self,snode,pnode):
+        IDP=str(self.image.value(snode,self.namespace.Address))
+        self.image.add((snode,self.namespace.Contains,pnode))
+        podname=str(self.image.value(pnode,self.namespace.Name))
+        podaddress=IDP+podname+'/'
+        self.image.add((pnode,self.namespace.Address,Literal(podaddress)))
+        podindexaddress=podaddress+self.podindexdir
+        self.image.add((pnode,self.namespace.IndexAddress,Literal(podindexaddress)))
+        webid=podaddress+'profile/card#me'
+        self.image.add((pnode,self.namespace.WebID,Literal(webid)))
+        
     def createlogicalpods(self,numberofpods,serverdisp,serverlabel='server',podlabel='pod',zipf=0):
         #thisserverlist1=[snode for snode in self.serverlist if str(self.image.value(snode,self.namespace.Label))==serverlabel1]
         #thisserverlist2=[snode for snode in self.serverlist if str(self.image.value(snode,self.namespace.Label))==serverlabel2]
@@ -228,12 +256,13 @@ class ESPRESSOexperiment:
         for i in range(numberofpods):
             pword='P'+podlabel+str(i)
             podname=self.podname+podlabel+str(i)
-            pnode=BNode(pword)
-            self.image.add((pnode,self.namespace.Name,Literal(podname)))
-            self.image.add((pnode,self.namespace.Type,self.namespace.Pod))
-            self.image.add((pnode,self.namespace.Label,Literal(podlabel)))
-            podemail=podname+self.podemail
-            self.image.add((pnode,self.namespace.Email,Literal(podemail)))
+            #pnode=BNode(pword)
+            #self.image.add((pnode,self.namespace.Name,Literal(podname)))
+            #self.image.add((pnode,self.namespace.Label,Literal(podlabel)))
+            #self.image.add((pnode,self.namespace.Type,self.namespace.Pod))
+            #podemail=podname+self.podemail
+            #self.image.add((pnode,self.namespace.Email,Literal(podemail)))
+            pnode=self.initpnode(pword,podname,podlabel)
             pnodelist.append(pnode)
             #print((pnode1,pnode2))
 
@@ -250,14 +279,14 @@ class ESPRESSOexperiment:
                 pnode=poddist[s][p]
                 #print(poddist2[s][p],pnode)
                 podname=str(self.image.value(pnode,self.namespace.Name))
-                self.image.add((snode,self.namespace.Contains,pnode))
-                #podname=str(self.image.value(pnode,self.namespace.Name))
-                podaddress=IDP+podname+'/'
-                self.image.add((pnode,self.namespace.Address,Literal(podaddress)))
-                podindexaddress=podaddress+self.podindexdir
-                self.image.add((pnode,self.namespace.IndexAddress,Literal(podindexaddress)))
-                webid=podaddress+'profile/card#me'
-                self.image.add((pnode,self.namespace.WebID,Literal(webid)))
+                #self.image.add((snode,self.namespace.Contains,pnode))
+                #podaddress=IDP+podname+'/'
+                #self.image.add((pnode,self.namespace.Address,Literal(podaddress)))
+                #podindexaddress=podaddress+self.podindexdir
+                #self.image.add((pnode,self.namespace.IndexAddress,Literal(podindexaddress)))
+                #webid=podaddress+'profile/card#me'
+                #self.image.add((pnode,self.namespace.WebID,Literal(webid)))
+                self.assignpod(snode,pnode)
                 triplestring=''
                 self.image.add((pnode,self.namespace.TripleString,Literal(triplestring)))
 
@@ -272,20 +301,22 @@ class ESPRESSOexperiment:
         for i in range(numberofpods):
             pword1='P'+podlabel1+str(i)
             podname1=self.podname+podlabel1+str(i)
-            pnode1=BNode(pword1)
-            self.image.add((pnode1,self.namespace.Name,Literal(podname1)))
-            self.image.add((pnode1,self.namespace.Type,self.namespace.Pod))
-            self.image.add((pnode1,self.namespace.Label,Literal(podlabel1)))
-            podemail1=podname1+self.podemail
-            self.image.add((pnode1,self.namespace.Email,Literal(podemail1)))
+            pnode1=self.initpnode(pword=pword1,podname=podname1,podlabel=podlabel1)
+            #BNode(pword1)
+            #self.image.add((pnode1,self.namespace.Name,Literal(podname1)))
+            #self.image.add((pnode1,self.namespace.Type,self.namespace.Pod))
+            #self.image.add((pnode1,self.namespace.Label,Literal(podlabel1)))
+            #podemail1=podname1+self.podemail
+            #self.image.add((pnode1,self.namespace.Email,Literal(podemail1)))
             pword2='P'+podlabel2+str(i)
             podname2=self.podname+podlabel2+str(i)
-            pnode2=BNode(pword2)
-            self.image.add((pnode2,self.namespace.Name,Literal(podname2)))
-            self.image.add((pnode2,self.namespace.Type,self.namespace.Pod))
-            self.image.add((pnode2,self.namespace.Label,Literal(podlabel2)))
-            podemail2=podname2+self.podemail
-            self.image.add((pnode2,self.namespace.Email,Literal(podemail2)))
+            pnode2=self.initpnode(pword=pword2,podname=podname2,podlabel=podlabel2)
+            #BNode(pword2)
+            #self.image.add((pnode2,self.namespace.Name,Literal(podname2)))
+            #self.image.add((pnode2,self.namespace.Type,self.namespace.Pod))
+            #self.image.add((pnode2,self.namespace.Label,Literal(podlabel2)))
+            #podemail2=podname2+self.podemail
+            #self.image.add((pnode2,self.namespace.Email,Literal(podemail2)))
             ppnodelist.append((pnode1,pnode2))
             #print((pnode1,pnode2))
         poddist2=FileDistributor.normaldistribute(ppnodelist,len(thisserverlist2), serverdisp)
@@ -298,14 +329,15 @@ class ESPRESSOexperiment:
                 pnode=poddist2[s][p][1]
                 #print(poddist2[s][p],pnode)
                 podname=str(self.image.value(pnode,self.namespace.Name))
-                self.image.add((snode,self.namespace.Contains,pnode))
+                self.assignpod(snode,pnode)
+                #self.image.add((snode,self.namespace.Contains,pnode))
                 #podname=str(self.image.value(pnode,self.namespace.Name))
-                podaddress=IDP+podname+'/'
-                self.image.add((pnode,self.namespace.Address,Literal(podaddress)))
-                podindexaddress=podaddress+self.podindexdir
-                self.image.add((pnode,self.namespace.IndexAddress,Literal(podindexaddress)))
-                webid=podaddress+'profile/card#me'
-                self.image.add((pnode,self.namespace.WebID,Literal(webid)))
+                #podaddress=IDP+podname+'/'
+                #self.image.add((pnode,self.namespace.Address,Literal(podaddress)))
+                #podindexaddress=podaddress+self.podindexdir
+                #self.image.add((pnode,self.namespace.IndexAddress,Literal(podindexaddress)))
+                #webid=podaddress+'profile/card#me'
+                #self.image.add((pnode,self.namespace.WebID,Literal(webid)))
                 triplestring=''
                 self.image.add((pnode,self.namespace.TripleString,Literal(triplestring)))
 
@@ -318,14 +350,16 @@ class ESPRESSOexperiment:
                 #print(poddist1[s][p],p)
                 pnode=poddist1[s][p][0]
                 otherpnode=poddist1[s][p][1]
-                self.image.add((snode,self.namespace.Contains,pnode))
-                podname=str(self.image.value(pnode,self.namespace.Name))
-                podaddress=IDP+podname+'/'
-                self.image.add((pnode,self.namespace.Address,Literal(podaddress)))
-                podindexaddress=podaddress+self.podindexdir
-                self.image.add((pnode,self.namespace.IndexAddress,Literal(podindexaddress)))
-                webid=podaddress+'profile/card#me'
-                self.image.add((pnode,self.namespace.WebID,Literal(webid)))
+                self.assignpod(snode,pnode)
+                #self.image.add((snode,self.namespace.Contains,pnode))
+                #podaddress=IDP+podname+'/'
+                #podname=str(self.image.value(pnode,self.namespace.Name))
+                #self.image.add((pnode,self.namespace.Address,Literal(podaddress)))
+                #podindexaddress=podaddress+self.podindexdir
+                #self.image.add((pnode,self.namespace.IndexAddress,Literal(podindexaddress)))
+                #webid=podaddress+'profile/card#me'
+                #self.image.add((pnode,self.namespace.WebID,Literal(webid)))
+                webid=str(self.image.value(pnode,self.namespace.WebID))
                 otherwebid=str(self.image.value(otherpnode,self.namespace.WebID))
                 triplestring='<'+webid+'> <'+str(conpred)+'> <'+otherwebid+'>'
                 self.image.add((pnode,self.namespace.TripleString,Literal(triplestring)))
@@ -341,12 +375,13 @@ class ESPRESSOexperiment:
                 fword='F'+filelabel+str(self.filenum)
                 #n=n+1
                 self.filenum=self.filenum+1
-                fnode=BNode(fword)
-                self.image.add((fnode,self.namespace.Type,self.namespace.File))
-                self.image.add((fnode,self.namespace.LocalAddress,Literal(filepath)))
-                self.image.add((fnode,self.namespace.Filename,Literal(filename)))  
-                self.image.add((fnode,self.namespace.Filetype,Literal(filetype)))
-                self.image.add((fnode,self.namespace.Label,Literal(filelabel)))
+                fnode=self.initfnode(fword,filename,filepath,filetype,filelabel)
+                #BNode(fword)
+                #self.image.add((fnode,self.namespace.Type,self.namespace.File))
+                #self.image.add((fnode,self.namespace.LocalAddress,Literal(filepath)))
+                #self.image.add((fnode,self.namespace.Filename,Literal(filename)))  
+                #self.image.add((fnode,self.namespace.Filetype,Literal(filetype)))
+                #self.image.add((fnode,self.namespace.Label,Literal(filelabel)))
                 
                 #self.filelist.append(fnode)
                 thisfilelist.append(fnode)
@@ -375,6 +410,48 @@ class ESPRESSOexperiment:
                 self.image.add((fnode,self.namespace.TripleString,Literal(str(triplestring))))
                 if replacebool:
                     self.image.add((fnode,self.namespace.ReplaceText,Literal(podaddress)))
+
+    def paretofilestopodsfrompool(self,filetype,filelabel='file',podlabel='pod',subdir='file',predicatetopod=URIRef('http://example.org/SOLIDindex/HasFile'),replacebool=False,alpha=1):
+        thisfiletuplelist=self.filepool[filelabel]
+        
+        #n=len(self.filelist)
+        #pbar=tqdm.tqdm(total=len(thisfiletuplelist),desc='files loaded:')
+        #thisfilelist=[]
+        #for filepath,filename in thisfiletuplelist:
+        #        fword='F'+filelabel+str(self.filenum)
+        #        #n=n+1
+        #        self.filenum=self.filenum+1
+        #        fnode=self.initfnode(fword,filename,filepath,filetype,filelabel)
+        #        thisfilelist.append(fnode)
+        #        pbar.update(1)
+        #pbar.close()
+        
+        thispodlist=[pnode for pnode in self.image.subjects(self.namespace.Label,Literal(podlabel))]
+        filedist=FileDistributor.paretopluck(thisfiletuplelist,len(thispodlist),alpha)
+        pbar=tqdm.tqdm(total=len(filedist),desc='files loaded to pods:')
+        for p in range(len(filedist)):
+            pnode=thispodlist[p]
+            podaddress=str(self.image.value(pnode,self.namespace.Address))
+            webid=str(self.image.value(pnode,self.namespace.WebID))
+            for ftuple in filedist[p]:
+                fword='F'+filelabel+str(self.filenum)
+                self.filenum=self.filenum+1
+                fnode=self.initfnode(fword,ftuple[1],ftuple[0],filetype,filelabel)
+                self.image.add((pnode,self.namespace.Contains,fnode))
+                filename=str(self.image.value(fnode,self.namespace.Filename))
+                fileaddress=podaddress+subdir+'/'+filename
+                self.image.add((fnode,self.namespace.Address,Literal(fileaddress)))
+                if replacebool:
+                    self.image.add((fnode,self.namespace.ReplaceText,Literal(podaddress)))
+                if len(str(predicatetopod))>0:
+                    triplestring='<'+webid+'> <'+str(predicatetopod)+'> <'+fileaddress+'>'
+                else:
+                    triplestring=''
+                self.image.add((fnode,self.namespace.TripleString,Literal(str(triplestring))))
+                if replacebool:
+                    self.image.add((fnode,self.namespace.ReplaceText,Literal(podaddress)))
+            pbar.update(1)
+        pbar.close()
 
     def logicaldistfilestopods(self,numberoffiles,filedisp,filelabel='file',podlabel='pod',subdir='file',predicatetopod=URIRef('http://example.org/SOLIDindex/HasFile'),replacebool=False):
         #thisfilelist=[fnode for fnode in self.filelist if str(self.image.value(fnode,self.namespace.Label))==filelabel]
@@ -456,16 +533,25 @@ class ESPRESSOexperiment:
         pbar.close()
         #print(len(self.filelist),self.image.value(fnode,self.namespace.Address))
 
-
-    def imagineaclnormal(self,openperc,numofwebids,mean, disp,filelabel='file'):
+    def initanodelist(self,numberofwebids):
         anodelist=[]
 
-        for i in range(numofwebids):
+        for i in range(numberofwebids):
             aword='A'+str(i)
             anode=BNode(aword)
             webid='mailto:agent'+str(i)+'@example.org'
             self.image.add((anode,self.namespace.WebID,Literal(webid)))
+            self.image.add((anode,self.namespace.Type,self.namespace.Agent))
             anodelist.append(anode)
+        
+        return anodelist
+
+
+    def imagineaclnormal(self,openperc,mean, disp,filelabel='file'):
+        anodelist=list(self.image.subjects(self.namespace.Type,self.namespace.Agent))
+        print ('anode list has',len(anodelist))
+
+        
 
         #thisfilelist=[fnode for fnode in self.filelist if str(self.image.value(fnode,self.namespace.Label))==filelabel]
         thisfilelist=[fnode for fnode in self.image.subjects(self.namespace.Type,self.namespace.File) if str(self.image.value(fnode,self.namespace.Label))==filelabel]
@@ -494,8 +580,8 @@ class ESPRESSOexperiment:
                 self.image.add((fnode,self.namespace.AccessibleBy,anode))
             pbar.update(1)
         pbar.close()
-    
-    def imagineaclspecial(self,percs,filelabel='file'):
+
+    def initsanodelist(self,percs):
         sanodelist=[]
         for i in range(len(percs)):
             saword='SA'+str(i)
@@ -503,11 +589,17 @@ class ESPRESSOexperiment:
             webid='mailto:sagent'+str(i)+'@example.org'
             self.image.add((sanode,self.namespace.WebID,Literal(webid)))
             self.image.add((sanode,self.namespace.Power,Literal(str(percs[i]))))
+            self.image.add((sanode,self.namespace.Type,self.namespace.SAgent))
             sanodelist.append(sanode)
+
+        return sanodelist
+    
+    def imagineaclspecial(self,filelabel='file'):
+        sanodelist=list(self.image.subjects(self.namespace.Type,self.namespace.SAgent))
 
         #thisfilelist=[fnode for fnode in self.filelist if str(self.image.value(fnode,self.namespace.Label))==filelabel]
         thisfilelist=[fnode for fnode in self.image.subjects(self.namespace.Type,self.namespace.File) if str(self.image.value(fnode,self.namespace.Label))==filelabel]
-
+        print(len(thisfilelist))
         for sanode in sanodelist:
             n=floor(len(thisfilelist)*(int(self.image.value(sanode,self.namespace.Power))/100))
             chfilelist=random.sample(thisfilelist, n)
@@ -591,7 +683,12 @@ class ESPRESSOexperiment:
                     print('Creating '+podname+ ' at '+IDP,CSSaccess.podcreate(IDP,podname,email,self.password))
 
                      
-
+    def threadedpodcreate(self):
+        with concurrent.futures.ThreadPoolExecutor(max_workers=60) as executor:
+            for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):
+                IDP=str(self.image.value(snode,self.namespace.Address))
+                podlist=[str(self.image.value(pnode,self.namespace.Name)) for pnode in self.image.objects(snode,self.namespace.Contains)]
+                executor.submit(seriespodcreate,IDP,podlist,self.podemail,self.password)
                 
 
     def cleanuppod(self,snode,pnode):
@@ -982,6 +1079,18 @@ class ESPRESSOexperiment:
                 res= requests.put(targetUrl,headers=headers,data=acldefopen)
                 #res=CSSAccess.get_file(indexaddress+'.acl')
                 print(targetUrl,res)
+
+    def indexpubthreaded(self):
+        with concurrent.futures.ThreadPoolExecutor(max_workers=60) as executor:
+            
+            for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):
+                IDP=str(self.image.value(snode,self.namespace.Address))
+                print('opening indices for '+ IDP)
+                addresstemplate='/'+self.podindexdir+'.acl'
+                podlist=[str(self.image.value(pnode,self.namespace.Name)) for pnode in self.image.objects(snode,self.namespace.Contains)]
+                executor.submit(seriespub,IDP,podlist,addresstemplate,self.podemail,self.password)
+                    
+            
     
     def metaindexpub(self):
         for snode in self.image.subjects(self.namespace.Type,self.namespace.Server):
@@ -1151,3 +1260,29 @@ def loadexp(filename):
         return experiment
 
 
+def seriespodcreate(IDP,podlist,podemail,password):
+    pbar=tqdm.tqdm(total=len(podlist))
+    for podname in podlist:
+        email=podname+podemail
+        CSSaccess.podcreate(IDP,podname,email,password)
+        pbar.update(1)
+    pbar.close(1)
+
+def seriespub(IDP,podlist,addresstemplate,podemail,password):
+    pbar=tqdm.tqdm(total=len(podlist))
+    for podname in podlist:
+        USERNAME=podname+podemail
+        CSSA=CSSaccess.CSSaccess(IDP, USERNAME, password)
+        CSSA.create_authstring()
+        CSSA.create_authtoken()
+                
+                
+                    #print(acldef)
+        targetUrl=IDP+podname+addresstemplate
+                    #print(targetUrl)
+        headers={ 'content-type': 'text/turtle', 'authorization':'DPoP '+CSSA.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", CSSA.dpopKey)}
+        requests.put(targetUrl,headers=headers,data=acldefopen)
+        pbar.update(1)
+    pbar.close()
+                #res=CSSAccess.get_file(indexaddress+'.acl')
+                    #print(targetUrl,res)
