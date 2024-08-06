@@ -4,12 +4,17 @@
 
   vars:
     Search_Project_Path: "/usr/local/ESPRESSO/Searcher/NewSearch_HTTPGet_Keyword_New"
-    MetaIndex: "wwwjpartexprametaindexgood.csv"
+
 
   tasks:
+
+    - name: Set MetaIndex Variable
+      set_fact:
+        MetaIndex: "{{ 'wwwj0partexprametaindex.csv' if (inventory_hostname_short | regex_replace('cups', '') | int) <= 10 else 'wwwj1partexprametaindex.csv' if (inventory_hostname_short | regex_replace('cups', '') | int) <= 20 else 'wwwj2partexprametaindex.csv' if (inventory_hostname_short | regex_replace('cups', '') | int) <= 30 else 'wwwj3partexprametaindex.csv' if (inventory_hostname_short | regex_replace('cups', '') | int) <= 40 else 'wwwj4partexprametaindex.csv' }}"
+
     - name: Run server.js script
       become: true
-      shell: "node  {{ Search_Project_Path }}/index_MergeSort_Optmized_V3.js {{ ansible_host }} {{MetaIndex}}"
+      shell: "node  {{ Search_Project_Path }}/index_MergeSort_Optmized_V2.js {{ ansible_host }} {{MetaIndex}}"
       async: 3600
       poll: 0
       register: script_task

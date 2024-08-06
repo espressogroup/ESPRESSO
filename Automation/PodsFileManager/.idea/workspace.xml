@@ -5,7 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6d915a4-4d2c-41c8-93c8-5e8bbc5ce3d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CSS_Automation/cleansolid.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CSS_Automation/inventory-10VMpart1.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CSS_Automation/inventory-10VMpart2.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CSS_Automation/inventory-10VMpart3.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CSS_Automation/inventory-10VMpart4.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CSS_Automation/inventory-10VMpart5.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CSS_Automation/inventory-5VM_E26.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CSS_Automation/inventory-wwwjpossible.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CSS_Automation/jarsupate.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CSS_Automation/startKeywordSearcherServerswwwj.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CSS_Automation/unzipperwwwj.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSS_Automation/inventory-10VM_1.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../CSS_Automation/inventory-6VM.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSS_Automation/inventory-10VM_2.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSS_Automation/inventory-10VM_3.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSS_Automation/inventory-10VM_4.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSS_Automation/inventory-10VM_exp.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../CSS_Automation/inventory-10VM_exp.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSS_Automation/inventory-25VM_exp.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../CSS_Automation/inventory-25VM_exp.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSS_Automation/inventory-5VM_E31.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSS_Automation/inventory-single.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../CSS_Automation/inventory-single.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CSS_Automation/startKeywordSearcherServers.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../CSS_Automation/startKeywordSearcherServers.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +80,7 @@
       <updated>1700826029989</updated>
       <workItem from="1700826031105" duration="934000" />
       <workItem from="1702134834512" duration="599000" />
+      <workItem from="1710414471450" duration="161000" />
     </task>
     <servers />
   </component>

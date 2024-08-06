@@ -1,0 +1,7 @@
+---
+- name: Remove network delay
+  hosts: all
+  become: yes
+  tasks:
+    - name: Remove network delay from eth0
+      command: tc qdisc del dev eth0 root netem

@@ -1,0 +1,22 @@
+---
+- name: Install network tools and load sch_netem module
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install iproute
+      yum:
+        name: iproute
+        state: present
+
+    - name: Install tc
+      yum:
+        name: tc
+        state: present
+
+    - name: Install kernel-modules-extra
+      yum:
+        name: "kernel-modules-extra-{{ ansible_kernel }}"
+        state: present
+
+    - name: Load sch_netem module
+      command: modprobe sch_netem

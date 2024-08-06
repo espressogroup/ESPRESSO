@@ -1,0 +1,31 @@
+---
+- name: Delete specific files and directories
+  hosts: solid_servers
+  become: yes
+
+  tasks:
+    - name: Delete all .zip files in /srv/espresso
+      find:
+        paths: /srv/espresso
+        patterns: '*.zip'
+        file_type: file
+      register: zip_files_to_delete
+
+    - name: Remove the found .zip files
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      loop: "{{ zip_files_to_delete.files }}"
+
+    - name: Delete everything in /srv/espresso/storage
+      find:
+        paths: /srv/espresso/storage
+        file_type: any
+      register: storage_contents_to_delete
+
+    - name: Remove everything in /srv/espresso/storage
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      loop: "{{ storage_contents_to_delete.files }}"
+      ignore_errors: yes

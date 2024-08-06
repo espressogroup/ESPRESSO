@@ -1,0 +1,15 @@
+---
+- name: Copy jar files
+  hosts: solid_servers
+  become: true
+
+  tasks:
+    - name: Copy GaianDB_Maven-1.0-SNAPSHOT-jar-with-dependencies.jar from local to remote
+      copy:
+        src: "/Users/ragab/Desktop/ESPRESSOWWWJ/GaianDB/GaianDB_Keyword_Search_SourceCode/target/GaianDB_Maven-1.0-SNAPSHOT-jar-with-dependencies.jar"
+        dest: "/usr/local/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build/lib/GaianDB_Maven-1.0-SNAPSHOT-jar-with-dependencies.jar"
+
+    - name: Copy GaianDB_Maven-1.0-SNAPSHOT.jar from local to remote
+      copy:
+        src: "/Users/ragab/Desktop/ESPRESSOWWWJ/GaianDB/GaianDB_Keyword_Search_SourceCode/target/GaianDB_Maven-1.0-SNAPSHOT.jar"
+        dest: "/usr/local/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build/lib/GaianDB_Maven-1.0-SNAPSHOT.jar"

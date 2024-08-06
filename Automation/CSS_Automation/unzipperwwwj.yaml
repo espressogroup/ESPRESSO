@@ -1,0 +1,36 @@
+---
+- name: Unzip files in remote VMs
+  hosts: solid_servers
+  become: yes
+
+  vars:
+    source_directory: "/srv/espresso"
+    destination_directory: "/srv/espresso/storage"
+
+  tasks:
+#    - name: Find Data Zip Files
+#      find:
+#        paths: "{{ source_directory }}"
+#        patterns: "*partgood*.zip"
+#        excludes: "*index.zip"
+#      register: data_zip_files
+#
+#    - name: Unzip Data Files
+#      unarchive:
+#        src: "{{ item.path }}"
+#        dest: "{{ destination_directory }}/{{ item.path | basename | regex_replace('.zip$','') }}"
+#        remote_src: yes
+#      loop: "{{ data_zip_files.files }}"
+
+    - name: Find Index Zip Files
+      find:
+        paths: "{{ source_directory }}"
+        patterns: "wwwjindexing*index.zip"
+      register: index_zip_files
+
+    - name: Unzip Indexing Files
+      unarchive:
+        src: "{{ item.path }}"
+        dest: "{{ destination_directory }}/{{ item.path | basename | regex_replace('index.zip$','') }}/espressoindex"
+        remote_src: yes
+      loop: "{{ index_zip_files.files }}"

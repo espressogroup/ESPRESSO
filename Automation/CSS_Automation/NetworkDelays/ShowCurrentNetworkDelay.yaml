@@ -1,0 +1,12 @@
+---
+- name: Show current network delay
+  hosts: all
+  become: yes
+  tasks:
+    - name: Show tc qdisc configuration for eth0
+      command: tc qdisc show dev eth0
+      register: tc_qdisc_output
+
+    - name: Print tc qdisc output
+      debug:
+        var: tc_qdisc_output.stdout
