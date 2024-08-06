@@ -1,6 +1,6 @@
-import dpop_utils
+from Automation.CSSAccess import dpop_utils
 import json, requests, urllib.parse, base64
-
+from rdflib import  Graph
 
 class CSSaccess:
     """
@@ -129,6 +129,7 @@ acl:accessTo <'''+fileaddress+'''>;
 acl:mode acl:Read.
 '''
         #print(acldef)
+        
         headers={ 'content-type': 'text/turtle', 'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", self.dpopKey)}
         res= requests.put(targetUrl,
                headers=headers,
@@ -170,7 +171,7 @@ acl:agent c:me;
 acl:agentClass foaf:Agent;
 acl:mode acl:Control, acl:Read, acl:Write.'''
             #print('no acl')
-            print(acldef)
+            #print(acldef)
             headers={ 'content-type': 'text/turtle', 'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", self.dpopKey)}
             res= requests.put(targetUrl,
                headers=headers,
@@ -182,7 +183,7 @@ acl:mode acl:Control, acl:Read, acl:Write.'''
                headers=headers,
                 data="INSERT DATA { <#ControlReadWrite> <acl:agentClass> <foaf:Agent> }"
             )
-        return res.text
+        return res
         #curl -X PATCH -H "Content-Type: application/sparql-update" \
         #-d "INSERT DATA { <ex:s2> <ex:p2> <ex:o2> }" \
         #http://localhost:3000/myfile.ttl
@@ -211,6 +212,38 @@ acl:mode acl:Control, acl:Read, acl:Write.'''
         
         return res.text
 
+    def makeurlaccessiblelist(self, url, podaddress,webid, webidlist,openbool=False):
+        targetUrl=url+'.acl'
+        
+        acldef=returnacllist(url, podaddress, webidlist,openbool)
+            #print('no acl')
+        #print(acldef)
+        headers={ 'content-type': 'text/turtle', 'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "PUT", self.dpopKey)}
+        res= requests.put(targetUrl,
+               headers=headers,
+                data=acldef
+            )
+        return(res)
+
+    def inserttriple(self,url,triple):
+        data = self.get_file(url)
+        print(data)
+        g=Graph().parse(data=data,publicID=url)
+        g.add(triple)
+        datafixed=g.serialize()
+        print(datafixed)
+        res=self.put_url(url,datafixed,'text/turtle')
+        return(res)
+
+    def inserttriplestring(self,url,triplestring):
+        headers={ "Content-Type": "application/sparql-update",'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(url, "PATCH", self.dpopKey)}
+        data="INSERT DATA {" + triplestring+ "}"
+        res= requests.patch(url,
+               headers=headers,
+                data=data
+            )
+        return res
+
 def get_file(targetUrl):
         #targetUrl='http://localhost:3000/test1/file1.txt'
     #headers={  'authorization':'DPoP '+self.authtoken, 'DPoP': dpop_utils.create_dpop_header(targetUrl, "GET", self.dpopKey)}
@@ -235,4 +268,30 @@ def podcreate(IDP,podname,email,password):
                         },
                         timeout=5000,
                     )
-    print(res1)
+    return(res1)
+
+def returnacllist(url, podaddress, webidlist,openbool=False):
+    webidstring='<'+'>,<'.join(webidlist)+'>'
+    openstring=''
+    if openbool: 
+            openstring='acl:agentClass foaf:Agent;'
+    
+    
+    acldef2='''@prefix : <#>.
+@prefix acl: <http://www.w3.org/ns/auth/acl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix c: <'''+podaddress+'''profile/card#>.
+
+:ControlReadWrite
+a acl:Authorization;
+acl:accessTo <'''+url+'''>;
+acl:agent c:me;
+acl:mode acl:Control, acl:Read, acl:Write.
+
+:Read
+a acl:Authorization;
+acl:accessTo <'''+url+'''>;
+acl:mode acl:Read;'''+openstring+'''
+acl:agent '''+webidstring+'''.'''
+    
+    return acldef2

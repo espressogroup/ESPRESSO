@@ -1,4 +1,5 @@
-import CSSaccess, cleantext, string
+#from Automation.ExperimentSetup import CSSaccess  
+import cleantext, string
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 #from rdflib.namespace import ACL
 import concurrent.futures
@@ -71,6 +72,7 @@ def aclcrawlwebidnew(address,podaddress, CSSa):
             filetuples=filetuples+d
         elif ('.' in f.rsplit('/')[-1]) and (not f.endswith('ttl')) and (not f.endswith('.ndx')) and (not f.endswith('.file')) and (not f.endswith('.sum')) and (not f.endswith('.webid')):
             text=CSSa.get_file(f)
+            print(f)
             webidlist=getwebidlistlist(f,CSSa)
             ftrunc=f[len(podaddress):]
             filetuples.append((ftrunc,text,webidlist))
@@ -385,6 +387,8 @@ class LdpIndex:
         return id
 
     def indexwebidnewdirs(self, id, text, webidlist):
+        if len(text)==0:
+            return id
         terms=myclean(text)
             #print(terms)
         appearances_dict = dict()
@@ -453,9 +457,9 @@ def aclindextupleswebidnew(filetuples):
 
 def aclindextupleswebidnewdirs(filetuples):
     ldpindex=LdpIndex()
-    pbar=tqdm.tqdm(len(filetuples))
+    pbar=tqdm.tqdm(total=len(filetuples))
     for (id,text,webidlist) in filetuples:
-        #print('indexing '+id)
+        #print('indexing '+id + text)
         ldpindex.indexwebidnewdirs(id, text, webidlist)
         pbar.update(1)
     pbar.close()
@@ -513,56 +517,6 @@ def getacl(podpath, targetUrl, CSSA):
             break
     return res.text    
 
-
-
-
-def askindex(podindexaddress, keyword, webid):
-    begtime=time.time_ns()
-    wordaddress=podindexaddress+keyword+'.ndx'
-    webidaddress=podindexaddress+webid.translate(str.maketrans('', '', string.punctuation))+'.webid'
-    wordres=CSSaccess.get_file(wordaddress)
-    ndxtime=time.time_ns()-begtime
-    ans=dict()       
-    if wordres.ok:
-        openaccessaddress=podindexaddress+'openaccess.webid'
-        #openaccessres=CSSaccess.get_file(openaccessaddress)
-        opendic=dict()
-        openaccesstime=time.time_ns()-begtime
-        #if openaccessres.ok:
-        #    openlist=openaccessres.text.rsplit('\r\n')[:-1]
-        #    opendic={fwordfadd.rsplit(',')[0]: podadress+fwordfadd.rsplit(',')[1] for fwordfadd in openlist}
-        podaddress=podindexaddress[:-14]
-        webidaddress=podindexaddress+webid.translate(str.maketrans('', '', string.punctuation))+'.webid'
-        webidfilelist=[]
-        webidres=CSSaccess.get_file(webidaddress)
-        webidtime=time.time_ns()-begtime
-        
-        if webidres.ok:
-            webidfilelist=webidres.text.rsplit('\r\n')[:-1]
-            opendic=opendic|{fwordfadd.rsplit(',')[0]: podaddress+fwordfadd.rsplit(',')[1] for fwordfadd in webidfilelist}
-
-        wordfilelist=wordres.text.rsplit('\r\n')[:-1]
-        worddic={filefreq.rsplit(',')[0]: filefreq.rsplit(',')[1] for filefreq in wordfilelist}
-            #print(filelist)
-        accessibleset =set(worddic.keys())&(set(opendic.keys()))
-        settime=round(time.time_ns()-begtime)
-        ans=dict((opendic[k], worddic[k]) for k in accessibleset if k in worddic)
-        #for fword in accessibleset:
-        #    filepath=podindexaddress+fword+'.file'
-        #    filename=CSSaccess.get_file(filepath).text
-        #    ans[filename]=int(worddic[fword])
-        #for filefreq in wordfilelist:
-                #print(filefreq)
-        #    fword=filefreq.rsplit(',')[0]
-        #    if fword in accessiblelist:
-        #        filepath=podindexaddress+fword+'.file'
-        #        filename=CSSaccess.get_file(filepath).text
-        #        freq=filefreq.rsplit(',')[1]
-                #print(filename, freq)
-        #        ans[filename]=int(freq)
-        totaltime=(time.time_ns()-begtime)
-        print('for '+podaddress,'ndx',round(ndxtime/1000000,3),'oa',round((openaccesstime-ndxtime)/1000000,3),'webid',round((webidtime-openaccesstime)/1000000,3),'set',round((settime-webidtime)/1000000,3),'filetime',round((totaltime-settime)/1000000,3),'total',totaltime/1000000,'fetched',len(ans))
-    return ans
 
 
 

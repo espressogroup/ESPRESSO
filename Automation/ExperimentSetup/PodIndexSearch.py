@@ -1,10 +1,11 @@
-import CSSaccess, cleantext, string
+import  string
+from Automation.CSSAccess import CSSaccess
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 #from rdflib.namespace import ACL
 import concurrent.futures
 import time, tqdm
 from multiprocessing import Pool
-import Automation.ExperimentSetup.PodIndexer as PodIndexer
+import Indexer.PodIndexer as PodIndexer
 from sys import argv
 
 def askindex(podindexaddress, keyword, webid):

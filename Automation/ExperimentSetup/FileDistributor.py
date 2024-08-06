@@ -131,3 +131,11 @@ def normaldistribute(files,places,disp):
     return (res)
     
 
+def paretopluck(files,places,alpha):
+    res=[]
+    for i in range(places):
+        i=math.floor(random.paretovariate(alpha))
+        if i>len(files):
+            i=len(files)
+        res.append(random.sample(files, i))
+    return(res)

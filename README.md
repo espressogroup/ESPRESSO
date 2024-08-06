@@ -116,23 +116,17 @@ ansible-playbook -i inventory-50VM.ini  stopSearcherServers.yaml  --ask-become-p
 
 ## Experiments (Quick Start):
 
-There are three experiment setups currently ```webidexperiment```, ```webidlocalexperiment```, and ```zipexperiment```. The difference between them is how the files get to the Solid servers.
-
-```webidexperiment``` creates pods, populates them with files, crawls the pods, indexes them, and uploads the indices through the Solid interface.
+There is a unified experiment setup called ```flexexperiment```. 
+By default creates pods, populates them with files, crawls the pods, indexes them, and uploads the indices through the Solid interface.
 
 ![](./Documentation/imgs/ExperimentSetup1.png)
 
-```webidlocalexperiment``` creates pods, populates them with files, crawls the pods, creates and stores all the pod indices locally, and then uploads them.
-
-```zipexperiment``` creates pods, then for each pod creates a zip file that contains all the files in the pod and another zip file with the index, and uploads the zip files to the servers via ssh, where they need to be unzipped to pods.
-
-![](./Documentation/imgs/ExperimentSetup2.png)
 
 To create an experiment
 
 <pre>
 cd /Automation/ExperimentSetup
-[webid,webidlocal,zip]experiment podname firstserver lastserver sourcedir expsavedir numberofpods numberoffiles
+python3 flexexperiment.py podname firstserver lastserver sourcedir expsavedir numberofpods numberoffiles
 </pre>
 
 Where
@@ -150,6 +144,12 @@ Where
 ```numberofpods``` total number of pods in the experiment.
 
 ```numberoffiles``` total number of files in the experiment
+
+There are other variants that do the experiment slightly differently: onr creates pods, populates them with files, crawls the pods, creates and stores all the pod indices locally, and then uploads them.
+There is also capability for each pod to create a zip file that contains all the files in the pod and another zip file with the index, and upload the zip files to the servers via ssh, where they need to be unzipped to pods.
+
+![](./Documentation/imgs/ExperimentSetup2.png)
+
 
 ## Publications
 [WISE 2023](https://doi.org/10.1007/978-981-99-7254-8_28)

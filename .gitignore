@@ -1,7 +1,7 @@
 Datasets/
-**/__pycache__
 **/.DS_Store
 ca.pem
 **/*.ttl
 **/*.locind
 espressetest.py
+*test.py

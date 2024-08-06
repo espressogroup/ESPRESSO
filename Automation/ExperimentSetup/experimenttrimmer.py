@@ -1,4 +1,5 @@
-import Automation.ExperimentSetup.FileDistributor as FileDistributor, dpop_utils, CSSaccess, Automation.ExperimentSetup.PodIndexer as PodIndexer
+import FileDistributor
+from Automation.CSSAccess import CSSaccess
 import os,csv,re, random, shutil, requests, json, base64, urllib.parse, cleantext
 from rdflib import URIRef, BNode, Literal, Graph, Namespace
 from math import floor
@@ -64,8 +65,9 @@ serverlistglobal=['https://srv03812.soton.ac.uk:3000/',
                     ]
 
 def experimenttrimmer(podname,newmetaindexname,firstserver,lastserver,trimto,espressopodname='ESPRESSO/',espressoemail='espresso@example.com',password='12345'):
-    serverlist=serverlistglobal[firstserver:lastserver+1]
-    #serverlist=["https://srv04031.soton.ac.uk:3000/"]
+    #serverlist=serverlistglobal[firstserver:lastserver]
+    serverlist=['https://srv03955.soton.ac.uk:3000/']
+    
     for IDP in serverlist:
         metaindexaddress=IDP+espressopodname+podname+'metaindex.csv'
         print(metaindexaddress)
