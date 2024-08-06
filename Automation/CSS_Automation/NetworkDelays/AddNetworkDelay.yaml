@@ -1,0 +1,7 @@
+---
+- name: Add network delay
+  hosts: all
+  become: yes
+  tasks:
+    - name: Add network delay to eth0
+      command: tc qdisc add dev eth0 root netem delay 100ms
