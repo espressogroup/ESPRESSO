@@ -1,4 +1,4 @@
-import cleantext, string
+import cleantext, string,flexexperiment
 import concurrent.futures
 import time, tqdm,os
 from sys import argv
@@ -53,8 +53,10 @@ class WordIndex:
         """
         Process a given document, save it to the DB and update the index.
         """
-        
-        terms=set(myclean(text))
+        if len(text)>0:
+            terms=set(myclean(text))
+        else:
+            return
         #print(terms)
         
         self.f=self.f+1
@@ -67,7 +69,27 @@ class WordIndex:
     
 
     
+def keywordfinderexp(experimentfile,kfile,label='file'):
+    experiment=flexexperiment.loadexp(experimentfile)
+    #filelist=os.listdir(kdir)
+    #print(filelist)
+    index=WordIndex()
+    pbar=tqdm.tqdm(total=experiment.filenum)
+    for fnode in experiment.image.subjects(experiment.namespace.Type,experiment.namespace.File):
+        filepath=experiment.image.value(fnode,experiment.namespace.LocalAddress)
+        if str(experiment.image.value(fnode,experiment.namespace.Label))==label:
+            file = open(filepath, "r")
+            filetext=file.read()
+            file.close()
+            index.indextext(filetext)
+        pbar.update(1)
+    pbar.close()
 
+    reslist = sorted(index.index.items(), key=lambda x:x[1])
+    file = open(kfile, "w")
+    for (key,val) in reslist:
+        file.write(key+','+str(val)+'\n')
+    file.close()
 
 
 
@@ -76,12 +98,12 @@ def keywordfinder(kdir,kfile):
     #filelist=os.listdir(kdir)
     #print(filelist)
     index=WordIndex()
-    pbar=tqdm.tqdm(len(filelist))
+    pbar=tqdm.tqdm(total=len(filelist))
     for filename in filelist:
         if not filename.startswith('.'):
             filepath=os.path.join(kdir,filename)
-            file = open(filepath, "rb")
-            filetext=file.read().decode('latin1')
+            file = open(filepath, "r")
+            filetext=file.read()
             file.close()
             index.indextext(filetext)
             pbar.update(1)
@@ -96,4 +118,4 @@ def keywordfinder(kdir,kfile):
 kdir=argv[1]
 kfile=argv[2]
 
-keywordfinder(kdir,kfile)
+keywordfinderexp(kdir,kfile,label='medhist')

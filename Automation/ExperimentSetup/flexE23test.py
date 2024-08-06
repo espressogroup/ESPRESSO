@@ -1,16 +1,5 @@
-import FileDistributor
-from Automation.CSSAccess import CSSaccess
-import os,csv,re, random, shutil, requests, json, base64, urllib.parse, cleantext
-from rdflib import URIRef, BNode, Literal, Graph, Namespace
-from math import floor
-import threading
-import time, tqdm, getpass
-import concurrent.futures
-import paramiko
-from paramiko import SSHClient
-from scp import SCPClient
-from zipfile import ZipFile
-from sys import argv
+import flexexperiment
+from rdflib import URIRef
 
 serverlistglobal=['https://srv03812.soton.ac.uk:3000/',
                     'https://srv03813.soton.ac.uk:3000/',
@@ -63,39 +52,66 @@ serverlistglobal=['https://srv03812.soton.ac.uk:3000/',
                     'https://srv03954.soton.ac.uk:3000/',
                     'https://srv03955.soton.ac.uk:3000/'
                     ]
-
-def experimenttrimmer(podname,newmetaindexname,firstserver,lastserver,trimto,espressopodname='ESPRESSO/',espressoemail='espresso@example.com',password='12345'):
-    #serverlist=serverlistglobal[firstserver:lastserver]
-    serverlist=['https://srv03955.soton.ac.uk:3000/']
-    
-    for IDP in serverlist:
-        metaindexaddress=IDP+espressopodname+podname+'metaindex.csv'
-        print(metaindexaddress)
-        res=CSSaccess.get_file(metaindexaddress)
-        print(res.text)
-        podindexlist=res.text.rsplit('\r\n')[:-1]
-        samplemeta=random.sample(podindexlist, trimto)
-        metaindexdata='\r\n'.join(samplemeta)+'\r\n'
-        print(metaindexdata)
-        #for indexaddress in samplemeta:
-        #        addstring=indexaddress+'\r\n'
-        #        metaindexdata+=addstring    
-                
-        CSSAe=CSSaccess.CSSaccess(IDP, espressoemail, password)
-        a=CSSAe.create_authstring()
-        t=CSSAe.create_authtoken()
-        #print(t)
-        targeturl=IDP+espressopodname+newmetaindexname
-        print(metaindexaddress)
-
-        print(targeturl)
-        print(CSSAe.put_url(targeturl, metaindexdata, 'text/csv'))
-        CSSAe.makeurlaccessible(targeturl,newmetaindexname)
-        print(res)
-
-podname=argv[1]
-newmetaindexname=argv[2]
-firstserver=int(argv[3])
-lastserver=int(argv[4])
-trimto=int(argv[5])
-experimenttrimmer(podname,newmetaindexname,firstserver,lastserver,trimto)
+serverlist=serverlistglobal[14:15]
+print(serverlist)
+    #name of the ESPRESSO pod. ESPRESSO is default.
+espressopodname='ESPRESSO'
+    #email to register the ESPRESSO pod. espresso@example.com is default.
+espressoemail='espresso@example.com'
+    #name for the pods in the experiment the pods will be called podname0, podmane1, etc.
+podname='flexE23'
+    #name for the metaindex file.
+espressoindexfile=podname+'metaindex.csv'
+    #email to register the pod. the emails will be podname0@example.org, podname1@example.org, etc.
+podemail='@example.org'
+    #folder where the pod indices will go
+podindexdir='espressoindex/'
+    #same password for all the logins
+password='12345'
+    #local directory from where to take the files
+sourcedir='/Users/yurysavateev/ESPRESSO/ESPRESSOExperiments/10000f5MB/'
+    #total number of pods
+numberofpods=200
+    #total number of files
+    #n
+    #percs of sp.agents
+percs=[100,50]
+    #percent of openfiles
+openperc=10
+    #number of agents
+numofwebids=50
+    #on average how many webids can read a given file
+mean=10
+    #relative deviation of the previous, can be left 0
+disp=0
+    #how many files on average a webid can read
+    #initializing the experiment
+experiment=flexexperiment.ESPRESSOexperiment(espressopodname=espressopodname, espressoemail=espressoemail, podname=podname,podemail=podemail, podindexdir=podindexdir, password=password)
+#experiment.loadserverlist(serverlist)
+print('serverlist loaded',serverlist,experiment.serverlist)
+#experiment.loaddir(sourcedir)
+print('files loaded')
+#experiment.logicaldist(numberofpods,0,0)
+print('files distributed')
+#experiment.imagineaclnormal(openperc,numofwebids,mean,disp)
+#experiment.imagineaclspecial(percs)
+print('files acl imagined')
+#experiment.saveexp(podname+'exp.ttl')
+print('experiment saved')
+experiment.loadexp(podname+'exp.ttl')
+#experiment.ESPRESSOcreate()
+print('ESPRESSO checked')
+#experiment.podcreate()
+print('Pods created')
+experiment.upload()
+print('Pods populated')
+experiment.aclindexwebidnewthreaded()
+print('pods indexed')
+experiment.aclmetaindex()
+print('metaindices created')
+experiment.indexpub()
+print('indices opened')
+experiment.metaindexpub()
+print('metaindices opened')
+experiment.indexfixerwebidnew()
+print('indices checked')

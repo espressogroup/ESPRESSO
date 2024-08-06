@@ -1,9 +1,9 @@
 #from solid.solid_api import SolidAPI
 #from solid_client_credentials import SolidClientCredentialsAuth, DpopTokenProvider
-import dpop_utils
+
 import requests
 import os, json
-import CSSaccess
+from Automation.CSSAccess import CSSaccess
 import tqdm
 
 #from solid.auth import Auth
@@ -73,8 +73,8 @@ def postdirtopod (directory,pod,api):
 def uploadllistwithbar (filetuplelist,podaddress,CSSA):
     pbar=tqdm.tqdm(len(filetuplelist),desc=podaddress)
     for f,targetUrl,filetype in filetuplelist:
-            file = open(f, "rb")
-            filetext=file.read().decode('latin1')
+            file = open(f, "r")
+            filetext=file.read()
             file.close()
             res=CSSA.put_url(targetUrl, filetext, filetype)
             if not res.ok:
@@ -83,11 +83,32 @@ def uploadllistwithbar (filetuplelist,podaddress,CSSA):
             pbar.update(1)
     pbar.close()
 
+def uploadllistreplacewithbar(filetuplelist,replacetemplate,podaddress,CSSA):
+    pbar=tqdm.tqdm(total=len(filetuplelist),desc=podaddress)
+    faillist=[]
+    for f,targetUrl,filetype,substring in filetuplelist:
+            file = open(f, "r")
+            filetext=file.read()
+            file.close()
+            if len(substring)>0:
+                filetext=filetext.replace(replacetemplate,substring)
+            res=CSSA.put_url(targetUrl, filetext, filetype)
+            if not res.ok:
+                faillist.append((targetUrl,res))
+                continue
+            pbar.update(1)
+    pbar.close()
+    print('failed',len(faillist),'out of',len(filetuplelist))
+    print(faillist)
+
+
+
+
 def uploadllistaclwithbar (filetuplelist,podaddress,CSSA):
     pbar=tqdm.tqdm(len(filetuplelist),desc=podaddress)
-    for fileaddress,openfile,webidlist in filetuplelist:
+    for targetUrl,openfile,webidlist in filetuplelist:
         if openfile:
-            CSSA.makefileaccessible(podname,filename)
+            CSSA.makeurlaccessible(targetUrl,targetUrl[len(podaddress):])
         else:
             res=CSSA.adddefaultacl(targetUrl)            
         CSSA.addreadrights(targetUrl,webidlist)

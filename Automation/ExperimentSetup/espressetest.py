@@ -1,6 +1,8 @@
-import filesorter, dpop_utils, CSSaccess, brewmaster
+import FileDistributor
 #import rdfindex
-import os, re, math, random, shutil, requests, json, base64, urllib.parse, cleantext, numpy
+from Automation.CSSAccess import CSSaccess, dpop_utils
+from Indexer import PodIndexer
+import os, re, math, random, shutil, requests, json, base64, urllib.parse, cleantext
 #from solid_client_credentials import SolidClientCredentialsAuth, DpopTokenProvider
 import ssl, csv, sys
 import nltk
@@ -15,7 +17,7 @@ import string
 import time,pandas
 import multiprocessing
 from zipfile import ZipFile
-
+import numpy
 
 def main1():
     #datasource = '/Users/yurysavateev/iweb data'
@@ -30,12 +32,12 @@ def main1():
     pod=POD_ENDPOINT+podname+'/'
 
     #rdfindex.indexer(sourcedir,podname,pod,namespace)
-    distributor.postdirNSS(sourcedir,pod,IDP,USERNAME,PASSWORD)
+    FileDistributor.postdirNSS(sourcedir,pod,IDP,USERNAME,PASSWORD)
 
 def sortlocaltest():
     datasource = '../../Datasets/iweb data'
     targetdir ='../../Datasets/dir'
-    filesorter.sort_local(datasource,targetdir,5,0,60,1)
+    FileDistributor.sort_local(datasource,targetdir,5,0,60,1)
 
 def rezatest():
     #datasource = '/Users/yurysavateev/iweb data'
@@ -56,7 +58,7 @@ def rezatest():
         pod=POD_ENDPOINT+podname+'/'
 
     #rdfindex.indexer(sourcedir,podname,pod,namespace)
-    distributor.postdir(sourcedir,pod,IDP,USERNAME,PASSWORD)
+    FileDistributor.postdir(sourcedir,pod,IDP,USERNAME,PASSWORD)
 
 def putdirCSStest():
     #datasource = '/Users/yurysavateev/iweb data'
@@ -77,7 +79,7 @@ def putdirCSStest():
         pod=POD_ENDPOINT+podname+'/'
 
     #rdfindex.indexer(sourcedir,podname,pod,namespace)
-    distributor.putdirCSS(sourcedir,pod,IDP,USERNAME,PASSWORD)
+    FileDistributor.putdirCSS(sourcedir,pod,IDP,USERNAME,PASSWORD)
     
         
 def putfilelocaltest():
@@ -194,7 +196,7 @@ def putdirCSStest2():
     IDP = 'http://cups3.ecs.soton.ac.uk:3000/'
     sourcedir = '../../Datasets/babydir'
     
-    distributor.putdirCSS(sourcedir,'test',IDP,USERNAME,PASSWORD,'testindex.ttl')
+    FileDistributor.putdirCSS(sourcedir,'test',IDP,USERNAME,PASSWORD,'testindex.ttl')
     
     
 def putfileVMtest():
@@ -345,79 +347,7 @@ def loginVMtest():
     )
     print(res.text)
 
-def crawltest():
-    USERNAME = 'ys1v22@soton.ac.uk'
-    PASSWORD = '12345'
 
-    namespace="http://example.org/SOLID/"
-    reprformat='turtle'
-    
-    IDP = 'http://localhost:3000/'
-    CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
-    a=CSSA.create_authstring()
-    print(a)
-    t=CSSA.create_authtoken()
-    print(t)
-    podaddress=IDP+'test/'
-    indexname='espressoindex.ttl'
-    indexaddress=podaddress+indexname
-    
-    d=brewmaster.crawl(podaddress, CSSA,indexaddress)
-    print(d)
-    index=rdfindex.listindexer(d,namespace,reprformat)
-    indexdata=index.__repr__()
-    t=CSSA.put_file('test', indexname, indexdata, 'text/turtle')
-
-def indextest():
-    USERNAME = 'ys1v22@soton.ac.uk'
-    PASSWORD = '12345'
-
-    namespace="http://example.org/SOLID/"
-    reprformat='turtle'
-    
-    IDP = 'http://localhost:3000/'
-    datasource='/Users/yurysavateev/ESPRESSO/Archive/100FilesDuplicate'
-    podaddress=IDP+'test/'
-    indexname='espressoindex.ttl'
-    indexaddress=podaddress+indexname
-    CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
-    a=CSSA.create_authstring()
-                #print(a)
-    t=CSSA.create_authtoken()
-                #print(t)
-    #podaddress=IDP+pod+'/'
-    d=brewmaster.crawl(podaddress, CSSA)
-    files=d.keys()
-    print(files)
-    for targetUrl in files:
-        print(CSSA.delete_file(targetUrl))
-    filelist=[]
-    for filename in os.listdir(datasource):
-            f = os.path.join(datasource, filename)
-            # checking if it is a file
-            if os.path.isfile(f) and not filename.startswith('.'):
-                filelist.append(f)
-    print(filelist)
-    distributor.putlistCSS (filelist,'test',IDP,USERNAME,PASSWORD)
-    CSSA=CSSaccess.CSSaccess(IDP, USERNAME, PASSWORD)
-    a=CSSA.create_authstring()
-    print(a)
-    t=CSSA.create_authtoken()
-    print(t)
-    
-    print(CSSA.get_file(indexaddress))
-    
-    d=brewmaster.crawl(podaddress, CSSA)
-    print(d.keys())
-
-    index=rdfindex.podlistindexer(d,namespace,podaddress,reprformat)
-    indexdata=index.__repr__()
-    with open('/Users/yurysavateev/ESPRESSO/testindex.ttl', 'w') as f:
-        f.write(indexdata)
-        f.close()
-
-    #t=CSSA.put_file(pod, self.podindexname, indexdata, 'text/turtle')
-    
 
 def profiletest():
     USERNAME = 'ys1v22@soton.ac.uk'
@@ -439,7 +369,7 @@ def profiletest():
     CSSA.new_session()
     
     print(CSSA.get_file(profileaddress))
-    d=brewmaster.crawl(profileaddress, CSSA, indexaddress)
+    d=PodIndexer.crawl(profileaddress, CSSA, indexaddress)
     print(d)
 
 def sorttest():
@@ -448,7 +378,7 @@ def sorttest():
     for s in range(10):
         for p in range(100):
             listtest.append('ser/ver'+str(s)+'/pod' + str(p))
-    image=filesorter.sortimage()
+    image=FileDistributor.sortimage()
     image.loaddir(datasource)
     image.loadpodlist(listtest)
     image.sort(100,5,40)
@@ -505,7 +435,7 @@ def crawllisttest():
     indexname='espressoindex.ttl'
     indexaddress=podaddress+indexname
     
-    d=brewmaster.crawllist(podaddress, CSSA,indexaddress)
+    d=PodIndexer.crawllist(podaddress, CSSA,indexaddress)
     print(d)
     #index=rdfindex.listindexer(d,namespace,reprformat)
     #indexdata=index.__repr__()
@@ -545,7 +475,7 @@ def NSStest():
 
 def powertest():
     a=range(1000)
-    print(filesorter.powerdistribute(a, 20, 1))
+    print(FileDistributor.powerdistribute(a, 20, 1))
 
 def gettest():
     USERNAME = 'ys1v22@soton.ac.uk'
@@ -932,11 +862,11 @@ def ldpindextest():
     
     print(CSSA.get_file(indexaddress))
     
-    d=brewmaster.crawl(podaddress, CSSA)
+    d=PodIndexer.crawl(podaddress, CSSA)
     print(d.keys())
 
-    ldpindex=brewmaster.ldpindexdict(d)
-    brewmaster.uploadldpindex(ldpindex,podname,espressodir,CSSA)
+    ldpindex=PodIndexer.ldpindexdict(d)
+    PodIndexer.uploadldpindex(ldpindex,podname,espressodir,CSSA)
 
 def ldpindexopentest():
     USERNAME = 'ys1v22@soton.ac.uk'
@@ -984,15 +914,15 @@ def ldpcupstest():
     #    filetext=filedict[filename]
     #    CSSA.put_file(podname, filename, filetext, 'text/plain')
     
-    d=brewmaster.crawl(podaddress, CSSA)
+    d=PodIndexer.crawl(podaddress, CSSA)
     print(d.keys())
 
-    ldpindex=brewmaster.ldpindexdict(d)
+    ldpindex=PodIndexer.ldpindexdict(d)
     for (filename,filetext) in ldpindex.items():
         if filename.endswith('file'):
             print(filename,filetext)
             
-    brewmaster.uploadldpindex(ldpindex,podname,espressodir,CSSA)
+    PodIndexer.uploadldpindex(ldpindex,podname,espressodir,CSSA)
 
 def ldpindexacltest():
     USERNAME = 'ldptest@example.com'
@@ -1041,7 +971,7 @@ def filtertest():
     espressodir='espressoindex'
     indexaddress=podaddress+espressodir+'/'
     keyword='penis'
-    print(brewmaster.coffeefiltertest(indexaddress, keyword))
+    print(PodIndexer.coffeefiltertest(indexaddress, keyword))
 
 def ldpcupstest2():
     USERNAME = 'ldptest2@example.com'
@@ -1073,14 +1003,14 @@ def ldpcupstest2():
         filetext=filedict[filename]
         CSSA.put_file(podname, filename, filetext, 'text/plain')
     
-    d=brewmaster.crawl(podaddress, CSSA)
+    d=PodIndexer.crawl(podaddress, CSSA)
     print(d.keys())
 
-    ldpindex=brewmaster.ldpindexdict(d)
+    ldpindex=PodIndexer.ldpindexdict(d)
     for (filename,filetext) in ldpindex.items():
         #if filename.endswith('file'):
             print(filename,filetext)
-    brewmaster.uploadldpindex(ldpindex,podname,espressodir,CSSA)
+    PodIndexer.uploadldpindex(ldpindex,podname,espressodir,CSSA)
 
 def crawlindextest():
     USERNAME = 'ldptest@example.com'
@@ -1102,10 +1032,10 @@ def crawlindextest():
     #    filetext=filedict[filename]
     #    CSSA.put_file(podname, filename, filetext, 'text/plain')
     
-    d=brewmaster.crawl(podaddress, CSSA)
-    ldpindex=brewmaster.ldpindexdict(d)
+    d=PodIndexer.crawl(podaddress, CSSA)
+    ldpindex=PodIndexer.ldpindexdict(d)
     print(len(ldpindex.keys()))
-    dlist=brewmaster.crawllist(podaddress+espressodir+'/', CSSA)
+    dlist=PodIndexer.crawllist(podaddress+espressodir+'/', CSSA)
     print(len(dlist))
 
 def deletedirtest():
@@ -1157,16 +1087,6 @@ acl:agentClass foaf:Agent.'''
 
     print (CSSA.get_file(targetUrl+'.acl'))
 
-def sshindextest():
-    podnum=len(self.filedist[s])
-    ssh = paramiko.SSHClient()
-    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect(first_server, username=username, password=password)
-
-                # Run the script on the first server
-    scriptaddress='/usr/local/ESPRESSO/'
-    command = f'python "{scriptaddress}" "{IDP}" "{self.espressoindexfile}" "{self.podname}" "{podnum}" "{self.podindexdir}"'
-    stdin, stdout, stderr = ssh.exec_command(command)
 
 
 def argvtest():
@@ -1278,7 +1198,7 @@ def indexuploadtest():
 
 def normaltest():
     test = range(600)
-    a = filesorter.normaldistribute(test,60,0.2)
+    a = FileDistributor.normaldistribute(test,60,0.2)
 
 def rdftest():
     namespace=Namespace("http://example.org/SOLIDindex/")
@@ -1295,10 +1215,10 @@ def getwebidtest():
     CSSA.create_authstring()
     CSSA.create_authtoken()
     targetUrl='https://srv03911.soton.ac.uk:3000/demopod5/File219.dat'
-    webidstring=brewmaster.getwebidlist(targetUrl, CSSA)
+    webidstring=PodIndexer.getwebidlist(targetUrl, CSSA)
     print(webidstring)
     targetUrl='https://srv03911.soton.ac.uk:3000/demopod5/espressoindex/'
-    webidstring=brewmaster.getwebidlist(targetUrl, CSSA)
+    webidstring=PodIndexer.getwebidlist(targetUrl, CSSA)
     print(webidstring)
     
 def aclcrawltest():
@@ -1309,7 +1229,7 @@ def aclcrawltest():
     CSSA.create_authstring()
     CSSA.create_authtoken()
     address='http://localhost:3000/aclpod4/'
-    d=brewmaster.aclcrawl(address, CSSA)
+    d=PodIndexer.aclcrawl(address, CSSA)
     for (a,b,c) in d:
         print(a,c)
 
@@ -1414,10 +1334,10 @@ def setuptest():
     
     #print(CSSA.get_file(indexaddress))
     
-    d=brewmaster.aclcrawl(podaddress, CSSA)
+    d=PodIndexer.aclcrawl(podaddress, CSSA)
     
 
-    ldpindex=brewmaster.aclindextuples(d)
+    ldpindex=PodIndexer.aclindextuples(d)
     print(ldpindex['setup.ndx'])
     #brewmaster.uploadldpindex(ldpindex,podname,espressodir,CSSA)
 
@@ -1479,7 +1399,7 @@ def filterthreadedtest():
         metaindexaddress=IDP+'ESPRESSO/'+'webidpodmetaindex.csv'
         podindexaddress='https://srv03812.soton.ac.uk:3000/webidpod0/espressoindex/'
         begtime=time.time_ns()
-        results=brewmaster.coffeefilterthreaded(metaindexaddress, keyword, webid)
+        results=PodIndexer.coffeefilterthreaded(metaindexaddress, keyword, webid)
         endtime=time.time_ns()-begtime
         print()
         #ans=dict(sorted(results.items(), key=lambda x:x[1], reverse=True))
@@ -1487,12 +1407,12 @@ def filterthreadedtest():
         #    print(key,freq)
         #print(endtime)
         begtime1=time.time_ns()
-        checkres=brewmaster.coffeefilterunthreaded(metaindexaddress,keyword,webid)
+        checkres=PodIndexer.coffeefilterunthreaded(metaindexaddress,keyword,webid)
         #ans=dict(sorted(checkres.items(), key=lambda x:x[1], reverse=True))
         endtime1=time.time_ns()-begtime1
         print()
         begtime2=time.time_ns()
-        checkres=brewmaster.coffeefilterpooled(metaindexaddress,keyword,webid)
+        checkres=PodIndexer.coffeefilterpooled(metaindexaddress,keyword,webid)
         endtime2=time.time_ns()-begtime2
         ans=dict(sorted(checkres.items(), key=lambda x:x[1], reverse=True))
         
@@ -1638,7 +1558,7 @@ def searchapptest():
     #print(time.time_ns()-begtime)
     #print(result)        
     begtime=time.time_ns()
-    ans=brewmaster.coffeefilterunthreaded(metaindexaddress,keyword,webid)
+    ans=PodIndexer.coffeefilterunthreaded(metaindexaddress,keyword,webid)
     print(len(ans.keys()),time.time_ns()-begtime)
     i=0
     #print (ans)
@@ -1726,4 +1646,183 @@ def trimtest():
     CSSAe.makeurlaccessible(targeturl,newmetaindexname)
     print(res)
 
-trimtest()
+def LTQPtest():
+    serverlist=['https://srv03911.soton.ac.uk:3000/','https://srv03912.soton.ac.uk:3000/']
+    pnodelist=['LTQP0','LTQP1','LTQP2','LTQP3','LTQP4']
+    for IDP in serverlist:
+            register_endpoint=IDP+'idp/register/'
+            for podname in pnodelist:
+                podaddress=IDP+podname+'/'
+                
+                
+                
+                res=CSSaccess.get_file(podaddress)
+                if not res.ok:
+                    print('Creating '+podname+ ' at '+IDP)
+                    email=podname+'@example.org'
+                    password='12345'
+                    res1 = requests.post(
+                        register_endpoint,
+                        json={
+                            "createWebId": "on",
+                            "webId": "",
+                            "register": "on",
+                            "createPod": "on",
+                            "podName": podname,
+                            "email": email,
+                            "password": password,
+                            "confirmPassword": password,
+                        },
+                        timeout=5000,
+                    )
+                    print(res1)
+                else:
+                    print('Pod '+podname+ ' at '+IDP +' exists.')
+                    #self.cleanuppod(snode, pnode)
+
+
+def combtest():
+    srv1='https://srv03915.soton.ac.uk:3000/'
+    srv2='https://srv03916.soton.ac.uk:3000/'
+    srv3='https://srv03917.soton.ac.uk:3000/'
+    email1='combtest1@example.org'
+    email2='combtest2@example.org'
+    email3='combtest3@example.org'
+    password='12345'
+    pod1='https://srv03915.soton.ac.uk:3000/combtest1/'
+    pod2='https://srv03916.soton.ac.uk:3000/combtest2/'
+    pod3='https://srv03917.soton.ac.uk:3000/combtest3/'
+    files1=['health/record1.txt','health/record2.txt','health/record3.txt']
+    files2=['health/record4.txt','health/record5.txt','health/record6.txt']
+    files3=['health/record7.txt','health/record8.txt','health/record9.txt']
+    medwebid='mailto:mriwebid@example.org'
+    #CSSA1=CSSaccess.CSSaccess(srv1,email1,password)
+    #CSSA1.create_authstring()
+    #CSSA1.create_authtoken()
+    #for f in files1:
+    #    fileaddress=pod1+f
+    #    print (fileaddress)
+    #    print(CSSA1.get_file(fileaddress))
+    #    CSSA1.adddefaultacl(fileaddress)
+    #    CSSA1.addreadrights(fileaddress,[medwebid])
+    #d=PodIndexer.aclcrawlwebidnew(pod1,pod1, CSSA1)
+    #index=PodIndexer.aclindextupleswebidnewdirs(d) 
+    #PodIndexer.uploadaclindexwithbar(index,pod1+'espressoindex/',CSSA1)
+
+
+    CSSA3=CSSaccess.CSSaccess(srv3,email3,password)
+    CSSA3.create_authstring()
+    CSSA3.create_authtoken()
+   #for f in files3:
+    #    fileaddress=pod3+f
+    #    print (fileaddress)
+    #    print(CSSA3.get_file(fileaddress))
+    #    CSSA3.adddefaultacl(fileaddress)
+    #    CSSA3.addreadrights(fileaddress,[medwebid])
+    d=PodIndexer.aclcrawlwebidnew(pod3,pod3, CSSA3)
+    index=PodIndexer.aclindextupleswebidnewdirs(d) 
+    print(d)
+    PodIndexer.uploadaclindexwithbar(index,pod3+'espressoindex/',CSSA3)
+    metaindex1=srv1+'ESPRESSO/combtestmetaindex.csv'
+    metaindex2=srv2+'ESPRESSO/combtestmetaindex.csv'
+    metaindex3=srv3+'ESPRESSO/combtestmetaindex.csv'
+    metaindexdata1=pod1+'espressoindex/\r\n'
+    metaindexdata2=pod2+'espressoindex/\r\n'
+    metaindexdata3=pod3+'espressoindex/\r\n'
+    espressoemail='espresso@example.com'
+    CSSAe3=CSSaccess.CSSaccess(srv3,espressoemail,password)
+    CSSAe3.create_authstring()
+    CSSAe3.create_authtoken()
+    CSSAe3.put_url(metaindex3,metaindexdata3,'text/csv')
+    CSSAe3.makeurlaccessible(metaindex3,'combtestmetaindex.csv')
+    #CSSAe2=CSSaccess.CSSaccess(srv2,espressoemail,password)
+    #CSSAe2.create_authstring()
+    #CSSAe2.create_authtoken()
+    #CSSAe2.put_url(metaindex2,metaindexdata2,'text/csv')
+    #CSSAe2.makeurlaccessible(metaindex2,'combtestmetaindex.csv')
+
+def manremove():
+    srv1='https://srv03915.soton.ac.uk:3000/'
+    srv2='https://srv03916.soton.ac.uk:3000/'
+    srv3='https://srv03917.soton.ac.uk:3000/'
+    email1='combtest1@example.org'
+    email2='combtest2@example.org'
+    email3='combtest3@example.org'
+    password='12345'
+    pod1='https://srv03915.soton.ac.uk:3000/combtest1/'
+    pod2='https://srv03916.soton.ac.uk:3000/combtest2/'
+    pod3='https://srv03917.soton.ac.uk:3000/combtest3/'
+    targetUrl='https://srv03916.soton.ac.uk:3000/combtest2/health/newhospitaltriples.n3'
+    CSSA=CSSaccess.CSSaccess(srv2,email2,password)
+    CSSA.create_authstring()
+    CSSA.create_authtoken()
+
+def metatest():
+    target='https://srv03916.soton.ac.uk:3000/ESPRESSO/E10expoldmetaindex.csv'
+    target='https://srv03916.soton.ac.uk:3000/ESPRESSO/newzipE10podmetaindex.csv'
+    res=requests.get(target, verify=False)
+    text=res.text
+    for i in text[:100]:
+        print(i,ord(i))
+    
+    
+def cardtest():
+    srv1='https://srv03915.soton.ac.uk:3000/'
+    srv2='https://srv03916.soton.ac.uk:3000/'
+    srv3='https://srv03917.soton.ac.uk:3000/'
+    email1='combtest1@example.org'
+    email2='cardtest@example.org'
+    email3='combtest3@example.org'
+    password='12345'
+    pod1='https://srv03915.soton.ac.uk:3000/combtest1/'
+    pod2='https://srv03916.soton.ac.uk:3000/combtest2/'
+    pod3='https://srv03917.soton.ac.uk:3000/combtest3/'
+    targetUrl='https://srv03917.soton.ac.uk:3000/cardtest/health/hospitaltest.ttl'
+    f='/Users/yurysavateev/ESPRESSO/combtest1/hospitaltest.ttl'
+    file = open(f, "r")
+    filetext=file.read()
+    file.close()
+    CSSA=CSSaccess.CSSaccess(srv3,email2,password)
+    CSSA.create_authstring()
+    CSSA.create_authtoken()
+    CSSA.put_url(targetUrl,filetext,'text/turtle')
+    #da=CSSA.get_file('https://srv03917.soton.ac.uk:3000/cardtest/profile/')
+    #print(da)
+    triple=(URIRef('https://srv03917.soton.ac.uk:3000/cardtest/profile/card#me'),URIRef('http://example.org/SOLIDindex/ConnectedPod'),URIRef('https://srv03917.soton.ac.uk:3000/combtest3/profile/card#me'))
+    res=CSSA.inserttriple('https://srv03917.soton.ac.uk:3000/cardtest/profile/card',triple)
+    print('cardattepmt 1',res.text)
+    #res=CSSA.inserttriple(targetUrl,triple)
+    #print(targetUrl,res.text)
+    triplestring='<https://srv03917.soton.ac.uk:3000/cardtest/profile/card#me> <http://example.org/SOLIDindex/ConnectedPod> <https://srv03917.soton.ac.uk:3000/combtest3/profile/card#me>'
+    res=CSSA.inserttriplestring(targetUrl,triplestring)
+    print(res.text)
+
+
+def ardfhelp():
+    f='ardfhealthexp.ttl'
+    f2='ardfhealthexpfixed.ttl'
+    file = open(f, "r")
+    rawtext=file.read()
+    file.close()
+    fixedtext=rawtext.replace('FIT_Ragabola','FIT_OUTPUT')
+    file = open(f2, "w")
+    file.write(fixedtext)
+    file.close()
+
+def stringtest():
+    a='PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX ifo: <http://purl.org/ifo#> PREFIX espresso: <http://espresso.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { ?patient espresso:hasHospitalRecord ?procedure. ?procedure fhir:subject ?patientmid; fhir:code ?code; fhir:performedDateTime ?surgeryDatemid; fhir:status ?statusmid. ?code fhir:coding ?codemid. ?codemid fhir:display ?display. ?display fhir:v ?surgery. ?patientmid fhir:reference ?patient. ?statusmid fhir:v ?status. ?surgeryDatemid fhir:v ?surgerydate. OPTIONAL { ?patient espresso:haspersonalWebID ?personalWebID. ?personalWebID espresso:hasFitActivity ?activity. ?activity rdf:type ifo:Steps. ?activity ifo:hasTimeFrame ?activitydate. ?activity ifo:hasMeasure ?steps. } FILTER (STR(?surgery) = Cholecystectomy) } LIMIT 5'
+    b='PREFIX fhir: <http://hl7.org/fhir/> PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX ifo: <http://purl.org/ifo#> PREFIX espresso: <http://espresso.org/> SELECT DISTINCT ?patient ?surgery ?status ?surgerydate ?activitydate ?steps WHERE { ?patient espresso:hasHospitalRecord ?procedure. ?procedure fhir:subject ?patientmid; fhir:code ?code; fhir:performedDateTime ?surgeryDatemid; fhir:status ?statusmid. ?code fhir:coding ?codemid. ?codemid fhir:display ?display. ?display fhir:v ?surgery. ?patientmid fhir:reference ?patient. ?statusmid fhir:v ?status. ?surgeryDatemid fhir:v ?surgerydate. OPTIONAL { ?patient espresso:haspersonalWebID ?personalWebID. ?personalWebID espresso:hasFitActivity ?activity. ?activity rdf:type ifo:Steps. ?activity ifo:hasTimeFrame ?activitydate. ?activity ifo:hasMeasure ?steps. } FILTER (STR(?surgery) = Cholecystectomy) } LIMIT 5'
+    for i in range(len(a)):
+        print(a[i],ord(a[i]),b[i],ord(b[i]),a[i]==b[i])
+    print(a==b)
+
+def paretotest():
+    alpha=0.95
+    listval=[]
+    for _ in range(100):
+        listval.append(math.floor(random.paretovariate(alpha))) 
+    
+    print(listval,numpy.average(listval))
+
+
+paretotest()
