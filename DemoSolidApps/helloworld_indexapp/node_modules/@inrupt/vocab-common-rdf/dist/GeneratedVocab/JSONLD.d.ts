@@ -1,0 +1,336 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * This is a vocabulary document and is used to achieve certain features of the JSON-LD language.
+ */
+declare const JSONLD: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        jsonld: string;
+    };
+    NS: typeof _NS;
+    /**
+     * Defines term definitions and other aspects of a JSON-LD `Context`.
+  
+  A [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) MUST be a map whose keys MUST be either _terms_, _compact IRIs_, _IRIs_, or one of the keywords `@base`, `@import`, `@language`, `@propagate`, `@protected`, `@type`, `@version`, or `@vocab`.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#context-definitions
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    Context: string;
+    /**
+     * A string ([simple term definition](http://www.w3.org/TR/json-ld11/#dfn-simple-term-definitions)), expanding to an IRI.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#dfn-term-definition
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    PrefixDefinition: string;
+    /**
+     * A [term definition](http://www.w3.org/TR/json-ld11/#dfn-term-definitions) is an entry in a [context](#Context), where the key defines a term which may be used within a dictionary as a key, type, or elsewhere that a string is interpreted as a vocabulary item. Its value is an [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions).
+  
+  
+  
+  An [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definition) MUST be a map composed of zero or more keys from `@id`, `@reverse`, `@type`, `@language`, `@container`, `@context`, `@prefix`, `@propagate`, or `@protected`. An expanded term definition SHOULD NOT contain any other keys.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#dfn-term-definition
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    TermDefinition: string;
+    /**
+     * If the [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) has an `@base` key, its value MUST be an _IRI reference_, or `null`.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#context-definitions
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    base: string;
+    /**
+     * The associated `@container` value in an [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions).
+  
+  If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@container` keyword, its value MUST be either `@list`, `@set`, `@language`, `@index`, `@id`, `@graph`, `@type`, or be `null` or an array containing exactly any one of those keywords, or a combination of `@set` and any of `@index`, `@id`, `@graph`, `@type`, `@language` in any order.
+  
+  `@container` may also be an array containing `@graph` along with either `@id` or `@index` and also optionally including `@set`.
+  
+  If the value is `@language`, when the term is used outside of the `@context`, the associated value MUST be a language map.
+  
+  If the value is `@index`, when the term is used outside of the `@context`, the associated value MUST be an index map.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#expanded-term-definition
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    container: string;
+    /**
+     * As an IRI, this link relation is used to associate a JSON-LD context with a JSON document so that it can be interpreted as JSON-LD. In an HTTP request header, specifies the location of a context to use for compaction. As a Context, defines an inline `context definition`.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#interpreting-json-as-json-ld
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    context: string;
+    /**
+     * Term definition(s) associated with this context.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    definition: string;
+    /**
+     * If the [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) has an `@direction` key, its value MUST be one of `"ltr"` or `"rtl"`, or be `null`.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#context-definitions
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    direction: string;
+    /**
+     * The `@id` mapping of a [term definition](#TermDefinition).
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#expanded-term-definition
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    id: string;
+    /**
+     * If the [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) contains the `@import` keyword, its value MUST be an _IRI reference_. When used as a reference from an `@import`, the referenced context definition MUST NOT include an `@import` key, itself.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#context-definitions
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    import: string;
+    /**
+     * The [default language](https://www.w3.org/TR/json-ld11/#dfn-default-language) is set in the context using the `@language` key whose value MUST be a string representing a [BCP47](https://tools.ietf.org/html/bcp47) language code or null.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#dfn-default-language
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    language: string;
+    /**
+     * If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@nest` keyword, its value MUST be either `@nest`, or a _term_ which expands to `@nest`.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#expanded-term-definition
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    nest: string;
+    /**
+     * With the value `true`, allows this term to be used to construct a compact IRI when compacting.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#expanded-term-definition
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    prefix: string;
+    /**
+     * If the [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) contains the `@propagate` keyword, its value MUST be `true` or `false`.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#context-definitions
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    propagate: string;
+    /**
+     * If the [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) contains the `@protected` keyword, its value MUST be `true` or `false`.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#context-definitions
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    protected: string;
+    /**
+     * The `@reverse` mapping of an [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions).
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#expanded-term-definition
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    reverse: string;
+    /**
+     * The term associated with a [term definition](#TermDefinition).
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#dfn-term
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    term: string;
+    /**
+     * If the [context definition](https://www.w3.org/TR/json-ld11/#dfn-context-definition) contains the `@type` keyword, its value MUST be a map with only the entry `@container` set to `@set`, and optionally an entry `@protected`.
+  
+  
+  
+  If the [expanded term definition](https://www.w3.org/TR/json-ld11/#dfn-expanded-term-definitions) contains the `@type` keyword, its value MUST be an _IRI reference_, a _term_, `null`, or one of the keywords `@id`, `@json`, `@none`, or `@vocab`.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#context-definitions
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    type: string;
+    /**
+     * The [processing mode](https://www.w3.org/TR/json-ld11/#dfn-processing-mode) defines how a JSON-LD document is processed. By default, all documents are assumed to be conformant with [JSON-LD 1.1`](http://www.w3.org/TR/json-ld11). By defining a different version via explicit API option, other processing modes can be accessed. This specification defines extensions for the `json-ld-1.1` processing mode.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#dfn-processing-mode
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    version: string;
+    /**
+     * Used to expand properties and values in `@type` with a common prefix IRI.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#default-vocabulary
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    vocab: string;
+    /**
+     * This profile IRI is used to request or specify compacted JSON-LD document form.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#iana-considerations
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    compacted: string;
+    /**
+     * This profile URI is used to request or specify expanded JSON-LD document form.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#iana-considerations
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    expanded: string;
+    /**
+     * This profile URI is used to request or specify flattened JSON-LD document form.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#iana-considerations
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    flattened: string;
+    /**
+     * As an IRI, this link relation is used to associate a JSON-LD frame with a JSON-LD document. In an HTTP request header, specifies the location of a frame to use for framing.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#iana-considerations
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    frame: string;
+    /**
+     * This profile URI is used to request or specify framed JSON-LD document form.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#iana-considerations
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    framed: string;
+    /**
+     * This profile URI is used to request or specify streaming JSON-LD document form.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11-streaming/#streaming-profile
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/json-ld#
+     */
+    streaming: string;
+};
+export default JSONLD;

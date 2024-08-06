@@ -1,0 +1,652 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ *
+  This ontology partially describes the built-in classes and
+  properties that together form the basis of the RDF/XML syntax of OWL 2.
+  The content of this ontology is based on Tables 6.1 and 6.2
+  in Section 6.4 of the OWL 2 RDF-Based Semantics specification,
+  available at http://www.w3.org/TR/owl2-rdf-based-semantics/.
+  Please note that those tables do not include the different annotations
+  (labels, comments and rdfs:isDefinedBy links) used in this file.
+  Also note that the descriptions provided in this ontology do not
+  provide a complete and correct formal description of either the syntax
+  or the semantics of the introduced terms (please see the OWL 2
+  recommendations for the complete and normative specifications).
+  Furthermore, the information provided by this ontology may be
+  misleading if not used with care. This ontology SHOULD NOT be imported
+  into OWL ontologies. Importing this file into an OWL 2 DL ontology
+  will cause it to become an OWL 2 Full ontology and may have other,
+  unexpected, consequences.
+   
+ */
+declare const OWL: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        owl: string;
+    };
+    NS: typeof _NS;
+    /**
+     * The class of ontologies.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    Ontology: string;
+    /**
+     * The class of ontology properties.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    OntologyProperty: string;
+    /**
+     * The class of annotation properties.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    AnnotationProperty: string;
+    /**
+     * The class of collections of pairwise different individuals.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    AllDifferent: string;
+    /**
+     * The class of collections of pairwise disjoint classes.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    AllDisjointClasses: string;
+    /**
+     * The class of collections of pairwise disjoint properties.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    AllDisjointProperties: string;
+    /**
+     * The class of annotated annotations for which the RDF serialization consists of an annotated subject, predicate and object.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    Annotation: string;
+    /**
+     * The class of asymmetric properties.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    AsymmetricProperty: string;
+    /**
+     * The class of object properties.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    ObjectProperty: string;
+    /**
+     * The class of annotated axioms for which the RDF serialization consists of an annotated subject, predicate and object.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    Axiom: string;
+    /**
+     * The class of OWL classes.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    Class: string;
+    /**
+     * The class of OWL data ranges, which are special kinds of datatypes. Note: The use of the IRI owl:DataRange has been deprecated as of OWL 2. The IRI rdfs:Datatype SHOULD be used instead.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    DataRange: string;
+    /**
+     * The class of data properties.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    DatatypeProperty: string;
+    /**
+     * The class of deprecated classes.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    DeprecatedClass: string;
+    /**
+     * The class of deprecated properties.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    DeprecatedProperty: string;
+    /**
+     * The class of functional properties.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    FunctionalProperty: string;
+    /**
+     * The class of inverse-functional properties.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    InverseFunctionalProperty: string;
+    /**
+     * The class of irreflexive properties.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    IrreflexiveProperty: string;
+    /**
+     * The class of named individuals.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    NamedIndividual: string;
+    /**
+     * The class of OWL individuals.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    Thing: string;
+    /**
+     * The class of negative property assertions.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    NegativePropertyAssertion: string;
+    /**
+     * This is the empty class.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    Nothing: string;
+    /**
+     * The class of reflexive properties.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    ReflexiveProperty: string;
+    /**
+     * The class of property restrictions.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    Restriction: string;
+    /**
+     * The class of symmetric properties.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    SymmetricProperty: string;
+    /**
+     * The class of transitive properties.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    TransitiveProperty: string;
+    /**
+     * The annotation property that provides version information for an ontology or another OWL construct.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    versionInfo: string;
+    /**
+     * The property that determines the class that a universal property restriction refers to.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    allValuesFrom: string;
+    /**
+     * The property that determines the predicate of an annotated axiom or annotated annotation.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    annotatedProperty: string;
+    /**
+     * The property that determines the subject of an annotated axiom or annotated annotation.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    annotatedSource: string;
+    /**
+     * The property that determines the object of an annotated axiom or annotated annotation.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    annotatedTarget: string;
+    /**
+     * The property that determines the predicate of a negative property assertion.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    assertionProperty: string;
+    /**
+     * The annotation property that indicates that a given ontology is backward compatible with another ontology.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    backwardCompatibleWith: string;
+    /**
+     * The data property that does not relate any individual to any data value.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    bottomDataProperty: string;
+    /**
+     * The object property that does not relate any two individuals.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    bottomObjectProperty: string;
+    /**
+     * The property that determines the cardinality of an exact cardinality restriction.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    cardinality: string;
+    /**
+     * The property that determines that a given class is the complement of another class.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    complementOf: string;
+    /**
+     * The property that determines that a given data range is the complement of another data range with respect to the data domain.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    datatypeComplementOf: string;
+    /**
+     * The annotation property that indicates that a given entity has been deprecated.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    deprecated: string;
+    /**
+     * The property that determines that two given individuals are different.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    differentFrom: string;
+    /**
+     * The property that determines that a given class is equivalent to the disjoint union of a collection of other classes.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    disjointUnionOf: string;
+    /**
+     * The property that determines that two given classes are disjoint.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    disjointWith: string;
+    /**
+     * The property that determines the collection of pairwise different individuals in a owl:AllDifferent axiom.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    distinctMembers: string;
+    /**
+     * The property that determines that two given classes are equivalent, and that is used to specify datatype definitions.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    equivalentClass: string;
+    /**
+     * The property that determines that two given properties are equivalent.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    equivalentProperty: string;
+    /**
+     * The property that determines the collection of properties that jointly build a key.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    hasKey: string;
+    /**
+     * The property that determines the property that a self restriction refers to.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    hasSelf: string;
+    /**
+     * The property that determines the individual that a has-value restriction refers to.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    hasValue: string;
+    /**
+     * The annotation property that indicates that a given ontology is incompatible with another ontology.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    incompatibleWith: string;
+    /**
+     * The property that determines the collection of classes or data ranges that build an intersection.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    intersectionOf: string;
+    /**
+     * The property that determines that two given properties are inverse.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    inverseOf: string;
+    /**
+     * The property that determines the cardinality of a maximum cardinality restriction.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    maxCardinality: string;
+    /**
+     * The property that determines the cardinality of a maximum qualified cardinality restriction.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    maxQualifiedCardinality: string;
+    /**
+     * The property that determines the collection of members in either a owl:AllDifferent, owl:AllDisjointClasses or owl:AllDisjointProperties axiom.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    members: string;
+    /**
+     * The property that determines the cardinality of a minimum cardinality restriction.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    minCardinality: string;
+    /**
+     * The property that determines the cardinality of a minimum qualified cardinality restriction.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    minQualifiedCardinality: string;
+    /**
+     * The property that determines the class that a qualified object cardinality restriction refers to.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    onClass: string;
+    /**
+     * The property that determines the data range that a qualified data cardinality restriction refers to.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    onDataRange: string;
+    /**
+     * The property that determines the datatype that a datatype restriction refers to.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    onDatatype: string;
+    /**
+     * The property that determines the collection of individuals or data values that build an enumeration.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    oneOf: string;
+    /**
+     * The property that determines the n-tuple of properties that a property restriction on an n-ary data range refers to.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    onProperties: string;
+    /**
+     * The property that determines the property that a property restriction refers to.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    onProperty: string;
+    /**
+     * The annotation property that indicates the predecessor ontology of a given ontology.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    priorVersion: string;
+    /**
+     * The property that determines the n-tuple of properties that build a sub property chain of a given property.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    propertyChainAxiom: string;
+    /**
+     * The property that determines that two given properties are disjoint.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    propertyDisjointWith: string;
+    /**
+     * The property that determines the cardinality of an exact qualified cardinality restriction.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    qualifiedCardinality: string;
+    /**
+     * The property that determines that two given individuals are equal.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    sameAs: string;
+    /**
+     * The property that determines the class that an existential property restriction refers to.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    someValuesFrom: string;
+    /**
+     * The property that determines the subject of a negative property assertion.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    sourceIndividual: string;
+    /**
+     * The property that determines the object of a negative object property assertion.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    targetIndividual: string;
+    /**
+     * The property that determines the value of a negative data property assertion.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    targetValue: string;
+    /**
+     * The data property that relates every individual to every data value.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    topDataProperty: string;
+    /**
+     * The object property that relates every two individuals.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    topObjectProperty: string;
+    /**
+     * The property that determines the collection of classes or data ranges that build a union.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    unionOf: string;
+    /**
+     * The property that determines the collection of facet-value pairs that define a datatype restriction.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2002/07/owl#
+     */
+    withRestrictions: string;
+};
+export default OWL;

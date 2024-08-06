@@ -1,0 +1,232 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * [Generator provided] - RDF (Resource Description Framework) - a framework for representing information in the Web
+ */
+declare const RDF: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        rdf: string;
+    };
+    NS: typeof _NS;
+    /**
+     * The class of RDF properties.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    Property: string;
+    /**
+     * The datatype of RDF literals storing fragments of HTML content
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * See also:
+     *  - http://www.w3.org/TR/rdf11-concepts/#section-html
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    HTML: string;
+    /**
+     * The datatype of language-tagged string values
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * See also:
+     *  - http://www.w3.org/TR/rdf11-concepts/#section-Graph-Literal
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    langString: string;
+    /**
+     * The class of plain (i.e. untyped) literal values, as used in RIF and OWL 2
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * See also:
+     *  - http://www.w3.org/TR/rdf-plain-literal/
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    PlainLiteral: string;
+    /**
+     * The class of RDF statements.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    Statement: string;
+    /**
+     * The class of unordered containers.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    Bag: string;
+    /**
+     * The class of ordered containers.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    Seq: string;
+    /**
+     * The class of containers of alternatives.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    Alt: string;
+    /**
+     * The class of RDF Lists.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    List: string;
+    /**
+     * The datatype of XML literal values.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    XMLLiteral: string;
+    /**
+     * The datatype of RDF literals storing JSON content.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#the-rdf-json-datatype
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    JSON: string;
+    /**
+     * A class representing a compound literal.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#the-rdf-compoundliteral-class-and-the-rdf-language-and-rdf-direction-properties
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    CompoundLiteral: string;
+    /**
+     * The subject is an instance of a class.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    type: string;
+    /**
+     * The subject of the subject RDF statement.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    subject: string;
+    /**
+     * The predicate of the subject RDF statement.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    predicate: string;
+    /**
+     * The object of the subject RDF statement.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    object: string;
+    /**
+     * Idiomatic property used for structured values.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    value: string;
+    /**
+     * The empty list, with no items in it. If the rest of a list is nil then the list has no more items in it.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    nil: string;
+    /**
+     * The first item in the subject RDF list.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    first: string;
+    /**
+     * The rest of the subject RDF list after the first item.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    rest: string;
+    /**
+     * The language component of a CompoundLiteral.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#the-rdf-compoundliteral-class-and-the-rdf-language-and-rdf-direction-properties
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    language: string;
+    /**
+     * The base direction component of a CompoundLiteral.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * See also:
+     *  - https://www.w3.org/TR/json-ld11/#the-rdf-compoundliteral-class-and-the-rdf-language-and-rdf-direction-properties
+     *
+     * Defined by the vocabulary: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+     */
+    direction: string;
+};
+export default RDF;

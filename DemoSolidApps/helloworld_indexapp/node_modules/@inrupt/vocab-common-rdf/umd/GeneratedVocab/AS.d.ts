@@ -1,0 +1,779 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * Extended Activity Streams 2.0 Vocabulary
+ */
+declare const AS: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        as: string;
+    };
+    NS: typeof _NS;
+    /**
+     * An Object representing some form of Action that has been taken
+     *
+     * This term provides descriptions only in English.
+     */
+    Activity: string;
+    /**
+     * Object
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Object: string;
+    /**
+     * Represents a qualified reference to another resource. Patterned after the RFC5988 Web Linking Model
+     *
+     * This term provides descriptions only in English.
+     */
+    Link: string;
+    /**
+     * A rdf:List variant for Objects and Links
+     *
+     * This term provides descriptions only in English.
+     */
+    OrderedItems: string;
+    /**
+     * An ordered or unordered collection of Objects or Links
+     *
+     * This term provides descriptions only in English.
+     */
+    Collection: string;
+    /**
+     * A subset of items from a Collection
+     *
+     * This term provides descriptions only in English.
+     */
+    CollectionPage: string;
+    /**
+     * An Image file
+     *
+     * This term provides descriptions only in English.
+     */
+    Image: string;
+    /**
+     * Represents a digital document/file of any sort
+     *
+     * This term provides descriptions only in English.
+     */
+    Document: string;
+    /**
+     * Represents a Social Graph relationship between two Individuals (indicated by the 'a' and 'b' properties)
+     *
+     * This term provides descriptions only in English.
+     */
+    Relationship: string;
+    /**
+     * A question of any sort.
+     *
+     * This term provides descriptions only in English.
+     */
+    Question: string;
+    /**
+     * An Activity that has no direct object
+     *
+     * This term provides descriptions only in English.
+     */
+    IntransitiveActivity: string;
+    /**
+     * A Profile Document
+     *
+     * This term provides descriptions only in English.
+     */
+    Profile: string;
+    /**
+     * A placeholder for a deleted object
+     *
+     * This term provides descriptions only in English.
+     */
+    Tombstone: string;
+    /**
+     * A physical or logical location
+     *
+     * This term provides descriptions only in English.
+     */
+    Place: string;
+    /**
+     * An ordered subset of items from an OrderedCollection
+     *
+     * This term provides descriptions only in English.
+     */
+    OrderedCollectionPage: string;
+    /**
+     * A variation of Collection in which items are strictly ordered
+     *
+     * This term provides descriptions only in English.
+     */
+    OrderedCollection: string;
+    /**
+     * Actor accepts the Object
+     *
+     * This term provides descriptions only in English.
+     */
+    Accept: string;
+    /**
+     * Block
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Block: string;
+    /**
+     * Actor is ignoring the Object
+     *
+     * This term provides descriptions only in English.
+     */
+    Ignore: string;
+    /**
+     * To Add an Object or Link to Something
+     *
+     * This term provides descriptions only in English.
+     */
+    Add: string;
+    /**
+     * Actor announces the object to the target
+     *
+     * This term provides descriptions only in English.
+     */
+    Announce: string;
+    /**
+     * Represents a software application of any sort
+     *
+     * This term provides descriptions only in English.
+     */
+    Application: string;
+    /**
+     * To Arrive Somewhere (can be used, for instance, to indicate that a particular entity is currently located somewhere, e.g. a "check-in")
+     *
+     * This term provides descriptions only in English.
+     */
+    Arrive: string;
+    /**
+     * A written work. Typically several paragraphs long. For example, a blog post or a news article.
+     *
+     * This term provides descriptions only in English.
+     */
+    Article: string;
+    /**
+     * An audio file
+     *
+     * This term provides descriptions only in English.
+     */
+    Audio: string;
+    /**
+     * To Create Something
+     *
+     * This term provides descriptions only in English.
+     */
+    Create: string;
+    /**
+     * To Delete Something
+     *
+     * This term provides descriptions only in English.
+     */
+    Delete: string;
+    /**
+     * The actor dislikes the object
+     *
+     * This term provides descriptions only in English.
+     */
+    Dislike: string;
+    /**
+     * An Event of any kind
+     *
+     * This term provides descriptions only in English.
+     */
+    Event: string;
+    /**
+     * To flag something (e.g. flag as inappropriate, flag as spam, etc)
+     *
+     * This term provides descriptions only in English.
+     */
+    Flag: string;
+    /**
+     * To Express Interest in Something
+     *
+     * This term provides descriptions only in English.
+     */
+    Follow: string;
+    /**
+     * A Group of any kind.
+     *
+     * This term provides descriptions only in English.
+     */
+    Group: string;
+    /**
+     * To invite someone or something to something
+     *
+     * This term provides descriptions only in English.
+     */
+    Invite: string;
+    /**
+     * To Offer something to someone or something
+     *
+     * This term provides descriptions only in English.
+     */
+    Offer: string;
+    /**
+     * To Join Something
+     *
+     * This term provides descriptions only in English.
+     */
+    Join: string;
+    /**
+     * To Leave Something
+     *
+     * This term provides descriptions only in English.
+     */
+    Leave: string;
+    /**
+     * To Like Something
+     *
+     * This term provides descriptions only in English.
+     */
+    Like: string;
+    /**
+     * The actor viewed the object
+     *
+     * This term provides descriptions only in English.
+     */
+    View: string;
+    /**
+     * The actor listened to the object
+     *
+     * This term provides descriptions only in English.
+     */
+    Listen: string;
+    /**
+     * The actor read the object
+     *
+     * This term provides descriptions only in English.
+     */
+    Read: string;
+    /**
+     * The actor is moving the object. The target specifies where the object is moving to. The origin specifies where the object is moving from.
+     *
+     * The term has a description only in English, with [1] label in the language [en], but [1] comment in the language [NoLocale] (so the difference is only between English and NoLocale, which we consider the same).
+     */
+    Move: string;
+    /**
+     * The actor is traveling to the target. The origin specifies where the actor is traveling from.
+     *
+     * The term has a description only in English, with [1] label in the language [en], but [1] comment in the language [NoLocale] (so the difference is only between English and NoLocale, which we consider the same).
+     */
+    Travel: string;
+    /**
+     * A specialized Link that represents an @mention
+     *
+     * This term provides descriptions only in English.
+     */
+    Mention: string;
+    /**
+     * A Short note, typically less than a single paragraph. A "tweet" is an example, or a "status update"
+     *
+     * This term provides descriptions only in English.
+     */
+    Note: string;
+    /**
+     * A Web Page
+     *
+     * This term provides descriptions only in English.
+     */
+    Page: string;
+    /**
+     * A Person
+     *
+     * This term provides descriptions only in English.
+     */
+    Person: string;
+    /**
+     * An Organization
+     *
+     * This term provides descriptions only in English.
+     */
+    Organization: string;
+    /**
+     * Actor rejects the Object
+     *
+     * This term provides descriptions only in English.
+     */
+    Reject: string;
+    /**
+     * To Remove Something
+     *
+     * This term provides descriptions only in English.
+     */
+    Remove: string;
+    /**
+     * A service provided by some entity
+     *
+     * This term provides descriptions only in English.
+     */
+    Service: string;
+    /**
+     * Actor tentatively accepts the Object
+     *
+     * This term provides descriptions only in English.
+     */
+    TentativeAccept: string;
+    /**
+     * Actor tentatively rejects the object
+     *
+     * This term provides descriptions only in English.
+     */
+    TentativeReject: string;
+    /**
+     * To Undo Something. This would typically be used to indicate that a previous Activity has been undone.
+     *
+     * This term provides descriptions only in English.
+     */
+    Undo: string;
+    /**
+     * To Update/Modify Something
+     *
+     * This term provides descriptions only in English.
+     */
+    Update: string;
+    /**
+     * A Video document of any kind.
+     *
+     * This term provides descriptions only in English.
+     */
+    Video: string;
+    /**
+     * Subproperty of as:attributedTo that identifies the primary actor
+     *
+     * This term provides descriptions only in English.
+     */
+    actor: string;
+    /**
+     * Identifies an entity to which an object is attributed
+     *
+     * This term provides descriptions only in English.
+     */
+    attributedTo: string;
+    /**
+     * attachment
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    attachment: string;
+    /**
+     * attachments
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    attachments: string;
+    /**
+     * Identifies the author of an object. Deprecated. Use as:attributedTo instead
+     *
+     * This term provides descriptions only in English.
+     */
+    author: string;
+    /**
+     * bcc
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    bcc: string;
+    /**
+     * bto
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    bto: string;
+    /**
+     * cc
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    cc: string;
+    /**
+     * Specifies the context within which an object exists or an activity was performed
+     *
+     * This term provides descriptions only in English.
+     */
+    context: string;
+    /**
+     * current
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    current: string;
+    /**
+     * first
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    first: string;
+    /**
+     * generator
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    generator: string;
+    /**
+     * icon
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    icon: string;
+    /**
+     * image
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    image: string;
+    /**
+     * inReplyTo
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    inReplyTo: string;
+    /**
+     * items
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    items: string;
+    /**
+     * last
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    last: string;
+    /**
+     * location
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    location: string;
+    /**
+     * next
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    next: string;
+    /**
+     * object
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    object: string;
+    /**
+     * Describes a possible exclusive answer or option for a question.
+     *
+     * This term provides descriptions only in English.
+     */
+    oneOf: string;
+    /**
+     * Describes a possible inclusive answer or option for a question.
+     *
+     * This term provides descriptions only in English.
+     */
+    anyOf: string;
+    /**
+     * prev
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    prev: string;
+    /**
+     * preview
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    preview: string;
+    /**
+     * provider
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    provider: string;
+    /**
+     * replies
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    replies: string;
+    /**
+     * result
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    result: string;
+    /**
+     * audience
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    audience: string;
+    /**
+     * partOf
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    partOf: string;
+    /**
+     * tag
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    tag: string;
+    /**
+     * tags
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    tags: string;
+    /**
+     * target
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    target: string;
+    /**
+     * For certain activities, specifies the entity from which the action is directed.
+     *
+     * This term provides descriptions only in English.
+     */
+    origin: string;
+    /**
+     * Indentifies an object used (or to be used) to complete an activity
+     *
+     * This term provides descriptions only in English.
+     */
+    instrument: string;
+    /**
+     * to
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    to: string;
+    /**
+     * Specifies a link to a specific representation of the Object
+     *
+     * This term provides descriptions only in English.
+     */
+    url: string;
+    /**
+     * On a Relationship object, identifies the subject. e.g. when saying "John is connected to Sally", 'subject' refers to 'John'
+     *
+     * This term provides descriptions only in English.
+     */
+    subject: string;
+    /**
+     * On a Relationship object, describes the type of relationship
+     *
+     * This term provides descriptions only in English.
+     */
+    relationship: string;
+    /**
+     * On a Profile object, describes the object described by the profile
+     *
+     * This term provides descriptions only in English.
+     */
+    describes: string;
+    /**
+     * On a Tombstone object, describes the former type of the deleted object
+     *
+     * This term provides descriptions only in English.
+     */
+    formerType: string;
+    /**
+     * Specifies the accuracy around the point established by the longitude and latitude
+     *
+     * This term provides descriptions only in English.
+     */
+    accuracy: string;
+    /**
+     * The altitude of a place
+     *
+     * This term provides descriptions only in English.
+     */
+    altitude: string;
+    /**
+     * The content of the object.
+     *
+     * This term provides descriptions only in English.
+     */
+    content: string;
+    /**
+     * name
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    name: string;
+    /**
+     * downstreamDuplicates
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    downstreamDuplicates: string;
+    /**
+     * The duration of the object
+     *
+     * This term provides descriptions only in English.
+     */
+    duration: string;
+    /**
+     * The ending time of the object
+     *
+     * This term provides descriptions only in English.
+     */
+    endTime: string;
+    /**
+     * The display height expressed as device independent pixels
+     *
+     * This term provides descriptions only in English.
+     */
+    height: string;
+    /**
+     * The target URI of the Link
+     *
+     * This term provides descriptions only in English.
+     */
+    href: string;
+    /**
+     * A hint about the language of the referenced resource
+     *
+     * This term provides descriptions only in English.
+     */
+    hreflang: string;
+    /**
+     * id
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    id: string;
+    /**
+     * The latitude
+     *
+     * This term provides descriptions only in English.
+     */
+    latitude: string;
+    /**
+     * The longitude
+     *
+     * This term provides descriptions only in English.
+     */
+    longitude: string;
+    /**
+     * The MIME Media Type
+     *
+     * This term provides descriptions only in English.
+     */
+    mediaType: string;
+    /**
+     * objectType
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    objectType: string;
+    /**
+     * Specifies the date and time the object was published
+     *
+     * This term provides descriptions only in English.
+     */
+    published: string;
+    /**
+     * Specifies a radius around the point established by the longitude and latitude
+     *
+     * This term provides descriptions only in English.
+     */
+    radius: string;
+    /**
+     * A numeric rating (>= 0.0, <= 5.0) for the object
+     *
+     * This term provides descriptions only in English.
+     */
+    rating: string;
+    /**
+     * The RFC 5988 or HTML5 Link Relation associated with the Link
+     *
+     * This term provides descriptions only in English.
+     */
+    rel: string;
+    /**
+     * In a strictly ordered logical collection, specifies the index position of the first item in the items list
+     *
+     * This term provides descriptions only in English.
+     */
+    startIndex: string;
+    /**
+     * The starting time of the object
+     *
+     * This term provides descriptions only in English.
+     */
+    startTime: string;
+    /**
+     * A short summary of the object
+     *
+     * This term provides descriptions only in English.
+     */
+    summary: string;
+    /**
+     * The total number of items in a logical collection
+     *
+     * This term provides descriptions only in English.
+     */
+    totalItems: string;
+    /**
+     * Identifies the unit of measurement used by the radius, altitude and accuracy properties. The value can be expressed either as one of a set of predefined units or as a well-known common URI that identifies units.
+     *
+     * This term provides descriptions only in English.
+     */
+    units: string;
+    /**
+     * Specifies when the object was last updated
+     *
+     * This term provides descriptions only in English.
+     */
+    updated: string;
+    /**
+     * upstreamDuplicates
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    upstreamDuplicates: string;
+    /**
+     * verb
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    verb: string;
+    /**
+     * Specifies the preferred display width of the content, expressed in terms of device independent pixels.
+     *
+     * This term provides descriptions only in English.
+     */
+    width: string;
+    /**
+     * Specifies the date and time the object was deleted
+     *
+     * This term provides descriptions only in English.
+     */
+    deleted: string;
+};
+export default AS;

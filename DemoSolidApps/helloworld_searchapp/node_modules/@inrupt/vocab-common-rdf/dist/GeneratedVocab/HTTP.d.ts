@@ -1,0 +1,305 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * A namespace for describing HTTP messages (http://www.w3.org/Protocols/rfc2616/rfc2616.html)
+ */
+declare const HTTP: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        http: string;
+    };
+    NS: typeof _NS;
+    /**
+     * A connection used for HTTP transfer.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    Connection: string;
+    /**
+     * An entity header in an HTTP message.
+     *
+     * This term provides descriptions only in English.
+     */
+    EntityHeader: string;
+    /**
+     * A header in an HTTP message.
+     *
+     * This term provides descriptions only in English.
+     */
+    MessageHeader: string;
+    /**
+     * A general header in an HTTP message.
+     *
+     * This term provides descriptions only in English.
+     */
+    GeneralHeader: string;
+    /**
+     * A part of a deconstructed header value.
+     *
+     * This term provides descriptions only in English.
+     */
+    HeaderElement: string;
+    /**
+     * A header name.
+     *
+     * This term provides descriptions only in English.
+     */
+    HeaderName: string;
+    /**
+     * An HTTP message.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    Message: string;
+    /**
+     * The HTTP method used for the request.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    Method: string;
+    /**
+     * A parameter for a part of a header value.
+     *
+     * This term provides descriptions only in English.
+     */
+    Parameter: string;
+    /**
+     * An HTTP request.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    Request: string;
+    /**
+     * A header in an HTTP request message.
+     *
+     * This term provides descriptions only in English.
+     */
+    RequestHeader: string;
+    /**
+     * An HTTP response.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    Response: string;
+    /**
+     * A header in an HTTP response message.
+     *
+     * This term provides descriptions only in English.
+     */
+    ResponseHeader: string;
+    /**
+     * The status code of an HTTP response.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    StatusCode: string;
+    /**
+     * The absolute request URI.
+     *
+     * This term provides descriptions only in English.
+     */
+    absoluteURI: string;
+    /**
+     * The request URI of an HTTP request.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    requestURI: string;
+    /**
+     * The absolute path sort of request URI.
+     *
+     * This term provides descriptions only in English.
+     */
+    absolutePath: string;
+    /**
+     * The authority sort of request URI.
+     *
+     * This term provides descriptions only in English.
+     */
+    authority: string;
+    /**
+     * The entity body of an HTTP message.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    body: string;
+    /**
+     * The authority of a connection used for the HTTP transfer.
+     *
+     * This term provides descriptions only in English.
+     */
+    connectionAuthority: string;
+    /**
+     * The name of a header element.
+     *
+     * This term provides descriptions only in English.
+     */
+    elementName: string;
+    /**
+     * The value of a header element.
+     *
+     * This term provides descriptions only in English.
+     */
+    elementValue: string;
+    /**
+     * The name of an HTTP header field.
+     *
+     * This term provides descriptions only in English.
+     */
+    fieldName: string;
+    /**
+     * The value of an HTTP header field.
+     *
+     * This term provides descriptions only in English.
+     */
+    fieldValue: string;
+    /**
+     * The deconstructed parts of an HTTP header value.
+     *
+     * This term provides descriptions only in English.
+     */
+    headerElements: string;
+    /**
+     * The name of an HTTP header.
+     *
+     * This term provides descriptions only in English.
+     */
+    hdrName: string;
+    /**
+     * The headers in an HTTP message.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    headers: string;
+    /**
+     * The HTTP version of an HTTP message.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    httpVersion: string;
+    /**
+     * The HTTP method used for the HTTP request.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    mthd: string;
+    /**
+     * The HTTP method name used for the HTTP request.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    methodName: string;
+    /**
+     * The name of a parameter in a part of a deconstructed HTTP header value.
+     *
+     * This term provides descriptions only in English.
+     */
+    paramName: string;
+    /**
+     * The parameters in a part of a deconstructed HTTP header value.
+     *
+     * This term provides descriptions only in English.
+     */
+    params: string;
+    /**
+     * The value of a parameter in a part of a deconstructed HTTP header value.
+     *
+     * This term provides descriptions only in English.
+     */
+    paramValue: string;
+    /**
+     * The reason phrase (status text) of an HTTP response.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    reasonPhrase: string;
+    /**
+     * The HTTP requests made via a connection.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    requests: string;
+    /**
+     * The HTTP response sent in answer to an HTTP request.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    resp: string;
+    /**
+     * The status code of an HTTP response.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    sc: string;
+    /**
+     * The status code number.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    statusCodeNumber: string;
+    /**
+     * The status code value of an HTTP response.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.ietf.org/rfc/rfc2616.txt
+     */
+    statusCodeValue: string;
+};
+export default HTTP;

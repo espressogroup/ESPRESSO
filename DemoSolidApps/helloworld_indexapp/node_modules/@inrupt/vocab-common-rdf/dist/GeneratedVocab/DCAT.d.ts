@@ -1,0 +1,290 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * DCAT is an RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web. By using DCAT to describe datasets in data catalogs, publishers increase discoverability and enable applications easily to consume metadata from multiple catalogs. It further enables decentralized publishing of catalogs and facilitates federated dataset search across sites. Aggregated DCAT metadata can serve as a manifest file to facilitate digital preservation. DCAT is defined at http://www.w3.org/TR/vocab-dcat/. Any variance between that normative document and this schema is an error in this schema.
+ */
+declare const DCAT: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        dcat: string;
+    };
+    NS: typeof _NS;
+    /**
+     * A curated collection of metadata about resources (e.g., datasets and data services in the context of a data catalog).
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    Catalog: string;
+    /**
+     * A collection of data, published or curated by a single source, and available for access or download in one or more representations.
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    Dataset: string;
+    /**
+     * Resource published or curated by a single agent.
+     *
+     * This term has [5] labels and comments, in the languages [cs, da, en, es, it].
+     */
+    Resource: string;
+    /**
+     * A record in a data catalog, describing the registration of a single dataset or data service.
+     *
+     * This term provides multilingual descriptions, but has a mismatch between its labels and comments, with [9] labels in languages [ar, cs, da, el, en, es, fr, it, ja], but [8] comments in languages [cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    CatalogRecord: string;
+    /**
+     * A site or end-point providing operations related to the discovery of, access to, or processing functions on, data or related resources.
+     *
+     * This term provides multilingual descriptions, but has a mismatch between its labels and comments, with [4] labels in languages [da, en, es, it], but [5] comments in languages [cs, da, en, es, it].
+     */
+    DataService: string;
+    /**
+     * A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above).
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    Distribution: string;
+    /**
+     * An association class for attaching additional information to a relationship between DCAT Resources.
+     *
+     * This term has [5] labels and comments, in the languages [cs, da, en, es, it].
+     */
+    Relationship: string;
+    /**
+     * A role is the function of a resource or agent with respect to another resource, in the context of resource attribution or resource relationships.
+     *
+     * This term has [5] labels and comments, in the languages [cs, da, en, es, it].
+     *
+     * See also:
+     *  - http://www.w3.org/ns/dcat#hadRole
+     */
+    Role: string;
+    /**
+     * The function of an entity or agent with respect to another entity or resource.
+     *
+     * This term provides multilingual descriptions, but has a mismatch between its labels and comments, with [4] labels in languages [cs, da, en, it], but [5] comments in languages [cs, da, en, es, it].
+     */
+    hadRole: string;
+    /**
+     * A site or end-point that gives access to the distribution of the dataset.
+     *
+     * This term has [5] labels and comments, in the languages [cs, da, en, es, it].
+     */
+    accessService: string;
+    /**
+     * A URL of a resource that gives access to a distribution of the dataset. E.g. landing page, feed, SPARQL endpoint. Use for all cases except a simple download link, in which case downloadURL is preferred.
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    accessURL: string;
+    /**
+     * The root location or primary endpoint of the service (a web-resolvable IRI).
+     *
+     * This term has [5] labels and comments, in the languages [cs, da, en, es, it].
+     */
+    endpointURL: string;
+    /**
+     * The geographic bounding box of a resource.
+     *
+     * This term has [5] labels (in languages [cs, da, en, es, it]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    bbox: string;
+    /**
+     * The size of a distribution in bytes.
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    byteSize: string;
+    /**
+     * A catalog whose contents are of interest in the context of this catalog.
+     *
+     * This term has [5] labels and comments, in the languages [cs, da, en, es, it].
+     */
+    catalog: string;
+    /**
+     * The geographic center (centroid) of a resource.
+     *
+     * This term has [5] labels (in languages [cs, da, en, es, it]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    centroid: string;
+    /**
+     * The compression format of the distribution in which the data is contained in a compressed form, e.g. to reduce the size of the downloadable file.
+     *
+     * This term has [5] labels and comments, in the languages [cs, da, en, es, it].
+     *
+     * Defined by the vocabulary: https://www.w3.org/TR/vocab-dcat-2/
+     */
+    compressFormat: string;
+    /**
+     * Relevant contact information for the catalogued resource. Use of vCard is recommended.
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    contactPoint: string;
+    /**
+     * A collection of data that is listed in the catalog.
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    dataset: string;
+    /**
+     * An available distribution of the dataset.
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    distribution: string;
+    /**
+     * The URL of the downloadable file in a given format. E.g. CSV file or RDF file. The format is indicated by the distribution's dct:format and/or dcat:mediaType.
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    downloadURL: string;
+    /**
+     * The end of the period.
+     *
+     * This term has [5] labels (in languages [cs, da, en, es, it]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    endDate: string;
+    /**
+     * A description of the service end-point, including its operations, parameters etc.
+     *
+     * This term has [5] labels and comments, in the languages [cs, da, en, es, it].
+     */
+    endpointDescription: string;
+    /**
+     * A keyword or tag describing a resource.
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    keyword: string;
+    /**
+     * A Web page that can be navigated to in a Web browser to gain access to the catalog, a dataset, its distributions and/or additional information.
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    landingPage: string;
+    /**
+     * The media type of the distribution as defined by IANA
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    mediaType: string;
+    /**
+     * The package format of the distribution in which one or more data files are grouped together, e.g. to enable a set of related files to be downloaded together.
+     *
+     * This term has [5] labels and comments, in the languages [cs, da, en, es, it].
+     *
+     * Defined by the vocabulary: https://www.w3.org/TR/vocab-dcat-2/
+     */
+    packageFormat: string;
+    /**
+     * Link to a description of a relationship with another resource.
+     *
+     * This term has [5] labels and comments, in the languages [cs, da, en, es, it].
+     */
+    qualifiedRelation: string;
+    /**
+     * A record describing the registration of a single dataset or data service that is part of the catalog.
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    record: string;
+    /**
+     * A collection of data that this DataService can distribute.
+     *
+     * This term has [5] labels and comments, in the languages [cs, da, en, es, it].
+     */
+    servesDataset: string;
+    /**
+     * A site or endpoint that is listed in the catalog.
+     *
+     * This term has [5] labels and comments, in the languages [cs, da, en, es, it].
+     */
+    service: string;
+    /**
+     * minimum spatial separation resolvable in a dataset, measured in meters.
+     *
+     * This term has [6] labels and comments, in the languages [cs, da, en-GB, en-US, es, it].
+     */
+    spatialResolutionInMeters: string;
+    /**
+     * The start of the period
+     *
+     * This term has [4] labels (in languages [cs, da, en, it]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    startDate: string;
+    /**
+     * minimum time period resolvable in a dataset.
+     *
+     * This term has [5] labels and comments, in the languages [cs, da, en, es, it].
+     */
+    temporalResolution: string;
+    /**
+     * A main category of the resource. A resource can have multiple themes.
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    theme: string;
+    /**
+     * The knowledge organization system (KOS) used to classify catalog's datasets.
+     *
+     * This term has [9] labels and comments, in the languages [ar, cs, da, el, en, es, fr, it, ja].
+     *
+     * Defined by the vocabulary: http://www.w3.org/TR/vocab-dcat/
+     */
+    themeTaxonomy: string;
+};
+export default DCAT;

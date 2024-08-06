@@ -1,0 +1,411 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * Inrupt extension to Schema.org terms providing
+ multilingual alternative names (i.e., labels) and translations for comments
+ (e.g., for use directly as labels or tool-tips in user interfaces or error
+ messages). This extension very deliberately cherry-picks the individual terms
+ from Schema.org that Inrupt currently deem generally useful for Solid and Solid
+ applications (meaning we can provide a much cleaner, less noisy and smaller
+ bundle size when generating programming language artifacts that provide
+ convenient constants for just these selected terms, rather than including the
+ over 2,500 terms currently defined in Schema.org).
+ */
+declare const SCHEMA_INRUPT: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        "schema-inrupt": string;
+    };
+    NS: typeof _NS;
+    /**
+     * An organization such as a school, NGO, corporation, club, etc.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    Organization: string;
+    /**
+     * A person (alive, dead, undead, or fictional).
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    Person: string;
+    /**
+     * An image file.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    ImageObject: string;
+    /**
+     * Data type: URL.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    URL: string;
+    /**
+     * Any medical intervention designed to prevent, treat, and cure human diseases and medical conditions, including both curative and palliative therapies. Medical therapies are typically processes of care relying upon pharmacotherapy, behavioral therapy, supportive therapy (with fluid or nutrition for example), or detoxification (e.g. hemodialysis) aimed at improving or preventing a health condition.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    MedicalTherapy: string;
+    /**
+     * An educational or occupational credential. A diploma, academic degree, certification, qualification, badge, etc., that may be awarded to a person or other entity that meets the requirements defined by the credentialer.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    EducationalOccupationalCredential: string;
+    /**
+     * The mailing address.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    PostalAddress: string;
+    /**
+     * Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online.
+     *
+     * This term has [5] labels and comments, in the languages [NoLocale, de, es, fr, it].
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    Product: string;
+    /**
+     * An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the [[offers]] property. Repeated events may be structured as separate Event objects.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    Event: string;
+    /**
+     * An alias for the item.
+     *
+     * This term has [6] labels and comments, in the languages [NoLocale, de, en, es, fr, it].
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    alternateName: string;
+    /**
+     * Given name. In the U.S., the first name of a Person.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    givenName: string;
+    /**
+     * Family name. In the U.S., the last name of a Person.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    familyName: string;
+    /**
+     * An additional name for a Person, can be used for a middle name.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    additionalName: string;
+    /**
+     * A license document that applies to this content, typically indicated by URL.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    license: string;
+    /**
+     * The name of the item.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    name: string;
+    /**
+     * The textual content of this CreativeWork.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    text: string;
+    /**
+     * The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.
+          
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * See also:
+     *  - https://schema.org/docs/datamodel.html#identifierBg
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    identifier: string;
+    /**
+     * A description of the item.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    description: string;
+    /**
+     * An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * See also:
+     *  - https://schema.org/ImageObject
+     *  - https://schema.org/URL
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    image: string;
+    /**
+     * URL of the item.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    url: string;
+    /**
+     * The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from *January* to December. For media, including audio and video, it's the time offset of the start of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    startTime: string;
+    /**
+     * The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to *December*. For media, including audio and video, it's the time offset of the end of a clip within a larger file.\n\nNote that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    endTime: string;
+    /**
+     * The start date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    startDate: string;
+    /**
+     * The end date and time of the item (in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601)).
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    endDate: string;
+    /**
+     * Email address.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    email: string;
+    /**
+     * A preventative therapy used to prevent an initial occurrence of the medical condition, such as vaccination.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    primaryPrevention: string;
+    /**
+     * Specific qualifications required for this role or Occupation.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    qualifications: string;
+    /**
+     * A person or organization attending the event.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    attendee: string;
+    /**
+     * Physical address of the item.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    address: string;
+    /**
+     * The street address. For example, 1600 Amphitheatre Pkwy.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    streetAddress: string;
+    /**
+     * The locality in which the street address is, and which is in the region. For example, Mountain View.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    addressLocality: string;
+    /**
+     * The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country)
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    addressRegion: string;
+    /**
+     * The postal code. For example, 94043.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    postalCode: string;
+    /**
+     * The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1).
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    addressCountry: string;
+    /**
+     * Password, PIN, or access code needed for delivery (e.g. from a locker).
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    accessCode: string;
+    /**
+     * The identifier for the account the payment will be applied to.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    accountId: string;
+    /**
+     * The serial number or any alphanumeric identifier of a particular product. When attached to an offer, it is a shortcut for the serial number of the product included in the offer.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    serialNumber: string;
+    /**
+     * The product identifier, such as ISBN. For example: ``` meta itemprop="productID" content="isbn:123-456-789" ```.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    productID: string;
+    /**
+     * The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    brand: string;
+    /**
+     * The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    model: string;
+    /**
+     * The value of the quantitative value or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is 'Number'.\n* For [[PropertyValue]], it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'.\n* Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.\n* Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    value: string;
+    /**
+     * The distance travelled, e.g. exercising or travelling.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    distance: string;
+    /**
+     * The latitude of a location. For example ```37.42242``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    latitude: string;
+    /**
+     * The longitude of a location. For example ```-122.08585``` ([WGS 84](https://en.wikipedia.org/wiki/World_Geodetic_System)).
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    longitude: string;
+    /**
+     * The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.
+     *
+     * This term provides multilingual descriptions, with [6] labels in languages [NoLocale, de, en, es, fr, it], but [5] comments in languages [NoLocale, de, es, fr, it] (so the difference is only between English and NoLocale, which we consider the same).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/schema#
+     */
+    dateModified: string;
+};
+export default SCHEMA_INRUPT;

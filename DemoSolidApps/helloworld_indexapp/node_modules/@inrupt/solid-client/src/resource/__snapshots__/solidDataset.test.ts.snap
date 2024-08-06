@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getSolidDataset returns a SolidDataset representing the fetched Turtle 1`] = `
+{
+  "graphs": {
+    "default": {
+      "https://arbitrary.pod/resource": {
+        "predicates": {
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": {
+            "namedNodes": [
+              "http://xmlns.com/foaf/0.1/PersonalProfileDocument",
+            ],
+          },
+          "http://xmlns.com/foaf/0.1/maker": {
+            "namedNodes": [
+              "https://arbitrary.pod/resource#me",
+            ],
+          },
+          "http://xmlns.com/foaf/0.1/primaryTopic": {
+            "namedNodes": [
+              "https://arbitrary.pod/resource#me",
+            ],
+          },
+        },
+        "type": "Subject",
+        "url": "https://arbitrary.pod/resource",
+      },
+      "https://arbitrary.pod/resource#me": {
+        "predicates": {
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": {
+            "namedNodes": [
+              "http://xmlns.com/foaf/0.1/Person",
+            ],
+          },
+          "http://www.w3.org/2006/vcard/ns#fn": {
+            "literals": {
+              "http://www.w3.org/2001/XMLSchema#string": [
+                "Vincent",
+              ],
+            },
+          },
+        },
+        "type": "Subject",
+        "url": "https://arbitrary.pod/resource#me",
+      },
+    },
+  },
+  "internal_resourceInfo": {
+    "contentLocation": undefined,
+    "contentType": "text/turtle",
+    "isRawData": false,
+    "linkedResources": {},
+    "location": undefined,
+    "sourceIri": "https://arbitrary.pod/resource",
+  },
+  "type": "Dataset",
+}
+`;
+
+exports[`getWellKnownSolid returns the contents of .well-known/solid for the given resource (1.1) 1`] = `
+{
+  "graphs": {
+    "default": {
+      "_:b0": {
+        "predicates": {
+          "http://inrupt.com/ns/ess#consentIssuer": {
+            "namedNodes": [
+              "https://consent.pod.inrupt.com",
+            ],
+          },
+          "http://inrupt.com/ns/ess#notificationGatewayEndpoint": {
+            "namedNodes": [
+              "https://notification.pod.inrupt.com",
+            ],
+          },
+          "http://inrupt.com/ns/ess#powerSwitchEndpoint": {
+            "namedNodes": [
+              "https://pod.inrupt.com/powerswitch/username",
+            ],
+          },
+          "http://www.w3.org/ns/pim/space#storage": {
+            "namedNodes": [
+              "https://pod.inrupt.com/username/",
+            ],
+          },
+        },
+        "type": "Subject",
+        "url": "_:b0",
+      },
+    },
+  },
+  "internal_resourceInfo": {
+    "contentLocation": undefined,
+    "contentType": "application/ld+json",
+    "isRawData": false,
+    "linkedResources": {},
+    "location": undefined,
+    "sourceIri": "https://example.org/pod/.well-known/solid",
+  },
+  "type": "Dataset",
+}
+`;
+
+exports[`getWellKnownSolid returns the contents of .well-known/solid for the given resource (2.0) 1`] = `
+{
+  "graphs": {
+    "default": {
+      "_:n3-2007": {
+        "predicates": {
+          "http://www.w3.org/1999/02/22-rdf-syntax-ns#type": {
+            "namedNodes": [
+              "http://www.w3.org/ns/solid/terms#DiscoveryDocument",
+            ],
+          },
+          "http://www.w3.org/ns/auth/acl#trustedApp": {
+            "namedNodes": [
+              "https://podbrowser.inrupt.com/api/app",
+            ],
+          },
+          "http://www.w3.org/ns/solid/terms#maxPodsPerOwner": {
+            "literals": {
+              "http://www.w3.org/2001/XMLSchema#integer": [
+                "10",
+              ],
+            },
+          },
+          "http://www.w3.org/ns/solid/terms#notificationGateway": {
+            "namedNodes": [
+              "https://notification.inrupt.com/",
+            ],
+          },
+          "http://www.w3.org/ns/solid/terms#provision": {
+            "namedNodes": [
+              "https://provision.inrupt.com/",
+            ],
+          },
+          "http://www.w3.org/ns/solid/terms#validatesRdfSources": {
+            "literals": {
+              "http://www.w3.org/2001/XMLSchema#boolean": [
+                "true",
+              ],
+            },
+          },
+        },
+        "type": "Subject",
+        "url": "_:n3-2007",
+      },
+    },
+  },
+  "internal_resourceInfo": {
+    "contentLocation": undefined,
+    "contentType": "text/turtle",
+    "isRawData": false,
+    "linkedResources": {},
+    "location": undefined,
+    "sourceIri": "",
+  },
+  "type": "Dataset",
+}
+`;

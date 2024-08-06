@@ -1,0 +1,57 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * This ontology allows for the description of representations of Internet resources.
+
+Representations may conform to prof:Profile instances and may have the format of a particular dct:MediaType.
+ */
+declare const ALTR: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        altr: string;
+    };
+    NS: typeof _NS;
+    /**
+     * An abstraction of the current or desired state of a thing in HTTP communications.
+     *
+     * This term has a label (in language [NoLocale]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/dx/connegp/altp
+     */
+    Representation: string;
+    /**
+     * Indicates a Representation of a Resource.
+     *
+     * This term has a label (in language [NoLocale]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    hasRepresentation: string;
+    /**
+     * Indicates the default Representation of a Resource.
+     *
+     * This term has a label (in language [NoLocale]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    hasDefaultRepresentation: string;
+};
+export default ALTR;

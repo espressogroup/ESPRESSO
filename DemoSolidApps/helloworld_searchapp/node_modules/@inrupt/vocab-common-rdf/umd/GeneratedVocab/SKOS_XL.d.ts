@@ -1,0 +1,92 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * An RDF vocabulary extending SKOS and allowing the description and linking of lexical entities.
+ */
+declare const SKOS_XL: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        "skos-xl": string;
+    };
+    NS: typeof _NS;
+    /**
+     * A special class of lexical entities.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2008/05/skos-xl
+     */
+    Label: string;
+    /**
+     * If two instances of the class skosxl:Label have the same literal form, they are not necessarily the same resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2008/05/skos-xl
+     */
+    literalForm: string;
+    /**
+     * If C skosxl:prefLabel L and L skosxl:literalForm V, then X skos:prefLabel V.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://www.w3.org/2004/02/skos/core#prefLabel
+     *
+     * Defined by the vocabulary: http://www.w3.org/2008/05/skos-xl
+     */
+    prefLabel: string;
+    /**
+     * If C skosxl:altLabel L and L skosxl:literalForm V, then X skos:altLabel V.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://www.w3.org/2004/02/skos/core#altLabel
+     *
+     * Defined by the vocabulary: http://www.w3.org/2008/05/skos-xl
+     */
+    altLabel: string;
+    /**
+     * If C skosxl:hiddenLabel L and L skosxl:literalForm V, then C skos:hiddenLabel V.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://www.w3.org/2004/02/skos/core#hiddenLabel
+     *
+     * Defined by the vocabulary: http://www.w3.org/2008/05/skos-xl
+     */
+    hiddenLabel: string;
+    /**
+     * The property skosxl:labelRelation is used for representing binary ('direct') relations between instances of the class skosxl:Label.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2008/05/skos-xl
+     */
+    labelRelation: string;
+};
+export default SKOS_XL;

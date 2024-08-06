@@ -1,0 +1,64 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * This vocabulary is a one deemed to contain all HTTP headers.
+The rdflib.js library uses it as for relationships between an HTTP response
+and the  content (value) of the HTTP header in that response.     The ontology
+is deemed to contain one property for every HTTP header, standard or not.
+The property in this ontology has a localname which is the header field converted
+to lower case.
+ */
+declare const HTTPH_INRUPT: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        "httph-inrupt": string;
+    };
+    NS: typeof _NS;
+    /**
+     * See the HTTP specification
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2007/ont/httph
+     */
+    content_type: string;
+    /**
+     * See the HTTP specification
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2007/ont/httph#
+     */
+    accept: string;
+    /**
+     * See the HTTP specification
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2007/ont/httph#
+     */
+    accept_language: string;
+};
+export default HTTPH_INRUPT;

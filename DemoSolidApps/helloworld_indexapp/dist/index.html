@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ESPRESSO Pod Indexing App</title>
+  <script defer src="./index.js"></script>
+  <link rel="stylesheet" href="helloworld.css" />
+
+  <style>
+  #successDiv {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Adjust the gap between buttons as needed */
+  }
+
+  /* Footer styling */
+  footer {
+    background-color: #303965FF;
+    padding: 5px; /* Adjust padding as needed */
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%; /* Ensure full width */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    height: 50px; /* Adjust height as needed */
+    margin: 0; /* Remove any default margin */
+  }
+
+  /*.footer-content {*/
+  /*  display: flex;*/
+  /*  flex-direction: column;*/
+  /*  align-items: center;*/
+  /*  height: 100%;*/
+  /*}*/
+  .footer-logo {
+    margin-bottom: 5px; /* Adjust margin as needed */
+  }
+  /*.footer-details {*/
+  /*  font-size: 14px;*/
+  /*  color: #333;*/
+  /*}*/
+  /* Progress bar styles */
+  .progress-container {
+    display: none;
+    width: 100%;
+    background-color: #ffffff;
+    height: 20px;
+    margin-top: 10px;
+    position: relative;
+  }
+  .progress-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4caf50;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  </style>
+
+</head>
+
+<body>
+<header>
+  <h2>ESPRESSO Pod Indexing App</h2>
+  <h5> This application indexes data inside your Pod</h5>
+</header>
+<section id="login" class="panel">
+  <div class="row">
+    <label id="labelIdP" for="select-idp">To index Your Pod in ESPRESSO, You need to Login, Select your IDP: </label>
+    <select id="select-idp" name="select-idp">
+      <option value="">--Please select an Identity Provider (IdP)--</option>
+      <!-- Update the select-idp option if not using PodSpaces -->
+       <option value="https://srv03812.soton.ac.uk:3000/">https://srv03812.soton.ac.uk:3000</option>
+      <option value="http://localhost:3000">http://localhost:3000</option>
+      <option value="https://solidcommunity.net">https://solidcommunity.net/</option>
+      <option value="http://localhost:4000">http://localhost:4000</option>
+    </select>
+    <button name="btnLogin" id="btnLogin">Login</button>
+  </div>
+</section>
+
+<div id="read" class="panel">
+  <div class="row">
+    <label id="readlabel" for="myWebID">You are Logged in with your WebID: </label>
+    <input type="text" id="myWebID" name="myWebID" size="50" disabled>
+
+    <button name="btnRead" id="btnRead">Get Pod URL(s)</button>
+  </div>
+<br>
+  <div class="row">
+    <div>
+      <label id="podlabel" for="select-pod"> Create an index inside your Pod "pod-index/": </label>
+
+      <select id="select-pod" name="select-pod" style="width: 120px;">
+        <option value="">--Please select your Pod to Index--</option>
+      </select>
+      <button name="btnCreate" id="btnCreate">Start Indexing Your Pod</button>
+    </div>
+  </div>
+</div>
+
+
+<div id="results" class="panel">
+
+  <div class="row">
+    <label>Creating Index Status</label>
+    <span id="labelCreateStatus"></span>
+  </div>
+
+</div>
+
+<!-- Progress bar -->
+<div class="progress-container">
+  <div class="progress-spinner"></div>
+</div>
+
+
+<div id="successButtonDiv" class ="panel" style="display: none;">
+  <button id="successButtonRegister">Register Your Pod for ESPRESSO Search </button>
+  <button id="successButtonSearch">Search In ESPRESSO</button>
+  <p id="podregisterationmsg" style="display: none;"></p>
+</div>
+
+
+<!-- Footer section -->
+<footer>
+  <div class="footer-content">
+    <img src="https://generic.wordpress.soton.ac.uk/espresso/wp-content/uploads/sites/445/2022/04/espresso-logo-large-text.png" alt="Company Logo" class="footer-logo" width="100">
+<!--    <div class="footer-details">-->
+<!--      <p>Company Name</p>-->
+<!--      <p>1234 Street Name, City, State, Zip</p>-->
+<!--      <p>Email: info@company.com | Phone: (123) 456-7890</p>-->
+<!--    </div>-->
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,809 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * SIOC (Semantically-Interlinked Online Communities) is an ontology for describing the information in online communities.
+This information can be used to export information from online communities and to link them together. The scope of the application areas that SIOC can be used for includes (and is not limited to) weblogs, message boards, mailing lists and chat channels.
+ */
+declare const SIOC: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        sioc: string;
+    };
+    NS: typeof _NS;
+    /**
+     * Community is a high-level concept that defines an online community and what it consists of.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    Community: string;
+    /**
+     * An Item is something which can be in a Container.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    Item: string;
+    /**
+     * A Role is a function of a UserAccount within a scope of a particular Forum, Site, etc.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    Role: string;
+    /**
+     * A user account in an online community site.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    UserAccount: string;
+    /**
+     * An area in which content Items are contained.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    Container: string;
+    /**
+     * A set of UserAccounts whose owners have a common purpose or interest. Can be used for access control purposes.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    Usergroup: string;
+    /**
+     * A Space is a place where data resides, e.g. on a website, desktop, fileshare, etc.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    Space: string;
+    /**
+     * A discussion area on which Posts or entries are made.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    Forum: string;
+    /**
+     * An article or message that can be posted to a Forum.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    Post: string;
+    /**
+     * A Site can be the location of an online community or set of communities, with UserAccounts and Usergroups creating Items in a set of Containers. It can be thought of as a web-accessible data Space.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    Site: string;
+    /**
+     * A container for a series of threaded discussion Posts or Items.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    Thread: string;
+    /**
+     * UserAccount is now preferred. This is a deprecated class for a User in an online community site.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    User: string;
+    /**
+     * Specifies that this Item is about a particular resource, e.g. a Post describing a book, hotel, etc.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    about: string;
+    /**
+     * Refers to the foaf:Agent or foaf:Person who owns this sioc:UserAccount.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    account_of: string;
+    /**
+     * Refers to who (e.g. a UserAccount, e-mail address, etc.) a particular Item is addressed to.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    addressed_to: string;
+    /**
+     * A Site that the UserAccount is an administrator of.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    administrator_of: string;
+    /**
+     * A UserAccount that is an administrator of this Site.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_administrator: string;
+    /**
+     * The URI of a file attached to an Item.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    attachment: string;
+    /**
+     * An image or depiction used to represent this UserAccount.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    avatar: string;
+    /**
+     * An Item that this Container contains.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    container_of: string;
+    /**
+     * The Container to which this Item belongs.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_container: string;
+    /**
+     * The content of the Item in plain text format.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    content: string;
+    /**
+     * A resource that the UserAccount is a creator of.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    creator_of: string;
+    /**
+     * This is the UserAccount that made this resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_creator: string;
+    /**
+     * When this was delivered, in ISO 8601 format.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    delivered_at: string;
+    /**
+     * The Item that this discussion is about.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    discussion_of: string;
+    /**
+     * A discussion that is related to this Item. The discussion can be anything, for example, a sioc:Forum or sioc:Thread, a sioct:WikiArticle or simply a foaf:Document.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_discussion: string;
+    /**
+     * An electronic mail address of the UserAccount.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    email: string;
+    /**
+     * An electronic mail address of the UserAccount, encoded using SHA1.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    email_sha1: string;
+    /**
+     * This links Items to embedded statements, facts and structured content.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    embeds_knowledge: string;
+    /**
+     * A feed (e.g. RSS, Atom, etc.) pertaining to this resource (e.g. for a Forum, Site, UserAccount, etc.).
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    feed: string;
+    /**
+     * Indicates that one UserAccount follows another UserAccount (e.g. for microblog posts or other content item updates).
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    follows: string;
+    /**
+     * A UserAccount that has this Role.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    function_of: string;
+    /**
+     * A Role that this UserAccount has.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_function: string;
+    /**
+     * A URI for the application used to generate this Item.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    generator: string;
+    /**
+     * The Site that hosts this Container.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_host: string;
+    /**
+     * A Container that is hosted on this Site.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    host_of: string;
+    /**
+     * A data Space which this resource is a part of.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_space: string;
+    /**
+     * A resource which belongs to this data Space.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    space_of: string;
+    /**
+     * A UserAccount that is a member of this Usergroup.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_member: string;
+    /**
+     * A Usergroup that this UserAccount is a member of.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    member_of: string;
+    /**
+     * A UserAccount that is a moderator of this Forum.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_moderator: string;
+    /**
+     * A Forum that a UserAccount is a moderator of.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    moderator_of: string;
+    /**
+     * A UserAccount that modified this resource (e.g. Item, Container, Space).
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_modifier: string;
+    /**
+     * A resource that this UserAccount has modified.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    modifier_of: string;
+    /**
+     * A UserAccount that this resource is owned by.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_owner: string;
+    /**
+     * A resource owned by a particular UserAccount, for example, a weblog or image gallery.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    owner_of: string;
+    /**
+     * A Container or Forum that this Container or Forum is a child of.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_parent: string;
+    /**
+     * A child Container or Forum that this Container or Forum is a parent of.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    parent_of: string;
+    /**
+     * Points to an Item or Post that is a reply or response to this Item or Post.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_reply: string;
+    /**
+     * Links to an Item or Post which this Item or Post is a reply to.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    reply_of: string;
+    /**
+     * Related resources for this resource, e.g. for Posts, perhaps determined implicitly from topics or references.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    related_to: string;
+    /**
+     * A resource that this Role applies to.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_scope: string;
+    /**
+     * A Role that has a scope of this resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    scope_of: string;
+    /**
+     * A UserAccount that is subscribed to this Container.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://rdfs.org/sioc/ns#feed
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_subscriber: string;
+    /**
+     * A Container that a UserAccount is subscribed to.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://rdfs.org/sioc/ns#feed
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    subscriber_of: string;
+    /**
+     * Points to a Usergroup that has certain access to this Space.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_usergroup: string;
+    /**
+     * A Space that the Usergroup has access to.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    usergroup_of: string;
+    /**
+     * An identifier of a SIOC concept instance. For example, a user ID. Must be unique for instances of each type of SIOC concept within the same site.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    id: string;
+    /**
+     * The IP address used when creating this Item, UserAccount, etc. This can be associated with a creator. Some wiki articles list the IP addresses for the creator or modifiers when the usernames are absent.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    ip_address: string;
+    /**
+     * The date and time of the last activity associated with a SIOC concept instance, and expressed in ISO 8601 format. This could be due to a reply Post or Comment, a modification to an Item, etc.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    last_activity_date: string;
+    /**
+     * The date and time of the last Post (or Item) in a Forum (or a Container), in ISO 8601 format.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    last_item_date: string;
+    /**
+     * The date and time of the last reply Post or Comment, which could be associated with a starter Item or Post or with a Thread, and expressed in ISO 8601 format.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    last_reply_date: string;
+    /**
+     * Links to the latest revision of this Item or Post.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    latest_version: string;
+    /**
+     * Used to indicate some form of endorsement by a UserAccount or Agent of an Item, Container, Space, UserAccount, etc.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    likes: string;
+    /**
+     * A URI of a document which contains this SIOC object.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    link: string;
+    /**
+     * Links extracted from hyperlinks within a SIOC concept, e.g. Post or Site.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    links_to: string;
+    /**
+     * Refers to a UserAccount that a particular Item mentions.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    mentions: string;
+    /**
+     * The name of a SIOC concept instance, e.g. a username for a UserAccount, group name for a Usergroup, etc.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    name: string;
+    /**
+     * Next Item or Post in a given Container sorted by date.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    next_by_date: string;
+    /**
+     * Previous Item or Post in a given Container sorted by date.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    previous_by_date: string;
+    /**
+     * Links to the next revision of this Item or Post.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    next_version: string;
+    /**
+     * Links to the previous revision of this Item or Post.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    previous_version: string;
+    /**
+     * A note associated with this resource, for example, if it has been edited by a UserAccount.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    note: string;
+    /**
+     * The number of unique authors (UserAccounts and unregistered posters) who have contributed to this Item, Thread, Post, etc.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    num_authors: string;
+    /**
+     * The number of Posts (or Items) in a Forum (or a Container).
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    num_items: string;
+    /**
+     * The number of replies that this Item, Thread, Post, etc. has. Useful for when the reply structure is absent.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    num_replies: string;
+    /**
+     * The number of Threads (AKA discussion topics) in a Forum.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    num_threads: string;
+    /**
+     * The number of times this Item, Thread, UserAccount profile, etc. has been viewed.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    num_views: string;
+    /**
+     * When this was read, in ISO 8601 format.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    read_at: string;
+    /**
+     * For the reply-to address set in email messages, IMs, etc. The property name was chosen to avoid confusion with has_reply/reply_of (the reply graph).
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    respond_to: string;
+    /**
+     * For shared Items where there is a certain creator_of and an intermediary who shares or forwards it (e.g. as a sibling Item).
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://rdfs.org/sioc/ns#sibling
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    shared_by: string;
+    /**
+     * A topic of interest, linking to the appropriate URI, e.g. in the Open Directory Project or of a SKOS category.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    topic: string;
+    /**
+     * This is the title (subject line) of the Post. Note that for a Post within a threaded discussion that has no parents, it would detail the topic thread.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    title: string;
+    /**
+     * The encoded content of the Post, contained in CDATA areas.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    content_encoded: string;
+    /**
+     * When this was created, in ISO 8601 format.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    created_at: string;
+    /**
+     * The content of the Post.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    description: string;
+    /**
+     * First (real) name of this User. Synonyms include given name or christian name.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    first_name: string;
+    /**
+     * group of
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    group_of: string;
+    /**
+     * has group
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    has_group: string;
+    /**
+     * An resource that is a part of this subject.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    has_part: string;
+    /**
+     * A resource that the subject is a part of.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    part_of: string;
+    /**
+     * Last (real) name of this user. Synonyms include surname or family name.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    last_name: string;
+    /**
+     * When this was modified, in ISO 8601 format.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    modified_at: string;
+    /**
+     * Links either created explicitly or extracted implicitly on the HTML level from the Post.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    reference: string;
+    /**
+     * Keyword(s) describing subject of the Post.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://rdfs.org/sioc/ns#
+     */
+    subject: string;
+};
+export default SIOC;

@@ -1,0 +1,107 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * [Generator provided] - OLO (Ordered List Ontology) - for describing ordered lists
+ */
+declare const OLO: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        olo: string;
+    };
+    NS: typeof _NS;
+    /**
+     * An ordered list with a given length an indexed items.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/ontology/olo/core#
+     */
+    OrderedList: string;
+    /**
+     * A slot in an ordered list with a fixed index.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/ontology/olo/core#
+     */
+    Slot: string;
+    /**
+     * The length of an ordered list.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/ontology/olo/core#
+     */
+    length: string;
+    /**
+     * Associates the next slot in an ordered list.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/ontology/olo/core#
+     */
+    next: string;
+    /**
+     * An index of a slot in an ordered list.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/ontology/olo/core#
+     */
+    index: string;
+    /**
+     * An ordered list of an slot.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/ontology/olo/core#
+     */
+    ordered_list: string;
+    /**
+     * Associates the previous slot in an ordered list
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/ontology/olo/core#
+     */
+    previous: string;
+    /**
+     * A slot in an ordered list.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/ontology/olo/core#
+     */
+    slot: string;
+    /**
+     * An item of a slot in an ordered list.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/ontology/olo/core#
+     */
+    item: string;
+};
+export default OLO;

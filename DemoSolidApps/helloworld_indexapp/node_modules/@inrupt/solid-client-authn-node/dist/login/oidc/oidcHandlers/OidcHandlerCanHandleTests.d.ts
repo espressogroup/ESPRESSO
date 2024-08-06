@@ -1,0 +1,9 @@
+import type { IOidcOptions } from "@inrupt/solid-client-authn-core";
+declare const canHandleTests: {
+    [key: string]: {
+        oidcOptions: IOidcOptions;
+        message: string;
+        shouldPass: boolean;
+    }[];
+};
+export default canHandleTests;

@@ -1,0 +1,221 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * The Vocabulary of Interlinked Datasets (VoID) is an RDF Schema vocabulary for expressing metadata about RDF datasets. It is intended as a bridge between the publishers and users of RDF data, with applications ranging from data discovery to cataloging and archiving of datasets. This document provides a formal definition of the new RDF classes and properties introduced for VoID. It is a companion to the main specification document for VoID, <em><a href="http://www.w3.org/TR/void/">Describing Linked Datasets with the VoID Vocabulary</a></em>.
+ */
+declare const VOID: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        void: string;
+    };
+    NS: typeof _NS;
+    /**
+     * A set of RDF triples that are published, maintained or aggregated by a single provider.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    Dataset: string;
+    /**
+     * A collection of RDF links between two void:Datasets.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    Linkset: string;
+    /**
+     * A technical feature of a void:Dataset, such as a supported RDF serialization format.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    TechnicalFeature: string;
+    /**
+     * A web resource whose foaf:primaryTopic or foaf:topics include void:Datasets.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    DatasetDescription: string;
+    /**
+     * feature
+     *
+     * This term has a label (in language [NoLocale]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    feature: string;
+    /**
+     * has subset
+     *
+     * This term has a label (in language [NoLocale]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    subset: string;
+    /**
+     * One of the two datasets linked by the Linkset.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    target: string;
+    /**
+     * has a SPARQL endpoint at
+     *
+     * This term has a label (in language [NoLocale]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    sparqlEndpoint: string;
+    /**
+     * a link predicate
+     *
+     * This term has a label (in language [NoLocale]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    linkPredicate: string;
+    /**
+     * example resource of dataset
+     *
+     * This term has a label (in language [NoLocale]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    exampleResource: string;
+    /**
+     * A vocabulary that is used in the dataset.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    vocabulary: string;
+    /**
+     * The dataset describing the subjects of triples contained in the Linkset.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    subjectsTarget: string;
+    /**
+     * The dataset describing the objects of the triples contained in the Linkset.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    objectsTarget: string;
+    /**
+     * An RDF dump, partial or complete, of a void:Dataset.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    dataDump: string;
+    /**
+     * Defines a simple URI look-up protocol for accessing a dataset.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    uriLookupEndpoint: string;
+    /**
+     * Defines a regular expression pattern matching URIs in the dataset.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    uriRegexPattern: string;
+    /**
+     * The rdfs:Class that is the rdf:type of all entities in a class-based partition.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    class: string;
+    /**
+     * The total number of distinct classes in a void:Dataset. In other words, the number of distinct resources occuring as objects of rdf:type triples in the dataset.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    classes: string;
+    /**
+     * A subset of a void:Dataset that contains only the entities of a certain rdfs:Class.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    classPartition: string;
+    /**
+     * The total number of distinct objects in a void:Dataset. In other words, the number of distinct resources that occur in the object position of triples in the dataset. Literals are included in this count.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    distinctObjects: string;
+    /**
+     * The total number of distinct subjects in a void:Dataset. In other words, the number of distinct resources that occur in the subject position of triples in the dataset.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    distinctSubjects: string;
+    /**
+     * The total number of documents, for datasets that are published as a set of individual documents, such as RDF/XML documents or RDFa-annotated web pages. Non-RDF documents, such as web pages in HTML or images, are usually not included in this count. This property is intended for datasets where the total number of triples or entities is hard to determine. void:triples or void:entities should be preferred where practical.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    documents: string;
+    /**
+     * The total number of entities that are described in a void:Dataset.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    entities: string;
+    /**
+     * Points to the void:Dataset that a document is a part of.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    inDataset: string;
+    /**
+     * An OpenSearch description document for a free-text search service over a void:Dataset.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    openSearchDescription: string;
+    /**
+     * The total number of distinct properties in a void:Dataset. In other words, the number of distinct resources that occur in the predicate position of triples in the dataset.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    properties: string;
+    /**
+     * The rdf:Property that is the predicate of all triples in a property-based partition.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    property: string;
+    /**
+     * A subset of a void:Dataset that contains only the triples of a certain rdf:Property.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    propertyPartition: string;
+    /**
+     * A top concept or entry point for a void:Dataset that is structured in a tree-like fashion. All resources in a dataset can be reached by following links from its root resources in a small number of steps.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    rootResource: string;
+    /**
+     * The total number of triples contained in a void:Dataset.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    triples: string;
+    /**
+     * A URI that is a common string prefix of all the entity URIs in a void:Dataset.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    uriSpace: string;
+};
+export default VOID;

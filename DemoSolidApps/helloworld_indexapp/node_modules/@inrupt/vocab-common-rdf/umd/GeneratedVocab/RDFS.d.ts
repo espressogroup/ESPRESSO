@@ -1,0 +1,156 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * [Generator provided] - RDFS (RDF Schema) - a data-modelling vocabulary for RDF data
+ */
+declare const RDFS: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        rdfs: string;
+    };
+    NS: typeof _NS;
+    /**
+     * The class resource, everything.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    Resource: string;
+    /**
+     * The class of classes.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    Class: string;
+    /**
+     * The class of literal values, eg. textual strings and integers.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    Literal: string;
+    /**
+     * The class of RDF containers.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    Container: string;
+    /**
+     * The class of container membership properties, rdf:_1, rdf:_2, ...,
+                      all of which are sub-properties of 'member'.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    ContainerMembershipProperty: string;
+    /**
+     * The class of RDF datatypes.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    Datatype: string;
+    /**
+     * Further information about the subject resource.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    seeAlso: string;
+    /**
+     * The defininition of the subject resource.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    isDefinedBy: string;
+    /**
+     * A human-readable name for the subject.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    label: string;
+    /**
+     * A description of the subject resource.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    comment: string;
+    /**
+     * A range of the subject property.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    range: string;
+    /**
+     * A domain of the subject property.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    domain: string;
+    /**
+     * The subject is a subclass of a class.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    subClassOf: string;
+    /**
+     * The subject is a subproperty of a property.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    subPropertyOf: string;
+    /**
+     * A member of the subject resource.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2000/01/rdf-schema#
+     */
+    member: string;
+};
+export default RDFS;

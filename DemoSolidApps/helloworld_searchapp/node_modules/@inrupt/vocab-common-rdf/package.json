@@ -1,0 +1,70 @@
+{
+  "name": "@inrupt/vocab-common-rdf",
+  "version": "1.0.5",
+  "description": "Bundle of vocabularies that includes the following:\n\n - acl: [Generator provided] - Web Access Control Vocabulary\n\n - altr: This ontology allows for the description of representations of Internet resources.\n\nRepresentations may conform to prof:Profile instances and may have the format of a particular dct:MediaType.\n\n - as: Extended Activity Streams 2.0 Vocabulary\n\n - bookmark: [Generator provided] - W3C Bookmark vocabulary\n\n - cred: A vocabulary for the Data Model for W3C Verifiable Credentials.\n\n - dcat: DCAT is an RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web. By using DCAT to describe datasets in data catalogs, publishers increase discoverability and enable applications easily to consume metadata from multiple catalogs. It further enables decentralized publishing of catalogs and facilitates federated dataset search across sites. Aggregated DCAT metadata can serve as a manifest file to facilitate digital preservation. DCAT is defined at http://www.w3.org/TR/vocab-dcat/. Any variance between that normative document and this schema is an error in this schema.\n\n - dcterms: [Generator provided] - Dublin Core Terms - for describing resources\n\n - doap: [Generator provided] - Description of a Project (DOAP) vocabulary\n\n - earl: [Generator provided] - Evaluation and Report Language (EARL)\n\n - foaf: [Generator provided] - Friend of a friend, v0.99\n\n - http: A namespace for describing HTTP messages (http://www.w3.org/Protocols/rfc2616/rfc2616.html)\n\n - httph-inrupt: This vocabulary is a one deemed to contain all HTTP headers.\nThe rdflib.js library uses it as for relationships between an HTTP response\nand the  content (value) of the HTTP header in that response.     The ontology\nis deemed to contain one property for every HTTP header, standard or not.\nThe property in this ontology has a localname which is the header field converted\nto lower case.\n\n - hydra: The Hydra Core Vocabulary is a lightweight vocabulary to create hypermedia-driven Web APIs. By specifying a number of concepts commonly used in Web APIs it enables the creation of generic API clients.\n\n - ical: [Generator provided] - iCal - a vocabulary for description of events and calendars\n\n - jsonld: This is a vocabulary document and is used to achieve certain features of the JSON-LD language.\n\n - ldp: Vocabulary URIs defined in the Linked Data Platform (LDP) namespace.\n\n - odrl: The ODRL Vocabulary and Expression defines a set of concepts and terms (the vocabulary) and encoding mechanism (the expression) for permissions and obligations statements describing digital content usage based on the ODRL Information Model.\n\n - olo: [Generator provided] - OLO (Ordered List Ontology) - for describing ordered lists\n\n - owl: \r\n  This ontology partially describes the built-in classes and\r\n  properties that together form the basis of the RDF/XML syntax of OWL 2.\r\n  The content of this ontology is based on Tables 6.1 and 6.2\r\n  in Section 6.4 of the OWL 2 RDF-Based Semantics specification,\r\n  available at http://www.w3.org/TR/owl2-rdf-based-semantics/.\r\n  Please note that those tables do not include the different annotations\r\n  (labels, comments and rdfs:isDefinedBy links) used in this file.\r\n  Also note that the descriptions provided in this ontology do not\r\n  provide a complete and correct formal description of either the syntax\r\n  or the semantics of the introduced terms (please see the OWL 2\r\n  recommendations for the complete and normative specifications).\r\n  Furthermore, the information provided by this ontology may be\r\n  misleading if not used with care. This ontology SHOULD NOT be imported\r\n  into OWL ontologies. Importing this file into an OWL 2 DL ontology\r\n  will cause it to become an OWL 2 Full ontology and may have other,\r\n  unexpected, consequences.\r\n   \n\n - posix: A vocabulary for the basic POSIX terms.\n\n - prov-o: This document is published by the Provenance Working Group (http://www.w3.org/2011/prov/wiki/Main_Page). \n\nIf you wish to make comments regarding this document, please send them to public-prov-comments@w3.org (subscribe public-prov-comments-request@w3.org, archives http://lists.w3.org/Archives/Public/public-prov-comments/). All feedback is welcome.\n\n - qb: This vocabulary allows multi-dimensional data, such as statistics, to be published in RDF. It is based on the core information model from SDMX (and thus also DDI).\n\n - rdf: [Generator provided] - RDF (Resource Description Framework) - a framework for representing information in the Web\n\n - rdfs: [Generator provided] - RDFS (RDF Schema) - a data-modelling vocabulary for RDF data\n\n - rlog: Inrupt-created copy of RLOG, needed due to Server 500 errors resolving original uni-leipzig.org!\n\n - schema-inrupt: Inrupt extension to Schema.org terms providing\n multilingual alternative names (i.e., labels) and translations for comments\n (e.g., for use directly as labels or tool-tips in user interfaces or error\n messages). This extension very deliberately cherry-picks the individual terms\n from Schema.org that Inrupt currently deem generally useful for Solid and Solid\n applications (meaning we can provide a much cleaner, less noisy and smaller\n bundle size when generating programming language artifacts that provide\n convenient constants for just these selected terms, rather than including the\n over 2,500 terms currently defined in Schema.org).\n\n - sd: [Generator provided] - SPARQL Service Description vocabulary\n\n - sdmx-dimension: [Generator provided] - SDMX Dimension Vocabulary\n\n - sec: [Generator provided] - Security vocabulary\n\n - shex: This document describes the RDFS vocabulary description used in the Shape Expression Language (ShEx) [[shex-semantics]] along with the default JSON-LD Context and shape expression to validate RDF versions of shapes.\n\n - sioc: SIOC (Semantically-Interlinked Online Communities) is an ontology for describing the information in online communities. \r\nThis information can be used to export information from online communities and to link them together. The scope of the application areas that SIOC can be used for includes (and is not limited to) weblogs, message boards, mailing lists and chat channels.\n\n - skos: An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies.\n\n - skos-xl: An RDF vocabulary extending SKOS and allowing the description and linking of lexical entities.\n\n - ui: [Generator provided] - UI Ontology\n\n - ui-inrupt: Extension to UI terms providing multilingual alternative names and translations for comments (e.g., for use directly as labels or tool-tips in user interfaces or error messages)\n\n - vann: A vocabulary for annotating vocabulary descriptions (VANN).\n\n - vcard: Ontology for vCard based on RFC6350\n\n - void: The Vocabulary of Interlinked Datasets (VoID) is an RDF Schema vocabulary for expressing metadata about RDF datasets. It is intended as a bridge between the publishers and users of RDF data, with applications ranging from data discovery to cataloging and archiving of datasets. This document provides a formal definition of the new RDF classes and properties introduced for VoID. It is a companion to the main specification document for VoID, <em><a href=\"http://www.w3.org/TR/void/\">Describing Linked Datasets with the VoID Vocabulary</a></em>.\n\n - vs: This vocabulary was created in the FOAF project, based on experience with FOAF, Dublin Core and other early RDF vocabularies. Deployment experience shows that changing namespace URIs is expensive and unrewarding, so this vocabulary provides terms to support in-place evolution of structured data vocabularies. By indicating status at the level of terms rather than vocabularies, dictionary-style, fine grained improvements become easier. Different organizations and parties can agree or disagree on the status of a vocabulary term; however the status published alongside the term may deserve special attention. Future work could include patterns for citing announcements and decisions, or using SKOS to decentralise the extension of the basic status levels.\n\n - xsd: A vocabulary for describing XML Schema datatypes.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "module": "./dist/index.es.js",
+  "scripts": {
+    "build": "rollup --config rollup.config.js"
+  },
+  "author": {
+    "name": "@inrupt/artifact-generator",
+    "url": "https://github.com/inrupt/artifact-generator"
+  },
+  "contributors": [
+    {
+      "name": "b11749"
+    },
+    {
+      "name": "b6290"
+    },
+    {
+      "name": "b6291"
+    },
+    {
+      "name": "b4964"
+    },
+    {
+      "name": "b4965"
+    },
+    {
+      "name": "b4966"
+    },
+    {
+      "name": "Renato Iannella"
+    },
+    {
+      "name": "Michael Steidl"
+    },
+    {
+      "name": "Stuart Myles"
+    },
+    {
+      "name": "Víctor Rodríguez-Doncel"
+    },
+    {
+      "name": "https://inrupt.com/profile/card/#us"
+    },
+    {
+      "name": "Alistair Miles"
+    },
+    {
+      "name": "Sean Bechhofer"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inrupt/solid-common-vocab-rdf.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.1.3",
+    "rollup": "^2.36.1",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.1"
+  }
+}

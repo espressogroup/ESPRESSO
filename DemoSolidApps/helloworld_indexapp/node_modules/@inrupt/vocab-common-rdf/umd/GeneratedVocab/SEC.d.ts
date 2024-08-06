@@ -1,0 +1,455 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * [Generator provided] - Security vocabulary
+ */
+declare const SEC: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        sec: string;
+    };
+    NS: typeof _NS;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    EcdsaSecp256k1Signature2019: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    EcdsaSecp256k1RecoverySignature2020: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    EcdsaSecp256k1VerificationKey2019: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    EcdsaSecp256k1RecoveryMethod2020: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    RsaSignature2018: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    RsaVerificationKey2018: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    SchnorrSecp256k1Signature2019: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    SchnorrSecp256k1VerificationKey2019: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    ServiceEndpointProxyService: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Digest: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    EncryptedMessage: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Signature: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    LinkedDataSignature2015: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    X25519KeyAgreementKey2019: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Ed25519VerificationKey2018: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    BbsBlsSignature2020: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    BbsBlsSignatureProof2020: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Bls12381G1Key2020: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Bls12381G2Key2020: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Key: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    cipherAlgorithm: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    cipherData: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    digestAlgorithm: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    digestValue: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    cipherKey: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    blockchainAccountId: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    ethereumAddress: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    expires: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    initializationVector: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    nonce: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    canonicalizationAlgorithm: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    owner: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    password: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    privateKeyPem: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    verificationMethod: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    publicKey: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    assertionMethod: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    authenticationMethod: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    capabilityDelegationMethod: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    capabilityInvocationMethod: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    keyAgreementMethod: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    publicKeyBase58: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    publicKeyJwk: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    publicKeyPem: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    publicKeyHex: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    publicKeyMultibase: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    publicKeyService: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    revoked: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    proof: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    jws: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    proofPurpose: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    challenge: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    domain: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    expiration: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    proofValue: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    signature: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    signatureValue: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    signatureAlgorithm: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    service: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    serviceEndpoint: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    x509CertificateChain: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    x509CertificateFingerprint: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    allowedAction: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    capability: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    capabilityAction: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    capabilityChain: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    caveat: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    delegator: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    invocationTarget: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    invoker: string;
+};
+export default SEC;

@@ -1,0 +1,556 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * Extension to UI terms providing multilingual alternative names and translations for comments (e.g., for use directly as labels or tool-tips in user interfaces or error messages)
+ */
+declare const UI_INRUPT: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        "ui-inrupt": string;
+    };
+    NS: typeof _NS;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    BooleanField: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    NumericField: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    ValueField: string;
+    /**
+     * A form can be any type of single field, or typically a Group of several fields,
+      including interspersed headings and comments.
+     *
+     * The term has a description only in English, but has a mismatch between its labels and comments, with [0] labels, but [1] comment in the language [NoLocale].
+     */
+    Form: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Single: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    TextField: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    TriStateField: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Group: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Choice: string;
+    /**
+     * A classifier allows the user to select the type of an object.
+      The possible types must be subclasses of some overall class, the "category".
+      (Ideally, the superclass is also set up as the disjoint union of the subclasses,
+      if they are disjoint.)
+  
+      The form normally stores the resulting classes using an r:type triple,
+      but a different predicate can be used if required, so the classifier field
+      needs is 'property' defined too.
+  
+      If the subclass selected itself is has subclasses defined, the user can
+      recursively select from them in turn, as many levels as needed.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    Classifier: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    ColorField: string;
+    /**
+     * Comment
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    Comment: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    DateField: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    DateTimeField: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    DecimalField: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    EmailField: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Heading: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    SingleLineTextField: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Options: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    IntegerField: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    FloatField: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    PhoneField: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Multiple: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    MultiLineTextField: string;
+    /**
+     * A NamedNodeURIField is like a SingleLineTextField, except
+          that the value it generates is not a literal string but an RDF node with the given URI.
+          Normally users should not see URIs. When they do, this a way to do it.
+          
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    NamedNodeURIField: string;
+    /**
+     * A form which may be used to collect information about a
+      hitherto locally undocumented instance instance of this class.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    creationForm: string;
+    /**
+     * parts
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    parts: string;
+    /**
+     * from
+     *
+     * This term has a label (in language [NoLocale]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    from: string;
+    /**
+     * Label
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    label: string;
+    /**
+     * Many fields prompt for information about a given property of the subject.
+      When field is filled in, this gives which property is written into the data.
+     *
+     * The term has a description only in English, with [1] label in the language [en], but [1] comment in the language [NoLocale] (so the difference is only between English and NoLocale, which we consider the same).
+     */
+    property: string;
+    /**
+     * The value for which this case is selected.
+     *
+     * The term has a description only in English, with [1] label in the language [en], but [1] comment in the language [NoLocale] (so the difference is only between English and NoLocale, which we consider the same).
+     */
+    for: string;
+    /**
+     * A string for the UI to use if the user needs a longer
+          prompts than just a field name, the s:label.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    prompt: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    use: string;
+    /**
+     * The superclass subclasses of which will be selected.
+     *
+     * The term has a description only in English, with [1] label in the language [en], but [1] comment in the language [NoLocale] (so the difference is only between English and NoLocale, which we consider the same).
+     */
+    category: string;
+    /**
+     * Must be a valid CSS color string such as one could put in
+              an HTML style attribute.  This must be in the #xxxxxx form,
+              (with 6 digits of lowercase hex) so that it
+              can work eg with Graphviz.
+              As this is just an encoded array of RGB values,
+              you can do math with these, such as blending, complement, etc.
+     *
+     * The term has a description only in English, with [1] label in the language [en], but [1] comment in the language [NoLocale] (so the difference is only between English and NoLocale, which we consider the same).
+     */
+    Color: string;
+    /**
+     * Contents
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    contents: string;
+    /**
+     * size of field
+     *
+     * This term has a label (in language [NoLocale]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    size: string;
+    /**
+     * Must be a valid CSS style string such as one could put in
+          an HTML style attribute.  Depending on the user interface system, this can
+          by given to individuals, classes or properties. It is up to a user interface
+          which wants to draw on them to pick how it uses styles from which parts
+          of the data it has.  For example, the style of a class may be picked
+          to distinguish information about things in that class.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    style: string;
+    /**
+     * Many fields prompt for information about a given property of the subject
+     *
+     * The term has a description only in English, with [1] label in the language [en], but [1] comment in the language [NoLocale] (so the difference is only between English and NoLocale, which we consider the same).
+     */
+    dependingOn: string;
+    /**
+     * part
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    part: string;
+    /**
+     * Max length
+     *
+     * This term has [3] labels (in languages [NoLocale, en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    maxLength: string;
+    /**
+     * Time field
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    TimeField: string;
+    /**
+     * A form which may be used to add more infromation to an
+  instance of this class which we know something about.  Anything from
+  adding just add one more fact, to adding a whole lot of information about a specific
+  facet of the thing.
+  
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    annotationForm: string;
+    /**
+     * background color
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    backgroundColor: string;
+    /**
+     * URI or base64 representation of an image
+     *
+     * The term has a description only in English, with [1] label in the language [en], but [1] comment in the language [NoLocale] (so the difference is only between English and NoLocale, which we consider the same).
+     */
+    backgroundImage: string;
+    /**
+     * Base
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    base: string;
+    /**
+     * color
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    color: string;
+    /**
+     * Default error
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    defaultError: string;
+    /**
+     * A really simple way of enabling user interfaces to
+              create new information about a class of things is to make a define of properties
+              to be specified when a information about a new item
+              ("New item" here means an item which the system
+              does not have prvious information about yet,
+              not an items which has just been created,
+              like new friend as opposed to new baby)
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    initialProperties: string;
+    /**
+     * Maximum date offset
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    maxDateOffset: string;
+    /**
+     * Maximum datetime offset
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    maxDatetimeOffset: string;
+    /**
+     * max
+     *
+     * This term has a label (in language [NoLocale]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    maxValue: string;
+    /**
+     * Minimum date offset
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    minDateOffset: string;
+    /**
+     * Minimum datetime offset
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    minDatetimeOffset: string;
+    /**
+     * Min length
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    minLength: string;
+    /**
+     * min
+     *
+     * This term has a label (in language [NoLocale]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    minValue: string;
+    /**
+     * Name
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    name: string;
+    /**
+     * Old value
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    oldValue: string;
+    /**
+     * Parent property
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    parentProperty: string;
+    /**
+     * Parts clone
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    partsClone: string;
+    /**
+     * Pattern
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    pattern: string;
+    /**
+     * Reference
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    reference: string;
+    /**
+     * Required
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    required: string;
+    /**
+     * Required error
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    requiredError: string;
+    /**
+     * The sequence in which this item is arranged with repect to other parts.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    seqeunce: string;
+    /**
+     * A property which typically is used to sort
+          members of a given class.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    sortBy: string;
+    /**
+     * When individuals or classes must be sorted, then
+          if they are given different values of sortPriority a user agent can
+          use this as a hint to how to present information.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    sortPriority: string;
+    /**
+     * This  is a crude way of specifying a table-based
+              view for objects of this class.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    tableProperties: string;
+    /**
+     * Valid
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    valid: string;
+    /**
+     * Validation error
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    validationError: string;
+    /**
+     * Value
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    value: string;
+    /**
+     * Values
+     *
+     * This term has [2] labels (in languages [en, es]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: https://w3id.org/inrupt/vocab/extension/ui#
+     */
+    values: string;
+};
+export default UI_INRUPT;

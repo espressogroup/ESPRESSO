@@ -1,0 +1,1207 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * Ontology for vCard based on RFC6350
+ */
+declare const VCARD: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        vcard: string;
+    };
+    NS: typeof _NS;
+    /**
+     * Acquaintance
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Acquaintance: string;
+    /**
+     * Used for relation type codes. The URI of the relation type code must be used as the value for the Relation Type.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    RelatedType: string;
+    /**
+     * Agent
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Agent: string;
+    /**
+     * This class is deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    BBS: string;
+    /**
+     * Used for telephone type codes. The URI of the telephone type code must be used as the value for the Telephone Type.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    TelephoneType: string;
+    /**
+     * This class is deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Car: string;
+    /**
+     * Also called mobile telephone
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Cell: string;
+    /**
+     * Child
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Child: string;
+    /**
+     * Colleague
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Colleague: string;
+    /**
+     * Contact
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Contact: string;
+    /**
+     * Coresident
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Coresident: string;
+    /**
+     * Coworker
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Coworker: string;
+    /**
+     * Crush
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Crush: string;
+    /**
+     * Date
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Date: string;
+    /**
+     * This class is deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Dom: string;
+    /**
+     * Used for type codes. The URI of the type code must be used as the value for Type.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Type: string;
+    /**
+     * Emergency
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Emergency: string;
+    /**
+     * Fax
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Fax: string;
+    /**
+     * Female
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Female: string;
+    /**
+     * Used for gender codes. The URI of the gender code must be used as the value for Gender.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Gender: string;
+    /**
+     * Friend
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Friend: string;
+    /**
+     * This implies that the property is related to an individual's personal life
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Home: string;
+    /**
+     * This class is deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    ISDN: string;
+    /**
+     * This class is deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Internet: string;
+    /**
+     * This class is deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Intl: string;
+    /**
+     * Kin
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Kin: string;
+    /**
+     * This class is deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Label: string;
+    /**
+     * Male
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Male: string;
+    /**
+     * Me
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Me: string;
+    /**
+     * Met
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Met: string;
+    /**
+     * This class is deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Modem: string;
+    /**
+     * This class is deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Msg: string;
+    /**
+     * Muse
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Muse: string;
+    /**
+     * Neighbor
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Neighbor: string;
+    /**
+     * None
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    None: string;
+    /**
+     * Other
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Other: string;
+    /**
+     * This class is deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    PCS: string;
+    /**
+     * Pager
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Pager: string;
+    /**
+     * This class is deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Parcel: string;
+    /**
+     * Parent
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Parent: string;
+    /**
+     * This class is deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Postal: string;
+    /**
+     * This class is deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Pref: string;
+    /**
+     * Sibling
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Sibling: string;
+    /**
+     * Spouse
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Spouse: string;
+    /**
+     * Sweetheart
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Sweetheart: string;
+    /**
+     * This class is deprecated. Use the hasTelephone object property.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Tel: string;
+    /**
+     * Also called sms telephone
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Text: string;
+    /**
+     * Text phone
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    TextPhone: string;
+    /**
+     * Unknown
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Unknown: string;
+    /**
+     * Video
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Video: string;
+    /**
+     * Voice
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Voice: string;
+    /**
+     * This implies that the property is related to an individual's work place
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Work: string;
+    /**
+     * This class is deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    X400: string;
+    /**
+     * To specify the components of the delivery address for the  object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Address: string;
+    /**
+     * To specify the electronic mail address for communication with the object the vCard represents. Use the hasEmail object property.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Email: string;
+    /**
+     * Object representing a group of persons or entities.  A group object will usually contain hasMember properties to specify the members of the group.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Group: string;
+    /**
+     * The parent class for all objects
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Kind: string;
+    /**
+     * An object representing a single person or entity
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Individual: string;
+    /**
+     * An object representing a named geographical place
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Location: string;
+    /**
+     * An object representing an organization.  An organization is a single entity, and might represent a business or government, a department or division within a business or government, a club, an association, or the like.
+  
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Organization: string;
+    /**
+     * The vCard class is  equivalent to the new Kind class, which is the parent for the four explicit types of vCards (Individual, Organization, Location, Group)
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    VCard: string;
+    /**
+     * To specify the components of the name of the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    Name: string;
+    /**
+     * This object property has been mapped
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    adr: string;
+    /**
+     * To specify the components of the delivery address for the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasAddress: string;
+    /**
+     * This object property has been deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    agent: string;
+    /**
+     * The date of marriage, or equivalent, of the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    anniversary: string;
+    /**
+     * To specify the birth date of the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    bday: string;
+    /**
+     * The category information about the object, also known as tags
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    category: string;
+    /**
+     * This data property has been deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    class: string;
+    /**
+     * This object property has been mapped
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    email: string;
+    /**
+     * To specify the electronic mail address for communication with the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasEmail: string;
+    /**
+     * This data property has been deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    extended_address: string;
+    /**
+     * This object property has been mapped
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    geo: string;
+    /**
+     * To specify information related to the global positioning of the object. May also be used as a property parameter.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasGeo: string;
+    /**
+     * Used to support property parameters for the additional name data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasAdditionalName: string;
+    /**
+     * To specify the busy time associated with the object. (Was called FBURL in RFC6350)
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasCalendarBusy: string;
+    /**
+     * To specify the calendar associated with the object. (Was called CALURI in RFC6350)
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasCalendarLink: string;
+    /**
+     * To specify the calendar user address to which a scheduling request be sent for the object. (Was called CALADRURI in RFC6350)
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasCalendarRequest: string;
+    /**
+     * Used to support property parameters for the category data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasCategory: string;
+    /**
+     * Used to support property parameters for the country name data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasCountryName: string;
+    /**
+     * Used to support property parameters for the formatted name data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasFN: string;
+    /**
+     * Used to support property parameters for the family name data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasFamilyName: string;
+    /**
+     * To specify  the sex or gender identity of the object. URIs are recommended to enable interoperable sex and gender codes to be used.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasGender: string;
+    /**
+     * Used to support property parameters for the given name data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasGivenName: string;
+    /**
+     * Used to support property parameters for the honorific prefix data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasHonorificPrefix: string;
+    /**
+     * Used to support property parameters for the honorific suffix data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasHonorificSuffix: string;
+    /**
+     * To specify the instant messaging and presence protocol communications with the object. (Was called IMPP in RFC6350)
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasInstantMessage: string;
+    /**
+     * Used to support property parameters for the language data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasLanguage: string;
+    /**
+     * Used to support property parameters for the locality data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasLocality: string;
+    /**
+     * Used to support property parameters for the nickname data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://www.w3.org/2006/vcard/ns#nickname
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasNickname: string;
+    /**
+     * The nick name associated with the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    nickname: string;
+    /**
+     * Used to support property parameters for the note data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasNote: string;
+    /**
+     * Used to support property parameters for the organization name data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasOrganizationName: string;
+    /**
+     * Used to support property parameters for the organization unit name data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasOrganizationUnit: string;
+    /**
+     * Used to support property parameters for the postal code data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasPostalCode: string;
+    /**
+     * Used to support property parameters for the region data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasRegion: string;
+    /**
+     * To specify a relationship between another entity and the entity represented by this object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasRelated: string;
+    /**
+     * Used to support property parameters for the role data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasRole: string;
+    /**
+     * To identify the source of directory information of the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasSource: string;
+    /**
+     * Used to support property parameters for the street address data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasStreetAddress: string;
+    /**
+     * Used to support property parameters for the title data property
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasTitle: string;
+    /**
+     * To specify a value that represents a globally unique identifier corresponding to the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasUID: string;
+    /**
+     * Used to indicate the resource value of an object property that requires property parameters
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasValue: string;
+    /**
+     * This data property has been deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    label: string;
+    /**
+     * To specify the language that may be used for contacting the object. May also be used as a property parameter.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    language: string;
+    /**
+     * This data property has been deprecated. See hasGeo
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    latitude: string;
+    /**
+     * This data property has been deprecated. See hasGeo
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    longitude: string;
+    /**
+     * This data property has been deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    mailer: string;
+    /**
+     * A note associated with the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    note: string;
+    /**
+     * This object property has been mapped. Use the organization-name data property.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    org: string;
+    /**
+     * To specify the organizational name associated with the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    organization_name: string;
+    /**
+     * To specify the organizational unit name associated with the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    organization_unit: string;
+    /**
+     * This data property has been deprecated
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    post_office_box: string;
+    /**
+     * To specify the identifier for the product that created the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    prodid: string;
+    /**
+     * To specify revision information about the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    rev: string;
+    /**
+     * To specify the function or part played in a particular situation by the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    role: string;
+    /**
+     * To specify the string to be used for national-language-specific sorting. Used as a property parameter only.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    sort_string: string;
+    /**
+     * To specify the position or job of the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    title: string;
+    /**
+     * To indicate time zone information that is specific to the object. May also be used as a property parameter.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    tz: string;
+    /**
+     * Used to indicate the literal value of a data property that requires property parameters
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    value: string;
+    /**
+     * The country name associated with the address of the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    country_name: string;
+    /**
+     * The locality (e.g. city or town) associated with the address of the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    locality: string;
+    /**
+     * The postal code associated with the address of the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    postal_code: string;
+    /**
+     * The region (e.g. state or province) associated with the address of the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    region: string;
+    /**
+     * The street address associated with the address of the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    street_address: string;
+    /**
+     * The formatted text corresponding to the name of the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    fn: string;
+    /**
+     * To include a member in the group this object represents. (This property can only be used by Group individuals)
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasMember: string;
+    /**
+     * The additional name associated with the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    additional_name: string;
+    /**
+     * The family name associated with the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    family_name: string;
+    /**
+     * The given name associated with the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    given_name: string;
+    /**
+     * The honorific prefix of the name associated with the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    honorific_prefix: string;
+    /**
+     * The honorific suffix of the name associated with the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    honorific_suffix: string;
+    /**
+     * To specify a public key or authentication certificate associated with the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasKey: string;
+    /**
+     * This object property has been mapped
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    key: string;
+    /**
+     * To specify a graphic image of a logo associated with the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasLogo: string;
+    /**
+     * This object property has been mapped
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    logo: string;
+    /**
+     * To specify the components of the name of the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasName: string;
+    /**
+     * This object property has been mapped
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    n: string;
+    /**
+     * To specify an image or photograph information that annotates some aspect of the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasPhoto: string;
+    /**
+     * This object property has been mapped
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    photo: string;
+    /**
+     * To specify a digital sound content information that annotates some aspect of the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasSound: string;
+    /**
+     * This object property has been mapped
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    sound: string;
+    /**
+     * To specify the telephone number for telephony communication with the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasTelephone: string;
+    /**
+     * This object property has been mapped
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    tel: string;
+    /**
+     * To specify a uniform resource locator associated with the object
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    hasURL: string;
+    /**
+     * This object property has been mapped
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2006/vcard/ns
+     */
+    url: string;
+};
+export default VCARD;

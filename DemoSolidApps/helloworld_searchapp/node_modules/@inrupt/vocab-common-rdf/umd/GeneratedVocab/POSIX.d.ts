@@ -1,0 +1,113 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * A vocabulary for the basic POSIX terms.
+ */
+declare const POSIX: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        posix: string;
+    };
+    NS: typeof _NS;
+    /**
+     * Time of last access
+     *
+     * This term provides descriptions only in English.
+     */
+    atime: string;
+    /**
+     * Blocksize for file system I/O
+     *
+     * This term provides descriptions only in English.
+     */
+    blksize: string;
+    /**
+     * Number of 512B blocks allocated
+     *
+     * This term provides descriptions only in English.
+     */
+    blocks: string;
+    /**
+     * Time of last status change
+     *
+     * This term provides descriptions only in English.
+     */
+    ctime: string;
+    /**
+     * ID of device containing file
+     *
+     * This term provides descriptions only in English.
+     */
+    dev: string;
+    /**
+     * Group ID of owner
+     *
+     * This term provides descriptions only in English.
+     */
+    gid: string;
+    /**
+     * inode number
+     *
+     * This term provides descriptions only in English.
+     */
+    ino: string;
+    /**
+     * Protection
+     *
+     * This term provides descriptions only in English.
+     */
+    mode: string;
+    /**
+     * Time of last modification
+     *
+     * This term provides descriptions only in English.
+     */
+    mtime: string;
+    /**
+     * Number of hard links
+     *
+     * This term provides descriptions only in English.
+     */
+    nlink: string;
+    /**
+     * Device ID (if special file)
+     *
+     * This term provides descriptions only in English.
+     */
+    rdev: string;
+    /**
+     * Total size, in bytes
+     *
+     * This term provides descriptions only in English.
+     */
+    size: string;
+    /**
+     * User ID of owner
+     *
+     * This term provides descriptions only in English.
+     */
+    uid: string;
+};
+export default POSIX;

@@ -1,0 +1,115 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * [Generator provided] - SDMX Dimension Vocabulary
+ */
+declare const SDMX_DIMENSION: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        "sdmx-dimension": string;
+    };
+    NS: typeof _NS;
+    /**
+     * The length of time that a person has lived or a thing has existed.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: https://sdmx.org/wp-content/uploads/01_sdmx_cog_annex_1_cdc_2009.pdf
+     */
+    age: string;
+    /**
+     * Legal, conjugal status of each individual in relation to the marriage laws or customs of the country.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: https://sdmx.org/wp-content/uploads/01_sdmx_cog_annex_1_cdc_2009.pdf
+     */
+    civilStatus: string;
+    /**
+     * Monetary denomination of the object being measured.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: https://sdmx.org/wp-content/uploads/01_sdmx_cog_annex_1_cdc_2009.pdf
+     */
+    currency: string;
+    /**
+     * The highest level of an educational programme the person has successfully completed.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: https://sdmx.org/wp-content/uploads/01_sdmx_cog_annex_1_cdc_2009.pdf
+     */
+    educationLev: string;
+    /**
+     * The time interval at which observations occur over a given time period.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: https://sdmx.org/wp-content/uploads/01_sdmx_cog_annex_1_cdc_2009.pdf
+     */
+    freq: string;
+    /**
+     * Job or position held by an individual who performs a set of tasks and duties.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: https://sdmx.org/wp-content/uploads/01_sdmx_cog_annex_1_cdc_2009.pdf
+     */
+    occupation: string;
+    /**
+     * The country or geographic area to which the measured statistical phenomenon relates.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: https://sdmx.org/wp-content/uploads/01_sdmx_cog_annex_1_cdc_2009.pdf
+     */
+    refArea: string;
+    /**
+     * The period of time or point in time to which the measured observation is intended to refer.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: https://sdmx.org/wp-content/uploads/01_sdmx_cog_annex_1_cdc_2009.pdf
+     */
+    refPeriod: string;
+    /**
+     * The state of being male or female.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: https://sdmx.org/wp-content/uploads/01_sdmx_cog_annex_1_cdc_2009.pdf
+     */
+    sex: string;
+    /**
+     * The period of time or point in time to which the measured observation refers.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: https://sdmx.org/wp-content/uploads/01_sdmx_cog_annex_1_cdc_2009.pdf
+     */
+    timePeriod: string;
+};
+export default SDMX_DIMENSION;

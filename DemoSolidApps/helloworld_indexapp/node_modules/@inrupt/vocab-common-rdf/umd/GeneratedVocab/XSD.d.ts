@@ -1,0 +1,395 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * A vocabulary for describing XML Schema datatypes.
+ */
+declare const XSD: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        xsd: string;
+    };
+    NS: typeof _NS;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    changes: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    string: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    boolean: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    float: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    double: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    decimal: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    dateTime: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    duration: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    hexBinary: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    base64Binary: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    anyURI: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    ID: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    IDREF: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    ENTITY: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    NOTATION: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    normalizedString: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    token: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    language: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    IDREFS: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    ENTITIES: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    NMTOKEN: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    NMTOKENS: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    Name: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    QName: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    NCName: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    integer: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    nonNegativeInteger: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    positiveInteger: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    nonPositiveInteger: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    negativeInteger: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    byte: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    int: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    long: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    short: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    unsignedByte: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    unsignedInt: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    unsignedLong: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    unsignedShort: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    date: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    time: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    gYearMonth: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    gYear: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    gMonthDay: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    gDay: string;
+    /**
+     * .
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2001/XMLSchema#
+     */
+    gMonth: string;
+};
+export default XSD;

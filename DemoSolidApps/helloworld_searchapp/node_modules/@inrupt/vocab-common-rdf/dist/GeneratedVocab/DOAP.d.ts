@@ -1,0 +1,461 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * [Generator provided] - Description of a Project (DOAP) vocabulary
+ */
+declare const DOAP: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        doap: string;
+    };
+    NS: typeof _NS;
+    /**
+     * A project.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    Project: string;
+    /**
+     * Version information of a project release.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    Version: string;
+    /**
+     * A specification of a system's aspects, technical or otherwise.
+     *
+     * This term has [2] labels and comments, in the languages [en, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    Specification: string;
+    /**
+     * Source code repository.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    Repository: string;
+    /**
+     * Subversion source code repository.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    SVNRepository: string;
+    /**
+     * Git source code repository.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    GitRepository: string;
+    /**
+     * BitKeeper source code repository.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    BKRepository: string;
+    /**
+     * CVS source code repository.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    CVSRepository: string;
+    /**
+     * GNU Arch source code repository.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    ArchRepository: string;
+    /**
+     * Bazaar source code branch.
+     *
+     * This term has [2] labels and comments, in the languages [en, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    BazaarBranch: string;
+    /**
+     * Git source code branch.
+     *
+     * This term has [2] labels and comments, in the languages [en, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    GitBranch: string;
+    /**
+     * Mercurial source code repository.
+     *
+     * This term has [2] labels and comments, in the languages [en, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    HgRepository: string;
+    /**
+     * darcs source code repository.
+     *
+     * This term has [4] labels and comments, in the languages [en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    DarcsRepository: string;
+    /**
+     * A name of something.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    name: string;
+    /**
+     * URL of a project's homepage,
+          associated with exactly one project.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    homepage: string;
+    /**
+     * URL of a project's past homepage,
+          associated with exactly one project.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    old_homepage: string;
+    /**
+     * Date when something was created, in YYYY-MM-DD form. e.g. 2004-04-05
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    created: string;
+    /**
+     * Short (8 or 9 words) plain text description of a project.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    shortdesc: string;
+    /**
+     * Plain text description of a project, of 2-4 sentences in length.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    description: string;
+    /**
+     * A project release.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    release: string;
+    /**
+     * Mailing list home page or email address.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    mailing_list: string;
+    /**
+     * A forum or community that supports this project.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    support_forum: string;
+    /**
+     * A forum or community for developers of this project.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    developer_forum: string;
+    /**
+     * A category of project.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    category: string;
+    /**
+     * The URI of an RDF description of the license the software is distributed under. E.g. a SPDX reference
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    license: string;
+    /**
+     * Source code repository.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    repository: string;
+    /**
+     * The project that uses a repository.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    repositoryOf: string;
+    /**
+     * Repository for anonymous access.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    anon_root: string;
+    /**
+     * Web browser interface to repository.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    browse: string;
+    /**
+     * Module name of a Subversion, CVS, BitKeeper or Arch repository.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    module: string;
+    /**
+     * Location of a repository.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    location: string;
+    /**
+     * Web page from which the project software can be downloaded.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    download_page: string;
+    /**
+     * Mirror of software download web page.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    download_mirror: string;
+    /**
+     * Revision identifier of a software release.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    revision: string;
+    /**
+     * URI of download associated with this release.
+     *
+     * This term has [3] labels and comments, in the languages [cs, en, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    file_release: string;
+    /**
+     * URL of Wiki for collaborative discussion of project.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    wiki: string;
+    /**
+     * Bug tracker for a project.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    bug_database: string;
+    /**
+     * Web page with screenshots of project.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    screenshots: string;
+    /**
+     * Maintainer of a project, a project leader.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    maintainer: string;
+    /**
+     * Developer of software for the project.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    developer: string;
+    /**
+     * Contributor of documentation to the project.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    documenter: string;
+    /**
+     * Contributor of translations to the project.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    translator: string;
+    /**
+     * A tester or other quality control contributor.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    tester: string;
+    /**
+     * Project contributor.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    helper: string;
+    /**
+     * Programming language a project is implemented in or intended for use with.
+     *
+     * This term has [6] labels and comments, in the languages [cs, de, en, es, fr, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    programming_language: string;
+    /**
+     * Operating system that a project is limited to.  Omit this property if the project is not OS-specific.
+     *
+     * This term provides multilingual descriptions, but has a mismatch between its labels and comments, with [6] labels in languages [cs, de, en, es, fr, pt], but [5] comments in languages [cs, de, en, es, fr].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    os: string;
+    /**
+     * A specification that a project implements. Could be a standard, API or legally defined level of conformance.
+     *
+     * This term has [2] labels and comments, in the languages [en, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    implements: string;
+    /**
+     * The URI of a web service endpoint where software as a service may be accessed
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    service_endpoint: string;
+    /**
+     * ISO language code a project has been translated into
+     *
+     * This term has [2] labels and comments, in the languages [en, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    language: string;
+    /**
+     * Vendor organization: commercial, free or otherwise
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    vendor: string;
+    /**
+     * Indicator of software platform (non-OS specific), e.g. Java, Firefox, ECMA CLR
+     *
+     * This term has [2] labels and comments, in the languages [en, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    platform: string;
+    /**
+     * Description of target user base
+     *
+     * This term has [2] labels and comments, in the languages [en, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    audience: string;
+    /**
+     * URI of a blog related to a project
+     *
+     * This term has [2] labels and comments, in the languages [en, pt].
+     *
+     * Defined by the vocabulary: http://usefulinc.com/ns/doap#
+     */
+    blog: string;
+};
+export default DOAP;

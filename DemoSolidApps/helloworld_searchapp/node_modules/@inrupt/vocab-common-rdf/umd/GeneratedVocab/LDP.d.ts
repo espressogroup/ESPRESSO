@@ -1,0 +1,211 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * Vocabulary URIs defined in the Linked Data Platform (LDP) namespace.
+ */
+declare const LDP: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        ldp: string;
+    };
+    NS: typeof _NS;
+    /**
+     * A HTTP-addressable resource whose lifecycle is managed by a LDP server.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    Resource: string;
+    /**
+     * A Linked Data Platform Resource (LDPR) whose state is represented as RDF.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    RDFSource: string;
+    /**
+     * A Linked Data Platform Resource (LDPR) whose state is NOT represented as RDF.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    NonRDFSource: string;
+    /**
+     * A Linked Data Platform RDF Source (LDP-RS) that also conforms to additional patterns and conventions for managing membership. Readers should refer to the specification defining this ontology for the list of behaviors associated with it.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    Container: string;
+    /**
+     * An LDPC that uses a predefined predicate to simply link to its contained resources.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    BasicContainer: string;
+    /**
+     * An LDPC that is similar to a LDP-DC but it allows an indirection with the ability to list as member a resource, such as a URI representing a real-world object, that is different from the resource that is created.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    DirectContainer: string;
+    /**
+     * An LDPC that has the flexibility of choosing what form the membership triples take.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    IndirectContainer: string;
+    /**
+     * URI signifying that the resource is an in-sequence page resource, as defined by LDP Paging.  Typically used on Link rel='type' response headers.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    Page: string;
+    /**
+     * Element in the list of sorting criteria used by the server to assign container members to pages.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    PageSortCriterion: string;
+    /**
+     * Indicates which predicate is used in membership triples, and that the membership triple pattern is < membership-constant-URI , object-of-hasMemberRelation, member-URI >.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    hasMemberRelation: string;
+    /**
+     * Indicates which predicate is used in membership triples, and that the membership triple pattern is < member-URI , object-of-isMemberOfRelation, membership-constant-URI >.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    isMemberOfRelation: string;
+    /**
+     * Indicates the membership-constant-URI in a membership triple.  Depending upon the membership triple pattern a container uses, as indicated by the presence of ldp:hasMemberRelation or ldp:isMemberOfRelation, the membership-constant-URI might occupy either the subject or object position in membership triples.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    membershipResource: string;
+    /**
+     * Indicates which triple in a creation request should be used as the member-URI value in the membership triple added when the creation request is successful.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    insertedContentRelation: string;
+    /**
+     * LDP servers should use this predicate as the membership predicate if there is no obvious predicate from an application vocabulary to use.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    member: string;
+    /**
+     * Links a container with resources created through the container.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    contains: string;
+    /**
+     * Links a resource with constraints that the server requires requests like creation and update to conform to.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    constrainedBy: string;
+    /**
+     * Link to the list of sorting criteria used by the server in a representation.  Typically used on Link response headers as an extension link relation URI in the rel= parameter.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    pageSortCriteria: string;
+    /**
+     * Predicate used to specify the order of the members across a page sequence's in-sequence page resources; it asserts nothing about the order of members in the representation of a single page.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    pageSortPredicate: string;
+    /**
+     * The ascending/descending/etc order used to order the members across pages in a page sequence.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    pageSortOrder: string;
+    /**
+     * The collation used to order the members across pages in a page sequence when comparing strings.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    pageSortCollation: string;
+    /**
+     * Link to a page sequence resource, as defined by LDP Paging.  Typically used to communicate the sorting criteria used to allocate LDPC members to pages.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/ldp#
+     */
+    pageSequence: string;
+    /**
+     * Links a resource to a container where notifications for the resource can be created and discovered.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: https://www.w3.org/TR/ldn/
+     */
+    inbox: string;
+};
+export default LDP;

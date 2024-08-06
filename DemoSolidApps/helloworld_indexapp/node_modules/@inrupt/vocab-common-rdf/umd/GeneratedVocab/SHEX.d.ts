@@ -1,0 +1,547 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * This document describes the RDFS vocabulary description used in the Shape Expression Language (ShEx) [[shex-semantics]] along with the default JSON-LD Context and shape expression to validate RDF versions of shapes.
+ */
+declare const SHEX: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        shex: string;
+    };
+    NS: typeof _NS;
+    /**
+     * Annotations provide a format-independent way to provide additional information about elements in a schema.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    Annotation: string;
+    /**
+     * A TripleExpression composed of one or more sub-expressions, all of which must match.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    EachOf: string;
+    /**
+     * The abstract class of Triple Expressions.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    TripleExpression: string;
+    /**
+     * An IRI prefix used for matching IRIs.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    IriStem: string;
+    /**
+     * Abstract class for Stems
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    Stem: string;
+    /**
+     * An IRI prefix (or wildcard) along with a set of excluded values, used for node matching.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    IriStemRange: string;
+    /**
+     * Abstract Class for Stem Ranges
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    StemRange: string;
+    /**
+     * An Language tag used for matching Literal Languages.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    Language: string;
+    /**
+     * An Language prefix used for matching Literal Languages.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    LanguageStem: string;
+    /**
+     * An Language prefix (or wildcard) along with a set of excluded values, used for node matching.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    LanguageStemRange: string;
+    /**
+     * An Literal prefix used for matching Literals.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    LiteralStem: string;
+    /**
+     * An Literal prefix (or wildcard) along with a set of excluded values, used for node matching.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    LiteralStemRange: string;
+    /**
+     * A constraint on the type or value of an RDF Node.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    NodeConstraint: string;
+    /**
+     * The abstract class of Shape Expressions.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    ShapeExpression: string;
+    /**
+     * The set of kinds of RDF Nodes.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    NodeKind: string;
+    /**
+     * A TripleExpression composed of one or more sub-expressions, one of which must match.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    OneOf: string;
+    /**
+     * A Schema contains the set of shapes, used for matching a focus node.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    Schema: string;
+    /**
+     * A list of Semantic Actions that serve as an extension point for Shape Expressions. They appear in lists in Schema's startActs and Shape, OneOf, EachOf and TripleConstraint's semActs.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    SemAct: string;
+    /**
+     * A shapes schema is captured in a Schema object where shapes is a mapping from shape label to shape expression.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    Shape: string;
+    /**
+     * A ShapeExpression composed of one or more sub-expressions, all of which must match.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    ShapeAnd: string;
+    /**
+     * A reference to a shape defined in some external Schema.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    ShapeExternal: string;
+    /**
+     * A ShapeNot is satisfied when it’s included ShapeExpression is not satisfied.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    ShapeNot: string;
+    /**
+     * A ShapeExpression composed of one or more sub-expressions, one of which must match.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    ShapeOr: string;
+    /**
+     * A constraint on a triple having a specific predicate and optionally a shape expression used for matching values.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    TripleConstraint: string;
+    /**
+     * Indicates that a stem is a Wildcard, rather than a URI prefix.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    Wildcard: string;
+    /**
+     * Annotations on a TripleExpression.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    annotation: string;
+    /**
+     * Indicates that a Shape is closed, meaning that it may contain no property values other than those used within TripleConstraints.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    closed: string;
+    /**
+     * Code executed by Semantic Action.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    code: string;
+    /**
+     * A datatype constraint.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    datatype: string;
+    /**
+     * Values that are excluded from value matching.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    exclusion: string;
+    /**
+     * Expression associated with the TripleExpression.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    expression: string;
+    /**
+     * List of 2 or more expressions associated with the TripleExpression.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    expressions: string;
+    /**
+     * Properties which may have extra values beyond those matched through a constraint.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    extra: string;
+    /**
+     * Regular expression flags
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    flags: string;
+    /**
+     * for "fractiondigits" constraints, v is less than or equals the number of digits to the right of the decimal place in the XML Schema canonical form[xmlschema-2] of the value of n, ignoring trailing zeros.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    fractiondigits: string;
+    /**
+     * Abstract property of numeric facets on a NodeConstraint.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    numericFacet: string;
+    /**
+     * An abstract property of string and numeric facets on a NodeConstraint.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    xsFacet: string;
+    /**
+     * Constrains the subject of a triple, rather than the object.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    inverse: string;
+    /**
+     * The value used to match the language tag of a language-tagged string.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    languageTag: string;
+    /**
+     * The exact length of the value of the cell.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    length: string;
+    /**
+     * An abstract property of string facets on a NodeConstraint.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    stringFacet: string;
+    /**
+     * Maximum number of times this TripleExpression may match; -1 for “*”
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    max: string;
+    /**
+     * An atomic property that contains a single number that is the maximum valid value (exclusive).
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    maxexclusive: string;
+    /**
+     * An atomic property that contains a single number that is the maximum valid value (inclusive).
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    maxinclusive: string;
+    /**
+     * A numeric atomic property that contains a single integer that is the maximum length of the value.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    maxlength: string;
+    /**
+     * Minimum number of times this TripleExpression may match.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    min: string;
+    /**
+     * An atomic property that contains a single number that is the minimum valid value (exclusive).
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    minexclusive: string;
+    /**
+     * An atomic property that contains a single number that is the minimum valid value (inclusive).
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    mininclusive: string;
+    /**
+     * An atomic property that contains a single integer that is the minimum length of the value.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    minlength: string;
+    /**
+     * Identifier of SemAct extension.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    name: string;
+    /**
+     * Restiction on the kind of node matched; restricted to the defined instances of NodeKind. One of shex:iri, shex:bnode, shex:literal, or shex:nonliteral.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    nodeKind: string;
+    /**
+     * The object of an Annotation.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    object: string;
+    /**
+     * A regular expression used for matching a value.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    pattern: string;
+    /**
+     * The predicate of a TripleConstraint or Annotation.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    predicate: string;
+    /**
+     * Semantic Actions on this TripleExpression.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    semActs: string;
+    /**
+     * Shape Expression referenced by this shape.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    shapeExpr: string;
+    /**
+     * A list of 2 or more Shape Expressions referenced by this shape.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    shapeExprs: string;
+    /**
+     * Shapes in this Schema.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    shapes: string;
+    /**
+     * A ShapeExpression matched against the focus node prior to any other mapped expressions.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    start: string;
+    /**
+     * Semantic Actions run on the Schema.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    startActs: string;
+    /**
+     * A stem value used for matching or excluding values.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    stem: string;
+    /**
+     * for "totaldigits" constraints, v equals the number of digits in the XML Schema canonical form[xmlschema-2] of the value of n
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    totaldigits: string;
+    /**
+     * A ShapeExpression used for matching the object (or subject if inverted) of a TripleConstraint.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    valueExpr: string;
+    /**
+     * A value restriction on a NodeConstraint.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/shex#
+     */
+    values: string;
+};
+export default SHEX;

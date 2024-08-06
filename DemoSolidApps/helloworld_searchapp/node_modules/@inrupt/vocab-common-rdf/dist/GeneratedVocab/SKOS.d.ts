@@ -1,0 +1,292 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies.
+ */
+declare const SKOS: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        skos: string;
+    };
+    NS: typeof _NS;
+    /**
+     * An idea or notion; a unit of thought.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    Concept: string;
+    /**
+     * A set of concepts, optionally including statements about semantic relationships between those concepts.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    ConceptScheme: string;
+    /**
+     * A meaningful collection of concepts.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    Collection: string;
+    /**
+     * An ordered collection of concepts, where both the grouping and the ordering are meaningful.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    OrderedCollection: string;
+    /**
+     * A statement or formal explanation of the meaning of a concept.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    definition: string;
+    /**
+     * A general note, for any purpose.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    note: string;
+    /**
+     * A note that helps to clarify the meaning and/or the use of a concept.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    scopeNote: string;
+    /**
+     * An example of the use of a concept.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    example: string;
+    /**
+     * Relates a resource (for example a concept) to a concept scheme in which it is included.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    inScheme: string;
+    /**
+     * Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    hasTopConcept: string;
+    /**
+     * Relates a concept to the concept scheme that it is a top level concept of.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    topConceptOf: string;
+    /**
+     * A resource has no more than one value of skos:prefLabel per language tag, and no more than one value of skos:prefLabel without language tag.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    prefLabel: string;
+    /**
+     * The range of skos:altLabel is the class of RDF plain literals.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    altLabel: string;
+    /**
+     * skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    hiddenLabel: string;
+    /**
+     * A notation, also known as classification code, is a string of characters such as "T58.5" or "303.4833" used to uniquely identify a concept within the scope of a given concept scheme.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    notation: string;
+    /**
+     * A note about a modification to a concept.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    changeNote: string;
+    /**
+     * A note for an editor, translator or maintainer of the vocabulary.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    editorialNote: string;
+    /**
+     * A note about the past state/use/meaning of a concept.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    historyNote: string;
+    /**
+     * Links a concept to a concept related by meaning.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    semanticRelation: string;
+    /**
+     * Broader concepts are typically rendered as parents in a concept hierarchy (tree).
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    broader: string;
+    /**
+     * skos:broaderTransitive is a transitive superproperty of skos:broader.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    broaderTransitive: string;
+    /**
+     * Narrower concepts are typically rendered as children in a concept hierarchy (tree).
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    narrower: string;
+    /**
+     * skos:narrowerTransitive is a transitive superproperty of skos:narrower.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    narrowerTransitive: string;
+    /**
+     * skos:related is disjoint with skos:broaderTransitive
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    related: string;
+    /**
+     * Relates a collection to one of its members.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    member: string;
+    /**
+     * For any resource, every item in the list given as the value of the
+        skos:memberList property is also a value of the skos:member property.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    memberList: string;
+    /**
+     * These concept mapping relations mirror semantic relations, and the data model defined below is similar (with the exception of skos:exactMatch) to the data model defined for semantic relations. A distinct vocabulary is provided for concept mapping relations, to provide a convenient way to differentiate links within a concept scheme from links between concept schemes. However, this pattern of usage is not a formal requirement of the SKOS data model, and relies on informal definitions of best practice.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    mappingRelation: string;
+    /**
+     * skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    broadMatch: string;
+    /**
+     * skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    narrowMatch: string;
+    /**
+     * skos:relatedMatch is used to state an associative mapping link between two conceptual resources in different concept schemes.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    relatedMatch: string;
+    /**
+     * skos:exactMatch is disjoint with each of the properties skos:broadMatch and skos:relatedMatch.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    exactMatch: string;
+    /**
+     * skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of "compound errors" when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property.
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/2004/02/skos/core
+     */
+    closeMatch: string;
+};
+export default SKOS;

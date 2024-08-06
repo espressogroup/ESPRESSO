@@ -1,0 +1,635 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * [Generator provided] - Friend of a friend, v0.99
+ */
+declare const FOAF: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        foaf: string;
+    };
+    NS: typeof _NS;
+    /**
+     * An agent (eg. person, group, software or physical artifact).
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    Agent: string;
+    /**
+     * A document.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    Document: string;
+    /**
+     * An organization.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    Organization: string;
+    /**
+     * A project (a collective endeavour of some kind).
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    Project: string;
+    /**
+     * A person.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    Person: string;
+    /**
+     * A class of Agents.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    Group: string;
+    /**
+     * An image.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    Image: string;
+    /**
+     * A foaf:LabelProperty is any RDF property with texual values that serve as labels.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    LabelProperty: string;
+    /**
+     * An online account.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    OnlineAccount: string;
+    /**
+     * An online chat account.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    OnlineChatAccount: string;
+    /**
+     * An online e-commerce account.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    OnlineEcommerceAccount: string;
+    /**
+     * An online gaming account.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    OnlineGamingAccount: string;
+    /**
+     * A personal profile RDF document.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    PersonalProfileDocument: string;
+    /**
+     * Indicates an account held by this agent.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    account: string;
+    /**
+     * Indicates the name (identifier) associated with this online account.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    accountName: string;
+    /**
+     * Indicates a homepage of the service provide for this online account.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    accountServiceHomepage: string;
+    /**
+     * The age in years of some agent.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    age: string;
+    /**
+     * An AIM chat ID
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    aimChatID: string;
+    /**
+     * A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    nick: string;
+    /**
+     * A location that something is based near, for some broadly human notion of near.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    based_near: string;
+    /**
+     * The birthday of this Agent, represented in mm-dd string form, eg. '12-31'.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    birthday: string;
+    /**
+     * A current project this person works on.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    currentProject: string;
+    /**
+     * A depiction of some thing.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    depiction: string;
+    /**
+     * A thing depicted in this representation.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    depicts: string;
+    /**
+     * A checksum for the DNA of some thing. Joke.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    dnaChecksum: string;
+    /**
+     * The family name of some person.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    familyName: string;
+    /**
+     * The family name of some person.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    family_name: string;
+    /**
+     * The first name of a person.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    firstName: string;
+    /**
+     * The underlying or 'focal' entity associated with some SKOS-described concept.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    focus: string;
+    /**
+     * An organization funding a project or person.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    fundedBy: string;
+    /**
+     * A textual geekcode for this person, see http://www.geekcode.com/geek.html
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    geekcode: string;
+    /**
+     * The gender of this Agent (typically but not necessarily 'male' or 'female').
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    gender: string;
+    /**
+     * The given name of some person.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    givenName: string;
+    /**
+     * The given name of some person.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    givenname: string;
+    /**
+     * Indicates an account held by this agent.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    holdsAccount: string;
+    /**
+     * A homepage for some thing.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    homepage: string;
+    /**
+     * A page or document about this thing.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    page: string;
+    /**
+     * A document that this thing is the primary topic of.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    isPrimaryTopicOf: string;
+    /**
+     * A topic of some page or document.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    topic: string;
+    /**
+     * The primary topic of some page or document.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    primaryTopic: string;
+    /**
+     * An ICQ chat ID
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    icqChatID: string;
+    /**
+     * An image that can be used to represent some thing (ie. those depictions which are particularly representative of something, eg. one's photo on a homepage).
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    img: string;
+    /**
+     * A page about a topic of interest to this person.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    interest: string;
+    /**
+     * A jabber ID for something.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    jabberID: string;
+    /**
+     * A person known by this person (indicating some level of reciprocated interaction between the parties).
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    knows: string;
+    /**
+     * The last name of a person.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    lastName: string;
+    /**
+     * A logo representing some thing.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    logo: string;
+    /**
+     * Something that was made by this agent.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    made: string;
+    /**
+     * An agent that made this thing.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    maker: string;
+    /**
+     * A personal mailbox, ie. an Internet mailbox associated with exactly one owner, the first owner of this mailbox. This is a 'static inverse functional property', in that there is (across time and change) at most one individual that ever has any particular value for foaf:mbox.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    mbox: string;
+    /**
+     * The sha1sum of the URI of an Internet mailbox associated with exactly one owner, the first owner of the mailbox.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    mbox_sha1sum: string;
+    /**
+     * Indicates a member of a Group
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    member: string;
+    /**
+     * Indicates the class of individuals that are a member of a Group
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    membershipClass: string;
+    /**
+     * An MSN chat ID
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    msnChatID: string;
+    /**
+     * A Myers Briggs (MBTI) personality classification.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    myersBriggs: string;
+    /**
+     * A name for some thing.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    name: string;
+    /**
+     * An OpenID for an Agent.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    openid: string;
+    /**
+     * A project this person has previously worked on.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    pastProject: string;
+    /**
+     * A phone, specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel).
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    phone: string;
+    /**
+     * A .plan comment, in the tradition of finger and '.plan' files.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    plan: string;
+    /**
+     * A link to the publications of this person.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    publications: string;
+    /**
+     * A homepage of a school attended by the person.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    schoolHomepage: string;
+    /**
+     * A sha1sum hash, in hex.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    sha1: string;
+    /**
+     * A Skype ID
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    skypeID: string;
+    /**
+     * A string expressing what the user is happy for the general public (normally) to know about their current activity.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    status: string;
+    /**
+     * The surname of some person.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    surname: string;
+    /**
+     * A theme.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    theme: string;
+    /**
+     * A derived thumbnail image.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    thumbnail: string;
+    /**
+     * A tipjar document for this agent, describing means for payment and reward.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    tipjar: string;
+    /**
+     * Title (Mr, Mrs, Ms, Dr. etc)
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    title: string;
+    /**
+     * A thing of interest to this person.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    topic_interest: string;
+    /**
+     * A weblog of some thing (whether person, group, company etc.).
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    weblog: string;
+    /**
+     * A work info homepage of some person; a page about their work for some organization.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    workInfoHomepage: string;
+    /**
+     * A workplace homepage of some person; the homepage of an organization they work for.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    workplaceHomepage: string;
+    /**
+     * A Yahoo chat ID
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://xmlns.com/foaf/0.1/
+     */
+    yahooChatID: string;
+};
+export default FOAF;

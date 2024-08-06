@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Espresso-Search</title>
+    <script defer src="./index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <!--    <link rel="stylesheet" href="../static/css/normalize.min.css">-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<img class="center"  src="https://generic.wordpress.soton.ac.uk/espresso/wp-content/uploads/sites/445/2022/04/espresso-logo-large-text.png" alt="Espresso Search Logo"  width="212" height="100" />
+<div class="flexbox">
+
+
+    <div class="search">
+        <h1>Espresso Search...</h1>
+        <h5>Decentralized Web Search over Solid Pods.</h5>
+        <div>
+            <form id="searchForm">
+                 <input type="text"  id="keyword" name="keyword"  placeholder="Enter Keyword and WebID . . ." required>
+            </form  >
+        </div>
+    </div>
+
+</div>
+
+<!--    &lt;!&ndash; RESULTS DIV OLD &ndash;&gt;-->
+
+<!--    <div class="results">-->
+<!--         <h1>Search Results</h1>-->
+<!--         <hr>-->
+
+<!--        <ul>-->
+<!--          <li th:each="keyword : ${keywords}">-->
+<!--            <span th:text="${keyword.id}"> </span>-->
+<!--              <a th:href="${keyword.address}"><span th:text="${keyword.address}"></span></a>-->
+<!--              <span th:text="${keyword.relevancy}"> </span>-->
+<!--          </li>-->
+<!--        </ul>-->
+
+
+<div class="results" style="display: none;">
+    <h1>Search Results</h1>
+    <hr>
+    <ul>
+        <li th:each="keyword : ${keywords}">
+            <span th:text="${keyword.id}"> </span>
+            <a th:href="${keyword.address}"><span th:text="${keyword.address}"></span></a>
+            <span th:text="${keyword.relevancy}"> </span>
+        </li>
+    </ul>
+</div>
+
+
+
+
+<!--<script>-->
+<!--    function search() {-->
+<!--        const keyword = document.getElementById("keyword").value;-->
+<!--        window.location.href = "/search?keyword=" + keyword;-->
+<!--    }-->
+<!--</script>-->
+
+
+<!-- Footer section -->
+<footer>
+    <div class="footer-content">
+        <img src="https://generic.wordpress.soton.ac.uk/espresso/wp-content/uploads/sites/445/2022/04/espresso-logo-large-text.png" alt="Company Logo" class="footer-logo" width="100">
+<!--        <div class="footer-details">-->
+<!--            <p>Company Name</p>-->
+<!--            <p>1234 Street Name, City, State, Zip</p>-->
+<!--            <p>Email: info@company.com | Phone: (123) 456-7890</p>-->
+<!--        </div>-->
+    </div>
+</footer>
+
+</body>
+</html>

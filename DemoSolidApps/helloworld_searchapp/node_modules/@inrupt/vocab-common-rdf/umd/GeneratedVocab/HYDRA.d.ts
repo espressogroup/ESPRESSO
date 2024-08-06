@@ -1,0 +1,337 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * The Hydra Core Vocabulary is a lightweight vocabulary to create hypermedia-driven Web APIs. By specifying a number of concepts commonly used in Web APIs it enables the creation of generic API clients.
+ */
+declare const HYDRA: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        hydra: string;
+    };
+    NS: typeof _NS;
+    /**
+     * The class of Hydra classes.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    Class: string;
+    /**
+     * The class of properties representing links.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    Link: string;
+    /**
+     * The Hydra API documentation class
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    ApiDocumentation: string;
+    /**
+     * A templated link.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    TemplatedLink: string;
+    /**
+     * A runtime error, used to report information beyond the returned status code.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    Error: string;
+    /**
+     * A collection holding references to a number of related resources.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    Collection: string;
+    /**
+     * A PartialCollectionView describes a partial view of a Collection. Multiple PartialCollectionViews can be connected with the the next/previous properties to allow a client to retrieve all members of the collection.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    PartialCollectionView: string;
+    /**
+     * Provides a base abstract for base Uri source for Iri template resolution.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    BaseUriSource: string;
+    /**
+     * Specifies a possible either expected or returned header values
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    HeaderSpecification: string;
+    /**
+     * A property
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    property: string;
+    /**
+     * True if the property is required, false otherwise.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    required: string;
+    /**
+     * True if the client can retrieve the property's value, false otherwise.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    readable: string;
+    /**
+     * True if the client can change the property's value, false otherwise.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    writable: string;
+    /**
+     * This property is left for compatibility purposes and hydra:writable should be used instead.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    writeable: string;
+    /**
+     * The HTTP method.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    method: string;
+    /**
+     * The HTTP status code. Please note it may happen this value will be different to actual status code received.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    statusCode: string;
+    /**
+     * A title, often used along with a description.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    title: string;
+    /**
+     * A description.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    description: string;
+    /**
+     * This predicate is left for compatibility purposes and hydra:memberAssertion should be used instead.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    manages: string;
+    /**
+     * The total number of items referenced by a collection.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    totalItems: string;
+    /**
+     * A property representing a freetext query.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    freetextQuery: string;
+    /**
+     * A templated string with placeholders. The literal's datatype indicates the template syntax; if not specified, hydra:Rfc6570Template is assumed.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * See also:
+     *  - http://www.w3.org/ns/hydra/core#Rfc6570Template
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    template: string;
+    /**
+     * An IRI template as defined by RFC6570.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * See also:
+     *  - http://tools.ietf.org/html/rfc6570
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    Rfc6570Template: string;
+    /**
+     * The representation format to use when expanding the IRI template.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    variableRepresentation: string;
+    /**
+     * A variable-to-property mapping of the IRI template.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    mapping: string;
+    /**
+     * An IRI template variable
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    variable: string;
+    /**
+     * relative Uri resolution
+     *
+     * This term has a label (in language [NoLocale]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    resolveRelativeUsing: string;
+    /**
+     * Instructs to skip N elements of the set.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    offset: string;
+    /**
+     * Instructs to limit set only to N elements.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    limit: string;
+    /**
+     * Instructs to provide a specific page of the collection at a given index.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    pageIndex: string;
+    /**
+     * Instructs to provide a specific page reference of the collection.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    pageReference: string;
+    /**
+     * Name of the header returned by the operation.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    returnsHeader: string;
+    /**
+     * Specification of the header expected by the operation.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    expectsHeader: string;
+    /**
+     * Name of the header.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    headerName: string;
+    /**
+     * Possible value of the header.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    possibleValue: string;
+    /**
+     * Determines whether the provided set of header values is closed or not.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    closedSet: string;
+    /**
+     * Hint on what kind of extensions are in use.
+     *
+     * This term provides descriptions only with no explicit locale.
+     *
+     * Defined by the vocabulary: http://www.w3.org/ns/hydra/core
+     */
+    extension: string;
+};
+export default HYDRA;

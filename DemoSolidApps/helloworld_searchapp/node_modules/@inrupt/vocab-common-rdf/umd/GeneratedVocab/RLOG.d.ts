@@ -1,0 +1,149 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * Inrupt-created copy of RLOG, needed due to Server 500 errors resolving original uni-leipzig.org!
+ */
+declare const RLOG: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        rlog: string;
+    };
+    NS: typeof _NS;
+    /**
+     * look here: http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/Level.html
+     *
+     * This term provides descriptions only in English.
+     */
+    Level: string;
+    /**
+     * An entry in a log.
+     *
+     * This term provides descriptions only in English.
+     */
+    Entry: string;
+    /**
+     * A status code which can occur in an application. Instances of this class must put the name of the status as rdfs:label and describe it with rdfs:comment.
+     *
+     * This term provides descriptions only in English.
+     */
+    StatusCode: string;
+    /**
+     * The ALL has the lowest possible rank and is intended to turn on all logging.
+     *
+     * This term provides descriptions only in English.
+     */
+    ALL: string;
+    /**
+     * Attention: the ids here can change, they are just used to define an order over the levels!
+     *
+     * This term provides descriptions only in English.
+     */
+    priority: string;
+    /**
+     * The DEBUG Level designates fine-grained informational events that are most useful to debug an application.
+     *
+     * This term provides descriptions only in English.
+     */
+    DEBUG: string;
+    /**
+     * The ERROR level designates error events that might still allow the application to continue running.
+     *
+     * This term provides descriptions only in English.
+     */
+    ERROR: string;
+    /**
+     * The FATAL level designates very severe error events that will presumably lead the application to abort.
+     *
+     * This term provides descriptions only in English.
+     */
+    FATAL: string;
+    /**
+     * The INFO level designates informational messages that highlight the progress of the application at coarse-grained level.
+     *
+     * This term provides descriptions only in English.
+     */
+    INFO: string;
+    /**
+     * The OFF has the highest possible rank and is intended to turn off logging.
+     *
+     * This term provides descriptions only in English.
+     */
+    OFF: string;
+    /**
+     * The TRACE Level designates finer-grained informational events than the DEBUG.
+     *
+     * This term provides descriptions only in English.
+     */
+    TRACE: string;
+    /**
+     * The WARN level designates potentially harmful situations.
+     *
+     * This term provides descriptions only in English.
+     */
+    WARN: string;
+    /**
+     * Outputs the fully qualified class name of the caller issuing the logging request.
+     *
+     * This term provides descriptions only in English.
+     */
+    className: string;
+    /**
+     * The numerical value of the code, e.g. 200, 404 or 42.
+     *
+     * This term provides descriptions only in English.
+     */
+    codeId: string;
+    /**
+     * Logging datetime (or just date)
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    date: string;
+    /**
+     * Links a log message to a status code.
+     *
+     * This term provides descriptions only in English.
+     */
+    hasCode: string;
+    /**
+     * logLevel
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    level: string;
+    /**
+     * Logging message
+     *
+     * This term has a label (in language [en]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    message: string;
+    /**
+     * If we mix normal and log output, this can be used to refer to the resource in the RDF the error is connected to.
+     *
+     * This term provides descriptions only in English.
+     */
+    resource: string;
+};
+export default RLOG;

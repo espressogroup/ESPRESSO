@@ -1,0 +1,442 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * [Generator provided] - iCal - a vocabulary for description of events and calendars
+ */
+declare const ICAL: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        ical: string;
+    };
+    NS: typeof _NS;
+    /**
+     * Provide a grouping of component properties that define an alarm.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    Valarm: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Value_DURATION: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Value_CAL_ADDRESS: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Value_DATE: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Value_DATE_TIME: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Value_PERIOD: string;
+    /**
+     *
+     *
+     * This term has no descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:label&#x27;, &#x27;rdfs:comment&#x27;, or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Value_RECUR: string;
+    /**
+     * Provide a grouping of component properties that describe an event.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    Vevent: string;
+    /**
+     * Provide a grouping of component properties that describe either a request for free/busy time, describe a response to a request for free/busy time or describe a published set of busy time.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    Vfreebusy: string;
+    /**
+     * Provide a grouping of component properties that describe a journal entry.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    Vjournal: string;
+    /**
+     * Provide a grouping of component properties that defines a time zone.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    Vtimezone: string;
+    /**
+     * Provide a grouping of calendar properties that describe a to-do.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    Vtodo: string;
+    /**
+     *
+          default value type: URI
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    attach: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    description: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    summary: string;
+    /**
+     *
+          value type: DURATION
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    duration: string;
+    /**
+     *
+          value type: CAL-ADDRESS
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    attendee: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    action: string;
+    /**
+     *
+          value type: INTEGER
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    repeat: string;
+    /**
+     *
+          default value type: DURATION
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    trigger: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    categories: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    class: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    comment: string;
+    /**
+     * This property specifies information related to the global position for the activity specified by a calendar component.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    geo: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    location: string;
+    /**
+     *
+          value type: INTEGER
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    priority: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    resources: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    status: string;
+    /**
+     *
+          default value type: DATE-TIME
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    dtend: string;
+    /**
+     *
+          default value type: DATE-TIME
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    dtstart: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    transp: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    contact: string;
+    /**
+     *
+          value type: CAL-ADDRESS
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    organizer: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    relatedTo: string;
+    /**
+     *
+          value type: URI
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    url: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    uid: string;
+    /**
+     *
+          value type: RECUR
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    exrule: string;
+    /**
+     *
+          default value type: DATE-TIME
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    rdate: string;
+    /**
+     *
+          value type: RECUR
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    rrule: string;
+    /**
+     *
+          value type: DATE-TIME
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    created: string;
+    /**
+     *
+          value type: DATE-TIME
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    dtstamp: string;
+    /**
+     *
+          value type: DATE-TIME
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    lastModified: string;
+    /**
+     *
+          value type: integer
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    sequence: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    requestStatus: string;
+    /**
+     *
+          value type: PERIOD
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    freebusy: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    tzid: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    tzname: string;
+    /**
+     *
+          value type: UTC-OFFSET
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    tzoffsetfrom: string;
+    /**
+     *
+          value type: UTC-OFFSET
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    tzoffsetto: string;
+    /**
+     *
+          value type: URI
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    tzurl: string;
+    /**
+     *
+          value type: INTEGER
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    percentComplete: string;
+    /**
+     *
+          value type: DATE-TIME
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    completed: string;
+    /**
+     *
+          default value type: DATE-TIME
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    due: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    X_: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    calscale: string;
+    /**
+     *
+          default value type: DATE-TIME
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    exdate: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    method: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    prodid: string;
+    /**
+     *
+          default value type: DATE-TIME
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    recurrenceId: string;
+    /**
+     *
+          value type: TEXT
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    version: string;
+};
+export default ICAL;

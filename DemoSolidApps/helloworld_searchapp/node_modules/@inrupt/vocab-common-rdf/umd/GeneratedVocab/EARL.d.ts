@@ -1,0 +1,179 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * [Generator provided] - Evaluation and Report Language (EARL)
+ */
+declare const EARL: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        earl: string;
+    };
+    NS: typeof _NS;
+    /**
+     * a statement that embodies the results of a test
+     *
+     * This term provides descriptions only in English.
+     */
+    Assertion: string;
+    /**
+     * an entity such as a person, a software tool, an organization, or any other grouping that carries out a test collectively
+     *
+     * This term provides descriptions only in English.
+     */
+    Assertor: string;
+    /**
+     * the class of things that have been tested against some test criterion
+     *
+     * This term provides descriptions only in English.
+     */
+    TestSubject: string;
+    /**
+     * a testable statement, usually one that can be passed or failed
+     *
+     * This term provides descriptions only in English.
+     */
+    TestCriterion: string;
+    /**
+     * a higher-level requirement that is tested by executing one or more sub-tests
+     *
+     * This term provides descriptions only in English.
+     */
+    TestRequirement: string;
+    /**
+     * an atomic test, usually one that is a partial test for a requirement
+     *
+     * This term provides descriptions only in English.
+     */
+    TestCase: string;
+    /**
+     * the actual result of performing the test
+     *
+     * This term provides descriptions only in English.
+     */
+    TestResult: string;
+    /**
+     * describes how a test was carried out
+     *
+     * This term provides descriptions only in English.
+     */
+    TestMode: string;
+    /**
+     * a discrete value that describes a resulting condition from carrying out the test
+     *
+     * This term provides descriptions only in English.
+     */
+    OutcomeValue: string;
+    /**
+     * the class of outcomes to denote passing a test
+     *
+     * This term provides descriptions only in English.
+     */
+    Pass: string;
+    /**
+     * the class of outcomes to denote failing a test
+     *
+     * This term provides descriptions only in English.
+     */
+    Fail: string;
+    /**
+     * the class of outcomes to denote an undetermined outcome
+     *
+     * This term provides descriptions only in English.
+     */
+    CannotTell: string;
+    /**
+     * the class of outcomes to denote the test is not applicable
+     *
+     * This term provides descriptions only in English.
+     */
+    NotApplicable: string;
+    /**
+     * the class of outcomes to denote the test has not been carried out
+     *
+     * This term provides descriptions only in English.
+     */
+    NotTested: string;
+    /**
+     * any piece of software such as an authoring tool, browser, or evaluation tool
+     *
+     * This term provides descriptions only in English.
+     */
+    Software: string;
+    /**
+     * assertor of an assertion
+     *
+     * This term provides descriptions only in English.
+     */
+    assertedBy: string;
+    /**
+     * test subject of an assertion
+     *
+     * This term provides descriptions only in English.
+     */
+    subject: string;
+    /**
+     * test criterion of an assertion
+     *
+     * This term provides descriptions only in English.
+     */
+    test: string;
+    /**
+     * result of an assertion
+     *
+     * This term provides descriptions only in English.
+     */
+    result: string;
+    /**
+     * mode in which the test was performed
+     *
+     * This term provides descriptions only in English.
+     */
+    mode: string;
+    /**
+     * assertor that is primarily responsible for performing the test
+     *
+     * This term provides descriptions only in English.
+     */
+    mainAssertor: string;
+    /**
+     * outcome of performing the test
+     *
+     * This term provides descriptions only in English.
+     */
+    outcome: string;
+    /**
+     * location within a test subject that are most relevant to a test result
+     *
+     * This term provides descriptions only in English.
+     */
+    pointer: string;
+    /**
+     * additional warnings or error messages in a human-readable form
+     *
+     * This term provides descriptions only in English.
+     */
+    info: string;
+};
+export default EARL;

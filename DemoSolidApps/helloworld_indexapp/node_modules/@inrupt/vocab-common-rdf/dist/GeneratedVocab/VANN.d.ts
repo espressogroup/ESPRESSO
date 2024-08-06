@@ -1,0 +1,71 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * A vocabulary for annotating vocabulary descriptions (VANN).
+ */
+declare const VANN: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        vann: string;
+    };
+    NS: typeof _NS;
+    /**
+     * The preferred namespace prefix to ue when using terms from this vocabulary in an XML document.
+     *
+     * This term provides descriptions only in English.
+     */
+    preferredNamespacePrefix: string;
+    /**
+     * The preferred namespace URI to use when using terms from this vocabulary in an XML document.
+     *
+     * This term provides descriptions only in English.
+     */
+    preferredNamespaceUri: string;
+    /**
+     * A reference to a resource that describes changes between this version of a vocabulary and the previous.
+     *
+     * This term provides descriptions only in English.
+     */
+    changes: string;
+    /**
+     * A reference to a resource that provides an example of how this resource can be used.
+     *
+     * This term provides descriptions only in English.
+     */
+    example: string;
+    /**
+     * A group of related terms in a vocabulary.
+     *
+     * This term provides descriptions only in English.
+     */
+    termGroup: string;
+    /**
+     * A reference to a resource that provides information on how this resource is to be used.
+     *
+     * This term provides descriptions only in English.
+     */
+    usageNote: string;
+};
+export default VANN;

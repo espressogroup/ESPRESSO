@@ -1,0 +1,387 @@
+//
+// Copyright Inrupt Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal in
+// the Software without restriction, including without limitation the rights to use,
+// copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+// Software, and to permit persons to whom the Software is furnished to do so,
+// subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+// PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+
+import { it, expect } from "@jest/globals";
+import {
+  getFile,
+  getFileWithAcl,
+  deleteFile,
+  saveFileInContainer,
+  overwriteFile,
+  createSolidDataset,
+  getSolidDataset,
+  getResourceInfo,
+  getResourceInfoWithAcl,
+  getPodOwner,
+  isPodOwner,
+  getLinkedResourceUrlAll,
+  getEffectiveAccess,
+  isContainer,
+  isRawData,
+  getContentType,
+  getSourceUrl,
+  getSourceIri,
+  saveSolidDatasetAt,
+  deleteSolidDataset,
+  createContainerAt,
+  saveSolidDatasetInContainer,
+  createContainerInContainer,
+  deleteContainer,
+  getContainedResourceUrlAll,
+  validateContainedResourceAll,
+  saveAclFor,
+  deleteAclFor,
+  getThing,
+  getThingAll,
+  setThing,
+  removeThing,
+  createThing,
+  isThing,
+  isThingLocal,
+  asUrl,
+  asIri,
+  thingAsMarkdown,
+  getPropertyAll,
+  getUrl,
+  getIri,
+  getBoolean,
+  getDatetime,
+  getDate,
+  getTime,
+  getDecimal,
+  getInteger,
+  getStringEnglish,
+  getStringWithLocale,
+  getStringNoLocale,
+  getUrlAll,
+  getIriAll,
+  getBooleanAll,
+  getDatetimeAll,
+  getDateAll,
+  getTimeAll,
+  getDecimalAll,
+  getIntegerAll,
+  getStringEnglishAll,
+  getStringWithLocaleAll,
+  getStringByLocaleAll,
+  getStringNoLocaleAll,
+  getLiteral,
+  getNamedNode,
+  getTerm,
+  getLiteralAll,
+  getNamedNodeAll,
+  getTermAll,
+  addUrl,
+  addIri,
+  addBoolean,
+  addDatetime,
+  addDate,
+  addTime,
+  addDecimal,
+  addInteger,
+  addStringWithLocale,
+  addStringNoLocale,
+  addLiteral,
+  addNamedNode,
+  addTerm,
+  setUrl,
+  setIri,
+  setBoolean,
+  setDatetime,
+  setDate,
+  setTime,
+  setDecimal,
+  setInteger,
+  setStringWithLocale,
+  setStringNoLocale,
+  setLiteral,
+  setNamedNode,
+  setTerm,
+  removeAll,
+  removeUrl,
+  removeIri,
+  removeBoolean,
+  removeDatetime,
+  removeDate,
+  removeTime,
+  removeDecimal,
+  removeInteger,
+  removeStringEnglish,
+  removeStringWithLocale,
+  removeStringNoLocale,
+  removeLiteral,
+  removeNamedNode,
+  buildThing,
+  getSolidDatasetWithAcl,
+  solidDatasetAsMarkdown,
+  changeLogAsMarkdown,
+  hasAcl,
+  hasFallbackAcl,
+  getFallbackAcl,
+  hasResourceAcl,
+  getResourceAcl,
+  createAcl,
+  createAclFromFallbackAcl,
+  getAgentAccess,
+  getAgentAccessAll,
+  getAgentResourceAccess,
+  getAgentResourceAccessAll,
+  setAgentResourceAccess,
+  getAgentDefaultAccess,
+  getAgentDefaultAccessAll,
+  setAgentDefaultAccess,
+  getPublicAccess,
+  getPublicResourceAccess,
+  getPublicDefaultAccess,
+  setPublicResourceAccess,
+  setPublicDefaultAccess,
+  hasResourceInfo,
+  hasServerResourceInfo,
+  hasAccessibleAcl,
+  getGroupAccess,
+  getGroupAccessAll,
+  getGroupResourceAccess,
+  getGroupResourceAccessAll,
+  getGroupDefaultAccess,
+  getGroupDefaultAccessAll,
+  setGroupDefaultAccess,
+  setGroupResourceAccess,
+  mockSolidDatasetFrom,
+  mockContainerFrom,
+  mockFileFrom,
+  mockFetchError,
+  mockThingFrom,
+  addMockResourceAclTo,
+  addMockFallbackAclTo,
+  fromRdfJsDataset,
+  toRdfJsDataset,
+  addJwkToJwks,
+  addPublicKeyToProfileJwks,
+  getProfileJwksIri,
+  setProfileJwks,
+  getProfileAll,
+  getAltProfileUrlAllFrom,
+  getWebIdDataset,
+  getPodUrlAll,
+  getPodUrlAllFrom,
+  getWellKnownSolid,
+  getJsonLdParser,
+  getTurtleParser,
+  solidDatasetAsTurtle,
+  // Error classes:
+  SolidClientError,
+  FetchError,
+  ThingExpectedError,
+  universalAccess,
+  acp_ess_2,
+  responseToSolidDataset,
+  responseToResourceInfo,
+  addStringEnglish,
+  // Deprecated functions still exported for backwards compatibility:
+} from "./index";
+
+// These tests aren't too useful in preventing bugs, but they work around this issue:
+// https://github.com/facebook/jest/issues/10032
+it("exports the public API from the entry file", () => {
+  expect(getFile).toBeDefined();
+  expect(getFileWithAcl).toBeDefined();
+  expect(deleteFile).toBeDefined();
+  expect(saveFileInContainer).toBeDefined();
+  expect(overwriteFile).toBeDefined();
+  expect(createSolidDataset).toBeDefined();
+  expect(getSolidDataset).toBeDefined();
+  expect(getResourceInfo).toBeDefined();
+  expect(getResourceInfoWithAcl).toBeDefined();
+  expect(getPodOwner).toBeDefined();
+  expect(isPodOwner).toBeDefined();
+  expect(getLinkedResourceUrlAll).toBeDefined();
+  expect(getEffectiveAccess).toBeDefined();
+  expect(isContainer).toBeDefined();
+  expect(isRawData).toBeDefined();
+  expect(getContentType).toBeDefined();
+  expect(getSourceUrl).toBeDefined();
+  expect(getSourceIri).toBeDefined();
+  expect(saveSolidDatasetAt).toBeDefined();
+  expect(deleteSolidDataset).toBeDefined();
+  expect(createContainerAt).toBeDefined();
+  expect(saveSolidDatasetInContainer).toBeDefined();
+  expect(createContainerInContainer).toBeDefined();
+  expect(deleteContainer).toBeDefined();
+  expect(getContainedResourceUrlAll).toBeDefined();
+  expect(validateContainedResourceAll).toBeDefined();
+  expect(saveAclFor).toBeDefined();
+  expect(deleteAclFor).toBeDefined();
+  expect(getThing).toBeDefined();
+  expect(getThingAll).toBeDefined();
+  expect(setThing).toBeDefined();
+  expect(removeThing).toBeDefined();
+  expect(createThing).toBeDefined();
+  expect(isThing).toBeDefined();
+  expect(isThingLocal).toBeDefined();
+  expect(asUrl).toBeDefined();
+  expect(asIri).toBeDefined();
+  expect(thingAsMarkdown).toBeDefined();
+  expect(getPropertyAll).toBeDefined();
+  expect(getUrl).toBeDefined();
+  expect(getIri).toBeDefined();
+  expect(getBoolean).toBeDefined();
+  expect(getDatetime).toBeDefined();
+  expect(getDate).toBeDefined();
+  expect(getTime).toBeDefined();
+  expect(getDecimal).toBeDefined();
+  expect(getInteger).toBeDefined();
+  expect(getStringEnglish).toBeDefined();
+  expect(getStringWithLocale).toBeDefined();
+  expect(getStringNoLocale).toBeDefined();
+  expect(getStringEnglishAll).toBeDefined();
+  expect(getStringByLocaleAll).toBeDefined();
+  expect(getUrlAll).toBeDefined();
+  expect(getIriAll).toBeDefined();
+  expect(getBooleanAll).toBeDefined();
+  expect(getDatetimeAll).toBeDefined();
+  expect(getDateAll).toBeDefined();
+  expect(getTimeAll).toBeDefined();
+  expect(getDecimalAll).toBeDefined();
+  expect(getIntegerAll).toBeDefined();
+  expect(getStringWithLocaleAll).toBeDefined();
+  expect(getStringNoLocaleAll).toBeDefined();
+  expect(getLiteral).toBeDefined();
+  expect(getNamedNode).toBeDefined();
+  expect(getTerm).toBeDefined();
+  expect(getLiteralAll).toBeDefined();
+  expect(getNamedNodeAll).toBeDefined();
+  expect(getTermAll).toBeDefined();
+  expect(addUrl).toBeDefined();
+  expect(addIri).toBeDefined();
+  expect(addBoolean).toBeDefined();
+  expect(addDatetime).toBeDefined();
+  expect(addDate).toBeDefined();
+  expect(addTime).toBeDefined();
+  expect(addDecimal).toBeDefined();
+  expect(addInteger).toBeDefined();
+  expect(addStringEnglish).toBeDefined();
+  expect(addStringWithLocale).toBeDefined();
+  expect(addStringNoLocale).toBeDefined();
+  expect(addLiteral).toBeDefined();
+  expect(addNamedNode).toBeDefined();
+  expect(addTerm).toBeDefined();
+  expect(setUrl).toBeDefined();
+  expect(setIri).toBeDefined();
+  expect(setBoolean).toBeDefined();
+  expect(setDatetime).toBeDefined();
+  expect(setDate).toBeDefined();
+  expect(setTime).toBeDefined();
+  expect(setDecimal).toBeDefined();
+  expect(setInteger).toBeDefined();
+  expect(setStringWithLocale).toBeDefined();
+  expect(setStringNoLocale).toBeDefined();
+  expect(setLiteral).toBeDefined();
+  expect(setNamedNode).toBeDefined();
+  expect(setTerm).toBeDefined();
+  expect(removeAll).toBeDefined();
+  expect(removeUrl).toBeDefined();
+  expect(removeIri).toBeDefined();
+  expect(removeBoolean).toBeDefined();
+  expect(removeDatetime).toBeDefined();
+  expect(removeDate).toBeDefined();
+  expect(removeTime).toBeDefined();
+  expect(removeDecimal).toBeDefined();
+  expect(removeInteger).toBeDefined();
+  expect(removeStringEnglish).toBeDefined();
+  expect(removeStringWithLocale).toBeDefined();
+  expect(removeStringNoLocale).toBeDefined();
+  expect(removeLiteral).toBeDefined();
+  expect(removeNamedNode).toBeDefined();
+  expect(buildThing).toBeDefined();
+  expect(getSolidDatasetWithAcl).toBeDefined();
+  expect(solidDatasetAsMarkdown).toBeDefined();
+  expect(changeLogAsMarkdown).toBeDefined();
+  expect(hasAcl).toBeDefined();
+  expect(hasFallbackAcl).toBeDefined();
+  expect(getFallbackAcl).toBeDefined();
+  expect(hasResourceAcl).toBeDefined();
+  expect(getResourceAcl).toBeDefined();
+  expect(createAcl).toBeDefined();
+  expect(createAclFromFallbackAcl).toBeDefined();
+  expect(getAgentAccess).toBeDefined();
+  expect(getAgentAccessAll).toBeDefined();
+  expect(getAgentResourceAccess).toBeDefined();
+  expect(getAgentResourceAccessAll).toBeDefined();
+  expect(setAgentResourceAccess).toBeDefined();
+  expect(getAgentDefaultAccess).toBeDefined();
+  expect(getAgentDefaultAccessAll).toBeDefined();
+  expect(setAgentDefaultAccess).toBeDefined();
+  expect(getPublicAccess).toBeDefined();
+  expect(getPublicResourceAccess).toBeDefined();
+  expect(getPublicDefaultAccess).toBeDefined();
+  expect(setPublicResourceAccess).toBeDefined();
+  expect(setPublicDefaultAccess).toBeDefined();
+  expect(getPublicDefaultAccess).toBeDefined();
+  expect(hasResourceInfo).toBeDefined();
+  expect(hasServerResourceInfo).toBeDefined();
+  expect(hasAccessibleAcl).toBeDefined();
+  expect(getGroupAccess).toBeDefined();
+  expect(getGroupAccessAll).toBeDefined();
+  expect(getGroupResourceAccess).toBeDefined();
+  expect(getGroupResourceAccessAll).toBeDefined();
+  expect(getGroupDefaultAccess).toBeDefined();
+  expect(getGroupDefaultAccessAll).toBeDefined();
+  expect(setGroupDefaultAccess).toBeDefined();
+  expect(setGroupResourceAccess).toBeDefined();
+  expect(mockSolidDatasetFrom).toBeDefined();
+  expect(mockContainerFrom).toBeDefined();
+  expect(mockFileFrom).toBeDefined();
+  expect(mockFetchError).toBeDefined();
+  expect(mockThingFrom).toBeDefined();
+  expect(addMockResourceAclTo).toBeDefined();
+  expect(addMockFallbackAclTo).toBeDefined();
+  expect(fromRdfJsDataset).toBeDefined();
+  expect(toRdfJsDataset).toBeDefined();
+  expect(addJwkToJwks).toBeDefined();
+  expect(addPublicKeyToProfileJwks).toBeDefined();
+  expect(getProfileJwksIri).toBeDefined();
+  expect(setProfileJwks).toBeDefined();
+  expect(getProfileAll).toBeDefined();
+  expect(getAltProfileUrlAllFrom).toBeDefined();
+  expect(getWebIdDataset).toBeDefined();
+  expect(getPodUrlAll).toBeDefined();
+  expect(getPodUrlAllFrom).toBeDefined();
+  expect(getWellKnownSolid).toBeDefined();
+  expect(getJsonLdParser).toBeDefined();
+  expect(getTurtleParser).toBeDefined();
+  expect(solidDatasetAsTurtle).toBeDefined();
+});
+
+it("exports error classes", () => {
+  expect(SolidClientError).toBeDefined();
+  expect(FetchError).toBeDefined();
+  expect(ThingExpectedError).toBeDefined();
+});
+
+it("exports preview API's for early adopters", () => {
+  expect(universalAccess).toBeDefined();
+  expect(acp_ess_2).toBeDefined();
+  expect(responseToSolidDataset).toBeDefined();
+  expect(responseToResourceInfo).toBeDefined();
+});
+
+// eslint-disable-next-line jest/expect-expect -- no deprecated functions are currently included:
+it("still exports deprecated methods", () => {});

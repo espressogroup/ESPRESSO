@@ -1,0 +1,783 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * [Generator provided] - Dublin Core Terms - for describing resources
+ */
+declare const DCTERMS: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        dcterms: string;
+    };
+    NS: typeof _NS;
+    /**
+     * A resource that acts or has the power to act.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    Agent: string;
+    /**
+     * A group of agents.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    AgentClass: string;
+    /**
+     * A book, article, or other documentary resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    BibliographicResource: string;
+    /**
+     * A digital resource format.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    FileFormat: string;
+    /**
+     * A file format or physical medium.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    MediaType: string;
+    /**
+     * A media type or extent.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    MediaTypeOrExtent: string;
+    /**
+     * A rate at which something recurs.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    Frequency: string;
+    /**
+     * The extent or range of judicial, law enforcement, or other authority.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    Jurisdiction: string;
+    /**
+     * A location, period of time, or jurisdiction.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    LocationPeriodOrJurisdiction: string;
+    /**
+     * A legal document giving official permission to do something with a Resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    LicenseDocument: string;
+    /**
+     * A statement about the intellectual property rights (IPR) held in or over a Resource, a legal document giving official permission to do something with a resource, or a statement about access rights.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    RightsStatement: string;
+    /**
+     * A system of signs, symbols, sounds, gestures, or rules used in communication.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    LinguisticSystem: string;
+    /**
+     * A spatial region or named place.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    Location: string;
+    /**
+     * A method by which resources are added to a collection.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    MethodOfAccrual: string;
+    /**
+     * A process that is used to engender knowledge, attitudes, and skills.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    MethodOfInstruction: string;
+    /**
+     * An interval of time that is named or defined by its start and end dates.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    PeriodOfTime: string;
+    /**
+     * A physical material or carrier.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    PhysicalMedium: string;
+    /**
+     * A material thing.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    PhysicalResource: string;
+    /**
+     * A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    Policy: string;
+    /**
+     * A statement of any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    ProvenanceStatement: string;
+    /**
+     * A dimension or extent, or a time taken to play or execute.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    SizeOrDuration: string;
+    /**
+     * A basis for comparison; a reference point against which other things can be evaluated.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    Standard: string;
+    /**
+     * Date on which the resource was changed.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    modified: string;
+    /**
+     * An entity responsible for making the resource available.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    publisher: string;
+    /**
+     * A name given to the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    title: string;
+    /**
+     * A related resource that is a version, edition, or adaptation of the described resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    hasVersion: string;
+    /**
+     * Date of formal issuance (e.g., publication) of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    issued: string;
+    /**
+     * A point or period of time associated with an event in the lifecycle of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    date: string;
+    /**
+     * An account of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    description: string;
+    /**
+     * A related resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    relation: string;
+    /**
+     * The set of regions in space defined by their geographic coordinates according to the DCMI Box Encoding Scheme.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://dublincore.org/documents/dcmi-box/
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    Box: string;
+    /**
+     * The set of codes listed in ISO 3166-1 for the representation of names of countries.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    ISO3166: string;
+    /**
+     * The three-letter alphabetic codes listed in ISO639-2 for the representation of names of languages.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://lcweb.loc.gov/standards/iso639-2/langhome.html
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    ISO639_2: string;
+    /**
+     * The set of three-letter codes listed in ISO 639-3 for the representation of names of languages.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://www.sil.org/iso639-3/
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    ISO639_3: string;
+    /**
+     * The set of time intervals defined by their limits according to the DCMI Period Encoding Scheme.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://dublincore.org/documents/dcmi-period/
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    Period: string;
+    /**
+     * The set of points in space defined by their geographic coordinates according to the DCMI Point Encoding Scheme.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://dublincore.org/documents/dcmi-point/
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    Point: string;
+    /**
+     * The set of tags, constructed according to RFC 1766, for the identification of languages.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://www.ietf.org/rfc/rfc1766.txt
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    RFC1766: string;
+    /**
+     * The set of tags constructed according to RFC 3066 for the identification of languages.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://www.ietf.org/rfc/rfc3066.txt
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    RFC3066: string;
+    /**
+     * The set of tags constructed according to RFC 4646 for the identification of languages.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://www.ietf.org/rfc/rfc4646.txt
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    RFC4646: string;
+    /**
+     * The set of tags constructed according to RFC 5646 for the identification of languages.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://www.ietf.org/rfc/rfc5646.txt
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    RFC5646: string;
+    /**
+     * The set of identifiers constructed according to the generic syntax for Uniform Resource Identifiers as specified by the Internet Engineering Task Force.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://www.ietf.org/rfc/rfc3986.txt
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    URI: string;
+    /**
+     * The set of dates and times constructed according to the W3C Date and Time Formats Specification.
+     *
+     * This term provides descriptions only in English.
+     *
+     * See also:
+     *  - http://www.w3.org/TR/NOTE-datetime
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    W3CDTF: string;
+    /**
+     * A summary of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    abstract: string;
+    /**
+     * Information about who can access the resource or an indication of its security status.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    accessRights: string;
+    /**
+     * Information about rights held in and over the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    rights: string;
+    /**
+     * The method by which items are added to a collection.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    accrualMethod: string;
+    /**
+     * The frequency with which items are added to a collection.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    accrualPeriodicity: string;
+    /**
+     * The policy governing the addition of items to a collection.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    accrualPolicy: string;
+    /**
+     * An alternative name for the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    alternative: string;
+    /**
+     * A class of entity for whom the resource is intended or useful.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    audience: string;
+    /**
+     * Date (often a range) that the resource became or will become available.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    available: string;
+    /**
+     * A bibliographic reference for the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    bibliographicCitation: string;
+    /**
+     * An unambiguous reference to the resource within a given context.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    identifier: string;
+    /**
+     * An established standard to which the described resource conforms.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    conformsTo: string;
+    /**
+     * An entity responsible for making contributions to the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    contributor: string;
+    /**
+     * The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    coverage: string;
+    /**
+     * Date of creation of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    created: string;
+    /**
+     * An entity primarily responsible for making the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    creator: string;
+    /**
+     * Date of acceptance of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    dateAccepted: string;
+    /**
+     * Date of copyright.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    dateCopyrighted: string;
+    /**
+     * Date of submission of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    dateSubmitted: string;
+    /**
+     * A class of entity, defined in terms of progression through an educational or training context, for which the described resource is intended.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    educationLevel: string;
+    /**
+     * The size or duration of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    extent: string;
+    /**
+     * The file format, physical medium, or dimensions of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    format: string;
+    /**
+     * A related resource that is substantially the same as the pre-existing described resource, but in another format.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    hasFormat: string;
+    /**
+     * A related resource that is included either physically or logically in the described resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    hasPart: string;
+    /**
+     * A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    instructionalMethod: string;
+    /**
+     * A related resource that is substantially the same as the described resource, but in another format.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    isFormatOf: string;
+    /**
+     * A related resource in which the described resource is physically or logically included.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    isPartOf: string;
+    /**
+     * A related resource that references, cites, or otherwise points to the described resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    isReferencedBy: string;
+    /**
+     * A related resource that supplants, displaces, or supersedes the described resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    isReplacedBy: string;
+    /**
+     * A related resource that requires the described resource to support its function, delivery, or coherence.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    isRequiredBy: string;
+    /**
+     * A related resource of which the described resource is a version, edition, or adaptation.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    isVersionOf: string;
+    /**
+     * A language of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    language: string;
+    /**
+     * A legal document giving official permission to do something with the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    license: string;
+    /**
+     * An entity that mediates access to the resource and for whom the resource is intended or useful.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    mediator: string;
+    /**
+     * The material or physical carrier of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    medium: string;
+    /**
+     * A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    provenance: string;
+    /**
+     * A related resource that is referenced, cited, or otherwise pointed to by the described resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    references: string;
+    /**
+     * A related resource that is supplanted, displaced, or superseded by the described resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    replaces: string;
+    /**
+     * A related resource that is required by the described resource to support its function, delivery, or coherence.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    requires: string;
+    /**
+     * A person or organization owning or managing rights over the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    rightsHolder: string;
+    /**
+     * A related resource from which the described resource is derived.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    source: string;
+    /**
+     * Spatial characteristics of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    spatial: string;
+    /**
+     * The topic of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    subject: string;
+    /**
+     * A list of subunits of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    tableOfContents: string;
+    /**
+     * Temporal characteristics of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    temporal: string;
+    /**
+     * The nature or genre of the resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    type: string;
+    /**
+     * Date (often a range) of validity of a resource.
+     *
+     * This term provides descriptions only in English.
+     *
+     * Defined by the vocabulary: http://purl.org/dc/terms/
+     */
+    valid: string;
+};
+export default DCTERMS;

@@ -1,0 +1,71 @@
+import { mockSolidDatasetFrom } from '../resource/mock.mjs';
+import { getSourceUrl } from '../resource/resource.mjs';
+import { internal_cloneResource } from '../resource/resource.internal.mjs';
+
+//
+// Copyright Inrupt Inc.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal in
+// the Software without restriction, including without limitation the rights to use,
+// copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+// Software, and to permit persons to whom the Software is furnished to do so,
+// subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+// PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+/**
+ *
+ * ```{warning}
+ * Do not use this function in production code.  For use in **unit tests** that require a
+ * [[AccessControlResource]].
+ * ```
+ *
+ * Initialises a new empty Access Control Resource for a given Resource for use
+ * in **unit tests**.
+ *
+ * @param resourceUrl The URL of the Resource to which the mocked ACR should apply.
+ * @returns The mocked empty Access Control Resource for the given Resource.
+ * @since 1.6.0
+ */
+function mockAcrFor(resourceUrl) {
+    const acrUrl = new URL("access-control-resource", resourceUrl).href;
+    const acr = {
+        ...mockSolidDatasetFrom(acrUrl),
+        accessTo: resourceUrl,
+    };
+    return acr;
+}
+/**
+ * ```{warning}
+ * Do not use this function in production code.  For use in **unit tests** that require a
+ * Resource with an [[AccessControlResource]].
+ * ```
+ *
+ * Attaches an Access Control Resource to a given [[SolidDataset]] for use
+ * in **unit tests**; e.g., unit tests that call [[getPolicyUrlAll]].
+ *
+ * @param resource The Resource to mock up with a new resource ACL.
+ * @param accessControlResource The Access Control Resource to attach to the given Resource.
+ * @returns The input Resource with an empty resource ACL attached.
+ * @since 1.6.0
+ */
+function addMockAcrTo(resource, accessControlResource = mockAcrFor(getSourceUrl(resource))) {
+    const resourceWithAcr = Object.assign(internal_cloneResource(resource), {
+        internal_acp: {
+            acr: accessControlResource,
+            aprs: {},
+        },
+    });
+    return resourceWithAcr;
+}
+
+export { addMockAcrTo, mockAcrFor };

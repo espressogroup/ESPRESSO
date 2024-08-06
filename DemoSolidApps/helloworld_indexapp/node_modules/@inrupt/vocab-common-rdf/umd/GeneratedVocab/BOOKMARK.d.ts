@@ -1,0 +1,107 @@
+/**
+ * MIT License
+ *
+ * Copyright 2022 Inrupt Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the &quot;Software&quot;), to deal in
+ * the Software without restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+ * Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+declare function _NS(localName: string): string;
+/**
+ * [Generator provided] - W3C Bookmark vocabulary
+ */
+declare const BOOKMARK: {
+    PREFIX: string;
+    NAMESPACE: string;
+    PREFIX_AND_NAMESPACE: {
+        bookmark: string;
+    };
+    NS: typeof _NS;
+    /**
+     * Topic
+     *
+     * This term has a label (in language [NoLocale]), but no long-form descriptions at all (i.e., the vocabulary doesn&#x27;t provide any &#x27;rdfs:comment&#x27; or &#x27;dcterms:description&#x27; meta-data).
+     */
+    Topic: string;
+    /**
+     * Specifies a behavior; when the
+                  object of type 'Shortcut' is activated, the
+                  client follows the 'recalls' property and
+                  activates the object at the end of that
+                  'recalls' property.  The target object may
+                  be another Bookmark or may be a Topic.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    Shortcut: string;
+    /**
+     * The class to which all bookmarks belong.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    Bookmark: string;
+    /**
+     * relates a bookmark to a topic.
+                  A bookmark must have at least one hasTopic property.
+                  The typical user operation of following a bookmark link
+                  will use the value of the b:recalls property. This property
+                  corresponds to XBEL:href property.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    hasTopic: string;
+    /**
+     * connects a Shortcut to the bookmark or topic that is
+  being included by reference in some other topic
+     *
+     * The term has a description only in English, but has a mismatch between its labels and comments, with [0] labels, but [1] comment in the language [en].
+     */
+    leadsTo: string;
+    /**
+     * This corresponds to XBEL:href an
+                  object of type Bookmark is expected to have a
+                  'recalls' relationship to the document being
+                  bookmarked.  The 'bookmarks' property is an older
+                  name for the 'recalls' relationship.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    bookmarks: string;
+    /**
+     * Relates a bookmark with the resource that
+                  has been bookmarked.  This corresponds to XBEL:href;
+                  an object of type Bookmark is expected to have a
+                  'recalls' relationship to the document being
+                  bookmarked
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    recalls: string;
+    /**
+     * Describes a relationship between Topics.
+          When a topic T is a sub-topic of a topic U then all
+          bookmarks that have topic T are also considered to have
+          topic U. A topic may be a sub-topic of one or more
+          topics; trivially, every topic is a sub-topic of itself.
+          More formally; for all B, T, and U: b b:hasTopic T,
+          T b:subTopicOf U implies B b:hasTopic U.
+     *
+     * This term provides descriptions only with no explicit locale.
+     */
+    subTopicOf: string;
+};
+export default BOOKMARK;

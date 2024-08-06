@@ -1,0 +1,221 @@
+{
+  "name": "@inrupt/solid-client",
+  "description": "Make your web apps work with Solid Pods.",
+  "version": "2.0.1",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup --config rollup.config.mjs",
+    "docs:clean": "cd docs/api; make clean-all",
+    "docs:install": "cd docs/api; pip install -r requirements.txt",
+    "docs:build": "typedoc && cd docs/api && make html dist",
+    "docs:preview": "python3 -m http.server --bind 127.0.0.1 --directory docs/dist",
+    "check-licenses": "license-checker --production --failOn \"AGPL-1.0-only; AGPL-1.0-or-later; AGPL-3.0-only; AGPL-3.0-or-later; Beerware; CC-BY-NC-1.0; CC-BY-NC-2.0; CC-BY-NC-2.5; CC-BY-NC-3.0; CC-BY-NC-4.0; CC-BY-NC-ND-1.0; CC-BY-NC-ND-2.0; CC-BY-NC-ND-2.5; CC-BY-NC-ND-3.0; CC-BY-NC-ND-4.0; CC-BY-NC-SA-1.0; CC-BY-NC-SA-2.0; CC-BY-NC-SA-2.5; CC-BY-NC-SA-3.0; CC-BY-NC-SA-4.0; CPAL-1.0; EUPL-1.0; EUPL-1.1; EUPL-1.1;  GPL-1.0-only; GPL-1.0-or-later; GPL-2.0-only;  GPL-2.0-or-later; GPL-3.0; GPL-3.0-only; GPL-3.0-or-later; SISSL;  SISSL-1.2; WTFPL\"",
+    "lint": "npm run lint:check",
+    "lint:fix": "npm run lint:eslint -- --fix && npm run lint:prettier -- --write",
+    "lint:check": "npm run lint:eslint && npm run lint:prettier -- --check",
+    "lint:eslint": "eslint --config .eslintrc.js \"src/\" \"e2e/\"",
+    "lint:prettier": "prettier \"{src,e2e}/**/*.{ts,tsx,js,jsx,css}\" \"**/*.{md,mdx,yml}\"",
+    "list-licenses": "license-checker --production --csv --out LICENSE_DEPENDENCIES_ALL",
+    "prepublishOnly": "npm run build",
+    "test": "jest --ignoreProjects e2e-node",
+    "test:unit:browser": "jest --selectProjects browser-utc",
+    "test:unit:node": "jest --selectProjects node",
+    "test:e2e:node": "jest --selectProjects e2e-node --testTimeout 30000 --collectCoverage false",
+    "test:e2e": "npm run test:e2e:node && npm run test:e2e:browser",
+    "test:e2e:browser": "playwright test",
+    "test:e2e:browser:build": "cd e2e/browser/test-app && npm ci",
+    "test:webpack": "npm run build && webpack --config e2e/bundle/webpack.config.js"
+  },
+  "keywords": [
+    "rdf",
+    "solid",
+    "linked data",
+    "turtle"
+  ],
+  "homepage": "https://docs.inrupt.com/client-libraries/solid-client-js/",
+  "bugs": "https://github.com/inrupt/solid-client-js/issues",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    },
+    "./interfaces": {
+      "types": "./dist/interfaces.d.ts",
+      "import": "./dist/interfaces.mjs"
+    },
+    "./resource/resource": {
+      "types": "./dist/resource/resource.d.ts",
+      "import": "./dist/resource/resource.mjs"
+    },
+    "./resource/solidDataset": {
+      "types": "./dist/resource/solidDataset.d.ts",
+      "import": "./dist/resource/solidDataset.mjs"
+    },
+    "./resource/file": {
+      "types": "./dist/resource/file.d.ts",
+      "import": "./dist/resource/file.mjs"
+    },
+    "./resource/mock": {
+      "types": "./dist/resource/mock.d.ts",
+      "import": "./dist/resource/mock.mjs"
+    },
+    "./thing/thing": {
+      "types": "./dist/thing/thing.d.ts",
+      "import": "./dist/thing/thing.mjs"
+    },
+    "./thing/get": {
+      "types": "./dist/thing/get.d.ts",
+      "import": "./dist/thing/get.mjs"
+    },
+    "./thing/add": {
+      "types": "./dist/thing/add.d.ts",
+      "import": "./dist/thing/add.mjs"
+    },
+    "./thing/set": {
+      "types": "./dist/thing/set.d.ts",
+      "import": "./dist/thing/set.mjs"
+    },
+    "./thing/remove": {
+      "types": "./dist/thing/remove.d.ts",
+      "import": "./dist/thing/remove.mjs"
+    },
+    "./thing/build": {
+      "types": "./dist/thing/build.d.ts",
+      "import": "./dist/thing/build.mjs"
+    },
+    "./thing/mock": {
+      "types": "./dist/thing/mock.d.ts",
+      "import": "./dist/thing/mock.mjs"
+    },
+    "./acl/acl": {
+      "types": "./dist/acl/acl.d.ts",
+      "import": "./dist/acl/acl.mjs"
+    },
+    "./acl/agent": {
+      "types": "./dist/acl/agent.d.ts",
+      "import": "./dist/acl/agent.mjs"
+    },
+    "./acl/group": {
+      "types": "./dist/acl/group.d.ts",
+      "import": "./dist/acl/group.mjs"
+    },
+    "./acl/class": {
+      "types": "./dist/acl/class.d.ts",
+      "import": "./dist/acl/class.mjs"
+    },
+    "./acl/mock": {
+      "types": "./dist/acl/mock.d.ts",
+      "import": "./dist/acl/mock.mjs"
+    },
+    "./acp/acp": {
+      "types": "./dist/acp/acp.d.ts",
+      "import": "./dist/acp/acp.mjs"
+    },
+    "./acp/control": {
+      "types": "./dist/acp/control.d.ts",
+      "import": "./dist/acp/control.mjs"
+    },
+    "./acp/policy": {
+      "types": "./dist/acp/policy.d.ts",
+      "import": "./dist/acp/policy.mjs"
+    },
+    "./acp/rule": {
+      "types": "./dist/acp/rule.d.ts",
+      "import": "./dist/acp/rule.mjs"
+    },
+    "./acp/mock": {
+      "types": "./dist/acp/mock.d.ts",
+      "import": "./dist/acp/mock.mjs"
+    },
+    "./access/universal": {
+      "types": "./dist/access/universal.d.ts",
+      "import": "./dist/access/universal.mjs"
+    },
+    "./rdfjs": {
+      "types": "./dist/rdfjs.d.ts",
+      "import": "./dist/rdfjs.mjs"
+    },
+    "./profile/jwks": {
+      "types": "./dist/profile/jwks.d.ts",
+      "import": "./dist/profile/jwks.mjs"
+    },
+    "./profile/webId": {
+      "types": "./dist/profile/webid.d.ts",
+      "import": "./dist/profile/webid.mjs"
+    },
+    "./profile/webid": {
+      "types": "./dist/profile/webid.d.ts",
+      "import": "./dist/profile/webid.mjs"
+    },
+    "./formats": {
+      "types": "./dist/formats/index.d.ts",
+      "import": "./dist/formats/index.mjs"
+    },
+    "./universal": {
+      "types": "./dist/universal/index.d.ts",
+      "import": "./dist/universal/index.mjs"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inrupt/solid-client-js.git"
+  },
+  "devDependencies": {
+    "@inrupt/base-rollup-config": "^3.0.1",
+    "@inrupt/eslint-config-lib": "^3.0.1",
+    "@inrupt/internal-playwright-helpers": "^3.1.0",
+    "@inrupt/internal-test-env": "^3.1.0",
+    "@inrupt/jest-jsdom-polyfills": "^3.0.1",
+    "@inrupt/solid-client-authn-node": "^2.0.0",
+    "@playwright/test": "^1.37.0",
+    "@rdfjs/types": "^1.1.0",
+    "@rushstack/eslint-patch": "^1.6.1",
+    "@types/http-link-header": "^1.0.5",
+    "@types/jest": "^29.5.11",
+    "@types/n3": "^1.16.4",
+    "@types/rdfjs__dataset": "^1.0.5",
+    "@types/uuid": "^9.0.7",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "fast-check": "^3.15.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "prettier": "3.2.5",
+    "rdf-isomorphic": "^1.3.1",
+    "rdf-namespaces": "^1.12.0",
+    "rollup": "^4.9.1",
+    "ts-jest": "^29.1.1",
+    "typedoc": "^0.25.4",
+    "typedoc-plugin-markdown": "^3.17.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@rdfjs/dataset": "^1.1.1",
+    "buffer": "^6.0.3",
+    "http-link-header": "^1.1.1",
+    "jsonld-context-parser": "^2.4.0",
+    "jsonld-streaming-parser": "^3.3.0",
+    "n3": "^1.17.2",
+    "uuid": "^9.0.1"
+  },
+  "engines": {
+    "node": "^18.0.0 || ^20.0.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.3"
+  },
+  "overrides": {
+    "eslint-plugin-prettier": "^5.0.0"
+  }
+}
