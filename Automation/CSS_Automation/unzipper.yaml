@@ -6,14 +6,14 @@
   tasks:
     - name: Unzip Data Files
       unarchive:
-        src: "/srv/espresso/E1exp{{ item }}.zip"
-        dest: "/srv/espresso/storage/E1exp{{ item }}/"
+        src: "/srv/espresso/ardfhealthpod1{{ item }}.zip"
+        dest: "/srv/espresso/storage/ardfhealthpod1{{ item }}/"
         remote_src: yes
-      with_sequence: start=0 end=49
+      with_sequence: start=0 end=9499
 
     - name: Unzip Indexing Files
       unarchive:
-        src: "/srv/espresso/E1exp{{ item }}.index.zip"
-        dest: "/srv/espresso/storage/E1exp{{ item }}/espressoindex/"
+        src: "/srv/espresso/ardfhealthpod1{{ item }}.index.zip"
+        dest: "/srv/espresso/storage/ardfhealthpod1{{ item }}/espressoindex/"
         remote_src: yes
-      with_sequence: start=0 end=49
+      with_sequence: start=0 end=9499

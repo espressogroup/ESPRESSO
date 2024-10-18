@@ -1,0 +1,34 @@
+---
+- name: Unzip files on remote VMs
+  hosts: solid_servers
+  become: yes
+  vars:
+    server_number: "{{ inventory_hostname | regex_replace('cups', '') | int }}"
+
+  tasks:
+    - name: Unzip Data Files
+      unarchive:
+        src: "/srv/espresso/ardfhealthpod{{ server_number }}{{ item }}.zip"
+        dest: "/srv/espresso/storage/ardfhealthpod{{ server_number }}{{ item }}/"
+        remote_src: yes
+      with_sequence: start=0 end=9499
+
+    - name: Unzip Indexing Files
+      unarchive:
+        src: "/srv/espresso/ardfhealthpod{{ server_number }}{{ item }}.index.zip"
+        dest: "/srv/espresso/storage/ardfhealthpod{{ server_number }}{{ item }}/espressoindex/"
+        remote_src: yes
+      with_sequence: start=0 end=9499
+
+
+    - name: Ensure ardfhealthmetaindex directory exists
+      file:
+        path: "/srv/espresso/storage/ESPRESSO/ardfhealthmetaindex/"
+        state: directory
+        mode: '0755'
+
+    - name: Unzip ServerIndexing directory
+      unarchive:
+        src: "/srv/espresso/ardfhealthmetaindex.zip"
+        dest: "/srv/espresso/storage/ESPRESSO/ardfhealthmetaindex/"
+        remote_src: yes
