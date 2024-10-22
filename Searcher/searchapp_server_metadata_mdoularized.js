@@ -89,55 +89,57 @@ async function readSourcesWithSrvrMetadata(webIdQuery, keyword, baseUrl, metaInd
     return [...selectedPods];
 }
 
-async function processBatch(batch, searchWord, webIdQuery, indexType) {
-    const requests = batch.map(async source => {
-        const baseAddress = source.replace(/\/espressoindex\//, "/");
 
-        let response;
-        let webIdAccess;
-        if (indexType === 'h') {
-            // Hierarchical indexing
-            response = axios.get(`${source}${searchWord.split('').join('/')}.ndx`).catch(err => err.response);
-        } else {
-            // Whole-word (Non-Hierarchical indexing)
-            response = axios.get(`${source}${searchWord}.ndx`).catch(err => err.response);
-        }
-
-        webIdAccess = axios.get(`${source}${webIdQuery}.webid`).catch(err => err.response);
-
-        const [responseData, webIdData] = await Promise.all([response, webIdAccess]);
-
-        if (responseData && responseData.status === 200 && webIdData && webIdData.status === 200) {
-            const webIdRows = webIdData.data.split("\r\n").filter(i => i.length > 0);
-            const ndxRows = responseData.data.split("\r\n").filter(i => i.length > 0);
-
-            let webIdIndex = 0;
-            let ndxIndex = 0;
-
-            while (webIdIndex < webIdRows.length && ndxIndex < ndxRows.length) {
-                const [webIdFileId, webIdFileName] = webIdRows[webIdIndex].split(",");
-                const [ndxFileId, frequency] = ndxRows[ndxIndex].split(",");
-                const comparisonResult = compareAlphanumeric(webIdFileId, ndxFileId);
-
-                if (comparisonResult === 0) {
-                    const newValue = { "address": `${baseAddress}${webIdFileName}`, "frequency": frequency };
-                    integratedResult.push(newValue);
-                    webIdIndex++;
-                    ndxIndex++;
-                } else if (comparisonResult < 0) {
-                    webIdIndex++;
-                } else {
-                    ndxIndex++;
-                }
-            }
-        }
-    });
-
-    await Promise.all(requests);
-}
 
 async function integrateResults(sources, webIdQuery, searchWord, indexType) {
     let integratedResult = [];
+
+    async function processBatch(batch, searchWord, webIdQuery, indexType) {
+        const requests = batch.map(async source => {
+            const baseAddress = source.replace(/\/espressoindex\//, "/");
+
+            let response;
+            let webIdAccess;
+            if (indexType === 'h') {
+                // Hierarchical indexing
+                response = axios.get(`${source}${searchWord.split('').join('/')}.ndx`).catch(err => err.response);
+            } else {
+                // Whole-word (Non-Hierarchical indexing)
+                response = axios.get(`${source}${searchWord}.ndx`).catch(err => err.response);
+            }
+
+            webIdAccess = axios.get(`${source}${webIdQuery}.webid`).catch(err => err.response);
+
+            const [responseData, webIdData] = await Promise.all([response, webIdAccess]);
+
+            if (responseData && responseData.status === 200 && webIdData && webIdData.status === 200) {
+                const webIdRows = webIdData.data.split("\r\n").filter(i => i.length > 0);
+                const ndxRows = responseData.data.split("\r\n").filter(i => i.length > 0);
+
+                let webIdIndex = 0;
+                let ndxIndex = 0;
+
+                while (webIdIndex < webIdRows.length && ndxIndex < ndxRows.length) {
+                    const [webIdFileId, webIdFileName] = webIdRows[webIdIndex].split(",");
+                    const [ndxFileId, frequency] = ndxRows[ndxIndex].split(",");
+                    const comparisonResult = compareAlphanumeric(webIdFileId, ndxFileId);
+
+                    if (comparisonResult === 0) {
+                        const newValue = { "address": `${baseAddress}${webIdFileName}`, "frequency": frequency };
+                        integratedResult.push(newValue);
+                        webIdIndex++;
+                        ndxIndex++;
+                    } else if (comparisonResult < 0) {
+                        webIdIndex++;
+                    } else {
+                        ndxIndex++;
+                    }
+                }
+            }
+        });
+
+        await Promise.all(requests);
+    }
 
     for (let i = 0; i < sources.length; i += 50) {
         const batch = sources.slice(i, i + 50);
