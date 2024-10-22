@@ -93,7 +93,7 @@ async function readSourcesWithSrvrMetadata(webIdQuery, keyword, baseUrl, metaInd
 async function readAllSources(baseUrl,metaIndexName) {
 
     try {
-        const response = await axiosInstance.get(`${baseUrl}ESPRESSO/${metaIndexName}`, { responseType: 'blob' });
+        const response = await axios.get(`${baseUrl}ESPRESSO/${metaIndexName}`, { responseType: 'blob' });
         const csvStr = response.data.toString();
         const selectedPods = csvStr.split("\r\n").filter(i => i.length > 0);
 
