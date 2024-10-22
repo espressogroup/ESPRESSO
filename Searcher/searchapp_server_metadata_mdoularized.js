@@ -90,6 +90,20 @@ async function readSourcesWithSrvrMetadata(webIdQuery, keyword, baseUrl, metaInd
 }
 
 
+async function readAllSources(baseUrl,metaIndexName) {
+
+    try {
+        const response = await axiosInstance.get(`${baseUrl}ESPRESSO/${metaIndexName}`, { responseType: 'blob' });
+        const csvStr = response.data.toString();
+        const selectedPods = csvStr.split("\r\n").filter(i => i.length > 0);
+
+        return selectedPods;
+    } catch (error) {
+        console.error(`Error fetching meta-index: ${metaIndexName}. Returning empty results.`, error);
+        return [];
+    }
+}
+
 
 async function integrateResults(sources, webIdQuery, searchWord, indexType) {
     let integratedResult = [];
