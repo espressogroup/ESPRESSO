@@ -6,10 +6,6 @@ const https = require("https");
 const app = express();
 const port = 8080;
 
-// const certificate = fs.readFileSync('./ca.pem');
-// const httpsAgent = new https.Agent({ ca: certificate, rejectUnauthorized: false });
-// const axiosInstance = axios.create({ httpsAgent });
-
 function compareAlphanumeric(id1, id2) {
     const numericPart1 = parseInt(id1.match(/\d+/));
     const numericPart2 = parseInt(id2.match(/\d+/));
@@ -27,6 +23,7 @@ async function fetchFile(url) {
         return null;
     }
 }
+
 async function getWebIdData(baseUrl, webIdQuery, serverIndexUrl) {
     const userWebIdUrl = `${serverIndexUrl}${webIdQuery}.webid`;
 
@@ -41,147 +38,120 @@ async function getWebIdData(baseUrl, webIdQuery, serverIndexUrl) {
             const [podId, url] = line.split(",");
             podUrls[podId] = `${baseUrl}${url.trim()}espressoindex/`;
         });
-
     }
 
-    // console.log({ podUrls, userHandle })
     return { podUrls, userHandle };
 }
-async function getKeywordFileData(serverIndexUrl, keyword) {
-    //Non-Hirarachical indexing
-    // const keywordFileUrl = `${serverIndexUrl}${keyword}.ndx`;
 
-    //Hirarachical indexing
-    const keywordFileUrl = `${serverIndexUrl}${keyword.slice(0).split('').join('/')}.ndx`;
+async function getKeywordFileData(serverIndexUrl, keyword, indexType) {
+    let keywordFileUrl;
+    if (indexType === 'h') {
+        // Hierarchical indexing
+        keywordFileUrl = `${serverIndexUrl}${keyword.split('').join('/')}.ndx`;
+    } else {
+        // Whole-word (Non-Hierarchical indexing)
+        keywordFileUrl = `${serverIndexUrl}${keyword}.ndx`;
+    }
     return await fetchFile(keywordFileUrl);
 }
 
-async function readSourcesWithSrvrMetadata (webIdQuery, keyword, baseUrl,metaIndexName) {
+async function readSourcesWithSrvrMetadata(webIdQuery, keyword, baseUrl, metaIndexName, serverMetadata, indexType) {
+    let serverIndexUrl;
+    if (serverMetadata === '1') {
+        serverIndexUrl = `${baseUrl}ESPRESSO/metaindex/`;
+    } else {
+        serverIndexUrl = `${baseUrl}ESPRESSO/ardf/healthmetaindex_test_wrong/`;
+    }
 
-    ///////////////ENABLING AND DISABLING SERVER-LEVEL METADATA///////////////
-    const serverIndexUrl = `${baseUrl}ESPRESSO/metaindex/`;
-    // const serverIndexUrl = `${baseUrl}ESPRESSO/ardf/healthmetaindex_test_wrong/`;
-
-    /////// Check if the `server_index` container exists, otherwise fall back to read all pods ///////
     const serverIndexData = await fetchFile(serverIndexUrl);
     if (!serverIndexData) {
         console.log("server_index not found, falling back to readAllSources...");
-        return await readAllSources(baseUrl,metaIndexName);
+        return await readAllSources(baseUrl, metaIndexName);
     }
 
-
-    // Get and keyword index data, if missing return empty list
-    const keywordIndexData = await getKeywordFileData(serverIndexUrl, keyword);
+    const keywordIndexData = await getKeywordFileData(serverIndexUrl, keyword, indexType);
     if (!keywordIndexData) return [];
 
-
-    // Now, we Get WebID data i.e., pod urls from user.webid
     const { podUrls, userHandle } = await getWebIdData(baseUrl, webIdQuery, serverIndexUrl);
-    if (!userHandle ) return [];
-
-
+    if (!userHandle) return [];
 
     let selectedPods = new Set();
     const matchingLines = keywordIndexData.filter(line => {
         const [handle] = line.split(",");
-
         return handle === userHandle;
     });
-
 
     matchingLines.forEach(line => {
         const [, podId] = line.split(",");
         if (podUrls[podId]) selectedPods.add(podUrls[podId]);
     });
 
-
     return [...selectedPods];
 }
-async function readAllSources(baseUrl,metaIndexName) {
 
-    try {
-        const response = await axios.get(`${baseUrl}ESPRESSO/${metaIndexName}`, { responseType: 'blob' });
-        const csvStr = response.data.toString();
-        const selectedPods = csvStr.split("\r\n").filter(i => i.length > 0);
+async function processBatch(batch, searchWord, webIdQuery, indexType) {
+    const requests = batch.map(async source => {
+        const baseAddress = source.replace(/\/espressoindex\//, "/");
 
-        return selectedPods;
-    } catch (error) {
-        console.error(`Error fetching meta-index: ${metaIndexName}. Returning empty results.`, error);
-        return [];
-    }
+        let response;
+        let webIdAccess;
+        if (indexType === 'h') {
+            // Hierarchical indexing
+            response = axios.get(`${source}${searchWord.split('').join('/')}.ndx`).catch(err => err.response);
+        } else {
+            // Whole-word (Non-Hierarchical indexing)
+            response = axios.get(`${source}${searchWord}.ndx`).catch(err => err.response);
+        }
+
+        webIdAccess = axios.get(`${source}${webIdQuery}.webid`).catch(err => err.response);
+
+        const [responseData, webIdData] = await Promise.all([response, webIdAccess]);
+
+        if (responseData && responseData.status === 200 && webIdData && webIdData.status === 200) {
+            const webIdRows = webIdData.data.split("\r\n").filter(i => i.length > 0);
+            const ndxRows = responseData.data.split("\r\n").filter(i => i.length > 0);
+
+            let webIdIndex = 0;
+            let ndxIndex = 0;
+
+            while (webIdIndex < webIdRows.length && ndxIndex < ndxRows.length) {
+                const [webIdFileId, webIdFileName] = webIdRows[webIdIndex].split(",");
+                const [ndxFileId, frequency] = ndxRows[ndxIndex].split(",");
+                const comparisonResult = compareAlphanumeric(webIdFileId, ndxFileId);
+
+                if (comparisonResult === 0) {
+                    const newValue = { "address": `${baseAddress}${webIdFileName}`, "frequency": frequency };
+                    integratedResult.push(newValue);
+                    webIdIndex++;
+                    ndxIndex++;
+                } else if (comparisonResult < 0) {
+                    webIdIndex++;
+                } else {
+                    ndxIndex++;
+                }
+            }
+        }
+    });
+
+    await Promise.all(requests);
 }
 
-async function integrateResults(sources, webIdQuery, searchWord) {
+async function integrateResults(sources, webIdQuery, searchWord, indexType) {
     let integratedResult = [];
 
-    // Define a function to process a batch of sources
-    async function processBatch(batch) {
-        const requests = batch.map(async source => {
-            const baseAdress = source.replace(/\/espressoindex\//, "/");
-
-            try {
-                // Perform both requests concurrently
-                const [response, webIdAccess] = await Promise.all([
-                    //Non-Hierarchical indexing
-                    // axios.get(`${source}${searchWord}.ndx`).catch(err => err.response)
-
-                    //Hierarchical indexing
-                    axios.get(`${source}${searchWord.slice(0).split('').join('/')}.ndx`).catch(err => err.response)
-                    ,
-                    axios.get(`${source}${webIdQuery}.webid`).catch(err => err.response)
-                ]);
-
-                // Ensure both responses are defined before accessing properties
-                if (response && response.status === 200 && webIdAccess && webIdAccess.status === 200) {
-
-                    // Process webId and index data
-                    const webIdRows = webIdAccess.data.split("\r\n").filter(i => i.length > 0);
-                    const ndxRows = response.data.split("\r\n").filter(i => i.length > 0);
-
-                    let webIdIndex = 0;
-                    let ndxIndex = 0;
-
-                    // Compare and merge results based on file IDs
-                    while (webIdIndex < webIdRows.length && ndxIndex < ndxRows.length) {
-                        const [webIdFileId, webIdFileName] = webIdRows[webIdIndex].split(",");
-                        const [ndxFileId, frequency] = ndxRows[ndxIndex].split(",");
-                        const comparisonResult = compareAlphanumeric(webIdFileId, ndxFileId);
-
-                        if (comparisonResult === 0) {
-                            const newvalue = { "address": `${baseAdress}${webIdFileName}`, "frequency": frequency };
-                            integratedResult.push(newvalue);
-                            webIdIndex++;
-                            ndxIndex++;
-                        } else if (comparisonResult < 0) {
-                            webIdIndex++;
-                        } else {
-                            ndxIndex++;
-                        }
-                    }
-                }
-            } catch (err) {
-                // Log any errors that occur during the request
-                console.error("An error occurred:", err);
-            }
-        });
-
-        await Promise.all(requests);
-    }
-
-    // Process sources in batches
     for (let i = 0; i < sources.length; i += 50) {
         const batch = sources.slice(i, i + 50);
-        await processBatch(batch);
+        await processBatch(batch, searchWord, webIdQuery, indexType);
     }
 
     return integratedResult;
 }
 
-
 app.get('/query', async (req, res) => {
-
     const urlArgument = process.argv[2];
     const metaIndexName = process.argv[3];
+    const serverMetadata = process.argv[4]; // 0 or 1
+    const indexType = process.argv[5]; // h or w
 
     const baseUrl = `https://${urlArgument}:3000/`;
 
@@ -195,14 +165,12 @@ app.get('/query', async (req, res) => {
     const webIdQuery = webId.replace(/[^a-zA-Z0-9 ]/g, "");
 
     console.time("readSourcesWithSrvrMetadata");
-    const sources = await readSourcesWithSrvrMetadata (webIdQuery, searchWord, baseUrl,metaIndexName);
+    const sources = await readSourcesWithSrvrMetadata(webIdQuery, searchWord, baseUrl, metaIndexName, serverMetadata, indexType);
     console.timeEnd("readSourcesWithSrvrMetadata");
-    // console.log("SELECTED PODS: ", sources);
     console.log("No. SELECTED PODS: ", sources.length);
 
-
     console.time("integrateResults");
-    const integratedResult = await integrateResults(sources, webIdQuery, searchWord);
+    const integratedResult = await integrateResults(sources, webIdQuery, searchWord, indexType);
     console.timeEnd("integrateResults");
     console.log("Number of Results: ", integratedResult.length);
 
