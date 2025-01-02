@@ -8,27 +8,27 @@
   tasks:
     - name: Unzip Data Files
       unarchive:
-        src: "/srv/espresso/ardfhealthpod{{ server_number }}{{ item }}.zip"
-        dest: "/srv/espresso/storage/ardfhealthpod{{ server_number }}{{ item }}/"
+        src: "/srv/espresso/ardfhealth_vldbtestpod{{ server_number }}{{ item }}.zip"
+        dest: "/srv/espresso/storage/ardfhealth_vldbtestpod{{ server_number }}{{ item }}/"
         remote_src: yes
       with_sequence: start=0 end=9499
 
     - name: Unzip Indexing Files
       unarchive:
-        src: "/srv/espresso/ardfhealthpod{{ server_number }}{{ item }}.index.zip"
-        dest: "/srv/espresso/storage/ardfhealthpod{{ server_number }}{{ item }}/espressoindex/"
+        src: "/srv/espresso/ardfhealth_vldbtestpod{{ server_number }}{{ item }}index.zip"
+        dest: "/srv/espresso/storage/ardfhealth_vldbtestpod{{ server_number }}{{ item }}/espressoindex/"
         remote_src: yes
       with_sequence: start=0 end=9499
 
 
-    - name: Ensure ardfhealthmetaindex directory exists
+    - name: Ensure metaindex directory exists
       file:
-        path: "/srv/espresso/storage/ESPRESSO/ardfhealthmetaindex/"
+        path: "/srv/espresso/storage/ESPRESSO/metaindex/"
         state: directory
         mode: '0755'
 
     - name: Unzip ServerIndexing directory
       unarchive:
-        src: "/srv/espresso/ardfhealthmetaindex.zip"
-        dest: "/srv/espresso/storage/ESPRESSO/ardfhealthmetaindex/"
+        src: "/srv/espresso/ardfhealth_vldbtestmetaindex.zip"
+        dest: "/srv/espresso/storage/ESPRESSO/metaindex/"
         remote_src: yes

@@ -1,0 +1,34 @@
+---
+- name: Unzip files on remote VMs
+  hosts: solid_servers
+  become: yes
+  vars:
+    server_number: "{{ inventory_hostname | regex_replace('cups', '') | int }}"
+
+  tasks:
+    - name: Ensure destination espressoindex directory exists inside each pod
+      file:
+        path: "/srv/espresso/storage/vldb_pod{{ server_number }}-{{ item }}/espressoindex/"
+        state: directory
+        mode: '0755'
+      with_sequence: start=0 end=9499
+
+    - name: Copy pod index files
+      copy:
+        src: "/srv/espresso/lucene/vldb_pod{{ server_number }}-{{ item }}/"
+        dest: "/srv/espresso/storage/vldb_pod{{ server_number }}-{{ item }}/espressoindex/"
+        remote_src: yes
+      with_sequence: start=0 end=9499
+
+
+    - name: Ensure metaindex directory exists
+      file:
+        path: "/srv/espresso/storage/ESPRESSO/metaindex/"
+        state: directory
+        mode: '0755'
+
+    - name: Copy server-level and overlay index files to ESPRESSO Pod
+      copy:
+        src: "/srv/espresso/lucene/files/"
+        dest: "/srv/espresso/storage/ESPRESSO/metaindex/"
+        remote_src: yes

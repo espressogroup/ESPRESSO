@@ -1,0 +1,28 @@
+---
+- name: Copy configuration and CSV files to their respective destinations
+  hosts: solid_servers
+  become: yes
+  vars:
+    server_number: "{{ inventory_hostname | regex_replace('cups', '') | int }}"
+
+  tasks:
+    - name: Copy gaiandb_config.properties file
+      copy:
+        src: /home/mrmm1f23/gaiandb_config.properties
+        dest: /usr/local/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build/
+        mode: '0644'
+        remote_src: yes
+
+    - name: Copy LTOVERLAYLUCENE.csv file
+      copy:
+        src: /home/mrmm1f23/LTOVERLAYLUCENE.csv
+        dest: /usr/local/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build/csvtestfiles/
+        mode: '0644'
+        remote_src: yes
+
+    - name: Copy LTOVERLAYSERVERS.csv file
+      copy:
+        src: /home/mrmm1f23/LTOVERLAYSERVERS.csv
+        dest: /usr/local/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build/csvtestfiles/
+        mode: '0644'
+        remote_src: yes

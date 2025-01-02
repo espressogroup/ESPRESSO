@@ -1,0 +1,43 @@
+---
+- name: Manage .acl files on remote servers
+  hosts: solid_servers
+  become: yes
+  vars:
+    server_number: "{{ inventory_hostname | regex_replace('cups', '') | int }}"
+
+  tasks:
+    - name: Ensure destination espressoindex directory exists inside each pod
+      file:
+        path: "/srv/espresso/storage/vldb_pod{{ server_number }}-{{ item }}/espressoindex/"
+        state: directory
+        mode: '0755'
+      with_sequence: start=0 end=9499
+
+    - name: Check if .acl file exists
+      stat:
+        path: "/srv/espresso/storage/vldb_pod{{ server_number }}-{{ item }}/espressoindex/.acl"
+      register: acl_status
+      with_sequence: start=0 end=9499
+
+    - name: Create missing .acl files
+      copy:
+        content: |
+          @prefix acl: <http://www.w3.org/ns/auth/acl#>.
+          @prefix foaf: <http://xmlns.com/foaf/0.1/>.
+          @prefix c: <profile/card#>.
+
+          <#owner> a acl:Authorization;
+          acl:agent c:me;
+          acl:mode acl:Control, acl:Read, acl:Write;
+          acl:accessTo <./>;
+          acl:default <./>.
+
+          <#public> a acl:Authorization;
+          acl:mode  acl:Control, acl:Read, acl:Write;
+          acl:accessTo <./>;
+          acl:default <./>;
+          acl:agentClass foaf:Agent.
+        dest: "/srv/espresso/storage/vldb_pod{{ server_number }}-{{ item }}/espressoindex/.acl"
+        mode: '0644'
+      when: not acl_status.results[item | int].stat.exists
+      with_sequence: start=0 end=9499
