@@ -1,6 +1,6 @@
 import csv
 
-input_file = 'runtimes.csv'
+input_file = 'runtimes_old.csv'
 output_file = 'output.csv'
 
 # Read the input CSV file

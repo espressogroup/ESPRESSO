@@ -4,9 +4,9 @@ import os
 import argparse
 
 parser = argparse.ArgumentParser(description='Run experiments and collect runtimes.')
-parser.add_argument('--keyword', required=True, help='Keyword for the search')
 parser.add_argument('--webid', required=True, help='Web ID for the search')
 parser.add_argument('--servers', required=True, help='servers to run')
+parser.add_argument('--keyword', required=True, help='Keyword for the search')
 args = parser.parse_args()
 
 with open(args.servers+'.txt', 'r') as file:
