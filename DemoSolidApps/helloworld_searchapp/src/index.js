@@ -6,43 +6,14 @@ import {
   fetch
 } from "@inrupt/solid-client-authn-browser";
 
-
-
 // Import from "@inrupt/solid-client"
 import {
-  addUrl,
-  addStringNoLocale,
   createSolidDataset,
-  createThing,
   getPodUrlAll,
-  getSolidDataset,
-  getThingAll,
-  getStringNoLocale,
-  removeThing,
-  saveSolidDatasetAt,
-  setThing,
-  getSourceUrl,
-  getSolidDatasetWithAcl, fetch as solidFetch, getFile, overwriteFile, saveFileInContainer
+  fetch as solidFetch
 } from "@inrupt/solid-client";
 
-import { SCHEMA_INRUPT, RDF, AS } from "@inrupt/vocab-common-rdf";
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   document.getElementById('searchForm').addEventListener('submit', function(event) {
-//     event.preventDefault();
-//     search();
-//   });
-// });
-//
-//
-//
-// function search() {
-//   const keyword = document.getElementById("keyword").value;
-//   window.location.href = "/search?keyword=" + keyword;
-// }
-
-
-
+// Set up the event listener for the search form
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('searchForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -50,51 +21,50 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// Define the search function
 async function search() {
   const keyword = document.getElementById("keyword").value;
-  console.log('Keyword:', keyword);  // Debugging log
+  const webId = 'your-web-id'; // Replace with the actual WebID
+  const keywordQuery = `${keyword},${webId}`; // Format the keyword query
+
+  console.log('Keyword:', keyword);
 
   try {
-    const response = await fetch('http://localhost:9000/runQuery', {
-      method: 'POST',
+    const response = await fetch(`http://localhost:8080/query?keyword=${encodeURIComponent(keywordQuery)}`, {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ query: keyword }),
     });
 
-    console.log('Response status:', response.status);  // Debugging log
-    const result = await response.text();
-    console.log('Result:', result);  // Debugging log
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
+    const result = await response.json();
+    console.log('Result:', result);
     displayResults(result);
   } catch (error) {
-    console.error('Error:', error);  // Debugging log
+    console.error('Error:', error);
   }
 }
 
+// Define the function to display results
 function displayResults(result) {
   const resultsContainer = document.querySelector('.results');
   const resultsList = resultsContainer.querySelector('ul');
 
   resultsList.innerHTML = '';
 
-  // Assuming result is a newline-separated string of results
-  const resultsArray = result.split('\n');
-  resultsArray.forEach(line => {
-    if (line.trim() !== '') {
-      const listItem = document.createElement('li');
-      listItem.textContent = line;
-      resultsList.appendChild(listItem);
-    }
+  // Assuming result is an array of objects
+  result.forEach(item => {
+    const listItem = document.createElement('li');
+    //The One that should return Address and Frequency
+    listItem.textContent = `Address: ${item.address}, Frequency: ${item.frequency}`;
+
+    // listItem.textContent = `Server: ${item.SRVURL}`;
+    resultsList.appendChild(listItem);
   });
 
   resultsContainer.style.display = 'block';
 }
-
-
-
-
-
-
-
