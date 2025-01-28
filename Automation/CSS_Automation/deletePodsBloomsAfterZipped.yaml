@@ -1,0 +1,14 @@
+---
+- name: Delete .bloom files inside espressoindex in pods
+  hosts: solid_servers
+  become: yes
+
+  tasks:
+    - name: Copy deletePodsBlooms.sh to remote hosts
+      copy:
+        src: deletePodsBlooms.sh
+        dest: /srv/deletePodsBlooms.sh
+        mode: '0755'
+
+    - name: Run deletePodsBlooms.sh on remote hosts
+      shell: /srv/deletePodsBlooms.sh

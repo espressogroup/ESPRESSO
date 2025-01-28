@@ -7,11 +7,11 @@
     Gaian_Build_path: /usr/local/ESPRESSO/GaianDB/GaianDB_Keyword_Search_Build
 
   tasks:
-    - name: Make launchGaianServer.sh executable
-      become: true
-      file:
-        path: "{{ Gaian_Build_path }}/launchGaianServer.sh"
-        mode: "+x"
+#    - name: Make launchGaianServer.sh executable
+#      become: true
+#      file:
+#        path: "{{ Gaian_Build_path }}/launchGaianServer.sh"
+#        mode: "+x"
 
     # Change directory and start GaianDB
     - name: Start GaianDB
