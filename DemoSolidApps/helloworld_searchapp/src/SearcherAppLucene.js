@@ -6,9 +6,15 @@ const cors = require('cors');
 const pLimit = require('p-limit');
 const yargs = require('yargs');
 const path = require("path");
+const unzipper = require('unzipper');
+const AdmZip = require('adm-zip');
+const stream = require('stream');
+
 
 const OverlayQueryExecutor = require('./OverlayQueryExecutor');
 const {retrieveRelevantData,mergeAndRerank,retrieveRelevantData_Overlay}= require('./lucenemodule');
+const {fetchBloomFilterStream,filterQuery, areAllKeywordsAbsent} = require('./bloomfiltersmodule');
+
 
 
 
@@ -32,7 +38,7 @@ async function fetchFile(url) {
     }
 }
 
-async function queryOverlayMetadata(keyword, webid) {
+async function queryOverlayMetadata(keyword, webid,topKServers) {
     const queryExecutor = new OverlayQueryExecutor();
     const overlayMetadataQuery = `SELECT srvurl FROM LTOVERLAYLUCENE WHERE webid='${webid}'`;
 
@@ -58,12 +64,22 @@ async function queryOverlayMetadata(keyword, webid) {
         // const overlayIndexURL = `https://${serverUrl}/ESPRESSO/metaindex/${webid}-servers.zip`;
 
         try {
-            const relevantServerIDs = await retrieveRelevantData_Overlay(keyword, webid, serverUrl, "");
+            const relevantServerIDs = await retrieveRelevantData_Overlay(keyword, webid, serverUrl, topKServers);
 
             return relevantServerIDs.flatMap((result) => result.documents.map((doc) => doc.Id));
         } catch (error) {
-            console.error(`Error retrieving data from overlay index ${overlayIndexURL}:`, error);
-            throw error;
+
+           if (error==="Error parsing JSON result: Unexpected end of JSON input")
+            {
+                console.warn(`WEBID Has Access to the Servers But no access to Files of the KWD!`);
+                return [];
+            }
+
+            else
+            {
+                console.error(`Error retrieving data from overlay index ${serverUrl}:`, error);
+                throw error;
+            }
         }
     } else {
         console.warn(`Overlay metadata for WebID '${webid}' is invalid.`);
@@ -95,21 +111,164 @@ async function readAllServers() {
     }
 }
 
-async function findServersWithLucene(keyword, webid, useOverlayMetadata) {
+
+async function checkIfPodIsRelevantWithBloom(keyword, bloomFilterStream) {
+    try {
+        // Execute the JAR file with the fetched Bloom filter stream
+        const filteredQuery = await filterQuery(keyword, bloomFilterStream);
+
+        // Determine if the server is relevant
+        if (filteredQuery.trim()) {
+            // console.log(`Relevant pod based on Bloom filter`);
+            return true;
+        } else {
+            // console.log(`No relevant data in Bloom filter.`);
+            return false;
+        }
+    } catch (error) {
+        console.error(`Error processing Bloom filter stream: ${error.message || error}`);
+        throw error;
+    }
+}
+
+
+async function findRelevantPodsWithBloom(keyword, webid, serverURL) {
+    console.log("Finding Pods Using Bloom!")
+    const relevantPods = [];
+    const processedPods = new Set();
+
+    const podWebIDBloomZipUrl = `https://${serverURL}/ESPRESSO/metaindex/${webid}-bloom.zip`;
+
+    try {
+        const zipResponse = await axiosInstance.get(podWebIDBloomZipUrl, { responseType: 'arraybuffer' });
+        const zipBuffer = zipResponse.data;
+
+        // Verify if the buffer is a valid ZIP
+        if (!zipBuffer || zipBuffer.byteLength === 0) {
+            console.error("ZIP buffer is empty or invalid.");
+            return relevantPods;
+        }
+
+        const zip = new AdmZip(zipBuffer);
+        const zipEntries = zip.getEntries();
+
+        // Filter to get only relevant Bloom files
+        const bloomEntries = zipEntries.filter(entry =>
+            entry.entryName.endsWith('.bloom') && !entry.entryName.includes('__MACOSX')
+        );
+
+        // Process entries in batches
+        const batchSize = 50;
+        for (let i = 0; i < bloomEntries.length; i += batchSize) {
+            const batch = bloomEntries.slice(i, i + batchSize);
+
+            const batchPromises = batch.map(async (entry) => {
+                const entryName = entry.entryName;
+
+                // Extract the pod name
+                const parts = entryName.split('-');
+                const podNameParts = parts.slice(parts.length - 2);
+                let podName = podNameParts.join('-').replace('.bloom', '');
+
+                const bloomFilterData = entry.getData();
+
+                // Convert buffer to a stream
+                const bloomFilterStream = new stream.PassThrough();
+                bloomFilterStream.end(bloomFilterData);
+
+                // Check if Bloom filter is relevant
+                const isRelevant = await checkIfPodIsRelevantWithBloom(keyword, bloomFilterStream);
+                if (isRelevant) {
+                    const podUrl = `https://${serverURL}/${podName}`;
+                    if (!processedPods.has(podUrl)) {
+                        relevantPods.push(podUrl);
+                        processedPods.add(podUrl); // Mark this pod as processed
+                    }
+                }
+            });
+
+            // Wait for the current batch to complete
+            await Promise.all(batchPromises);
+        }
+    } catch (error) {
+        console.error(`Failed to process pod at ${serverURL}: ${error.message}`);
+    }
+
+    return relevantPods;
+}
+
+
+
+
+async function checkIfServersRelevantWithBloom(keyword, webid, baseUrl) {
+    // Construct the Bloom filter file URL dynamically based on WebID
+    const serverWebIDBloomUrl = `https://${baseUrl}/ESPRESSO/metaindex/${webid}-pods-ESPRESSO.bloom`;
+
+    try {
+        // Fetch the Bloom filter stream directly
+        const bloomFilterStream = await fetchBloomFilterStream(serverWebIDBloomUrl);
+
+        // Execute the JAR file with the fetched Bloom filter stream
+        const filteredQuery = await filterQuery(keyword, bloomFilterStream);
+
+        // Determine if the server is relevant
+        if (filteredQuery.trim()) {
+            // console.log(`Relevant server for WebID ${webid}: ${baseUrl}`);
+            return baseUrl;
+        } else {
+            //console.log(`No relevant server for WebID ${webid} at ${baseUrl}.`);
+            return null;
+        }
+    } catch (error) {
+
+        // Handle the 404 error gracefully
+        if (error.response && error.response.status === 404) {
+            // console.warn(`Bloom filter not found for WebID ${webid} at ${baseUrl}: 404 Not Found`);
+            return null;
+        }
+
+        console.error(`Error processing server at ${baseUrl}: ${error.message || error}`);
+        throw error;
+    }
+}
+
+
+async function findRelevantServersWithBloom(keyword, webid) {
+    console.log("Finding Servers Using Bloom!")
+    const allServers = await readAllServers();
+
+    // console.log(allServers);
+
+    const relevantServers = [];
+    for (const serverUrl of allServers) {
+        const relevantServer = await checkIfServersRelevantWithBloom(keyword, webid, serverUrl);
+        if (relevantServer) {
+            relevantServers.push(relevantServer);
+        }
+    }
+
+    return relevantServers;
+}
+
+
+
+async function findServersWithLucene(keyword, webid, useOverlayMetadata,topKServers) {
+    console.log("Finding Servers Using Lucene!")
     try {
         if (useOverlayMetadata) {
-            return await queryOverlayMetadata(keyword, webid);
+            return await queryOverlayMetadata(keyword, webid,topKServers);
         } else {
             console.log("Using fallback solution to read all servers.");
             return await readAllServers();
         }
     } catch (error) {
-        console.warn("Error occurred; falling back to fallback solution.");
+        console.warn("Error occurred; falling back to fallback solution.", error);
         return await readAllServers();
     }
 }
 
-async function findPodsWithLucene(webIdQuery, keyword, baseUrl,metaIndexName,useServerMetadata) {
+async function findPodsWithLucene(webIdQuery, keyword, baseUrl,metaIndexName,useServerMetadata,topKPods) {
+    console.log("Finding Pods Using Lucene!")
     // Determine the serverIndexUrl based on the `useServerMetadata` parameter
     const serverIndexUrl = useServerMetadata
         ? `https://${baseUrl}/ESPRESSO/metaindex/`
@@ -132,7 +291,7 @@ async function findPodsWithLucene(webIdQuery, keyword, baseUrl,metaIndexName,use
 
     try {
             // retrieve Relevant Pods
-            const relevantPodsResults = await retrieveRelevantData(keyword, webIdQuery, serverWebIDIndexUrl,"");
+            const relevantPodsResults = await retrieveRelevantData(keyword, webIdQuery, serverWebIDIndexUrl,topKPods);
 
             // Extract the list of Pod IDs from the documents array
             const relevantPodIDs = relevantPodsResults.flatMap((result) => result.documents.map((doc) => doc.Id));
@@ -175,10 +334,11 @@ async function readAllPods(baseUrl,metaIndexName) {
 }
 
 
-async function integrateResultsWithLucene(sources, webIdQuery, searchWord) {
+
+async function integrateResultsWithLucene(sources, webIdQuery, searchWord,topKPodDocs) {
     let integratedResult = [];
 
-    // Process a batch of Solid Requests
+    // OLD_Process a batch of Solid Requests
     async function processBatch(batch) {
         const limit = pLimit(25);
 
@@ -198,7 +358,7 @@ async function integrateResultsWithLucene(sources, webIdQuery, searchWord) {
                     });
 
                     if (headResponse.status === 200) {
-                        const PodIndexSearchResults = await retrieveRelevantData(searchWord, webIdQuery, webIDPodIndex, "");
+                        const PodIndexSearchResults = await retrieveRelevantData(searchWord, webIdQuery, webIDPodIndex, topKPodDocs);
 
                         // Add URL to the ID of each document
                         PodIndexSearchResults.forEach((result) => {
@@ -297,6 +457,7 @@ function endTimer(label) {
     }
 }
 
+
 app.get("/query", async (req, res) => {
     const argv = yargs
         .option("metaIndexName", {
@@ -323,6 +484,36 @@ app.get("/query", async (req, res) => {
             description: "Enable or disable results ranking",
             default: false,
         })
+        .option("topKPodDocs", {
+            alias: "k",
+            type: "string",
+            description: "Number of top results to retrieve from each pod",
+            default: "",
+        })
+        .option("topKPods", {
+            alias: "p",
+            type: "string",
+            description: "Number of top pods at each server",
+            default: "",
+        })
+        .option("topKServers", {
+            alias: "n",
+            type: "string",
+            description: "Number of top servers at each server",
+            default: "",
+        })
+        .option("useBloomForServers", {
+            alias: "b",
+            type: "boolean",
+            description: "Use Bloom filter for finding relevant servers",
+            default: false,
+        })
+        .option("useBloomForPods", {
+            alias: "c",
+            type: "boolean",
+            description: "Use Bloom filter for finding relevant pods",
+            default: false,
+        })
         .help()
         .argv;
 
@@ -332,6 +523,11 @@ app.get("/query", async (req, res) => {
     const overlayMetadata = argv.overlayMetadata;
     const serverLevelMetadata = argv.serverLevelMetadata;
     const resultsRanked = argv.resultsRanked;
+    const topKPodDocs = argv.topKPodDocs;
+    const topKPods = argv.topKPods;
+    const topKServers = argv.topKServers;
+    const useBloomForServers=argv.useBloomForServers;
+    const useBloomForPods=argv.useBloomForPods;
 
     const { keyword } = req.query;
     const [searchWord, webId] = keyword.includes(",") ? keyword.split(",") : [keyword, null];
@@ -346,11 +542,18 @@ app.get("/query", async (req, res) => {
 
     try {
         startTimer("FindRelevantServers");
-        let relevantServers = await findServersWithLucene(keyword, webId, overlayMetadata);
+        let relevantServers;
+
+        if(useBloomForServers){
+            relevantServers = await findRelevantServersWithBloom(searchWord,webId);
+        } else {
+            relevantServers = await findServersWithLucene(searchWord, webId, overlayMetadata,topKServers);
+        }
+
         logMessage("Relevant Servers: " + JSON.stringify(relevantServers));
         endTimer("FindRelevantServers");
 
-        const maxConcurrency = Math.min(relevantServers.length, 25);
+        const maxConcurrency = relevantServers.length > 0 ? Math.min(relevantServers.length, 25) : 1;
         const serverLimit = pLimit(maxConcurrency);
         const batchSize = 5;
 
@@ -370,13 +573,22 @@ app.get("/query", async (req, res) => {
                     serverLimit(async () => {
                         try {
                             startTimer(`FindRelevantPods@__${server}`);
-                            const relevantPods = await findPodsWithLucene(webId, keyword, server, metaIndexName, serverLevelMetadata);
+                            const relevantPods = useBloomForPods
+                                ? await findRelevantPodsWithBloom(searchWord, webId, server)
+                                : await findPodsWithLucene(
+                                    webId,
+                                    searchWord,
+                                    server,
+                                    metaIndexName,
+                                    serverLevelMetadata,
+                                    topKPods
+                                );
                             logMessage(`No. SELECTED PODS from ${server}: ${relevantPods.length}`);
                             endTimer(`FindRelevantPods@__${server}`);
 
                             if (relevantPods.length > 0) {
                                 startTimer(`CombineResults@__${server}`);
-                                const integratedResult = await integrateResultsWithLucene(relevantPods, webId, searchWord);
+                                const integratedResult = await integrateResultsWithLucene(relevantPods, webId, searchWord,topKPodDocs);
                                 logMessage(`RowsFetched@__${server}: ${integratedResult.length}`);
                                 allIntegratedResults.push(...integratedResult);
                                 endTimer(`CombineResults@__${server}`);
@@ -402,116 +614,6 @@ app.get("/query", async (req, res) => {
         res.status(500).send("An error occurred during processing.");
     }
 });
-
-//OLD_ALL_WORKING_NO_LOG_FILES
-// app.get("/query", async (req, res) => {
-//     // Define command-line arguments
-//     const argv = yargs
-//         .option("metaIndexName", {
-//             alias: "m",
-//             type: "string",
-//             description: "Name of the meta index file",
-//             demandOption: true,
-//         })
-//         .option("overlayMetadata", {
-//             alias: "o",
-//             type: "boolean",
-//             description: "Enable or disable overlay metadata",
-//             default: false,
-//         })
-//         .option("serverLevelMetadata", {
-//             alias: "s",
-//             type: "boolean",
-//             description: "Enable or disable server-level metadata",
-//             default: false,
-//         })
-//         .option("resultsRanked", {
-//             alias: "r",
-//             type: "boolean",
-//             description: "Enable or disable results ranking",
-//             default: false,
-//         })
-//         .help()
-//         .argv;
-//
-//     console.time("TotalTime");
-//
-//     const metaIndexName = argv.metaIndexName;
-//     const overlayMetadata = argv.overlayMetadata;
-//     const serverLevelMetadata = argv.serverLevelMetadata;
-//     const resultsRanked = argv.resultsRanked;
-//
-//     const { keyword } = req.query;
-//     const [searchWord, webId] = keyword.includes(",") ? keyword.split(",") : [keyword, null];
-//
-//     if (!searchWord || searchWord.trim() === "") {
-//         res.status(400).send("Invalid keyword");
-//         return;
-//     }
-//
-//     console.log(`Search Word: "${searchWord}"`);
-//     console.log(`WebID: "${webId}"`);
-//
-//     try {
-//         console.time("FindRelevantServers");
-//         let relevantServers = await findServersWithLucene(keyword, webId, overlayMetadata);
-//
-//         console.log("Relevant Servers:", relevantServers);
-//         console.timeEnd("FindRelevantServers");
-//
-//         const maxConcurrency = Math.min(relevantServers.length, 25);
-//         const serverLimit = pLimit(maxConcurrency);
-//         const batchSize = 5;
-//
-//         let allIntegratedResults = [];
-//
-//         const sortedServers = relevantServers.sort((a, b) => {
-//             const numA = parseInt(a.match(/srv(\d+)/)[1], 10);
-//             const numB = parseInt(b.match(/srv(\d+)/)[1], 10);
-//             return numA - numB;
-//         });
-//
-//         // Process servers in batches
-//         for (let i = 0; i < sortedServers.length; i += batchSize) {
-//             const batch = sortedServers.slice(i, i + batchSize);
-//
-//             await Promise.all(
-//                 batch.map((server) =>
-//                     serverLimit(async () => {
-//                         try {
-//                             console.time(`FindRelevantPods@__${server}`);
-//                             const relevantPods = await findPodsWithLucene(webId, keyword, server, metaIndexName, serverLevelMetadata);
-//                             console.log(`No. SELECTED PODS from ${server}:`, relevantPods.length);
-//                             console.timeEnd(`FindRelevantPods@__${server}`);
-//
-//                             if (relevantPods.length > 0) {
-//                                 console.time(`CombineResults@__${server}`);
-//                                 const integratedResult = await integrateResultsWithLucene(relevantPods, webId, searchWord);
-//                                 console.log(`RowsFetched@__${server}:`, integratedResult.length);
-//                                 allIntegratedResults.push(...integratedResult);
-//                                 console.timeEnd(`CombineResults@__${server}`);
-//                             }
-//                         } catch (error) {
-//                             console.error(`Error processing server ${server}:`, error.message || error);
-//                         }
-//                     })
-//                 )
-//             );
-//         }
-//
-//         console.time("RankingResults@ALL");
-//         const finalResult = await handleResultsRanking(allIntegratedResults, resultsRanked);
-//         console.log("RowsFetched@ALL:", allIntegratedResults.length);
-//         console.timeEnd("RankingResults@ALL");
-//
-//         res.json(finalResult);
-//     } catch (error) {
-//         console.error(`Error during the overall process: ${error.message || error}`);
-//         res.status(500).send("An error occurred during processing.");
-//     }
-//
-//     console.timeEnd("TotalTime");
-// });
 
 
 app.listen(port, () => {

@@ -152,7 +152,6 @@ async function retrieveRelevantData(keyword, webid, zipUrl, k) {
             responseType: 'stream',
         });
 
-        // console.log(`ZIP Fetch Response Headers:`, response.headers);
 
         // Spawn the Java process
         const javaProcess = spawn('java', [
@@ -227,7 +226,6 @@ async function retrieveRelevantData(keyword, webid, zipUrl, k) {
 }
 
 
-
 async function retrieveRelevantData_Overlay(keyword, webid, zipPath, k) {
     try {
         // Spawn the Java process
@@ -241,6 +239,7 @@ async function retrieveRelevantData_Overlay(keyword, webid, zipPath, k) {
             k,
             zipPath
         ]);
+
 
         let resultData = '';
 
